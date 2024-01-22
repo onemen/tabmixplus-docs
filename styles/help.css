@@ -1,0 +1,91 @@
+
+body:not([class="innerFrame"]) #wrapcontent {
+  width: calc(80% - 40px);
+}
+
+.content-body img {
+  float: right;
+  border-radius: 6px;
+  margin-left: 20px;
+  width: 40%
+}
+
+.topic {
+  padding-right: 10px;
+}
+
+.topic *.caption,
+.topic ul,
+ul.topic > li,
+.topic ul > li {
+  margin-left: 12px;
+}
+
+/* overrid rule in tabmix.css */
+.topic ul > li {
+  padding-left: 0px;
+  text-indent: 0px;
+}
+
+.topic li ul {
+  margin-left: 0px;
+}
+
+ul.topic {
+  margin-left: 0px;
+  /* default topic left padding is 30px */
+  padding-left: 42px;
+}
+
+ul:not(.circle) > li {
+ list-style-type: square;
+}
+
+li > ul:not(.square) > li {
+ list-style-type: circle;
+}
+
+.container {
+  clear: both;
+}
+
+.container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container img {
+  margin: 10px 0 10px 20px;
+}
+
+/* DRAFT */
+.comment {
+  border: 1px solid rgba(36, 30, 30, 0.2);
+  width: 55%;
+  margin: 3px 10px 6px 0px;
+  padding: 3px 10px;
+  background-color: rgb(200, 222, 234);
+}
+
+.comment.full-width {
+  width: 100%;
+}
+
+.comment.condense {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.indent {
+  margin-left: 12px;
+}
+
+.small {
+  font-size: 0.9em;
+}
+
+.default {
+  font-weight: bold;
+  font-style: italic;
+}
