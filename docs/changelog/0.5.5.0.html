@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/tabmix.css" type="text/css" />
+    <link rel="stylesheet" href="../styles/help.css">
+    <title>Tab Mix Docs | Display - Tab Bar</title>
+  </head>
+  <body>
+    <div id="title" class="th">Changes in Version 0.5.5.0</div>
+    <div class="content-body evenbg">
+
+      <div class="topic">
+        <h4>0.5.0.5pre.180718a1</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/79382aa8">79382aa8</a> Update compatibility with Pale Moon 28.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/aabc4664">aabc4664</a> Update compatibility with Pale Moon 28 - Tab bar below content + fullscreen in Pale Moon 28.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/cbb680b2">cbb680b2</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1352069">bug 1352069</a> - Introduce a pref that allows for disabling animations.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/91c76f4e">91c76f4e</a> Left over from changeset <a href="https://github.com/onemen/TabMixPlus/commit/91c76f4e">91c76f4e</a> - Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1095406">bug 1095406</a> - Remove synchronous getBookmarksForURI and getMostRecentBookmarkForURI from PlacesUtils.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/074f0820">074f0820</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1414406">bug 1414406</a> - Remove the inline options feature for add-ons. Make Tabmix Options button visible in about:addons, open the options the dialog window instead of tab.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/50b053e0">50b053e0</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1429573">bug 1429573</a> - Simplify textbox[type="number"] implementation.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d32580fc">d32580fc</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1379338">bug 1379338</a> - scriptify preferences XBL, Add to Tabmix the file preferences.xml and its style sheets that removed from Firefox 60 code base. Our preference window does not work without it.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.5.0.5pre.180526a1</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/91c76f4e">91c76f4e</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1095406">bug 1095406</a> - Remove synchronous getBookmarksForURI and getMostRecentBookmarkForURI from PlacesUtils.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/bfc48c2f">bfc48c2f</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1434819">bug 1434819</a> - part 7-8. Remove the SHOW_* and FILTER_* constants from nsIDOMNodeFilter.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/fb9fb63e">fb9fb63e</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1435910">bug 1435910</a> - Part 0.1: Move PlacesUIUtils.confirmOpenInTabs into new OpenInTabsUtils.jsm and add promiseConfirmOpenInTabs.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/bb2dbdf3">bb2dbdf3</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1435908">bug 1435908</a> - Part 2: Pass the triggering principal when opening an URI from new tab button and new window button drag and drop.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3dc4b9cf">3dc4b9cf</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1436361">bug 1436361</a> - Extract the async tab switcher from tabbrowser.js into its own JSM.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/547834d0">547834d0</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1392352">bug 1392352</a> - Part 2 - Translate the tabbrowser implementation into a JS class.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/c1cdd021">c1cdd021</a> Calling TabmixSvc in content.js with Firefox 60 throw an error NS_ERROR_FILE_NOT_FOUND, as a workaround i created ContentSvc.jsm.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/512492ef">512492ef</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1443849">bug 1443849</a> - Make gBrowser.init more predictable by calling it from gBrowserInit, prevent early access to gBrowser.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/73788fc9">73788fc9</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1443833">bug 1443833</a> - Remove unused gBrowser.tabContextMenu property.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/79111880">79111880</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1402380">bug 1402380</a> - Unexpected Google search is performed with garbage words when drag & drop a bookmarks folder from Library window to tab bar.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/448a1b06">448a1b06</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1436508">bug 1436508</a> - part 10. Remove use of nsIDOMKeyEvent in JS.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/0594c896">0594c896</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1436559">bug 1436559</a> - stop doing busy-work in setOverLink and make textToSubURI available on Services.jsm.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/155bf513">155bf513</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1379338">bug 1379338</a> - scriptify preferences XBL (i.e. convert preferences XBL to JS) - incontent preferences.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/7c6cdce5">7c6cdce5</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1422934">bug 1422934</a> - Remove the "toolbarbutton-image" binding and migrate consumers of it to the "toolbarbutton" binding.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/4a75db84">4a75db84</a> TypeError: aEvent.originalTarget.getAttribute, when dragging 1st tab over the 2nd tab.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.5.0.5pre.171209a1</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f764a58c">f764a58c</a> When SessionStore open many tabs we can get wrong height from tabstripInnerbox.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/cb85db5a">cb85db5a</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1417940">bug 1417940</a> - Change various instances of manually calling getService to use Services.jsm in toolkit.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/68120d48">68120d48</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1415863">bug 1415863</a> - Rename mTabBox to tabbox.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d317a241">d317a241</a> Follou up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1415537">bug 1415537</a> - Rename mTabstrip to arrowScrollbox.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/081798a4">081798a4</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1415235">bug 1415235</a> - Rename adjustTabstrip to _updateCloseButtons.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/c998827a">c998827a</a> Add missing from dialog prompt when stylo for chtome is on (layout.css.servo.chrome.enabled = true).</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/403aa9ac">403aa9ac</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1414096">bug 1414096</a> - Remove support for nsISupportsString values in nsPrefBranch::{get,set}ComplexValue().</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/0a894365">0a894365</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1413413">bug 1413413</a> - Remove support for extensions having their own prefs file.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/150f5338">150f5338</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1406414">bug 1406414</a> - Switch to an APNG loading indicator when the browser is under schedule pressure.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f1e1d5b6">f1e1d5b6</a> Add "about:privatebrowsing" to newTabUrls list.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/66893c21">66893c21</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1411642">bug 1411642</a> - Don't let window controls overlap the nav bar.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.5.0.5pre.171027a1</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ee2b7a73">ee2b7a73</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1407498">bug 1407498</a> - Don't query loadingprincipal in common case.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/80d9350b">80d9350b</a> Create lazy-browser when restoring closed tab to a background tab.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/370a3a1d">370a3a1d</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1409784">bug 1409784</a> - Remove mStringBundle from tabbrowser binding and expose gTabBrowserBundle instead.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f721cc51">f721cc51</a> Update onTabBarScroll function to call stopPropagation and preventDefault before scrolling or change selected tab.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3c8c8be7">3c8c8be7</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1408362">bug 1408362</a> - Remove the tabbrowser-tabs class.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/4afe107e">4afe107e</a> Focus address-bar area if the selected tab is blank when Firefox starts.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/0b65fd7c">0b65fd7c</a> Function gMenuButtonBadgeManager removed in Firefox 56.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/2938c5f5">2938c5f5</a> Remove padding top/bottom from close button on the toolbar.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e4108007">e4108007</a> Cannot open Bookmarks in Firefox 57, Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1405687">bug 1405687</a> - Remove some deprecated code from Places related code.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/cfab0c92">cfab0c92</a> Setting flowing to "multibar" in Firefox 57 prevents Tabmix.getButtonsHeight to get proper height when the window opened by SessionStore._openWindowWithState with more than one rows of tabs. Related to <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1034036">bug 1034036</a>.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/162a81ad">162a81ad</a> GetGlobalForObject not working to get global SessionStore in Firefox 57.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5492f823">5492f823</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1396440">bug 1396440</a> - Run about pages' special click handlers only for button 0.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/c6101df7">c6101df7</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1392157">bug 1392157</a> - Show a burst across the tab when a page has finished loading.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.5.0.5pre.170827a2</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/da1d4a1d">da1d4a1d</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1387130">bug 1387130</a> - Use original tabstrip scrolling behaviour when using scrollbuttons.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/38b325ea">38b325ea</a> Restartless extensions not starts properly when our Session manager enabled. After changeset <a href="https://github.com/onemen/TabMixPlus/commit/12f91eef">12f91eef</a> (Refactor _sendRestoreCompletedNotifications), we don't send completed-notifications in case user preferences match condition to set notRestore to true in Tabmix.beforeBrowserInitOnLoad.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/df45cf20">df45cf20</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1352119">bug 1352119</a> - Implement new tab loading/progress indicator animation, Left over from changeset <a href="https://github.com/onemen/TabMixPlus/commit/71a6635a">71a6635a</a>.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9ecd0c9f">9ecd0c9f</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1054740">bug 1054740</a> - When a session should be restored, don't load the homepage before the session file has been read.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.5.0.5pre.170827a1</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/37f901b2">37f901b2</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1238314">bug 1238314</a> - Implement browser.tabs opener functionality.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/71a6635a">71a6635a</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1352119">bug 1352119</a> - Implement new page loading indicator animation, part 1: update the throbber.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ff9c1ab6">ff9c1ab6</a> Focus content area if the selected tab is not blank when Firefox starts.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/0c18e9c3">0c18e9c3</a> When Vertical Tabs Reloaded installed the title bar of Firefox displays incorrectly.</li>
+        </ul>
+      </div>
+
+      <div class="topic"><h4>
+        <a href="../changelog/0.5.0.4" target="tabmix-changelog-content">Previous version</a>
+      </h4></div>
+
+    </div>
+    </div>
+  </body>
+</html>

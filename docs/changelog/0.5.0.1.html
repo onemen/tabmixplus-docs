@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/tabmix.css" type="text/css" />
+    <link rel="stylesheet" href="../styles/help.css">
+    <title>Tab Mix Docs | Display - Tab Bar</title>
+  </head>
+  <body>
+    <div id="title" class="th">Changes in Version 0.5.0.1</div>
+    <div class="content-body evenbg">
+
+      <div class="topic">
+        <h4>0.5.0.1pre.161005a1</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/05ecc330">05ecc330</a> Open tabs from address bar doesn't work on Firefox 50 with Tab mix version 0.5.0.1pre.160904a1. <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1180944">Bug 1180944</a> was landed on Firefox 50. (Changeset <a href="https://github.com/onemen/TabMixPlus/commit/66c49012">66c49012</a> ).</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/041596b7">041596b7</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1302737">bug 1302737</a> - When closing tabs with non-mouse devices (e.g. touch, pen), don't enter locked-tab-size mode.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.5.0.1pre.160904a1</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3933816a">3933816a</a> Save and restore container data (userContextId) with our Session Manager. Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1274461">bug 1274461</a> - Part 2: restore tabs should preserve userContextId.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d26a15f6">d26a15f6</a> Restoring closed tab does not restore its container type. Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1274461">bug 1274461</a> - Part 1: undoCloseTab should preserve userContextId.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/746aefcf">746aefcf</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1109146">bug 1109146</a> - pass isContentWindowPrivate from ContentClick.jsm to utilityOverlay.js for saveURL instead of passing a CPOW initiating content document.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/01cf4dbf">01cf4dbf</a> Follow up changeset <a href="https://github.com/onemen/TabMixPlus/commit/af6720ae">af6720ae</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1093642">bug 1093642</a> - Part 2: Decide if we allow mixed content before sending click event to remote tab.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/66c49012">66c49012</a> Open tabs from address bar doesn't work. Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1180944">bug 1180944</a> - Implement one-off searches from Awesomebar.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e57f866d">e57f866d</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=528005">bug 528005</a> - Let accel-click and middle-click on the new tab button toggle openTabNext preference [Firefox 51].</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f3112379">f3112379</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1245751">bug 1245751</a> - Part 12: Retrieve href from both None & XLink namespace in Browser & Android.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/14daa041">14daa041</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1297157">bug 1297157</a> - Abstract away the visuallyselected attribute on anonymous tab nodes.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b69dd5c4">b69dd5c4</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1288247">bug 1288247</a> - Synced Tabs sidebar should open new tabs on middle click.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/c4bd801c">c4bd801c</a> Open extension home page from addon manager in the background when browser.tabs.loadInBackground is true.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b2e23d49">b2e23d49</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1116787">bug 1116787</a> - Expose preference for having Ctrl+Tab cycle through tabs in recently used order. Instert Tab mix button after "Tabs" label.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/086c4478">086c4478</a> First tab is busy when browser window starts on Firefox 51.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/7729e99b">7729e99b</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1276183">bug 1276183</a> - Fix pixel-unit mismatch when constraining a dropped tab to the screen.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e5b735f3">e5b735f3</a> Open links to other sites in new tabs broken in www.reddit.com.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5193d12f">5193d12f</a> Session Manager doesn't save closed tabs, regressed by changeset <a href="https://github.com/onemen/TabMixPlus/commit/8d233e8b">8d233e8b</a>.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/2903254d">2903254d</a> Links from yahoo.com/news and other yahoo.com pages doesn't open in new tab.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.5.0.1pre.160625a1</h4>
+        <ul>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/81bed6cc">81bed6cc</a> Merging popup window on multi process browser throw 'Error: cross-process JS call failed'.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/322f83c1">322f83c1</a> Update "Merge windows" swapTabs according to bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1244496">1244496</a>, bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1271792">1271792</a> and bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1094328">1094328</a>. Webextension tab listeners don't detect tab moved by "Merge windows".</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/57074674">57074674</a> Refactor duplicateTabToWindow (follow up bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1181475">1181475</a>) to avoid duplicate tab id in WebExtension when the duplicated tab is dragging back to the original window.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e9ea544c">e9ea544c</a> Get new tab url form BROWSER_NEW_TAB_URL after Firefox 41, fix incompatibility with Activity Stream extension.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/060e7b40">060e7b40</a> In Single window mode we should not close windows that was probably opened by extension.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f9927810">f9927810</a> Follow up bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1208078">1208078</a>, improve drag feedback appearance in e10s.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/269cda48">269cda48</a> Add comment about disabled 'Place on left side' close button, see changeset <a href="https://github.com/onemen/TabMixPlus/commit/6f583681">6f583681</a>.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/96f02235">96f02235</a> Show console warning when Tab mix failed to change getter or setter.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/86472924">86472924</a> Follow up bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=446171">446171</a> - Part 1: Get page titles from tab and not depend on history, we don't need to call getTabTitle now that Firefox get the title directly from the tab.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/75e8d21a">75e8d21a</a> Follow up bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1271516">1271516</a> - Introducing nsIWebNavigation.setOriginAttributesBeforeLoading.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3fb8facc">3fb8facc</a> Tab context menu "Open Links in New Tabs" does not work for about: pages and for chrome:// pages from extensions (NewsFox extension for example).</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/64cf2b76">64cf2b76</a> Follow up bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1271792">1271792</a> - Set correct usercontextid before swapping tabs.</li>
+          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/137d5a2f">137d5a2f</a> Incompatibility with MClickFocusTab extension.</li>
+        </ul>
+      </div>
+
+      <div class="topic"><h4>
+        <a href="../changelog/0.5.0.0" target="tabmix-changelog-content">Previous version</a>
+        </h4></div>
+
+    </div>
+    </div>
+  </body>
+</html>

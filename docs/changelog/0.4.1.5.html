@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/tabmix.css" type="text/css" />
+    <link rel="stylesheet" href="../styles/help.css">
+    <title>Tab Mix Docs | Display - Tab Bar</title>
+  </head>
+  <body>
+    <div id="title" class="th">Changes in Version 0.4.1.5</div>
+    <div class="content-body evenbg">
+
+      <div class="topic">
+        <h4>0.4.1.5.2 (140930)</h4>
+        <ul>
+          <li>Fixed: "Open new tabs next to current one" option is not working in version 0.4.1.5.1.</li>
+          <li>Fixed: Don't add background to the tab strip for light weight theme in Mac OS.</li>
+          <li>Fixed: Unloaded tabs don't have an icon with Tabmix's Sessions Manager.</li>
+          <li>Fixed: Content context menu items are misplace. [Firefox 32+].</li>
+          <li>Fixed: First tab don't have close tab button. [Firefox 17-29].</li>
+          <li>Fixed: Fix incompatibility with UnloadTab extension.</li>
+          <li>Fixed: Fix incompatibility with WEB.DE MailCheck extension.</li>
+          <li>Fixed: The value of 30sec is not stored in the autoreload customize time list.</li>
+          <li>Fixed: Some incompatibility with Pale Moon.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.4.1.5.1 (140922)</h4>
+        <ul>
+          <li>Fixed: Session Manager restore only blank tabs. (ReferenceError: reference to undefined property tabdata.extData in tabView.js).</li>
+          <li>Fixed: Calling sessionstartup.doRestore before it finished to read sessionstore.js throw an error, and break Tab Mix startup.</li>
+          <li>Fixed: When openin non-blank tab from new tab command the address bar isn't empty.</li>
+          <li>Fixed: [e10s] Update Tabmix.BrowserOpenTab to work with remote tab by calling gBrowser.loadOneTab.</li>
+          <li>Fixed: Click from history menu button not open in new tab. Handle click on menu items in PanelUI-history button.</li>
+          <li>Fixed: Close tab icon on tabbar is messed-up (On PaleMoon and Linux versions before Firefox 28).</li>
+          <li>Added: 'Don’t load tabs until selected' preference to Tab Mix Options > Session > Restore[/list].</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.4.1.5.1pre.140921a1</h4>
+        <ul>
+          <li>Fixed: Improve compatibility with Vertical Tabs extension.</li>
+          <li>Fixed: Sometimes undo closed tabs button stay disabled.</li>
+          <li>Fixed: Show 'Restore Previous Session' button on about:home page when user didn't restore last session.</li>
+          <li>Fixed: Set our 'Auto Reload' context menu on all button with command to reload or stop, this patch will add our context menu to button added by Classic Theme Restorer.</li>
+          <li>Fixed: [e10s] Address bar lost focus after opening a new tab using remote tabs.</li>
+          <li>Fixed: [e10s] Update open multiple links function to work with remote tabs.</li>
+          <li>Fixed: Re-declaration of variables broke Tab Mix on Nightly from September 16 2014.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.4.1.5pre.140913a2</h4>
+        <ul>
+          <li>Fixed: Selected tab sometimes not scroll to view when there are many rows and pinned tab.</li>
+          <li>Fixed: Problem in full screen mode when tabs are below content, moving the mouse to top or bottom to revel the tabs not working.</li>
+          <li>Fixed: Don't change selected tab when dragging over it while in customizing.</li>
+          <li>Fixed: Ghostery doesn't work with build 140903a2 when our Session Manager enabled. need to call notifyObservers with "sessionstore-windows-restored".</li>
+          <li>Fixed: Starting with Firefox 29 use build-in CustomizableUI module to positioning new tab button, close tab button and our scroll box in the tabs stip.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.4.1.5pre.140903a2</h4>
+        <ul>
+          <li>Added: New option "Restore my pinned tabs from last time" when user preference is not to restore when Firefox starts. turn this option off if you prefer not to restore any tab at all.</li>
+          <li>Fixed: Firefox Options > General is blank when Ghostery extension and Noia theme installed.</li>
+          <li>Fixed: With build 140824a1 - Session restore doesn't work on Firefox before version 28.</li>
+          <li>Fixed: When session restarts with only pinned tab extra blank tab is visible.</li>
+          <li>Fixed: When last session contained number of window with pinned tab, some windows restores twice.</li>
+          <li>Fixed: In-content Firefox preference on Linux doesn't include Tab Mix preferences.</li>
+          <li>Fixed: Some multi-row issues with classic theme restorer.</li>
+          <li>Fixed: With build 140831a1 when Display > Tab Bar > New Tab button is un-checked the new tab button after the last tab and the new tabs button at the right end of the tab bar are both continues to be displayed.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.4.1.5pre.140831a1</h4>
+        <ul>
+          <li>Fixed: Some special links don't respect Tab Mix preferences to open new tab and open in the current tab instead. (Handle non-link element with onclick that change location.href).</li>
+          <li>Fixed: When user show new tab button after last tab, the button is not placed after the scroll arrows when there is hidden rows.</li>
+          <li>Fixed: Middle click in forward/backward history menu open new tab next to the current tab according to "Open duplicated tabs next to original" preference instead of "Open other tabs next to current one".</li>
+          <li>Fixed: Error – re-declaration of var Cc. (Source: chrome://tabmixplus/content/content.js).</li>
+          <li>Fixed: When restoring session with the preference 'Don’t load tabs until selected' set unloaded tab-styling on tabs updates slowly.</li>
+          <li>Fixed: Remove 'download.asp' from 'Prevent blank tabs when downloading files' file types. Don't prevent opening new tab from link when 'Prevent blank tabs when downloading files' is off, even if the link matches an entry in the list.</li>
+          <li>Fixed: Multi-row mode: Sometimes the new tab button gets placed into a new row on its own. Hopefully!?</li>
+          <li>Fixed: Multi-row mode: there's a shadow shown on the right hand side of the tabbar, which won't disappear until a second row is shown.</li>
+          <li>Fixed: Multi-row mode: tabbar issue on Max - top rows hidden on resize.</li>
+          <li>Fixed: [e10s] Collecting scroll position from history on remote tabs break TabmixSessionManager.saveTabHistory.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.4.1.5pre.140824a1</h4>
+        <ul>
+          <li>Fixed: <b>Don’t load tabs until selected</b> not working with Tab Mix session manager.</li>
+          <li>Fixed: Some link open new tab (according to user preference) and also change the current tab location. (link with onclick='window.location=NEW-ADDRESS').</li>
+          <li>Fixed: Click options on tabbar doesn't working when browser.tabs.drawInTitlebar is true. [Firefox 25+.]</li>
+          <li>Fixed: Split the options <b>Prevent clicking on Tab-bar from dragging the window.</b> and <b>Prevent double click on Tab-bar from changing window size.</b> Tab Mix Options > Mouse Gestures.</li>
+          <li>Fixed: Fix incompatibility with Cyberfox (Cyberfox call gCyberfoxCustom.customPrefSettings() from main-window onload).</li>
+          <li>Fixed: Show global notification when Tab Mix debug mode is on.</li>
+          <li>Fixed: Select last selected tab after closing current tab doesn't work when opening new tab from the first tab.</li>
+          <li>Fixed: Fix compatibility issues with TreeStyleTab extension</li>
+          <li>Fixed: Prepare Tab Mix to work with e10s <a href=https://wiki.mozilla.org/Electrolysis>Electrolysis</a> windows:</li>
+          <ul>
+            <li>Middle-click on links not working in e10s windows.</li>
+            <li>Make Tab Mix Session Manager e10s compatible.</li>
+            <li>Update auto reload to work with tabs on e10s windows.</li>
+            <li>Permission sub menu doesn't work (tab context menu).</li>
+            <li>Handle content area click on e10s windows.</li>
+            <li>Add option to hide "Open in Non-e10s Window" in tabs context menu.</li>
+          </ul>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.4.1.5pre.140802a1</h4>
+        <ul>
+          <li>Fixed: Ctrl+Tab navigates in the most recently used order feature stopped working <a href=https://bugzilla.mozilla.org/show_bug.cgi?id=1008772>bug 1008772</a>. [Firefox 32+]</li>
+          <li>Fixed: Tab Mix not working when Firefox starts with browser.tabs.remote.autostart set to true. [Firefox 31+]</li>
+          <li>Fixed: Multi-row scroll button not working after <a href=https://bugzilla.mozilla.org/show_bug.cgi?id=1024496>bug 1024496</a> landed.</li>
+          <li>Fixed: Tab title shift up 1 pixel when tab close button is visible when hover on tab with the mouse. [Firefox 31+]</li>
+          <li>Fixed: Tabstrip close button is not visible in some cases. [Firefox 31+]</li>
+          <li>Fixed: Tabstrip close button style for Linux and Mac. [Firefox 31+]</li>
+          <li>Fixed: Some preference in Firfox in-content general options not working.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h4>0.4.1.4pre.140613a1</h4>
+        <ul>
+          <li>Fixed: Remove the use of browser.tabs.closeButtons pref by <a href=https://bugzilla.mozilla.org/show_bug.cgi?id=865826>bug 865826</a> broke Tab Mix on Firefox 31.0+.</li>
+          <li>Fixed: Tab Mix 0.4.1.3.1 not working correclty with Feedly.</li>
+          <li>Fixed: Private Browsing icon is missing on multi-row or when the tab-bar is on bottom (below content) Firefox 29.</li>
+        </ul>
+      </div>
+
+    </div>
+    </div>
+  </body>
+</html>
