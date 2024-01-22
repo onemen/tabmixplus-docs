@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/tabmix.css" type="text/css" />
+    <title>Tab Mix Docs | Sessions Manager</title>
+  </head>
+  <body>
+    <div id="title" class="th">Sessions Manager</div>
+    <div class="content-body">
+      <div class="topic justify">
+        <u>Don't load tabs until selected (tabs not reloading automatically)</u>
+        <p class="hightlight">
+          Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user interface.<br>
+          If you want to load all tabs immediately on Restore, go to about:config and set the preference  browser.sessionstore.restore_on_demand to false.
+        </p><br>
+
+        <u>Sessions Manager backup</u>
+        <p>
+          Sessions are stored in the <b>session.rdf</b>
+          file in your profile folder. A backup of this file is stored in the
+          <b>sessionbackups</b> folder in your profile folder. If your session
+          becomes corrupt and you are unable to restore that session, copy one
+          of the backup files (tabmix_sessions-yyyy-mm-dd.rdf) from the backup
+          folder to your profile folder, rename the file to <b>session.rdf</b>.
+        </p><br/>
+
+        <u>Sessions Manager extension</u>
+        <p>
+          For a full range of sessions managing features, you can use
+          <a href="https://addons.mozilla.org/en-US/firefox/addon/session-manager/">
+          Session Manager extension</a> which is created specifically for that
+          purpose.<br> When Session Manager extension is installed, Tab Mix
+          Plus turns its own session manager off. Your existing sessions will
+          be converted to SM format. This two extensions work well together
+          without any known problems.<br><br>
+          <b><u>IMPORTANT!</u></b> If you uninstall or disable Session Manager
+          extension, Tab Mix Plus will revert back to its file which will not
+          have the sessions saved with Session Manager extension.
+        </p>
+
+        <u>Help page</u>
+        <p>
+         Read more in our <a href="../help/session-startexit" target="tabmix-help-content">Session Manager</a> help page
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

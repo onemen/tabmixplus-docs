@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Legacy Tab Mix Plus</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 60%;
+      margin: 20px auto;
+    }
+
+    h3 {
+      margin-top: 20px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+
+    ul {
+      margin-inline-start: 20px;
+    }
+
+    .warning {
+      text-decoration: underline;
+      color: #ff0000;
+    }
+
+    .donate-form label{
+      margin-top: 0;
+      background: #8ceacb;
+      border-color: #26cc96;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 style="text-align: center;">The future of</h2>
+  <h1 style="text-align: center;">Tab Mix Plus</h1>
+  <div class="container" _style="margin: 0 10%;">
+    <p>
+      Firefox 57 drops support for all legacy add-ons, including
+      <strong>Tab Mix Plus</strong>. From Firefox 57 onwards, Firefox will not install
+      <strong>Tab Mix Plus</strong>.
+      <br/>
+      <a class="button" href="https://support.mozilla.org/en-US/kb/firefox-add-technology-modernizing" target="_blank" rel="noopener">Read More</a>
+    </p>
+    <h3>Tab Mix WebExtension</h3>
+    <p>I am currently working on converting Tab Mix Plus code base to the new WebExtension format.
+      <br/> Tab mix code base holds more than 35,000 line of code in 139 files.
+    </p>
+    <p>
+      It is currently unclear when Tab Mix Plus as a WebExtension will be ready, it will not be ready before Firefox 57 official
+      release. I am also not sure it will be possible to implement all Tab mix features in the new format.
+    </p>
+    <p>
+      <h4><u>Vote on Mozilla</u></h4>
+      Vote on Mozilla website for APIs/bug fixes needed by Tab Mix Plus WebExtension.<br/>
+      Read <a href="https://tabmixplus.org/forum/viewtopic.php?p=73159#p73159">here</a>,
+      about the bug list and how to vote.
+    </p>
+    <br/>
+    <p>
+      Anyone who wants to contribute code or assist in any other way can contact me directly via tabmix.onemen@gmail.com.
+      <form class="donate-form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="BZWMH5PS56GAW">
+        <label>If you're interested in keeping TMP going beyond Firefox 57, please donate.</label>
+        <input class="donate-button" title="Donate to Tab Mix Plus" type="image"
+          src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_74x21.png"
+          border="0" name="submit" alt="Donate">
+        <img alt="" border="0" src="https://www.paypalobjects.com/WEBSCR-640-20110401-1/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>
+    </p>
+    <h3>Using legacy Tab mix plus with Firefox Nightly:</h3>
+    <span class="warning">This is not working with nightly after Firefox 60</span>
+    <p>
+      <ul>
+        <li>
+          Download and install Firefox Nightly from
+          <a href="https://www.mozilla.org/en-US/firefox/channel/desktop/">here</a>.
+        </li>
+        <li>
+          Start Firefox and set the preference 'extensions.legacy.enabled' to true in about:config. Restart Firefox.
+        </li>
+        <li>
+          Install latest development version of Tab mix plus from here
+          <a href="https://github.com/onemen/TabMixPlus/releases/">here</a>.
+        </li>
+      </ul>
+    </p>
+    <h3>Using legacy Tab mix plus with Firefox ESR:</h3>
+    <p>
+      <ul>
+        <li>
+          Download and install Firefox ESR from
+          <a href="https://www.mozilla.org/en-US/firefox/organizations/all/">here</a>.
+        </li>
+      </ul>
+    </p>
+  </div>
+</body>
+
+</html>
