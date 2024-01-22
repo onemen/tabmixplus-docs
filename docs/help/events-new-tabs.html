@@ -1,0 +1,96 @@
+
+    <div id="title" class="th">Events - New Tabs</div>
+    <div class="content-body evenbg">
+      <div class="topic">
+        <img src="help/images/events-new-tabs.jpg" alt="image">
+        Controls which URL loads in New Tab and location of newly opened tabs.<br>
+      </div>
+
+      <ul class="topic">
+        <li>Load on New Tabs (select one):
+           <div class="comment">
+             You can open 'New Tab' from:
+             <ul class="square" style="margin-left: 12px;">
+               <li><a href="viewpage.php?t=3&p=display-tab-bar" target="tabmix-help-content">New Tab Page</a></li>
+               <li>Menu Bar: File &gt; New Tab</li>
+               <li>Tab context menu: New Tab</li>
+               <li>Keyboard shortcut: Ctrl/Cmd + T</li>
+             </ul>
+             See next sections about the preference that control all other tabs opening
+           </div>
+
+           <ul>
+            <li>
+              <span class="default">New Tab Page (about:newtab)</span> - see more details in
+              <a href="http://support.mozilla.org/en-US/kb/new-tab-page-show-hide-and-customize-top-sites">Firefox Help</a>
+            </li>
+            <li>Blank Page (about:blank)</li>
+            <li>Home Page (to select your Home Page, you must specify a Home Page in the Firefox Options/General)</li>
+            <li>Current Page (whatever page is currently displayed in your browser)</li>
+            <li>Duplicate Tab with history (copy the current tab with history)</li>
+          </ul>
+        </li>
+        <li>Focus content when loading non blank page, (when not checked,  focus is on the address bar)</li>
+        <li>Open New Tab next to current one</li>
+      </ul>
+
+      <ul class="topic">
+        <li>Open other tabs next to current one
+          <ul class="square">
+            <li>Only if related to current tab</li>
+            <li>Change opening order - tabs will open to the right of the most recently opened. Please refer to the example below.</li>
+          </ul>
+          <p class="comment">
+            <u>Example of changing opening order</u><br>
+            [a][b][c] are the current opened tabs with [a] being the current tab.<br>
+            [1][2][3] are the new tabs opened in that order<br>
+            [a][b][c][1][2][3] -&gt; [a][3][2][1][b][c], this is how tabs open without changing opening order<br>
+            [a][b][c][1][2][3] -&gt; [a][1][2][3][b][c], this is how tabs open with the change opening order option checked
+          </p>
+        </li>
+      </ul>
+
+      <ul class="topic">
+        <li class="default">Open duplicated tabs next to original</li>
+        <li>
+          Move tab from 'Switch to tab' next to current one
+          <p class="comment">
+            When using 'Switch to tab' from address bar popup, move the tab you switching to next to the currently selected tab.<br/>
+            This only applied when the tab you switching to is in the same window.
+            <img src="help/images/switchtotab.png" alt="image" style="float:none; width:100%; margin-left:0;">
+          </p>
+        </li>
+      </ul>
+
+      <div class="topic">
+        <u>Groups of bookmarks/history</u>
+        <div class="comment">
+          When opening many tabs from bookmarks group or history loading time for all tabs can be long, especially when multi-process (aka E10s, <a href="https://wiki.mozilla.org/Electrolysis ">Electrolysis</a>) is enabled.<br>
+          It is recommended to enable these options when opening many tabs.
+        </div>
+        <ul>
+          <li>Load tabs progressively - load tabs no more than 3 tabs at a time.</li>
+          <li>Don't load tabs until selected - all background tabs remain unloaded until selected.</li>
+        </ul>
+        <div class="comment">
+          For both options you can set the amount of tabs that serve as a threshold to enable the option.
+        </div>
+      </div>
+
+      <div class="topic">
+        <u>Lock tabs</u>
+        <ul>
+          <li>Lock New tabs</li>
+          <li>Lock App tabs</li>
+          <br>
+          <li>Apply changes to open tabs</li>
+        </ul>
+        <p class="comment">
+        You can set Tab Mix Plus to lock every new tab and every new App tab.
+        If "Apply changes to open tabs" is enabled, any change to <b>Lock New tabs</b>
+        or <b>Lock Apps tabs</b> preferences change the lock status of open tabs acordingly.
+        </p>
+        More about <a href="viewpage.php?t=3&p=frozen_tabs" target="tabmix-help-content">Protected Locked and Frozen Tabs</a>
+      </div>
+
+    </div>
