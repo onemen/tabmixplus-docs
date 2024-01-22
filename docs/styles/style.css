@@ -19,12 +19,12 @@ a:hover {
 #wrap {
   margin: 20px auto;
   width: 724px;
-  background: #d5d6d8 url('./images1/midbg.png');
+  background: #d5d6d8 url('./images/midbg.png');
   background-repeat: repeat-y;
 }
 
 #top {
-  background: #d5d6d8 url('./images1/topbg.png');
+  background: #d5d6d8 url('./images/topbg.png');
   height: 30px;
 }
 
@@ -33,7 +33,7 @@ a:hover {
 }
 
 #bottom {
-  background: #d5d6d8 url('./images1/botbg.png');
+  background: #d5d6d8 url('./images/botbg.png');
   height: 30px;
 }
 
@@ -43,7 +43,7 @@ a:hover {
 
 .header {
   height: 200px;
-  background: url('./images1/header.jpg');
+  background: url('./images/header.jpg');
   background-repeat: repeat-x;
 }
 
