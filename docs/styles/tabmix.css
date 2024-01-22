@@ -60,7 +60,7 @@ body:not([class="innerFrame"]) #wrapcontent {
   border: 2px solid #A9B8C2;
   border-left-width: 1px;
   position: absolute;
-  top: 109px;
+  top: 119px;
   left: calc(19% + 25px);
   bottom: 15px;
   width: calc(61% - 75px);
@@ -79,7 +79,7 @@ body:not([class="innerFrame"]) #wrapcontent {
   background-color: #ECECEC;
   border: 2px solid #A9B8C2;
   position: absolute;
-  top: 109px;
+  top: 119px;
   left: 25px;
   bottom: 15px;
   width: calc(19% - 1px);

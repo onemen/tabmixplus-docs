@@ -1,79 +1,91 @@
-      <div id="title" class="th">Events - Tab Features</div>
-      <div class="content-body evenbg">
-        <div class="topic">
-          <img src="./images/events-tab-features.jpg" alt="image">
-          <ul>
-            <li><span class="default">Enable undo close tabs</span></li>
-            <span class="indent">
-              (previously closed tabs may be reopened and the following conditions will be applied)
-            </span>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/tabmix.css" type="text/css" />
+    <link rel="stylesheet" href="../styles/help.css">
+    <title>Tab Mix Docs | Events - Tab Features</title>
+  </head>
+  <body>
+    <div id="title" class="th">Events - Tab Features</div>
+    <div class="content-body evenbg">
+      <div class="topic">
+        <img src="./images/events-tab-features.jpg" alt="image">
+        <ul>
+          <li><span class="default">Enable undo close tabs</span></li>
+          <span class="indent">
+            (previously closed tabs may be reopened and the following conditions will be applied)
+          </span>
+          <ul class="square">
+            <li>Max number of closed tabs to remember (specify a quantity) <span class="default">default: 10</span></li>
+            <li><span class="default">Restore the tab's original position</span>
+            (tabs are restored to their position when closed)</li>
+            <li>Make the toolbar button display only a list</li>
+            <p class="comment indent" style="width:62%;">
+              <img src="./images/closed-list-button.jpg" alt="image" style="width:40px;">
+              If checked, when the <b>Closed Tabs List</b> button is clicked, a menu will open
+              with recently closed tabs list. An arrow appears on the button next to the
+              label indicating that a menu is present.<br><br>
+              <img src="./images/closed-list-menu-button.jpg" alt="image" style="width:55px;">
+              When this option is not checked, the button will restore the last closed tab
+              when clicked and an arrow will be displayed. A click on the arrow opens a menu
+              with recently closed tabs list.
+            </p>
+            <li>Keep menu open</li>
+            <p class="comment indent" style="width:62%;">
+              Enabling 'Keep menu open' leave the menu open after deleting or opening closed tab,
+              in order to allow you to do several commands in a row without having to open the menu every time.
+              To close the menu, click with the mouse outside the menu.
+              <img src="./images/keep_menu_open.png" alt="image" style="float:none; width:100%; margin-left:0;">
+            </p>
+          </ul>
+        </ul>
+        <p class="comment indent">
+          <b>Tips</b>:<br>
+          Use middle mouse click on <b>Closed Tabs List</b> button to restore all closed tabs at once.<br>
+          Use right mouse click on recently closed tabs list menu to open the context menu seen in the image below.
+          <img src="./images/closed-tabs-button-context-menu.gif" alt="image" style="float:none; width:83%;">
+        </p>
+      </div>
+
+      <div class="topic">
+        Ctrl-Tab
+        <ul>
+          <li>Ctrl-Tab navigates tabs in the most recent used order (pressing
+            Ctrl-Tab will navigate between Tabs in the most recently used order)
             <ul class="square">
-              <li>Max number of closed tabs to remember (specify a quantity) <span class="default">default: 10</span></li>
-              <li><span class="default">Restore the tab's original position</span>
-              (tabs are restored to their position when closed)</li>
-              <li>Make the toolbar button display only a list</li>
-              <p class="comment indent" style="width:62%;">
-                <img src="./images/closed-list-button.jpg" alt="image" style="width:40px;">
-                If checked, when the <b>Closed Tabs List</b> button is clicked, a menu will open
-                with recently closed tabs list. An arrow appears on the button next to the
-                label indicating that a menu is present.<br><br>
-                <img src="./images/closed-list-menu-button.jpg" alt="image" style="width:55px;">
-                When this option is not checked, the button will restore the last closed tab
-                when clicked and an arrow will be displayed. A click on the arrow opens a menu
-                with recently closed tabs list.
-              </p>
-              <li>Keep menu open</li>
-              <p class="comment indent" style="width:62%;">
-                Enabling 'Keep menu open' leave the menu open after deleting or opening closed tab,
-                in order to allow you to do several commands in a row without having to open the menu every time.
-                To close the menu, click with the mouse outside the menu.
-                <img src="./images/keep_menu_open.png" alt="image" style="float:none; width:100%; margin-left:0;">
-              </p>
+              <li>Show tab previews - displays a window with tab previews.</li>
+              <p class="comment full-width">This preference takes precedence over the next preference.</p>
             </ul>
-          </ul>
-          <p class="comment indent">
-            <b>Tips</b>:<br>
-            Use middle mouse click on <b>Closed Tabs List</b> button to restore all closed tabs at once.<br>
-            Use right mouse click on recently closed tabs list menu to open the context menu seen in the image below.
-            <img src="./images/closed-tabs-button-context-menu.gif" alt="image" style="float:none; width:83%;">
-          </p>
-        </div>
-
-        <div class="topic">
-          Ctrl-Tab
-          <ul>
-            <li>Ctrl-Tab navigates tabs in the most recent used order (pressing
-              Ctrl-Tab will navigate between Tabs in the most recently used order)
-              <ul class="square">
-                <li>Show tab previews - displays a window with tab previews.</li>
-                <p class="comment full-width">This preference takes precedence over the next preference.</p>
-              </ul>
-            </li>
-            <li>Ctrl-Tab displays a tab list popup menu - pressing Ctrl-Tab will
-               display a popup menu list of all tabs.
-              <ul class="square">
-                <li>Tab list responds to the mouse - when checked you can use your mouse left click on the list to select a tab</li>
-              </ul>
-              <p class="comment full-width">
-                The List will sort tabs in most recently used order if you turn on <b>Ctrl-Tab navigates tabs in the most recent used order</b>.
-              </p>
-            </li>
-          </ul>
-        </div>
-
-      <div class="topic">
-        <ul>
-          <li>Toggle tabs slideshow - click to go to Menu/Shortcut to enable/disable or change the shortcut</li>
-          <li>Disable Open/Close tab animation (removes default Firefox animation from tabs)</li>
+          </li>
+          <li>Ctrl-Tab displays a tab list popup menu - pressing Ctrl-Tab will
+              display a popup menu list of all tabs.
+            <ul class="square">
+              <li>Tab list responds to the mouse - when checked you can use your mouse left click on the list to select a tab</li>
+            </ul>
+            <p class="comment full-width">
+              The List will sort tabs in most recently used order if you turn on <b>Ctrl-Tab navigates tabs in the most recent used order</b>.
+            </p>
+          </li>
         </ul>
       </div>
 
-      <div class="topic">
-        Auto Reload
-        <ul>
-          <li>Reload a tab regardless of its address - the tab will be reloaded even if its URL changes</li>
-          <li>Show Reload Every menu on Reload button - a Reload every menu will be added to the Reload toolbar button</li>
-        </ul>
-      </div>
+    <div class="topic">
+      <ul>
+        <li>Toggle tabs slideshow - click to go to Menu/Shortcut to enable/disable or change the shortcut</li>
+        <li>Disable Open/Close tab animation (removes default Firefox animation from tabs)</li>
+      </ul>
+    </div>
 
-      </div>
+    <div class="topic">
+      Auto Reload
+      <ul>
+        <li>Reload a tab regardless of its address - the tab will be reloaded even if its URL changes</li>
+        <li>Show Reload Every menu on Reload button - a Reload every menu will be added to the Reload toolbar button</li>
+      </ul>
+    </div>
+
+    </div>
+  </body>
+</html>
