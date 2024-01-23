@@ -1,86 +1,240 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/tabmix.css" type="text/css" />
-    <link rel="stylesheet" href="../styles/help.css">
+    <link rel="stylesheet" href="../styles/help.css" />
     <title>Tab Mix Docs | Display - Tab Bar</title>
   </head>
   <body>
     <div id="title" class="th">Changes in Version 0.4.2.2</div>
     <div class="content-body evenbg">
-
       <div class="topic">
         <h4>0.4.2.2</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/53b1ec10">53b1ec10</a> fix a typo in version 0.4.2.1 that disabled Tab Groups Migrator on Firefox 45 and 46.</li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/53b1ec10">53b1ec10</a> fix a
+            typo in version 0.4.2.1 that disabled Tab Groups Migrator on Firefox 45 and 46.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.2.1pre.160228a2</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/cafb1b1c">cafb1b1c</a> Show background tab group restoration page.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b22f198e">b22f198e</a> Bookmark sessions with more than one group when user starts Firefox 45+ for the first time without Tab Groups extension.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ce751c1f">ce751c1f</a> Add new function to bookmark sessions, with and without groups, fix changeset <a href="https://github.com/onemen/TabMixPlus/commit/5f780773">5f780773</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ec6dd7d8">ec6dd7d8</a> Show missing tabview notification on all windows, close all notification when user close it in one window.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/730c228e">730c228e</a> Backup history sessions with more than one group when user starts Firefox 45+ for the first time without Tab Groups extension.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/212657f2">212657f2</a> Notify the user when TabView is missing and the restored session contains groups.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/2081c44f">2081c44f</a> Move the changes to openUILinkIn into the beginning of openLinkIn, Allow to load url to the current tab when caller is ReaderParent.toggleReaderMode.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/8a039d65">8a039d65</a> Add new function TabmixSvc.getDialogStrings to get commonDialogs.properties strings. <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1219794">bug 1219794</a> removed editBookmark.cancel.label entity from browser.dtd.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6feeb71e">6feeb71e</a> Drag-n-drop url from location bar to a locked tab loading url in that tab.</li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/cafb1b1c">cafb1b1c</a> Show
+            background tab group restoration page.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/b22f198e">b22f198e</a> Bookmark
+            sessions with more than one group when user starts Firefox 45+ for the first time
+            without Tab Groups extension.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ce751c1f">ce751c1f</a> Add
+            new function to bookmark sessions, with and without groups, fix changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/5f780773">5f780773</a>.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ec6dd7d8">ec6dd7d8</a> Show
+            missing tabview notification on all windows, close all notification when user close it
+            in one window.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/730c228e">730c228e</a> Backup
+            history sessions with more than one group when user starts Firefox 45+ for the first
+            time without Tab Groups extension.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/212657f2">212657f2</a> Notify the
+            user when TabView is missing and the restored session contains groups.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/2081c44f">2081c44f</a> Move
+            the changes to openUILinkIn into the beginning of openLinkIn, Allow to load url to the
+            current tab when caller is ReaderParent.toggleReaderMode.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/8a039d65">8a039d65</a> Add
+            new function TabmixSvc.getDialogStrings to get commonDialogs.properties strings.
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1219794">bug 1219794</a> removed
+            editBookmark.cancel.label entity from browser.dtd.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/6feeb71e">6feeb71e</a> Drag-n-drop
+            url from location bar to a locked tab loading url in that tab.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.2.1pre.160216a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/2846d6fe">2846d6fe</a> Update compatibility with TreeStyleTab extension version 0.16.2016021602.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/267173f7">267173f7</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1246907">bug 1246907</a> - Open link in a Container Tab - in the context menu. open link in background doesn't working.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/305ca7cf">305ca7cf</a> Follow uo <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1247920">bug 1247920</a> - Remove tabs visibleLabel property and TabLabelModified event. Latest Nightly breaks tabs label</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/da9713c0">da9713c0</a> With tabs set to bottom of browser, top of browser acts like title bar when double clicked (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1248225">Bug 1248225</a>).</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d220400a">d220400a</a> Ctrl-Tab - tabs list responds to the mouse - not working on Mac.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/588c9893">588c9893</a> Remove shadow from TabsToolbar when it is on the bottom.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e74a22dd">e74a22dd</a> Unnecessary call to TMP_Places.getTabTitle when PlacesCommandHook.uniqueCurrentPages called from PlacesCommandHook.updateBookmarkAllTabsCommand, updateBookmarkAllTabsCommand only check uniqueCurrentPages.length.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f47f0f9f">f47f0f9f</a> Disallow mouse down on TabsToolbar to start dragging the window when one of the key modifiers is down.</li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/2846d6fe">2846d6fe</a> Update
+            compatibility with TreeStyleTab extension version 0.16.2016021602.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/267173f7">267173f7</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1246907">bug 1246907</a> - Open
+            link in a Container Tab - in the context menu. open link in background doesn't working.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/305ca7cf">305ca7cf</a> Follow uo
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1247920">bug 1247920</a> - Remove
+            tabs visibleLabel property and TabLabelModified event. Latest Nightly breaks tabs label
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/da9713c0">da9713c0</a> With
+            tabs set to bottom of browser, top of browser acts like title bar when double clicked
+            (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1248225">Bug 1248225</a>).
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/d220400a">d220400a</a> Ctrl-Tab -
+            tabs list responds to the mouse - not working on Mac.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/588c9893">588c9893</a> Remove
+            shadow from TabsToolbar when it is on the bottom.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/e74a22dd">e74a22dd</a> Unnecessary
+            call to TMP_Places.getTabTitle when PlacesCommandHook.uniqueCurrentPages called from
+            PlacesCommandHook.updateBookmarkAllTabsCommand, updateBookmarkAllTabsCommand only check
+            uniqueCurrentPages.length.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/f47f0f9f">f47f0f9f</a> Disallow
+            mouse down on TabsToolbar to start dragging the window when one of the key modifiers is
+            down.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.2.1pre.160124a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e8cbb3d3">e8cbb3d3</a> Start using the new Tab mix domain 'tabmixplus.org' instead of 'tmp.garyr.net'.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6f8454c5">6f8454c5</a> Session manager is broken in Nightly build after 2016-01-21.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5c37e975">5c37e975</a> Don't make first restored tab visible when we restored the session into hidden group.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9f03448f">9f03448f</a> Update changeset <a href="https://github.com/onemen/TabMixPlus/commit/3c507420">3c507420</a>, TabGroup extension add the changes we do in TMP_TabView._patchTabviewFrame to its code in version 1.0.2b1.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/7bbba4b0">7bbba4b0</a> Preference window overlay does not start when nglayout.debug.disable_xul_fastload and nglayout.debug.disable_xul_cache are true. Add onload attribute to the prefwindowto workaround this issue.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/af9152f5">af9152f5</a> Update TMP_tabDNDObserver.onDragStart, follow up bugs: 863512, 1194311, 1214428.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/550d9742">550d9742</a> Update the code that change gBrowser.tabContainer._animateTabMove, fix incompatibility with Multiple Tab Handler extension.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/403d5461">403d5461</a> Replace eval of gBrowserInit._delayedStartup with wrapped function, fix incompatibility with Multiple Tab Handler extension.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3e49408a">3e49408a</a> Clean up the code that set SessionStroe last session state.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/a38d617f">a38d617f</a> Initialize our session manager after SessionStore.promiseInitialized resolved.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/754a24fe">754a24fe</a> Clean our modification to gBrowserInit._delayedStartup - move the block deal with swap tab to gBrowser.swapBrowsersAndCloseOther.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/75511159">75511159</a> Remove obsolete code from Tabmix.beforeBrowserInitOnLoad (Code for Firefox/PlaeMoone versions before 25).</li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e8cbb3d3">e8cbb3d3</a> Start
+            using the new Tab mix domain 'tabmixplus.org' instead of 'tmp.garyr.net'.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/6f8454c5">6f8454c5</a> Session
+            manager is broken in Nightly build after 2016-01-21.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5c37e975">5c37e975</a> Don't
+            make first restored tab visible when we restored the session into hidden group.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/9f03448f">9f03448f</a> Update
+            changeset <a href="https://github.com/onemen/TabMixPlus/commit/3c507420">3c507420</a>,
+            TabGroup extension add the changes we do in TMP_TabView._patchTabviewFrame to its code
+            in version 1.0.2b1.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/7bbba4b0">7bbba4b0</a> Preference
+            window overlay does not start when nglayout.debug.disable_xul_fastload and
+            nglayout.debug.disable_xul_cache are true. Add onload attribute to the prefwindowto
+            workaround this issue.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/af9152f5">af9152f5</a> Update
+            TMP_tabDNDObserver.onDragStart, follow up bugs: 863512, 1194311, 1214428.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/550d9742">550d9742</a> Update the
+            code that change gBrowser.tabContainer._animateTabMove, fix incompatibility with
+            Multiple Tab Handler extension.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/403d5461">403d5461</a> Replace eval
+            of gBrowserInit._delayedStartup with wrapped function, fix incompatibility with Multiple
+            Tab Handler extension.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3e49408a">3e49408a</a> Clean
+            up the code that set SessionStroe last session state.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/a38d617f">a38d617f</a> Initialize
+            our session manager after SessionStore.promiseInitialized resolved.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/754a24fe">754a24fe</a> Clean
+            our modification to gBrowserInit._delayedStartup - move the block deal with swap tab to
+            gBrowser.swapBrowsersAndCloseOther.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/75511159">75511159</a> Remove
+            obsolete code from Tabmix.beforeBrowserInitOnLoad (Code for Firefox/PlaeMoone versions
+            before 25).
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.2.1pre.151226a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3c507420">3c507420</a> Incompatibility with new TabGroup extension that replaced Firefox build-in panorama.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b6c527d3">b6c527d3</a> Our session manager causing SessionStore to send 'SSWindowStateReady' event after each restored tab, regressed after bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1067648">1067648</a>  - Introduce restoreTab() and use it from restoreTabs().</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b87d025a">b87d025a</a> Incompatibility with Tab Deque extension, other tabs can't be selected and will quickly revert to the current one.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/8c6426d1">8c6426d1</a> Always check if the link is an xpi link, don't open new tab for left click on xpi links.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/544bebd4">544bebd4</a> Incompatibility problem with Stay-Open Menu, Undo closed tab from undo closed button list always open last closed tab. when the menu is closed before we do our restoreCommand aEvent.originalTarget.value is null.</li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/3c507420">3c507420</a>
+            Incompatibility with new TabGroup extension that replaced Firefox build-in panorama.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b6c527d3">b6c527d3</a> Our
+            session manager causing SessionStore to send 'SSWindowStateReady' event after each
+            restored tab, regressed after bug
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1067648">1067648</a> - Introduce
+            restoreTab() and use it from restoreTabs().
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/b87d025a">b87d025a</a>
+            Incompatibility with Tab Deque extension, other tabs can't be selected and will quickly
+            revert to the current one.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/8c6426d1">8c6426d1</a> Always check
+            if the link is an xpi link, don't open new tab for left click on xpi links.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/544bebd4">544bebd4</a>
+            Incompatibility problem with Stay-Open Menu, Undo closed tab from undo closed button
+            list always open last closed tab. when the menu is closed before we do our
+            restoreCommand aEvent.originalTarget.value is null.
+          </li>
         </ul>
       </div>
 
-      <div class="topic"><h4>
-        <a href="../changelog/0.4.2.1" target="tabmix-changelog-content">Previous version</a>
-        </h4></div>
-
-    </div>
+      <div class="topic">
+        <h4>
+          <a href="../changelog/0.4.2.1" target="tabmix-changelog-content">Previous version</a>
+        </h4>
+      </div>
     </div>
   </body>
 </html>

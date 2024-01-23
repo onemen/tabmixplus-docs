@@ -29,6 +29,10 @@ module.exports = {
       },
       rules: {strict: 'off'},
     },
+    {
+      files: ['*.html'],
+      plugins: ['html'],
+    },
   ],
 
   rules: {

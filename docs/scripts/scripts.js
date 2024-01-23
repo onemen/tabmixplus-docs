@@ -1,10 +1,9 @@
-
 function accordionMenu() {
-  "use strict";
-  var accordions = document.getElementsByClassName("has-submenu");
+  'use strict';
+  var accordions = document.getElementsByClassName('has-submenu');
 
   for (var i = 0; i < accordions.length; i++) {
-    accordions[i].onclick = function() {
+    accordions[i].onclick = function () {
       this.classList.toggle('is-open');
 
       var content = this.nextElementSibling;
@@ -13,9 +12,9 @@ function accordionMenu() {
         content.style.maxHeight = null;
       } else {
         // accordion is currently closed, so open it
-        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.maxHeight = content.scrollHeight + 'px';
       }
-    }
+    };
   }
 }
 

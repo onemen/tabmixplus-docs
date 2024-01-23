@@ -1,102 +1,373 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/tabmix.css" type="text/css" />
-    <link rel="stylesheet" href="../styles/help.css">
+    <link rel="stylesheet" href="../styles/help.css" />
     <title>Tab Mix Docs | Display - Tab Bar</title>
   </head>
   <body>
     <div id="title" class="th">Changes in Version 0.4.1.9</div>
     <div class="content-body evenbg">
-
       <div class="topic">
         <h4>0.4.1.9pre.150819a1</h4>
         <ul>
-          <li>Added: <a href="https://github.com/onemen/TabMixPlus/commit/23eaa7c0">23eaa7c0</a> New option 'Allow pinned tabs to scroll' in multi-rows.</li>
-          <li>Added: <a href="https://github.com/onemen/TabMixPlus/commit/30930375">30930375</a> New tooltip on multi-rows scroll button to show rows count and selected tab position.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d8bb17d6">d8bb17d6</a> follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1193830">bug 1193830</a> - _overPlayingIcon is not reset if there is no mouseenter/mouseleave event.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/103a33e5">103a33e5</a> Clicking on the icon to mute then unmute (or unmute then mute) without moving the mouse off the icon can trigger double click event on the tab, and close it (Changeset c0f3653f204e).</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b49fffcf">b49fffcf</a> Leaving YouTube full screen (DOMFullscreen) removes\hides the tab bar, when the tab bar in multi-row mode calling setHeight too soon set the height to zero.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/a262c37e">a262c37e</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1160023">bug 1160023</a> Implement new fullscreen popup design from <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1129061">bug 1129061</a>, break Tabmix when tabbar on the bottom.</li>
-          <li>Changed: <a href="https://github.com/onemen/TabMixPlus/commit/d9d60abb">d9d60abb</a> Drop support for Firefox versions before 31.</li>
+          <li>
+            Added: <a href="https://github.com/onemen/TabMixPlus/commit/23eaa7c0">23eaa7c0</a> New
+            option 'Allow pinned tabs to scroll' in multi-rows.
+          </li>
+          <li>
+            Added: <a href="https://github.com/onemen/TabMixPlus/commit/30930375">30930375</a> New
+            tooltip on multi-rows scroll button to show rows count and selected tab position.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/d8bb17d6">d8bb17d6</a> follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1193830">bug 1193830</a> -
+            _overPlayingIcon is not reset if there is no mouseenter/mouseleave event.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/103a33e5">103a33e5</a> Clicking on
+            the icon to mute then unmute (or unmute then mute) without moving the mouse off the icon
+            can trigger double click event on the tab, and close it (Changeset c0f3653f204e).
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/b49fffcf">b49fffcf</a> Leaving
+            YouTube full screen (DOMFullscreen) removes\hides the tab bar, when the tab bar in
+            multi-row mode calling setHeight too soon set the height to zero.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/a262c37e">a262c37e</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1160023">bug 1160023</a> Implement
+            new fullscreen popup design from
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1129061">bug 1129061</a>, break
+            Tabmix when tabbar on the bottom.
+          </li>
+          <li>
+            Changed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/d9d60abb">d9d60abb</a> Drop support
+            for Firefox versions before 31.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.1.9pre.150815a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/51df490a">51df490a</a> Workaround for bug in treeStyleTab, with version 0.15.2015061300a003855 gBrowser.treeStyleTab.initTabContentsOrder throw on Firefox 41+.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/80cfc24b">80cfc24b</a> An empty bar is shown at the bottom when in fullscreen video (DOMFullscreen) and the tabs are on bottom.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/bcb50d46">bcb50d46</a> Leftover from changeset <a href="https://github.com/onemen/TabMixPlus/commit/6c9326b4">6c9326b4</a>, follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=947854">bug 947854</a> - Exiting DOM fullscreen also exits window fullscreen mode.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b1f19085">b1f19085</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1071821">bug 1071821</a> - fullscr-toggler element needs to be hidden in DOM fullscreen.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/163bf877">163bf877</a> Wrap original PlacesCommandHook.bookmarkPage  function with a function that change browser._contentTitle to a user defined tile when exist.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f8a70cd3">f8a70cd3</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1181475">bug 1181475</a> - Refactor duplicateTabIn to avoid a race between swapping frameloaders and SessionStore.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/504c62dd">504c62dd</a> Use OS.File to import/export our preferences file asynchronicity, update changeset <a href="https://github.com/onemen/TabMixPlus/commit/504c62dd">504c62dd</a> to support Pale Moon. Pale Moon 25.6.0 doesn't support generator functions and some OS.file arguments are different.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/bc069931">bc069931</a> Force Sessionstore to save our persisted tab attributes. Fixed 'Reload Tab Every' data is lost after a crash.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/87f8261e">87f8261e</a> Clicking on the tab-sound-icon on pinned tab select tab when the option "Mouse click (down and release) to select a tab" is on (Changeset c0f3653f204e).</li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/51df490a">51df490a</a> Workaround
+            for bug in treeStyleTab, with version 0.15.2015061300a003855
+            gBrowser.treeStyleTab.initTabContentsOrder throw on Firefox 41+.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/80cfc24b">80cfc24b</a> An
+            empty bar is shown at the bottom when in fullscreen video (DOMFullscreen) and the tabs
+            are on bottom.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/bcb50d46">bcb50d46</a> Leftover
+            from changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/6c9326b4">6c9326b4</a>, follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=947854">bug 947854</a> - Exiting
+            DOM fullscreen also exits window fullscreen mode.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/b1f19085">b1f19085</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1071821">bug 1071821</a> -
+            fullscr-toggler element needs to be hidden in DOM fullscreen.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/163bf877">163bf877</a> Wrap
+            original PlacesCommandHook.bookmarkPage function with a function that change
+            browser._contentTitle to a user defined tile when exist.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/f8a70cd3">f8a70cd3</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1181475">bug 1181475</a> -
+            Refactor duplicateTabIn to avoid a race between swapping frameloaders and SessionStore.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/504c62dd">504c62dd</a> Use
+            OS.File to import/export our preferences file asynchronicity, update changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/504c62dd">504c62dd</a> to support
+            Pale Moon. Pale Moon 25.6.0 doesn't support generator functions and some OS.file
+            arguments are different.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/bc069931">bc069931</a> Force
+            Sessionstore to save our persisted tab attributes. Fixed 'Reload Tab Every' data is lost
+            after a crash.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/87f8261e">87f8261e</a> Clicking on
+            the tab-sound-icon on pinned tab select tab when the option "Mouse click (down and
+            release) to select a tab" is on (Changeset c0f3653f204e).
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.1.9pre.150801a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3a6e1fb9">3a6e1fb9</a> Tabmix is broken by the changes from <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=486262">bug 486262</a> - Provide visual indicator as to which tab is causing sound, remove all use of tabbrowser.dtd and add the new <a href="http://ehsanakhgari.org/blog/2015-07-30/tab-audio-indicators-and-muting-in-firefox-nightly">Tab audio indicators</a> to tabs.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6abc5490">6abc5490</a> When dropping a tab from another window into pinned tabs area make the tab pinned.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/59dc1f64">59dc1f64</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1094328">bug 1094328</a> - [e10s] Detaching XUL tabs leaves a ghost tab in the old window, and opens a blank tab in the new window.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/072db5fa">072db5fa</a> Closed tabs list messed up after <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1109875">bug 1109875</a> - [e10s] Stop using synchronous TabState.flush operations for onTabClose.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/504c62dd">504c62dd</a> Use OS.File to import/export our preferences file asynchronicity.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/1f6a0b63">1f6a0b63</a> When preference value is not initialize use valueFromPreferences to get the value directly.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/7d83d392">7d83d392</a> New module AsyncUtils.jsm to help the use of callbacks as promises.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/43824690">43824690</a> Replace in our log.jsm module logStringMessage with logMessage and add reportError to log error message to the console with the error file and line number.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/2c257213">2c257213</a> Increase the timeout before calling convertFile, calling it too soon after our prompt dialog closed causing Session Manager Extension convertFile to fail.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/cfee03d0">cfee03d0</a> Workaround for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1157404">bug 1157404</a> - [e10s] Possible to end up with two visuallyselected="true" tabs at the same time.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/8aecab1f">8aecab1f</a> Implement Firefox's overflow/underflow handler code from our overflow setter, with some them or extensions (Classic Theme Restorer) overflow event isn't fired properly on multi-row.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/813218ee">813218ee</a> Replace "extensions.tabmix.loadFolderAndReplace" with "extensions.tabmix.loadBookmarksAndReplac", update the sring in the options window to "Groups of bookmarks/history".</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9ea3064b">9ea3064b</a> Open tab from History doesn't follow Tabmix options.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6d810f1c">6d810f1c</a> Disabled 'undo closed tabs button' when 'browser.sessionstore.max_tabs_undo' changed to zero.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/80d19b9a">80d19b9a</a> Dragging bookmark or livemark from the Bookmarks toolbar always have 'copy' dropEffect.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e4c08b2c">e4c08b2c</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1129957">bug 1129957</a> - [e10s] RemoteWebNavigation doesn't accept postdata or headers.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d6660a6a">d6660a6a</a> Use 'remote' attribute from browser instead of tab, Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1095475">bug 1095475</a> - [e10s] Replace tab underlines with tooltip.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/53d1ea8c">53d1ea8c</a> Wrong value calculated for '-moz-margin-start' and '-moz-margin-end' on Firefox 39 when selected tab is not visualyselected, regressed by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1066531">bug 1066531</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/a2ea6cc9">a2ea6cc9</a> Properly handle Ctrl/Command + W in shortcuts edit box, the default behavior is to close the preferences window.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5ca0ee44">5ca0ee44</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1166757">bug 1166757</a> - Remove browser.__SS_data.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e1f9feeb">e1f9feeb</a> Don't open new tab from Facebook chat settings.</li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/3a6e1fb9">3a6e1fb9</a> Tabmix is
+            broken by the changes from
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=486262">bug 486262</a> - Provide
+            visual indicator as to which tab is causing sound, remove all use of tabbrowser.dtd and
+            add the new
+            <a
+              href="http://ehsanakhgari.org/blog/2015-07-30/tab-audio-indicators-and-muting-in-firefox-nightly"
+              >Tab audio indicators</a
+            >
+            to tabs.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6abc5490">6abc5490</a> When
+            dropping a tab from another window into pinned tabs area make the tab pinned.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/59dc1f64">59dc1f64</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1094328">bug 1094328</a> - [e10s]
+            Detaching XUL tabs leaves a ghost tab in the old window, and opens a blank tab in the
+            new window.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/072db5fa">072db5fa</a> Closed tabs
+            list messed up after
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1109875">bug 1109875</a> - [e10s]
+            Stop using synchronous TabState.flush operations for onTabClose.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/504c62dd">504c62dd</a> Use
+            OS.File to import/export our preferences file asynchronicity.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/1f6a0b63">1f6a0b63</a> When
+            preference value is not initialize use valueFromPreferences to get the value directly.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/7d83d392">7d83d392</a> New
+            module AsyncUtils.jsm to help the use of callbacks as promises.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/43824690">43824690</a> Replace in
+            our log.jsm module logStringMessage with logMessage and add reportError to log error
+            message to the console with the error file and line number.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/2c257213">2c257213</a> Increase the
+            timeout before calling convertFile, calling it too soon after our prompt dialog closed
+            causing Session Manager Extension convertFile to fail.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/cfee03d0">cfee03d0</a> Workaround
+            for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1157404">bug 1157404</a> -
+            [e10s] Possible to end up with two visuallyselected="true" tabs at the same time.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/8aecab1f">8aecab1f</a> Implement
+            Firefox's overflow/underflow handler code from our overflow setter, with some them or
+            extensions (Classic Theme Restorer) overflow event isn't fired properly on multi-row.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/813218ee">813218ee</a> Replace
+            "extensions.tabmix.loadFolderAndReplace" with
+            "extensions.tabmix.loadBookmarksAndReplac", update the sring in the options window to
+            "Groups of bookmarks/history".
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9ea3064b">9ea3064b</a> Open
+            tab from History doesn't follow Tabmix options.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/6d810f1c">6d810f1c</a> Disabled
+            'undo closed tabs button' when 'browser.sessionstore.max_tabs_undo' changed to zero.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/80d19b9a">80d19b9a</a> Dragging
+            bookmark or livemark from the Bookmarks toolbar always have 'copy' dropEffect.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/e4c08b2c">e4c08b2c</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1129957">bug 1129957</a> - [e10s]
+            RemoteWebNavigation doesn't accept postdata or headers.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d6660a6a">d6660a6a</a> Use
+            'remote' attribute from browser instead of tab, Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1095475">bug 1095475</a> - [e10s]
+            Replace tab underlines with tooltip.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/53d1ea8c">53d1ea8c</a> Wrong
+            value calculated for '-moz-margin-start' and '-moz-margin-end' on Firefox 39 when
+            selected tab is not visualyselected, regressed by
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1066531">bug 1066531</a>.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/a2ea6cc9">a2ea6cc9</a> Properly
+            handle Ctrl/Command + W in shortcuts edit box, the default behavior is to close the
+            preferences window.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/5ca0ee44">5ca0ee44</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1166757">bug 1166757</a> - Remove
+            browser.__SS_data.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e1f9feeb">e1f9feeb</a> Don't
+            open new tab from Facebook chat settings.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.1.9pre.150703a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e6bdc7a3">e6bdc7a3</a> Pressing Shift while 'Ctrl+Tab tabs list popup' is visible hides the popup.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/a35b2bd4">a35b2bd4</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1118285">bug 1118285</a> - The browser.newtab.url preference is abused and should be removed.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d853f370">d853f370</a> Use gBrowser._switcher.updateDisplay to update display with our attributes instead of 'TabSwitchDone' event.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/8943cfa3">8943cfa3</a> Simplifies background color rules by joining tabmix_australis and tabmix_#Style~="bg" selectors into tabmix_#Style~="aus".</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e74196f3">e74196f3</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1066531">bug 1066531</a>, move all style rules with selected/visuallyselected attribute to separate files under app_version/before39.0 and app_version/39.0 folder.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/53ca48db">53ca48db</a> Flags argument of String.prototype.{search,match,replace} is deprecated.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/84c33eff">84c33eff</a> Restore to New Window(s) from private window opens new private window without restoring any tab.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/a914c27b">a914c27b</a> Don't remove all backup when new private window is open, Don't remove existin crashed data when user disabled backup, add missing crashed session data when new session opened with single private window.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f5d44554">f5d44554</a> Reuse blank tab when closing new window in single window mode, update referrerPolicy code after <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1113431">bug 1113431</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ecdb836b">ecdb836b</a> SingleWindowModeUtils fail to close new window, gPluginHandler.pluginCrashed was changed to gPluginHandler.NPAPIPluginCrashed by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1110887">bug 1110887</a> (Firefox 40).</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e17faf95">e17faf95</a> Fix incompatibility with Treestyletab extension, Open Link in Foreground/Background Tab Broken in 0.4.1.8, regressed by changeset <a href="https://github.com/onemen/TabMixPlus/commit/b1e810f0">b1e810f0</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/1d674004">1d674004</a> Update compatibility with Treestyletab extension.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3a058524">3a058524</a> Calling SessionStore.getTabState before Firefox 28 with pending 'about:config' tab throw 'TypeError: browser.contentDocument.getElementById(.) is null' in SessionStore._updateTextAndScrollDataForTab or TextAndScrollData.jsm.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5ce270ac">5ce270ac</a> Left over from changeset <a href="https://github.com/onemen/TabMixPlus/commit/a26f26d5">a26f26d5</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6c9326b4">6c9326b4</a> Follow up <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=947854">bug 947854</a> - Exiting DOM fullscreen also exits window fullscreen mode,.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/1cd14d9c">1cd14d9c</a> TypeError - this.clog is not a function, changeset <a href="https://github.com/onemen/TabMixPlus/commit/81c8bb30">81c8bb30</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/1d5fba28">1d5fba28</a> Update changesets 94b9a6a863d3, 1a3a96a04011, disable PlacesCommandHook.bookmarkPage from Firefox 40.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/0bdafb8a">0bdafb8a</a> Remove font size from 'Hide the tab bar' label (in-content).</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d99d8f48">d99d8f48</a> Missing quotation mark aroud TabmixSvc.aboutBlank. (changeset <a href="https://github.com/onemen/TabMixPlus/commit/653217b0">653217b0</a>).</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/139056d5">139056d5</a> Fix typo in changeset <a href="https://github.com/onemen/TabMixPlus/commit/653217b0">653217b0</a>.</li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/e6bdc7a3">e6bdc7a3</a> Pressing
+            Shift while 'Ctrl+Tab tabs list popup' is visible hides the popup.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/a35b2bd4">a35b2bd4</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1118285">bug 1118285</a> - The
+            browser.newtab.url preference is abused and should be removed.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d853f370">d853f370</a> Use
+            gBrowser._switcher.updateDisplay to update display with our attributes instead of
+            'TabSwitchDone' event.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/8943cfa3">8943cfa3</a> Simplifies
+            background color rules by joining tabmix_australis and tabmix_#Style~="bg" selectors
+            into tabmix_#Style~="aus".
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/e74196f3">e74196f3</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1066531">bug 1066531</a>, move all
+            style rules with selected/visuallyselected attribute to separate files under
+            app_version/before39.0 and app_version/39.0 folder.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/53ca48db">53ca48db</a> Flags
+            argument of String.prototype.{search,match,replace} is deprecated.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/84c33eff">84c33eff</a> Restore to
+            New Window(s) from private window opens new private window without restoring any tab.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/a914c27b">a914c27b</a> Don't
+            remove all backup when new private window is open, Don't remove existin crashed data
+            when user disabled backup, add missing crashed session data when new session opened with
+            single private window.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f5d44554">f5d44554</a> Reuse
+            blank tab when closing new window in single window mode, update referrerPolicy code
+            after <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1113431">bug 1113431</a>.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/ecdb836b">ecdb836b</a>
+            SingleWindowModeUtils fail to close new window, gPluginHandler.pluginCrashed was changed
+            to gPluginHandler.NPAPIPluginCrashed by
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1110887">bug 1110887</a> (Firefox
+            40).
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/e17faf95">e17faf95</a> Fix
+            incompatibility with Treestyletab extension, Open Link in Foreground/Background Tab
+            Broken in 0.4.1.8, regressed by changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/b1e810f0">b1e810f0</a>.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/1d674004">1d674004</a> Update
+            compatibility with Treestyletab extension.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/3a058524">3a058524</a> Calling
+            SessionStore.getTabState before Firefox 28 with pending 'about:config' tab throw
+            'TypeError: browser.contentDocument.getElementById(.) is null' in
+            SessionStore._updateTextAndScrollDataForTab or TextAndScrollData.jsm.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5ce270ac">5ce270ac</a> Left
+            over from changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/a26f26d5">a26f26d5</a>.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/6c9326b4">6c9326b4</a> Follow up
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=947854">bug 947854</a> - Exiting
+            DOM fullscreen also exits window fullscreen mode,.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/1cd14d9c">1cd14d9c</a> TypeError -
+            this.clog is not a function, changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/81c8bb30">81c8bb30</a>.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/1d5fba28">1d5fba28</a> Update
+            changesets 94b9a6a863d3, 1a3a96a04011, disable PlacesCommandHook.bookmarkPage from
+            Firefox 40.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/0bdafb8a">0bdafb8a</a> Remove font
+            size from 'Hide the tab bar' label (in-content).
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/d99d8f48">d99d8f48</a> Missing
+            quotation mark aroud TabmixSvc.aboutBlank. (changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/653217b0">653217b0</a>).
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/139056d5">139056d5</a> Fix
+            typo in changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/653217b0">653217b0</a>.
+          </li>
         </ul>
       </div>
 
-      <div class="topic"><h4>
-        <a href="../changelog/0.4.1.8" target="tabmix-changelog-content">Previous version</a>
-      </h4></div>
-
-    </div>
+      <div class="topic">
+        <h4>
+          <a href="../changelog/0.4.1.8" target="tabmix-changelog-content">Previous version</a>
+        </h4>
+      </div>
     </div>
   </body>
 </html>

@@ -1,5 +1,4 @@
-
-body:not([class="innerFrame"]) #wrapcontent {
+body:not([class='innerFrame']) #wrapcontent {
   width: calc(80% - 40px);
 }
 
@@ -7,7 +6,7 @@ body:not([class="innerFrame"]) #wrapcontent {
   float: right;
   border-radius: 6px;
   margin-left: 20px;
-  width: 40%
+  width: 40%;
 }
 
 .topic {
@@ -38,11 +37,11 @@ ul.topic {
 }
 
 ul:not(.circle) > li {
- list-style-type: square;
+  list-style-type: square;
 }
 
 li > ul:not(.square) > li {
- list-style-type: circle;
+  list-style-type: circle;
 }
 
 .container {
@@ -50,7 +49,7 @@ li > ul:not(.square) > li {
 }
 
 .container:after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }

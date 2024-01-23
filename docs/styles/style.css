@@ -5,7 +5,11 @@
 
 body {
   background: #d5d6d8;
-  font: 0.74em Helvetica, Arial, Verdana, sans-serif;
+  font:
+    0.74em Helvetica,
+    Arial,
+    Verdana,
+    sans-serif;
 }
 a {
   color: #3b6ebf;

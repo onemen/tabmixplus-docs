@@ -1,103 +1,348 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/tabmix.css" type="text/css" />
-    <link rel="stylesheet" href="../styles/help.css">
+    <link rel="stylesheet" href="../styles/help.css" />
     <title>Tab Mix Docs | Display - Tab Bar</title>
   </head>
   <body>
     <div id="title" class="th">Changes in Version 0.5.0.0</div>
     <div class="content-body evenbg">
-
       <div class="topic">
         <h4>0.5.0.0pre.160522a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/12567e0c">12567e0c</a> Don't disable inverse focus preferences when 'Middle-click or Control-click opens items in current tab' is on. The inverse preferences controls not only links.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6f583681">6f583681</a> Disable 'Place on left side' when treeStyleTab installed, 1. treeStyleTab have similar preference. 2. TreeStyleTabBrowser.prototype.initTabContentsOrderInternal throw when last window reopen.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/912e9cf6">912e9cf6</a> Don't open new tab from facebook chat and settings.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/673a2259">673a2259</a> Dragging links between two tabs is not working. Regrresed by changeset <a href="https://github.com/onemen/TabMixPlus/commit/8d2145ba">8d2145ba</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/51852729">51852729</a> Using strict equality (===) break 'open tab next' when relatedToCurrent is undefined and referrerURI exist, make sure relatedToCurrent is not undefined.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f09ae005">f09ae005</a> Update compatibility with treeStyleTab - update changeset <a href="https://github.com/onemen/TabMixPlus/commit/2dc30fa3">2dc30fa3</a> - prepare the tree to open the new tab as next sibling for all calls to gBrowser.addTab, not just from openUILinkIn or from external app.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6cc81296">6cc81296</a> Check for the existence of gBrowser.tabContainer._verticalTabs to identify if vertical-tabs-reloaded installed before VerticalTabsReloaded exist.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/141361bf">141361bf</a> Left-over debug code, from changeset <a href="https://github.com/onemen/TabMixPlus/commit/4c2e079f">4c2e079f</a>, break some functions when X-notifier installed.</li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/12567e0c">12567e0c</a> Don't
+            disable inverse focus preferences when 'Middle-click or Control-click opens items in
+            current tab' is on. The inverse preferences controls not only links.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/6f583681">6f583681</a> Disable
+            'Place on left side' when treeStyleTab installed, 1. treeStyleTab have similar
+            preference. 2. TreeStyleTabBrowser.prototype.initTabContentsOrderInternal throw when
+            last window reopen.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/912e9cf6">912e9cf6</a> Don't
+            open new tab from facebook chat and settings.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/673a2259">673a2259</a> Dragging
+            links between two tabs is not working. Regrresed by changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/8d2145ba">8d2145ba</a>.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/51852729">51852729</a> Using
+            strict equality (===) break 'open tab next' when relatedToCurrent is undefined and
+            referrerURI exist, make sure relatedToCurrent is not undefined.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/f09ae005">f09ae005</a> Update
+            compatibility with treeStyleTab - update changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/2dc30fa3">2dc30fa3</a> - prepare
+            the tree to open the new tab as next sibling for all calls to gBrowser.addTab, not just
+            from openUILinkIn or from external app.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6cc81296">6cc81296</a> Check
+            for the existence of gBrowser.tabContainer._verticalTabs to identify if
+            vertical-tabs-reloaded installed before VerticalTabsReloaded exist.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/141361bf">141361bf</a> Left-over
+            debug code, from changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/4c2e079f">4c2e079f</a>, break some
+            functions when X-notifier installed.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.5.0.0pre.160515a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/d1678637">d1678637</a> Update install.rdf to format that addons-linter can identify.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/3875fed8">3875fed8</a> Follow up bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1143038">1143038</a> - Use AppConstants in tabbrowser.xml.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/aa153cd4">aa153cd4</a> Moving a tab to a different window leaves other tabs shifted in the source window - add missed call to _finishAnimateTabMove from bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=786593">786593</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5f111631">5f111631</a> Handle content click event for all browsers when window.gMultiProcessBrowser is true, the previous code was skip about: tabs.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/081852f1">081852f1</a> Use text-link handler for links from our about dialog. Remove obsolete Tabmix.openURL function that used to open links from old Extension/Theme Managers.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/75489185">75489185</a> Update compatibility with Sage 1.5.4.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9165f52e">9165f52e</a> Follow up bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1251987">1251987</a> - The list of tabs is scrolled by very small number of tabs when I rotate mouse wheel (with setting "scroll by 1 page").</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/a8064b46">a8064b46</a> Replace eval of gBrowser._blurTab with wrapped function.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6cf5836f">6cf5836f</a> Replace eval of gBrowser.removeTab with wrapped function.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/99465b24">99465b24</a> Replace eval of gBrowser.addTab with wrapped function.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/1dc79a83">1dc79a83</a> Update compatibility with tabkit-2nd-edition.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/18e782f3">18e782f3</a> Vertical-tabs-reloaded extensions version 0.6.0 renamed its object from VerticalTabs to VerticalTabsReloaded.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/15590129">15590129</a> Disable the hidden firefox button in Tab mix options &gt; Session, to prevent it from being selected by tabbox.xml code.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/1eaab52e">1eaab52e</a> Links from jetbrains.com open in the same tab.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6c0b8860">6c0b8860</a> Fix changeset <a href="https://github.com/onemen/TabMixPlus/commit/6c0b8860">6c0b8860</a>, Add 'Report a Bug' button in tab-mix-plus page at addons.mozilla.org for all languages.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5f5cab1a">5f5cab1a</a> Refactor log.obj to prevents TypeError: can't convert undefined\null to object and for the case the function was called with non-object argument.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/8e6db19c">8e6db19c</a> Update compatibility with treeStyleTab - follow up changeset <a href="https://github.com/onemen/TabMixPlus/commit/2dc30fa3">2dc30fa3</a> and  changeset <a href="https://github.com/onemen/TabMixPlus/commit/0ba3fb59">0ba3fb59</a>, when our preference is to open the tab next and the current tab in pinned (app tab), open the new tab before the first non-pinned tab.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/90ac5c80">90ac5c80</a> ReferenceError: XPCOMUtils is not defined in MergeWindows.jsm, regressed by changeset <a href="https://github.com/onemen/TabMixPlus/commit/3834aad3">3834aad3</a>.</li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/d1678637">d1678637</a> Update
+            install.rdf to format that addons-linter can identify.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/3875fed8">3875fed8</a> Follow up
+            bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1143038">1143038</a> - Use
+            AppConstants in tabbrowser.xml.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/aa153cd4">aa153cd4</a> Moving a tab
+            to a different window leaves other tabs shifted in the source window - add missed call
+            to _finishAnimateTabMove from bug
+            <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=786593">786593</a>.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/5f111631">5f111631</a> Handle
+            content click event for all browsers when window.gMultiProcessBrowser is true, the
+            previous code was skip about: tabs.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/081852f1">081852f1</a> Use
+            text-link handler for links from our about dialog. Remove obsolete Tabmix.openURL
+            function that used to open links from old Extension/Theme Managers.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/75489185">75489185</a> Update
+            compatibility with Sage 1.5.4.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/9165f52e">9165f52e</a> Follow up
+            bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1251987">1251987</a> - The
+            list of tabs is scrolled by very small number of tabs when I rotate mouse wheel (with
+            setting "scroll by 1 page").
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/a8064b46">a8064b46</a> Replace eval
+            of gBrowser._blurTab with wrapped function.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/6cf5836f">6cf5836f</a> Replace eval
+            of gBrowser.removeTab with wrapped function.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/99465b24">99465b24</a> Replace eval
+            of gBrowser.addTab with wrapped function.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/1dc79a83">1dc79a83</a> Update
+            compatibility with tabkit-2nd-edition.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/18e782f3">18e782f3</a>
+            Vertical-tabs-reloaded extensions version 0.6.0 renamed its object from VerticalTabs to
+            VerticalTabsReloaded.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/15590129">15590129</a> Disable the
+            hidden firefox button in Tab mix options &gt; Session, to prevent it from being selected
+            by tabbox.xml code.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/1eaab52e">1eaab52e</a> Links
+            from jetbrains.com open in the same tab.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6c0b8860">6c0b8860</a> Fix
+            changeset <a href="https://github.com/onemen/TabMixPlus/commit/6c0b8860">6c0b8860</a>,
+            Add 'Report a Bug' button in tab-mix-plus page at addons.mozilla.org for all languages.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/5f5cab1a">5f5cab1a</a> Refactor
+            log.obj to prevents TypeError: can't convert undefined\null to object and for the case
+            the function was called with non-object argument.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/8e6db19c">8e6db19c</a> Update
+            compatibility with treeStyleTab - follow up changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/2dc30fa3">2dc30fa3</a> and
+            changeset <a href="https://github.com/onemen/TabMixPlus/commit/0ba3fb59">0ba3fb59</a>,
+            when our preference is to open the tab next and the current tab in pinned (app tab),
+            open the new tab before the first non-pinned tab.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/90ac5c80">90ac5c80</a>
+            ReferenceError: XPCOMUtils is not defined in MergeWindows.jsm, regressed by changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/3834aad3">3834aad3</a>.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.2.3pre.160425a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/af6720ae">af6720ae</a> Bug<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1093642"> 1093642</a> - Part 2: Decide if we allow mixed content before sending click event to remote tab.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9a5b8560">9a5b8560</a> Function isElementVisible can return wrong value when rect values are not integer.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/fc6380b5">fc6380b5</a> Follow up bug<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1263975"> 1263975</a> - XUL scrollbox (e.g. the tab bar) should respond to pixel scrolls by pixel scrolling.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/4709cc7d">4709cc7d</a> Don't inherits tab scroll by 'Open Link in Duplicated Tab' command.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/526d3a60">526d3a60</a> Refactore openUILinkIn to divert all the calls from places UI to use our preferences, update the function to address the changes in FeedHandler.loadFeed, since Firefox 42+ clicking 'Subscribe to This Page' always show 'Subscribe to this feed' page.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/de1afbfe">de1afbfe</a> Update incompatibility with Vertical Tabs Reloaded, reset initialization flag for Tabmix.initialization.run in the tabbarowser constructor.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/f99045d1">f99045d1</a> Update the check for SearchLoad Options extension and Searchload Options Revived (Pale Moon).</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/29cdf36c">29cdf36c</a> Update SingleWindowModeUtils.onload after bug<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1186521"> 1186521</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6c0b8860">6c0b8860</a> Add 'Report a Bug' button to tab-mix-plus page at addons.mozilla.org.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/2dc30fa3">2dc30fa3</a> Update compatibility with treeStyleTab - for all the calls to addTab from openUILinkIn or from external app, prepare the tree to open the new tab as next sibling, when our pref is to open new tabs next and only if treeStyletab did not set it to open as child. (changeset <a href="https://github.com/onemen/TabMixPlus/commit/0ba3fb59">0ba3fb59</a>).</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/b63b9d64">b63b9d64</a> Disable 'pinnedTabScroll' when Tabmix.extensions.verticalTabBar is true, (changeset <a href="https://github.com/onemen/TabMixPlus/commit/23eaa7c0">23eaa7c0</a>).</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ebf175bf">ebf175bf</a> Add support to Tab Kit 2nd Edition.</li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/af6720ae">af6720ae</a> Bug<a
+              href="https://bugzilla.mozilla.org/show_bug.cgi?id=1093642"
+            >
+              1093642</a
+            >
+            - Part 2: Decide if we allow mixed content before sending click event to remote tab.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/9a5b8560">9a5b8560</a> Function
+            isElementVisible can return wrong value when rect values are not integer.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/fc6380b5">fc6380b5</a> Follow up
+            bug<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1263975"> 1263975</a> - XUL
+            scrollbox (e.g. the tab bar) should respond to pixel scrolls by pixel scrolling.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/4709cc7d">4709cc7d</a> Don't
+            inherits tab scroll by 'Open Link in Duplicated Tab' command.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/526d3a60">526d3a60</a> Refactore
+            openUILinkIn to divert all the calls from places UI to use our preferences, update the
+            function to address the changes in FeedHandler.loadFeed, since Firefox 42+ clicking
+            'Subscribe to This Page' always show 'Subscribe to this feed' page.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/de1afbfe">de1afbfe</a> Update
+            incompatibility with Vertical Tabs Reloaded, reset initialization flag for
+            Tabmix.initialization.run in the tabbarowser constructor.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/f99045d1">f99045d1</a> Update the
+            check for SearchLoad Options extension and Searchload Options Revived (Pale Moon).
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/29cdf36c">29cdf36c</a> Update
+            SingleWindowModeUtils.onload after bug<a
+              href="https://bugzilla.mozilla.org/show_bug.cgi?id=1186521"
+            >
+              1186521</a
+            >.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/6c0b8860">6c0b8860</a> Add
+            'Report a Bug' button to tab-mix-plus page at addons.mozilla.org.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/2dc30fa3">2dc30fa3</a> Update
+            compatibility with treeStyleTab - for all the calls to addTab from openUILinkIn or from
+            external app, prepare the tree to open the new tab as next sibling, when our pref is to
+            open new tabs next and only if treeStyletab did not set it to open as child. (changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/0ba3fb59">0ba3fb59</a>).
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/b63b9d64">b63b9d64</a> Disable
+            'pinnedTabScroll' when Tabmix.extensions.verticalTabBar is true, (changeset
+            <a href="https://github.com/onemen/TabMixPlus/commit/23eaa7c0">23eaa7c0</a>).
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/ebf175bf">ebf175bf</a> Add
+            support to Tab Kit 2nd Edition.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.2.3pre.160328a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/c9983988">c9983988</a> Prevent tabs toolbar buttons from disappearing when there is more than one row of tabs.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/cec5060d">cec5060d</a> Follow up bu<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1257554"> 1257554</a> - Remove restore on demand checkbox.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/0ba3fb59">0ba3fb59</a> Update compatibility with treeStyleTab - instruct treeStyleTab to use 'kNEWTAB_OPEN_AS_NEXT_SIBLING' when our preference is to open the tab next.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/47f37f2f">47f37f2f</a> let unknownContentType dialog or nsIFilePicker more time to open.</li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/c9983988">c9983988</a> Prevent tabs
+            toolbar buttons from disappearing when there is more than one row of tabs.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/cec5060d">cec5060d</a> Follow up
+            bu<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1257554"> 1257554</a> - Remove
+            restore on demand checkbox.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/0ba3fb59">0ba3fb59</a> Update
+            compatibility with treeStyleTab - instruct treeStyleTab to use
+            'kNEWTAB_OPEN_AS_NEXT_SIBLING' when our preference is to open the tab next.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/47f37f2f">47f37f2f</a> let
+            unknownContentType dialog or nsIFilePicker more time to open.
+          </li>
         </ul>
       </div>
 
       <div class="topic">
         <h4>0.4.2.3pre.160319a1</h4>
         <ul>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/4390d740">4390d740</a> Don't close window when closing blank tab that opened from downloading link.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/984fa009">984fa009</a> Missing label in 'Tab Mix' options on Firefox 45 with TabGroups extension. Check for 'context_tabViewMenu' and 'tabGroups-context_tabViewMenu' existence.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/35ec9ae7">35ec9ae7</a> Alt-Tab breaks double-click and click and drag on Tab-bar. Related to changesets <a href="https://github.com/onemen/TabMixPlus/commit/705ce919">705ce919</a>, <a href="https://github.com/onemen/TabMixPlus/commit/f47f0f9f">f47f0f9f</a>.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/82e42103">82e42103</a> Don't rely on Tabmix.callerName to get the right caller name when the original function wrapped by another extension.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/5e736a40">5e736a40</a> Follow up bu<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1253016"> 1253016</a> - Remove legacy __defineGetter__/__defineSetter__ this behavior.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/38da2f8e">38da2f8e</a> Firefox freeze when user clicks on 'Clear Groups Data', from Tab Groups extensions options tab, when some of the tabs are locked.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9985c2a1">9985c2a1</a> Show close tabs menu items on pinned tab context menu, when there is at least one non-pinned tab.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/485e9bf6">485e9bf6</a> In windows XP, multi-row background is not match the windows style until first resize. The first row has blue background (the color of windows XP title), others tab rows has gray background.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9d895d73">9d895d73</a> Add call to updateVerticalTabStrip from onTabClose_updateTabBar when Classic theme restorer installed, underflow not always fires when Classic theme restorer installed.</li>
-          <li>Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/0f0c0492">0f0c0492</a> Restore windows order and selected window.</li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/4390d740">4390d740</a> Don't
+            close window when closing blank tab that opened from downloading link.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/984fa009">984fa009</a> Missing
+            label in 'Tab Mix' options on Firefox 45 with TabGroups extension. Check for
+            'context_tabViewMenu' and 'tabGroups-context_tabViewMenu' existence.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/35ec9ae7">35ec9ae7</a> Alt-Tab
+            breaks double-click and click and drag on Tab-bar. Related to changesets
+            <a href="https://github.com/onemen/TabMixPlus/commit/705ce919">705ce919</a>,
+            <a href="https://github.com/onemen/TabMixPlus/commit/f47f0f9f">f47f0f9f</a>.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/82e42103">82e42103</a> Don't
+            rely on Tabmix.callerName to get the right caller name when the original function
+            wrapped by another extension.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/5e736a40">5e736a40</a> Follow up
+            bu<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1253016"> 1253016</a> - Remove
+            legacy __defineGetter__/__defineSetter__ this behavior.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/38da2f8e">38da2f8e</a> Firefox
+            freeze when user clicks on 'Clear Groups Data', from Tab Groups extensions options tab,
+            when some of the tabs are locked.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9985c2a1">9985c2a1</a> Show
+            close tabs menu items on pinned tab context menu, when there is at least one non-pinned
+            tab.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/485e9bf6">485e9bf6</a> In
+            windows XP, multi-row background is not match the windows style until first resize. The
+            first row has blue background (the color of windows XP title), others tab rows has gray
+            background.
+          </li>
+          <li>
+            Fixed: <a href="https://github.com/onemen/TabMixPlus/commit/9d895d73">9d895d73</a> Add
+            call to updateVerticalTabStrip from onTabClose_updateTabBar when Classic theme restorer
+            installed, underflow not always fires when Classic theme restorer installed.
+          </li>
+          <li>
+            Fixed:
+            <a href="https://github.com/onemen/TabMixPlus/commit/0f0c0492">0f0c0492</a> Restore
+            windows order and selected window.
+          </li>
         </ul>
       </div>
 
-      <div class="topic"><h4>
-        <a href="../changelog/0.4.2.2" target="tabmix-changelog-content">Previous version</a>
-        </h4></div>
-
-    </div>
+      <div class="topic">
+        <h4>
+          <a href="../changelog/0.4.2.2" target="tabmix-changelog-content">Previous version</a>
+        </h4>
+      </div>
     </div>
   </body>
 </html>

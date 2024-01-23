@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Tab Mix Plus docs on Github pages",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --format stylish --fix --cache --cache-location config/.eslintcache --ignore-path config/.eslintignore --ext .js,.ts,.html .",
+    "format": "prettier --ignore-path config/.prettierignore --write \"**/*.{js,jsx,ts,tsx,json,css,md,html}\""
   },
   "keywords": [],
   "author": "tabmix.onemen@gmail.com",
@@ -12,10 +13,12 @@
     "url": "https://github.com/onemen//issues"
   },
   "homepage": "https://github.com/onemen/tabmixplus-docs/docs",
+  "prettier": "./config/.prettier.json",
   "devDependencies": {
     "@types/node": "^20.10.1",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-html": "^7.1.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "^3.1.0"
   }

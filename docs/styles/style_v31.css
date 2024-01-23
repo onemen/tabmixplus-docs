@@ -94,7 +94,9 @@ a:not(.header-link):hover {
   z-index: 1000000;
   display: none;
   padding: 0.5em 0.75em;
-  font: normal normal 11px/1.5 'Montserrat', sans-serif;
+  font:
+    normal normal 11px/1.5 'Montserrat',
+    sans-serif;
   white-space: pre;
   pointer-events: none;
   content: attr(aria-label);
@@ -138,7 +140,7 @@ a:not(.header-link):hover {
 }
 
 .hero {
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin-bottom: 150px;
   align-items: center;
