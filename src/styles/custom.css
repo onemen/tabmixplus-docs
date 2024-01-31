@@ -1,0 +1,41 @@
+:root {
+  --tabmix-nav-height: 56px
+}
+
+.tabmix-nav-colors {
+  background-color: var(--sl-color-bg-nav);
+  color: var(--sl-color-white);
+  border-bottom: 1px solid var(--sl-color-hairline-shade);
+}
+
+
+.main-pane {
+  padding-top: calc(var(--tabmix-nav-height) / 2);
+}
+
+.right-sidebar {
+  padding-top: calc(var(--sl-nav-height) + var(--tabmix-nav-height));
+
+}
+
+.sidebar-pane {
+  inset-block: calc(var(--sl-nav-height) + var(--tabmix-nav-height)) 0
+}
+
+/* HELP pages */
+
+.help-img {
+	float: right;
+	border-radius: 6px;
+	margin-left: 20px;
+	width: 40%;
+}
+
+.default {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.starlight-aside {
+  max-width: 45rem;
+}

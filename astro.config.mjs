@@ -18,36 +18,49 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/onemen/TabMixPlus-docs/',
       },
-      // sidebar: [
-      //   {
-      //     label: 'Guides',
-      //     items: [
-      //       // Each item here is one entry in the navigation menu.
-      //       {
-      //         label: 'Example Guide',
-      //         link: '/guides/example/',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     label: 'Reference',
-      //     autogenerate: {
-      //       directory: 'reference',
-      //     },
-      //   },
-      // {
-      //   label: 'Troubleshooting',
-      //   // Autogenerate a group of links for the 'guides' directory.
-      //   autogenerate: { directory: 'troubleshooting' },
-      // },
-      // ],
-      defaultLocale: 'root',
-      locales: {
-        root: {
-          label: 'English',
-          lang: 'en', // lang is required for root locales
-        },
+      components: {
+        Header: './src/components/Header.astro',
       },
+      sidebar: [
+        //   {
+        //     label: 'Guides',
+        //     items: [
+        //       // Each item here is one entry in the navigation menu.
+        //       {
+        //         label: 'Example Guide',
+        //         link: '/guides/example/',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     label: 'Reference',
+        //     autogenerate: {
+        //       directory: 'reference',
+        //     },
+        //   },
+        {
+          label: 'Welcome to Tab Mix Plus',
+          link: './',
+        },
+        {
+          label: 'Help',
+          autogenerate: { directory: 'help' },
+        },
+        {
+          label: 'Troubleshooting',
+          autogenerate: { directory: 'troubleshooting' },
+        },
+      ],
+      customCss: [
+        './src/styles/custom.css',
+      ],
+      defaultLocale: 'en',
+      // locales: {
+      //   root: {
+      //     label: 'English',
+      //     lang: 'en', // lang is required for root locales
+      //   },
+      // },
     }),
     tailwind(),
   ],

@@ -1,0 +1,143 @@
+---
+title: Links
+tableOfContents: false
+---
+
+<style>
+  :root {
+    --sl-content-width: 90%;
+  }
+</style>
+
+<img class="help-img" src="/assets/images/links.jpg" alt="image" />
+Controls what actions are taken when a link is clicked in the browser window or another
+application<br /><br />
+First three options are Firefox's hidden settings, more help available by clicking on the
+links below:
+
+<ul class="topic list-disc pl-8">
+  <li>
+    Open links that open in a new window in (select one):
+    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow"
+      ><b>browser.link.open_newwindow</b></a
+    >
+    <ul class="list-disc pl-8">
+      <li>New window - opens a new browser window</li>
+      <li>
+        <span class="default">New tab</span> - creates a new tab in the current browser window
+      </li>
+      <li>
+        Current tab - replaces existing URL page in the current browser tab with the link
+        contents
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ul class="topic list-disc pl-8">
+  <li>
+    Open links from other applications in (select one):
+    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow"
+      ><b>browser.link.open_newwindow.override.external</b></a
+    ><br />
+    This preference overrides browser.link.open_newwindow for external links. Set it only if
+    you need different destination for external links.
+    <ul class="list-disc pl-8">
+      <li>New window - opens a new browser window</li>
+      <li>
+        <span class="default">New tab</span> - creates a new tab in the current browser window
+      </li>
+      <li>
+        Current tab - replaces existing URL page in the current browser tab with the link
+        contents
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ul class="topic list-disc pl-8">
+  <li>
+    JavaScript popups (select one):
+    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow.restriction"
+      ><b>browser.link.open_newwindow.restriction</b></a
+    >
+    <ul class="list-disc pl-8">
+      <li>
+        <span class="default">Allows resized popups</span> - this option allows only sized
+        window to be open as popup
+      </li>
+      <li>Allows all popups</li>
+      <li>Open all popups in tabs</li>
+    </ul>
+  </li>
+
+:::note
+"JavaScript &amp Popup restriction" as well as "Open links that open in a new window in"
+and "Open links from other applications in", are all Firefox build-in options. Tab mix
+only provides user interface to control these options instead of using about\:config
+entries.<br/><br />
+These options control where link that uses "window.open()" JavaScript command should be
+open. Assuming that you set "Open links that open in a new window in" to be diverted to
+tab (new one or current), then using "Open all popups in tabs" will instruct Firefox to
+open all such links in tabs. When you are using the option "Allows resize popups" you
+allow Firefox to open new window when the link uses JavaScript command that call
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open">"window.open()"</a>
+function with the "features" parameter (size, position, scrollbars, etc.).
+:::
+
+</ul>
+
+<a name="file-type-editor"></a>
+<img class="help-img" src="/assets/images/file-type-editor.gif" alt="image" />
+<ul class="list-disc pl-8">
+  <li>
+  <span class="default">Prevent blank tabs when downloading files</span>
+
+  When enabled, this option prevents blank tab opening from a link that contains one of
+  the file types in this list and automatically closes most blank tabs that open for other
+  file types. (There are some exceptions, links from Google Drive for example). This
+  option doesn't change the way Firefox downloads files and the place the files are saved
+  to.<br />
+
+  Click the "Edit" button to open "File Type Editor". In the editor, you can view the
+  files extensions list, add, delete and modify the list. "Restore Defaults" button in
+  this tab restores only the file type preference (extensions.tabmix.filetype).
+
+  :::note
+  File type can be simple file extensions or
+  <a href="http://en.wikipedia.org/wiki/Regular_expression">regular expression</a>.<br />
+  Post a question to the forum if you need help regarding special file type or download
+  link.
+  :::
+  </li>
+</ul>
+
+
+<ul class="topic list-disc pl-8">
+  <li>
+    Force to open in new tab (select one):
+    <ul class="list-disc pl-8">
+      <li class="default">Nothing</li>
+      <li>All Links</li>
+      <li>Links to other sites</li>
+    </ul>
+  </li>
+</ul>
+
+<ul class="topic list-disc pl-8">
+  <li>Open links with a target attribute in current tab</li>
+  <li>Open links with target to existing frame in the current tab</li>
+
+  :::note
+    If checked, the current tab contents will be replaced with the link contents. When these
+    options are not checked, links with target attribute will open according to user settings.
+    Read more <a href="http://www.htmlcodetutorial.com/linking/_A_TARGET.html">here</a>.
+  :::
+</ul>
+
+<ul class="topic list-disc pl-8">
+  <li>
+    Enable Single Window Mode - This option will force links to open new tabs within the
+    current browser window
+  </li>
+</ul>

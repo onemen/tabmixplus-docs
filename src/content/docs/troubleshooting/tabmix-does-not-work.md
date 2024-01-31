@@ -1,5 +1,7 @@
 ---
 title: Tab Mix Plus does not work properly
+sidebar:
+  order: 1
 ---
 
 If you are reading this page, you have probably encountered a problem with Tab Mix Plus.
