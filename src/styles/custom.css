@@ -60,15 +60,14 @@
   margin-top: 0;
 }
 
-ul:not(.top-level) ul:not(.circle) > li {
+.content-panel ul:not(.circle) > li {
   list-style-type: square;
 }
 
-ul:not(.top-level) li > ul:not(.square) > li {
+.content-panel li > ul:not(.square) > li {
   list-style-type: circle;
 }
 
-/* TODO: fix this */
-.sl-container {
-  max-width: 90% !important;
+.tabmix-help-content .sl-container {
+  max-width: 90%;
 }

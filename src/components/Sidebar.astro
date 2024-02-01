@@ -1,0 +1,16 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+
+import { default as MobileMenuFooter } from '@astrojs/starlight/components/MobileMenuFooter.astro';
+import { default as SidebarSublist } from '@astrojs/starlight/components/SidebarSublist.astro';
+
+const [page] = Astro.props.slug.split('/');
+const { sidebar } = Astro.props;
+// @ts-ignore
+sidebar.forEach(entry => (entry.collapsed = entry.label.toLowerCase() !== page));
+---
+
+<SidebarSublist sublist={sidebar} />
+<div class="md:sl-hidden">
+  <MobileMenuFooter {...Astro.props} />
+</div>

@@ -1,0 +1,38 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+---
+
+<script>
+  const main = document.querySelector('main');
+  if (window.location.pathname.startsWith('/help')) {
+    main?.classList.add('tabmix-help-content');
+  } else {
+    main?.classList.remove('tabmix-help-content');
+  }
+</script>
+
+<div class="content-panel">
+  <div class="sl-container"><slot /></div>
+</div>
+
+<style>
+  .content-panel {
+    padding: 1.5rem var(--sl-content-pad-x);
+  }
+  .content-panel + .content-panel {
+    border-top: 1px solid var(--sl-color-hairline);
+  }
+  .sl-container {
+    max-width: var(--sl-content-width);
+  }
+
+  .sl-container > :global(* + *) {
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 72rem) {
+    .sl-container {
+      margin-inline: var(--sl-content-margin-inline, auto);
+    }
+  }
+</style>

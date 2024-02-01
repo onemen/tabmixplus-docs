@@ -20,7 +20,9 @@ export default defineConfig({
         baseUrl: 'https://github.com/onemen/TabMixPlus-docs/',
       },
       components: {
+        ContentPanel: './src/components/ContentPanel.astro',
         Header: './src/components/Header.astro',
+        Sidebar: './src/components/Sidebar.astro',
       },
       sidebar: [
         //   {
