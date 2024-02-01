@@ -1,0 +1,33 @@
+---
+title: Menu - Tab Context Menu
+tableOfContents: false
+sidebar:
+  order: 15
+---
+
+import { Image } from 'astro:assets';
+import tabContextMenu from './images/menu-tab-context-menu.jpg';
+
+<div class="topic">
+  <Image src={tabContextMenu} alt="image" />
+  Controls which items will be displayed in the Tab Context Menu
+</div>
+
+<ul class="topic">
+  <li>
+    Show Tab Context Menu on tabbar
+    <p class="comment">By default, Firefox uses the toolbar context menu for the tabbar</p>
+
+    <p></p>
+  </li>
+</ul>
+
+<div class="topic">
+  Show in <span class="default">Tab Context Menu</span>:<br />
+  <p class="caption">
+    Put a check mark ( &#8730; ) next to all items you want displayed in the Tab Context Menu
+    All checked items will appear in the Tab Context Menu
+  </p>
+
+  <p></p>
+</div>
