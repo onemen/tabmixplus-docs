@@ -8,6 +8,9 @@ dependencies:
   '@astrojs/check':
     specifier: ^0.4.1
     version: 0.4.1(prettier-plugin-astro@0.13.0)(prettier@3.2.4)(typescript@5.3.3)
+  '@astrojs/mdx':
+    specifier: ^2.1.1
+    version: 2.1.1(astro@4.2.7)
   '@astrojs/starlight':
     specifier: ^0.17.1
     version: 0.17.1(astro@4.2.7)
@@ -17,6 +20,9 @@ dependencies:
   astro:
     specifier: ^4.2.1
     version: 4.2.7(typescript@5.3.3)
+  astro-expressive-code:
+    specifier: ^0.32.3
+    version: 0.32.3(astro@4.2.7)
   sharp:
     specifier: ^0.32.5
     version: 0.32.6
@@ -5247,7 +5253,7 @@ packages:
     dependencies:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.3
-      mdast-util-to-hast: 13.0.2
+      mdast-util-to-hast: 13.1.0
       unified: 11.0.4
       vfile: 6.0.1
     dev: false

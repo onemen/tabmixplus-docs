@@ -3,24 +3,22 @@ title: Links
 tableOfContents: false
 ---
 
-<style>
-  :root {
-    --sl-content-width: 90%;
-  }
-</style>
+import { Image } from 'astro:assets';
+import linksImage from './images/links.jpg';
+import fileTypeEditorImage from './images/file-type-editor.gif';
 
-<img class="help-img" src="/assets/images/links.jpg" alt="image" />
-Controls what actions are taken when a link is clicked in the browser window or another
-application<br /><br />
+##### Controls what actions are taken when a link is clicked in the browser window or another application
+
+<br />
+
+<Image class="help-img" src={linksImage} alt="image" />
 First three options are Firefox's hidden settings, more help available by clicking on the
 links below:
 
 <ul class="topic list-disc pl-8">
   <li>
     Open links that open in a new window in (select one):
-    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow"
-      ><b>browser.link.open_newwindow</b></a
-    >
+    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow"><b>browser.link.open_newwindow</b></a>
     <ul class="list-disc pl-8">
       <li>New window - opens a new browser window</li>
       <li>
@@ -37,9 +35,7 @@ links below:
 <ul class="topic list-disc pl-8">
   <li>
     Open links from other applications in (select one):
-    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow"
-      ><b>browser.link.open_newwindow.override.external</b></a
-    ><br />
+    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow"><b>browser.link.open_newwindow.override.external</b></a><br />
     This preference overrides browser.link.open_newwindow for external links. Set it only if
     you need different destination for external links.
     <ul class="list-disc pl-8">
@@ -58,9 +54,7 @@ links below:
 <ul class="topic list-disc pl-8">
   <li>
     JavaScript popups (select one):
-    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow.restriction"
-      ><b>browser.link.open_newwindow.restriction</b></a
-    >
+    <a href="http://kb.mozillazine.org/Browser.link.open_newwindow.restriction"><b>browser.link.open_newwindow.restriction</b></a>
     <ul class="list-disc pl-8">
       <li>
         <span class="default">Allows resized popups</span> - this option allows only sized
@@ -87,8 +81,10 @@ function with the "features" parameter (size, position, scrollbars, etc.).
 
 </ul>
 
+<br />
+
+<Image class="help-img" src={fileTypeEditorImage} alt="image" />
 <a name="file-type-editor"></a>
-<img class="help-img" src="/assets/images/file-type-editor.gif" alt="image" />
 <ul class="list-disc pl-8">
   <li>
   <span class="default">Prevent blank tabs when downloading files</span>
@@ -106,7 +102,7 @@ function with the "features" parameter (size, position, scrollbars, etc.).
   :::note
   File type can be simple file extensions or
   <a href="http://en.wikipedia.org/wiki/Regular_expression">regular expression</a>.<br />
-  Post a question to the forum if you need help regarding special file type or download
+  Post a question to our [discussions](https://github.com/onemen/TabMixPlus/discussions) if you need help regarding special file type or download
   link.
   :::
   </li>

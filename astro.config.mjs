@@ -1,7 +1,8 @@
-import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 import starlight from '@astrojs/starlight';
-
 import tailwind from '@astrojs/tailwind';
+import expressiveCode from 'astro-expressive-code';
+import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,16 +45,18 @@ export default defineConfig({
         },
         {
           label: 'Help',
-          autogenerate: { directory: 'help' },
+          autogenerate: {
+            directory: 'help',
+          },
         },
         {
           label: 'Troubleshooting',
-          autogenerate: { directory: 'troubleshooting' },
+          autogenerate: {
+            directory: 'troubleshooting',
+          },
         },
       ],
-      customCss: [
-        './src/styles/custom.css',
-      ],
+      customCss: ['./src/styles/custom.css'],
       defaultLocale: 'en',
       // locales: {
       //   root: {
@@ -63,5 +66,7 @@ export default defineConfig({
       // },
     }),
     tailwind(),
+    expressiveCode(),
+    mdx(),
   ],
 });

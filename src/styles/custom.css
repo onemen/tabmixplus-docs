@@ -25,10 +25,17 @@
 /* HELP pages */
 
 .help-img {
-	float: right;
 	border-radius: 6px;
-	margin-left: 20px;
-	width: 40%;
+	margin-inline: auto;
+	width: 60%;
+}
+
+@media (min-width: 1400px) {
+  .help-img {
+    float: right;
+    margin-left: 20px;
+    width: 40%;
+  }
 }
 
 .default {
@@ -38,4 +45,25 @@
 
 .starlight-aside {
   max-width: 45rem;
+}
+
+.sl-markdown-content li > p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.sl-markdown-content li > ul {
+  margin-top: 0;
+}
+
+ul:not(.top-level) ul:not(.circle) > li {
+  list-style-type: square;
+}
+
+ul:not(.top-level) li > ul:not(.square) > li {
+  list-style-type: circle;
+}
+
+/* TODO: fix this */
+.sl-container {
+  max-width: 90% !important;
 }
