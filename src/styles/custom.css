@@ -1,33 +1,38 @@
 :root {
-  --tabmix-nav-height: 56px
+  --tabmix-nav-height: 56px;
 }
 
-.tabmix-nav-colors {
-  background-color: var(--sl-color-bg-nav);
-  color: var(--sl-color-white);
-  border-bottom: 1px solid var(--sl-color-hairline-shade);
+.tabmix-nav {
+  display: none;
 }
 
+@media (min-width: 800px) {
+  .tabmix-nav {
+    background-color: var(--sl-color-bg-nav);
+    color: var(--sl-color-white);
+    border-bottom: 1px solid var(--sl-color-hairline-shade);
+    display: flex;
+  }
 
-.main-pane {
-  padding-top: calc(var(--tabmix-nav-height) / 2);
-}
+  .main-pane {
+    padding-top: calc(var(--tabmix-nav-height) / 2);
+  }
 
-.right-sidebar {
-  padding-top: calc(var(--sl-nav-height) + var(--tabmix-nav-height));
+  .right-sidebar {
+    padding-top: calc(var(--sl-nav-height) + var(--tabmix-nav-height));
+  }
 
-}
-
-.sidebar-pane {
-  inset-block: calc(var(--sl-nav-height) + var(--tabmix-nav-height)) 0
+  .sidebar-pane {
+    inset-block: calc(var(--sl-nav-height) + var(--tabmix-nav-height)) 0;
+  }
 }
 
 /* HELP pages */
 
 .help-img {
-	border-radius: 6px;
-	margin-inline: auto;
-	width: 60%;
+  border-radius: 6px;
+  margin-inline: auto;
+  width: 60%;
 }
 
 @media (min-width: 1400px) {

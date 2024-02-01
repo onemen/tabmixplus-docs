@@ -12,5 +12,14 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "es5",
-  "useTabs": false
+  "useTabs": false,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }
