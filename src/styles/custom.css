@@ -2,6 +2,18 @@
   --tabmix-nav-height: 56px;
 }
 
+/* Header */
+
+header .header {
+  display: flex;
+}
+
+/* make the search input large */
+.header .sl-flex:nth-child(2) {
+  flex-grow: 1;
+  justify-content: center;
+}
+
 .tabmix-nav {
   display: none;
 }
@@ -78,4 +90,33 @@
 
 .tabmix-help-content .sl-markdown-content {
   min-height: 600px;
+}
+
+.active {
+  background-color: var(--sl-color-text-accent);
+  border-radius: 0.25rem;
+  color: var(--sl-color-text-invert);
+  font-weight: 600;
+  padding: 0.3em 0.6em;
+}
+
+.paypal-button {
+	display: inline-block;
+	background: #ffc439;
+	border-radius: 6.25rem;
+	min-height: 1.625rem;
+	-webkit-box-shadow: inset 0 2px 0 0 hsla(0,0%,100%,.41);
+	box-shadow: inset 0 2px 0 0 hsla(0,0%,100%,.41);
+	border: 1px solid #d9a630;
+	color: #000;
+	font-family: Helvetica;
+	font-size: .875rem;
+	font-weight: 700;
+	padding: 0 1rem;
+	min-width: 7.5rem;
+	margin-bottom: 0;
+}
+
+.paypal-button:hover {
+  background: #ffc439cc;
 }

@@ -12,7 +12,7 @@ export default defineConfig({
       logo: {
         src: './src/assets/tabmix_logo.png',
       },
-      title: 'Docs',
+      title: 'Tab Mix Plus - Docs',
       social: {
         github: 'https://github.com/onemen/TabMixPlus',
       },
@@ -25,22 +25,6 @@ export default defineConfig({
         Sidebar: './src/components/Sidebar.astro',
       },
       sidebar: [
-        //   {
-        //     label: 'Guides',
-        //     items: [
-        //       // Each item here is one entry in the navigation menu.
-        //       {
-        //         label: 'Example Guide',
-        //         link: '/guides/example/',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     label: 'Reference',
-        //     autogenerate: {
-        //       directory: 'reference',
-        //     },
-        //   },
         {
           label: 'Welcome to Tab Mix Plus',
           link: './',
@@ -60,12 +44,6 @@ export default defineConfig({
       ],
       customCss: ['./src/styles/custom.css'],
       defaultLocale: 'en',
-      // locales: {
-      //   root: {
-      //     label: 'English',
-      //     lang: 'en', // lang is required for root locales
-      //   },
-      // },
     }),
     tailwind(),
     expressiveCode(),

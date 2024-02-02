@@ -10,6 +10,14 @@ const { sidebar } = Astro.props;
 sidebar.forEach(entry => (entry.collapsed = entry.label.toLowerCase() !== page));
 ---
 
+<div class="self-center">
+  <a
+    class="paypal-button"
+    href="https://www.paypal.com/donate?hosted_button_id=BZWMH5PS56GAW"
+    target="_blank">Make a Donation</a
+  >
+</div>
+
 <SidebarSublist sublist={sidebar} />
 <div class="md:sl-hidden">
   <MobileMenuFooter {...Astro.props} />
