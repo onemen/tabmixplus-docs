@@ -37,23 +37,27 @@ import mainMenuFreeezTab from './images/main_menu_freeez_tab.gif';
   </p>
 </div>
 
-<div class="topic container">
-  <Image src={lockNewTabs} alt="image" />
-  <u>Lock New tabs</u>
-  <p>
-    You can set Tab Mix Plus to lock every new tab and every new App tab. If "Apply changes to
-    open tabs" is enabled, any change to <b>Lock New tabs</b> or
-    <b>Lock Apps tabs</b> preferences changes the lock status of open tabs accordingly.
-  </p>
+<div class="grid xl:grid-cols-2 gap-2">
+  <div class="topic container">
+    <u>Lock New tabs</u>
+    <p>
+      You can set Tab Mix Plus to lock every new tab and every new App tab. If "Apply changes to
+      open tabs" is enabled, any change to <b>Lock New tabs</b> or
+      <b>Lock Apps tabs</b> preferences changes the lock status of open tabs accordingly.
+    </p>
+  </div>
+  <Image class="w-10/12" src={lockNewTabs} alt="image" />
 </div>
 
 <div class="topic container">
-  <Image src={tabMenuFreeezTab} alt="image" />
   <u>Change single tab Protected, Locked or Frozen status</u>
   <p>
     You can change single tab Protected, Locked or Frozen status from tab context menu or
     browser main context menu. To enable these options in the context menu, go to Tab Mix Plus
     Option window > Menu Panel and set the options you need for each menu.
-    <Image src={mainMenuFreeezTab} alt="image" />
   </p>
+</div>
+<div class="grid xl:grid-cols-2 gap-4">
+  <Image class="mt-4 w-10/12" src={mainMenuFreeezTab} alt="image" />
+  <Image class="mt-4 w-10/12" src={tabMenuFreeezTab} alt="image" />
 </div>

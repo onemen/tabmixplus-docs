@@ -8,12 +8,13 @@ sidebar:
 import { Image } from 'astro:assets';
 import mouseGestures from './images/mouse-gestures.jpg';
 
+<Image class="help-img" src={mouseGestures} alt="image" />
+
 <div class="topic">
-  <Image src={mouseGestures} alt="image" />
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Select tab pointed for ___ msec<br />
-      <ul>
+      <ul class="list-disc pl-8">
         <li>Specify time in milliseconds, 250 milliseconds is default.</li>
       </ul>
     </li>
@@ -21,12 +22,12 @@ import mouseGestures from './images/mouse-gestures.jpg';
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Switch to last selected tab when clicking current one<br />clicking the current tab will
       make the last selected tab take focus and become the current tab after the specified
       time delay
-      <ul>
+      <ul class="list-disc pl-8">
         <li>
           Use time delay of ___ msec<br />specify time in milliseconds, 250 milliseconds is
           default
@@ -37,16 +38,16 @@ import mouseGestures from './images/mouse-gestures.jpg';
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Mouse click (down and release) to select a tab</li>
   </ul>
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       <span class="default">Remove Tab Mix Plus menu list entries using middle-click</span>
-      <div class="comment">
+      <aside aria-label="Note" class="starlight-aside starlight-aside--note">
         applies to:
         <ul class="circle justify">
           <li>
@@ -68,21 +69,21 @@ import mouseGestures from './images/mouse-gestures.jpg';
             restored anymore.
           </li>
         </ul>
-      </div>
+      </aside>
     </li>
   </ul>
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       <span class="default"
         >When closing a tab, other tabs should not resize until cursor leaves toolbar
         region</span>
-      <p class="comment condense">
+      <aside aria-label="Note" class="starlight-aside starlight-aside--note">
         applies only if tabs closed with the tab Close button. This option allows user to
         close more than one tab without moving the mouse.
-      </p>
+      </aside>
     </li>
   </ul>
 </div>
@@ -92,19 +93,19 @@ import mouseGestures from './images/mouse-gestures.jpg';
     <li>
       <span class="default">When dragging a tab move it directly</span> - (applies only when
       tabs are in single row).
-      <p class="comment justify">
+      <aside aria-label="Note" class="starlight-aside starlight-aside--note">
         This option is not about the drop indicator, it's about moving a tab when you drag it.
         When this option is on, and tabs are on one row, the tab starts to move when you start
         dragging it. When tabs are in mutli-row or when this options is off, the tab is not
         moving when you drag it. You see a drop indicator and the tab will move to its new
         place when you stop dragging it and release the mouse button.
-      </p>
+      </aside>
     </li>
   </ul>
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Drop indicator (select one):
-      <ul>
+      <ul class="list-disc pl-8">
         <li class="default">Native Style (single down arrow)</li>
         <li>Built-in style (left and right arrows)</li>
       </ul>
@@ -112,11 +113,13 @@ import mouseGestures from './images/mouse-gestures.jpg';
   </ul>
 </div>
 
-<ul class="topic">
+<ul class="topic list-disc pl-8">
   <li>
     When scrolling over the tab-bar:<br />
-    <p class="comment condense">Hold Shift while scrolling to switch between these options</p>
-    <ul>
+    <aside aria-label="Note" class="starlight-aside starlight-aside--note">
+      Hold Shift while scrolling to switch between these options
+    </aside>
+    <ul class="list-disc pl-8">
       <li>Scroll to change selected tab - scrolling down selects the next tab</li>
       <li>
         <span class="default">Scroll all tabs</span> - scrolling moves visible tabs on the

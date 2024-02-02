@@ -8,12 +8,13 @@ sidebar:
 import { Image } from 'astro:assets';
 import mouseClicking from './images/mouse-clicking.jpg';
 
+<Image class="help-img" src={mouseClicking} alt="image" />
+
 <div class="topic">
-  <Image src={mouseClicking} alt="image" />
   Choose command to perform when clicking on the tab or tabbar - Choose a click action, then
   specify the action from the list to be applied for tabs and tabbar.<br /><br />
   Select which action is to be applied for each of the five mouse click events
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Double-click</li>
     <li>Middle-click</li>
     <li>Ctrl-click</li>
@@ -21,14 +22,14 @@ import mouseClicking from './images/mouse-clicking.jpg';
     <li>Alt-click</li>
   </ul>
 
-  <p class="comment">
+  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
     You can enable Firefox default or let other extensions get control for specific mouse
     click event by unchecking the box next to specific action.
-  </p>
+  </aside>
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Prevent clicking on Tab-bar from dragging the window.</li>
     <li>Prevent double click on Tab-bar from changing window size.</li>
   </ul>

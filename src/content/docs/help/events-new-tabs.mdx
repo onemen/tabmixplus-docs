@@ -9,32 +9,33 @@ import { Image } from 'astro:assets';
 import eventsNewTabs from './images/events-new-tabs.jpg';
 import switchToTab from './images/switchtotab.png';
 
-<div class="topic">
-  <Image src={eventsNewTabs} alt="image" />
-  Controls which URL loads in New Tab and location of newly opened tabs.<br />
-</div>
+#####  Controls which URL loads in New Tab and location of newly opened tabs.<br />
 
-<ul class="topic">
+<br />
+
+<Image class="help-img" src={eventsNewTabs} alt="image" />
+
+<ul class="topic list-disc pl-8">
   <li>
     Load on New Tabs (select one):
-    <div class="comment">
+    <aside aria-label="Note" class="starlight-aside starlight-aside--note">
       You can open 'New Tab' from:
-      <ul class="square" style="margin-left: 12px">
+      <ul class="square pl-8 !mt-2">
         <li>[New Tab Page](../display-tab-bar)</li>
         <li>Menu Bar: File &gt; New Tab</li>
         <li>Tab context menu: New Tab</li>
         <li>Keyboard shortcut: Ctrl/Cmd + T</li>
       </ul>
       See next sections about the preference that control all other tabs opening
-    </div>
+    </aside>
 
-    <ul>
+    <ul class="list-disc pl-8">
       <li>
-        <span class="default">New Tab Page (about:newtab)</span> - see more details in
+        <span class="default">New Tab Page (about\:newtab)</span> - see more details in
         <a
           href="http://support.mozilla.org/en-US/kb/new-tab-page-show-hide-and-customize-top-sites">Firefox Help</a>
       </li>
-      <li>Blank Page (about:blank)</li>
+      <li>Blank Page (about\:blank)</li>
       <li>
         Home Page (to select your Home Page, you must specify a Home Page in the Firefox
         Options/General)
@@ -49,7 +50,7 @@ import switchToTab from './images/switchtotab.png';
   <li>Open New Tab next to current one</li>
 </ul>
 
-<ul class="topic">
+<ul class="topic list-disc pl-8">
   <li>
     Open other tabs next to current one
     <ul class="square">
@@ -59,64 +60,65 @@ import switchToTab from './images/switchtotab.png';
         refer to the example below.
       </li>
     </ul>
-    <p class="comment">
-      <u>Example of changing opening order</u><br />
-      `[a][b][c]` are the current opened tabs with `[a]` being the current tab.<br />
-      `[1][2][3]` are the new tabs opened in that order<br />
-      `[a][b][c][1][2][3]` -&gt; `[a][3][2][1][b][c]`, this is how tabs open without changing
-      opening order<br />
-      `[a][b][c][1][2][3]` -&gt; `[a][1][2][3][b][c]`, this is how tabs open with the change
-      opening order option checked
-    </p>
+    <aside aria-label="Note" class="starlight-aside starlight-aside--note">
+      <u>Example of changing opening order</u>
+      <p>
+        `[a][b][c]` are the current opened tabs with `[a]` being the current tab.<br />
+        `[1][2][3]` are the new tabs opened in that order.<br />
+        `[a][b][c][1][2][3]` -&gt; `[a][3][2][1][b][c]`, this is how tabs open without changing
+        opening order.<br />
+        `[a][b][c][1][2][3]` -&gt; `[a][1][2][3][b][c]`, this is how tabs open with the change
+        opening order option checked.
+      </p>
+    </aside>
   </li>
 </ul>
 
-<ul class="topic">
+<ul class="topic list-disc pl-8">
   <li class="default">Open duplicated tabs next to original</li>
   <li>
     Move tab from 'Switch to tab' next to current one
-    <p class="comment">
+    <aside aria-label="Note" class="starlight-aside starlight-aside--note">
       When using 'Switch to tab' from address bar popup, move the tab you switching to next to
       the currently selected tab.<br />
       This only applied when the tab you switching to is in the same window.
-      <Image src={switchToTab} alt="image" style="float: none; width: 100%; margin-left: 0"/>
-    </p>
+      <Image src={switchToTab} alt="image"/>
+    </aside>
   </li>
 </ul>
 
 <div class="topic">
   <u>Groups of bookmarks/history</u>
-  <div class="comment">
+  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
     When opening many tabs from bookmarks group or history loading time for all tabs can be
     long, especially when multi-process (aka E10s,
-    <a href="https://wiki.mozilla.org/Electrolysis ">Electrolysis</a>) is enabled.<br />
+    <a href="https://wiki.mozilla.org/Electrolysis" target="_blank">Electrolysis</a>) is enabled.<br />
     It is recommended to enable these options when opening many tabs.
-  </div>
-  <ul>
+  </aside>
+  <ul class="list-disc pl-8">
     <li>Load tabs progressively - load tabs no more than 3 tabs at a time.</li>
     <li>
       Don't load tabs until selected - all background tabs remain unloaded until selected.
     </li>
   </ul>
-  <div class="comment">
+  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
     For both options you can set the amount of tabs that serve as a threshold to enable the
     option.
-  </div>
+  </aside>
 </div>
 
 <div class="topic">
   <u>Lock tabs</u>
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Lock New tabs</li>
     <li>Lock App tabs</li>
-    <br />
-    <li>Apply changes to open tabs</li>
+    <li class="pt-3">Apply changes to open tabs</li>
   </ul>
-  <p class="comment">
+  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
     You can set Tab Mix Plus to lock every new tab and every new App tab. If "Apply changes to
     open tabs" is enabled, any change to <b>Lock New tabs</b> or
     <b>Lock Apps tabs</b> preferences change the lock status of open tabs acordingly.
-  </p>
+  </aside>
   More about
   [Protected Locked and Frozen Tabs](../frozen_tabs)
 </div>

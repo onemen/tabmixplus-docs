@@ -9,16 +9,16 @@ import { Image } from 'astro:assets';
 import displayTab from './images/display-tab.jpg';
 import displayTabStyles from './images/display-tab-styles.jpg';
 
-<div class="topic">
-  <Image src={displayTab} alt="image" />
-  Controls the display of tab color, font, highlighting, optional icons, tab width and tab
-  title
-</div>
+#####  Controls the display of tab color, font, highlighting, optional icons, tab width and tab title
+
+<br/>
+
+<Image class="help-img" src={displayTab} alt="image" />
 
 <div class="topic">
   Highlight (select one or more options) - customized style will be applied to the designated
   tabs
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Current tab</li>
     <li>
       <span class="default">Unread tabs</span>
@@ -29,21 +29,25 @@ import displayTabStyles from './images/display-tab-styles.jpg';
     <li><span class="default">Unloaded tabs</span></li>
     <li>Other tabs (tabs that have been viewed)</li>
   </ul>
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Disable custom background colors
-      <div class="comment">
-        Disable all custom background colors in one click, for the case you are using
-        non-supported theme or extension.
-      </div>
     </li>
+
+<aside aria-label="Note" class="starlight-aside starlight-aside--note">
+  Disable all custom background colors in one click, for the case you are using
+  non-supported theme or extension.
+</aside>
+
     <li>
       Apply background color for squared tabs
-      <div class="comment">
-        Apply this preference when your theme or other extension provides non Australis
-        squared tabs.
-      </div>
     </li>
+
+<aside aria-label="Note" class="starlight-aside starlight-aside--note">
+  Apply this preference when your theme or other extension provides non Australis
+  squared tabs.
+</aside>
+
   </ul>
   Read <a href="#customize-styles">Customize Styles</a>
   section below for instruction how to customize tabs style.
@@ -54,7 +58,7 @@ import displayTabStyles from './images/display-tab-styles.jpg';
 
 <div class="topic">
   Show on tab - Icons for:<br />
-  <ul>
+  <ul class="list-disc pl-8">
     <li class="default">Locked</li>
     <li class="default">Protected</li>
     <li class="default" style="margin-bottom: 6px">Auto-Reload</li>
@@ -63,7 +67,7 @@ import displayTabStyles from './images/display-tab-styles.jpg';
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       <span class="default">Show Progress meter on tabs</span><br />
       Read
@@ -74,11 +78,11 @@ import displayTabStyles from './images/display-tab-styles.jpg';
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       <span class="default">Show on tab - Close tab button</span>
       Select which tab(s) rules are to be applied (select one):
-      <ul>
+      <ul class="list-disc pl-8">
         <li><span class="default">on all</span></li>
         <li>on all tabs wider than (set size)</li>
         <li>on current</li>
@@ -91,7 +95,7 @@ import displayTabStyles from './images/display-tab-styles.jpg';
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Tab width (specify range) <span class="default">default: 100 to 250 pixels</span>:
     </li>
@@ -105,11 +109,11 @@ import displayTabStyles from './images/display-tab-styles.jpg';
 
 <div class="topic container">
   <a name="customize-styles"></a>
-  <Image src={displayTabStyles} alt="image" />
+  <Image class="help-img" src={displayTabStyles} alt="image" />
   Click on <b>Customize Styles</b> button to open Customize Styles editor in a separate
   dialog. The dialog contains five panels: Current tab, Unread tabs, Unloaded tabs, Other tabs
   and Progress meter on tabs.
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Use this style - enable/disable spesific style, same as changing one of the appropriate
       options (listed above) in the main dialog window
@@ -121,17 +125,15 @@ import displayTabStyles from './images/display-tab-styles.jpg';
     <li>Background Color: select color and specify opacity `(100%)`</li>
     <li>Restore Defaults (resets spesific style to default)</li>
   </ul>
-  <div class="comment justify">
-    <p>
-      You can control tab title bold, italic and underline style as well as the title color
-      and opacity. For the tab background, you can control color and opacity, set different
-      colors and opacity on tab bottom and top to get nice gradient effect of the color.<br />
-    </p>
+  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
+    You can control tab title bold, italic and underline style as well as the title color
+    and opacity. For the tab background, you can control color and opacity, set different
+    colors and opacity on tab bottom and top to get nice gradient effect of the color.<br />
     Each color control has five parts:
-    <ul>
+    <ul class="list-disc pl-8">
       <li>button with predefined colors</li>
       <li>three fields for user-defined color (color range 0-255)</li>
       <li>opacity field for defined the opacity level of the color (range 0%-100%)</li>
     </ul>
-  </div>
+  </aside>
 </div>

@@ -11,7 +11,7 @@ sidebar:
 :::note
 
 Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user interface.<br /> If
-you want to load all tabs immediately on Restore, go to `about:config` and set:<br />
+you want to load all tabs immediately on Restore, go to `about\:config` and set:<br />
 `preference browser.sessionstore.restore_on_demand` to `false`.
 
 :::

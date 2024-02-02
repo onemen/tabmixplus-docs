@@ -8,20 +8,21 @@ sidebar:
 import { Image } from 'astro:assets';
 import eventsTabOpening from './images/events-tab-opening.jpg';
 
-<div class="topic">
-  <Image src={eventsTabOpening} alt="image" />
-  Cntrol what action will open new tab, and if the new tab get the focus (select)
-</div>
+#####  Cntrol what action will open new tab, and if the new tab get the focus (select)
+
+<br/>
+
+<Image class="help-img" src={eventsTabOpening} alt="image" />
 
 <div class="topic">
   Open tabs from:
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Bookmarks</li>
     <li>Groups of bookmarks</li>
-    <p class="comment condense indent">
+    <aside aria-label="Note" class="starlight-aside starlight-aside--note">
       When checked "Open All in Tabs" will open the bookmarks in new tabs, when unchecked the
       bookmarks will replace all tabs that are not locked or protected.
-    </p>
+    </aside>
     <li>History</li>
     <li>Address bar</li>
     <li>Search bar</li>
@@ -29,7 +30,7 @@ import eventsTabOpening from './images/events-tab-opening.jpg';
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Middle-click or Control-click opens items in current tab<br />Only for bookmarks,
       history, links forced to open in new tab
@@ -39,7 +40,7 @@ import eventsTabOpening from './images/events-tab-opening.jpg';
 
 <div class="topic">
   Focus/Select tabs that open by these action:
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Links</li>
     <li>Diverted windows</li>
     <li>Other applications</li>
@@ -55,7 +56,7 @@ import eventsTabOpening from './images/events-tab-opening.jpg';
 
 <div class="topic">
   Inverse Middle-click or Control-click focus for tabs opened by these action:
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Links</li>
     <li>Bookmarks/History, Address bar, Search bar</li>
   </ul>

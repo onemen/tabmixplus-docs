@@ -8,14 +8,15 @@ sidebar:
 import { Image } from 'astro:assets';
 import eventsTabClosing from './images/events-tab-closing.jpg';
 
-<div class="topic">
-  <Image src={eventsTabClosing} alt="image"/>
-  Controls tab closing, when warnings will appear and where to set focus when a tab is closed
-</div>
+#####  Controls tab closing, when warnings will appear and where to set focus when a tab is closed
+
+<br />
+
+<Image class="help-img" src={eventsTabClosing} alt="image"/>
 
 <div class="topic">
   Warning:
-  <ul>
+  <ul class="list-disc pl-8">
     <li class="default">Warn me when closing multiple tabs</li>
     <li class="default">Warn me when closing window with multiple tabs</li>
     <li class="default">Warn me when closing window with protected tabs</li>
@@ -24,7 +25,7 @@ import eventsTabClosing from './images/events-tab-closing.jpg';
 
 <div class="topic">
   Closing last tab:
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Do not close window when closing the last tab (closing the last tab will also close the
       browser window)
@@ -34,10 +35,10 @@ import eventsTabClosing from './images/events-tab-closing.jpg';
 </div>
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       When I close the last tab replace it with (select one):
-      <ul>
+      <ul class="list-disc pl-8">
         <li>
           <span class="default">New Tab Page</span> - see more details on
           <a href="http://support.mozilla.org/en-US/kb/new-tab-page-show-hide-and-customize-top-sites">Firefox Help</a>

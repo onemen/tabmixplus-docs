@@ -29,8 +29,11 @@
 
 /* HELP pages */
 
-.help-img {
+.tabmix-help-content img {
   border-radius: 6px;
+}
+
+.help-img {
   margin-inline: auto;
   width: 60%;
 }
@@ -48,6 +51,7 @@
   font-style: italic;
 }
 
+.topic,
 .starlight-aside {
   max-width: 45rem;
 }
@@ -70,4 +74,8 @@
 
 .tabmix-help-content .sl-container {
   max-width: 90%;
+}
+
+.tabmix-help-content .sl-markdown-content {
+  min-height: 600px;
 }

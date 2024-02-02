@@ -10,13 +10,14 @@ import sessionStartexit from './images/session-startexit.jpg';
 import sessionRestore from './images/session-restore.jpg';
 import sessionPreserve from './images/session-preserve.jpg';
 
-<div class="topic">
-  <Image src={sessionStartexit} alt="image" />
-  Controls Firefox's built-in Session Restore, Session Manager and Crash Recovery features
-</div>
+##### Controls Firefox's built-in Session Restore, Session Manager and Crash Recovery features
+
+<br />
+
+<Image class="help-img" src={sessionStartexit} alt="image" />
 
 <div class="topic">
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       Use Firefox's built-in Session Restore Feature - when checked, Firefox's Session Restore
       feature will be in effect
@@ -24,46 +25,50 @@ import sessionPreserve from './images/session-preserve.jpg';
     <li class="default">Enable Session Manager</li>
     <li class="default">Enable Crash Recovery</li>
   </ul>
-  <p class="comment indent justify">
-    <b><u>Note</u></b>:<br />
-    Sessions are stored in the <b>session.rdf</b> file in
-    <a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles">your profile</a>
-    folder. A backup of this file is stored in the <b>sessionbackups</b> folder in
-    <a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles">your profile</a>
-    folder. If your session becomes corrupt and you are unable to restore that session, copy
-    one of the backup files (tabmix_sessions-yyyy-mm-dd.rdf) from the backup folder to
-    <a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles">your profile</a>
-    folder, rename the file to <b>session.rdf</b>.
-  </p>
-  <p class="comment indent justify">
+
+  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
+    <p class="starlight-aside__title" aria-hidden="true">Note</p>
+    <p>
+      Sessions are stored in the <b>session.rdf</b> file in
+      <a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles" target="_blank">your profile</a>
+      folder. A backup of this file is stored in the <b>sessionbackups</b> folder in
+      <a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles" target="_blank">your profile</a>
+      folder. If your session becomes corrupt and you are unable to restore that session, copy
+      one of the backup files (tabmix_sessions-yyyy-mm-dd.rdf) from the backup folder to
+      <a href="https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles" target="_blank">your profile</a>
+      folder, rename the file to <b>session.rdf</b>.
+    </p>
+  </aside>
+  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
     For a full range of sessions managing features, you can use
-    <a href="https://addons.mozilla.org/en-US/firefox/addon/session-manager/">Session Manager extension</a>
+    <a href="https://addons.mozilla.org/en-US/firefox/addon/session-manager/" target="_blank">Session Manager extension</a>
     which is created specifically for that purpose.<br />
     When Session Manager extension is installed, Tab Mix Plus turns its own session manager
     off. Your existing sessions will be converted to SM format. This two extensions work well
-    together without any known problems.<br /><br />
+    together without any known problems.
+
     <b><u>IMPORTANT!</u></b> If you uninstall or disable Session Manager extension, Tab Mix
     Plus will revert back to its file which will not have the sessions saved with Session
     Manager extension.
-  </p>
+  </aside>
 </div>
 
 <div class="topic">
   <h3>Start/Exit</h3>
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       When browser Starts (select one option):
-      <ul>
+      <ul class="list-disc pl-8">
         <li>Restore</li>
         <li>Ask Before Restoring</li>
         <li class="default">Dont Restore</li>
       </ul>
     </li>
   </ul>
-  <ul>
+  <ul class="list-disc pl-8">
     <li>
       When Browser Exits (select one option):
-      <ul>
+      <ul class="list-disc pl-8">
         <li class="default">Save Session</li>
         <li>Ask before Saving</li>
         <li>Dont Save</li>
@@ -72,13 +77,13 @@ import sessionPreserve from './images/session-preserve.jpg';
   </ul>
 </div>
 
-<ul class="topic">
+<ul class="topic list-disc pl-8">
   Tab Mix Plus saves two types of session, sessions saved by the user and history sessions.<br />
   Current Tab Mix Plus version saves only two history session: Last Session and Previous to
   Last.<br />
   <li>
     Startup Session (select a session):
-    <ul>
+    <ul class="list-disc pl-8">
       <li class="default">Last session</li>
       <li>Previous to last</li>
       <li>All sessions you previously saved</li>
@@ -89,7 +94,7 @@ import sessionPreserve from './images/session-preserve.jpg';
   </li>
 </ul>
 
-<ul class="topic">
+<ul class="topic list-disc pl-8">
   <li>
     When not restoring on start:
     <ul class="circle">
@@ -99,12 +104,13 @@ import sessionPreserve from './images/session-preserve.jpg';
   </li>
 </ul>
 
+<Image class="help-img" src={sessionRestore} alt="image" />
+
 <div class="topic container">
-  <Image src={sessionRestore} alt="image" />
   <a name="restore"></a>
   <h3>Restore</h3>
   When Restoring Sessions:
-  <ul>
+  <ul class="list-disc pl-8">
     <li class="default">
       Overwrite existing windows
       <ul class="square">
@@ -115,34 +121,31 @@ import sessionPreserve from './images/session-preserve.jpg';
     <li>Join multiple windows into one</li>
     <li>
       Bypass cache when restoring
-      <div class="comment justify">
-        <p>
-          Force Firefox to download page content data from the origin server. Same as using
-          Ctrl + F5 or Ctrl + Shift + R to reload the selected tab overriding cache.
-        </p>
-      </div>
+      <aside aria-label="Note" class="starlight-aside starlight-aside--note">
+        Force Firefox to download page content data from the origin server. Same as using
+        Ctrl + F5 or Ctrl + Shift + R to reload the selected tab overriding cache.
+      </aside>
     </li>
     <li>
       Don't load tabs until selected (Removed)
-      <div class="comment justify">
-        <p>
-          Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user
-          interface.<br />
-          If you want to load all tabs immediately on Restore, go to about:config and set the
-          preference<br />
-          browser.sessionstore.restore_on_demand to false.
-        </p>
-      </div>
+      <aside aria-label="Note" class="starlight-aside starlight-aside--note">
+        Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user
+        interface.<br />
+        If you want to load all tabs immediately on Restore, go to about\:config and set the
+        preference<br />
+        browser.sessionstore.restore_on_demand to false.
+      </aside>
     </li>
   </ul>
 </div>
 
+<Image class="help-img" src={sessionPreserve} alt="image" />
+
 <div class="topic container">
-  <Image src={sessionPreserve} alt="image" />
   <a name="preserve"></a>
   <h3>Preserve</h3>
   Preserve Tabs:
-  <ul>
+  <ul class="list-disc pl-8">
     <li class="default">History</li>
     <li class="default">Permissions</li>
     <li class="default">Protected Status</li>
@@ -153,7 +156,7 @@ import sessionPreserve from './images/session-preserve.jpg';
 
 <div class="topic">
   Preserve Windows:
-  <ul>
+  <ul class="list-disc pl-8">
     <li class="default">Selected Tab</li>
     <li>Closed Tab list</li>
   </ul>

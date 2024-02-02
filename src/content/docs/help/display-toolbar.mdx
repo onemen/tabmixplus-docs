@@ -8,12 +8,15 @@ sidebar:
 import { Image } from 'astro:assets';
 import displayToolbar from './images/display-toolbar.jpg';
 
-<div class="topic">
-  <Image src={displayToolbar} alt="image" />
-  In this panel you can see buttons available from Tab Mix Plus<br />
+##### In this panel you can see buttons available from Tab Mix Plus
 
+<br/>
+
+<Image class="help-img" src={displayToolbar} alt="image" />
+
+<div class="topic">
   Click <b>Customize</b> to place buttons on your toolbar or change button position.<br /><br />
-  <ul>
+  <ul class="list-disc pl-8">
     <li>Session Manager - provides access to session manager menu</li>
     <li>Closed Tabs - same as History - Recently Closed Tabs</li>
     <li>Closed Windows - same as History - Recently Closed Windows</li>

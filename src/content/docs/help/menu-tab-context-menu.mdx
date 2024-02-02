@@ -8,15 +8,18 @@ sidebar:
 import { Image } from 'astro:assets';
 import tabContextMenu from './images/menu-tab-context-menu.jpg';
 
-<div class="topic">
-  <Image src={tabContextMenu} alt="image" />
-  Controls which items will be displayed in the Tab Context Menu
-</div>
+##### Controls which items will be displayed in the Tab Context Menu
 
-<ul class="topic">
+<br />
+
+<Image class="help-img" src={tabContextMenu} alt="image" />
+
+<ul class="topic list-disc pl-8">
   <li>
     Show Tab Context Menu on tabbar
-    <p class="comment">By default, Firefox uses the toolbar context menu for the tabbar</p>
+    <aside aria-label="Note" class="starlight-aside starlight-aside--note">
+      By default, Firefox uses the toolbar context menu for the tabbar
+    </aside>
 
     <p></p>
   </li>
