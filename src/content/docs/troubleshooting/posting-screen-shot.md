@@ -1,9 +1,10 @@
 ---
 title: How to create and post a screen shot
-# tableOfContents: false
+tableOfContents: true
 ---
 
 ### A screen shot can help to explain details of a problem.
+
 <ul class="list-disc pl-8">
   <li>
     To create a screen shot of your entire desktop, press the "Ctrl-PrtScn" buttons on your
@@ -22,6 +23,7 @@ title: How to create and post a screen shot
 <br />
 
 ### Follow these steps to attach the screen shot to your post in the Forum:
+
 <ol class="list-decimal pl-8">
   <li>In your thread, click Full Editor button under the quick reply box.</li>
   <li>
@@ -37,8 +39,6 @@ title: How to create and post a screen shot
 </ol>
 <br />
 
-
 Alternatively, you may post the image file you saved to a public server like
-[Imgur](http://imgur.com/) or some other free image hosting website. Visit
-their sites for more details on how to get link to the image to post in the forum.
-
+[Imgur](http://imgur.com/) or some other free image hosting website. Visit their sites for more
+details on how to get link to the image to post in the forum.
