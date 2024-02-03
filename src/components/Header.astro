@@ -9,9 +9,10 @@ import { default as ThemeSelect } from '@astrojs/starlight/components/ThemeSelec
 
 const shouldRenderSearch = true;
 const isHelpPage = Astro.props.slug.startsWith('help');
+const isTroubleshooting = Astro.props.slug.startsWith('troubleshooting');
 ---
 
-<div class="header sl-flex">
+<div class:list={{ header: true, 'sl-flex': true, 'tabmix-help-content': isHelpPage }}>
   <div class="sl-flex">
     <SiteTitle {...Astro.props} />
   </div>
@@ -37,7 +38,7 @@ const isHelpPage = Astro.props.slug.startsWith('help');
     <li>
       <a
         href="../../troubleshooting/tabmix-does-not-work"
-        class:list={{ 'hover:underline': true, active: !isHelpPage }}>Troubleshooting</a
+        class:list={{ 'hover:underline': true, active: isTroubleshooting }}>Troubleshooting</a
       >
     </li>
     <li>
