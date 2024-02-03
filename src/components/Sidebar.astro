@@ -4,18 +4,44 @@ import type { Props } from '@astrojs/starlight/props';
 import { default as MobileMenuFooter } from '@astrojs/starlight/components/MobileMenuFooter.astro';
 import { default as SidebarSublist } from '@astrojs/starlight/components/SidebarSublist.astro';
 
-const [page] = Astro.props.slug.split('/');
-const { sidebar } = Astro.props;
-// @ts-ignore
-sidebar.forEach(entry => (entry.collapsed = entry.label.toLowerCase() !== page));
+const { sidebar, slug } = Astro.props;
+
+const [page] = slug.split('/');
+const isHelpPage = slug.startsWith('help');
+const isTroubleshooting = slug.startsWith('troubleshooting');
+
+// collapsed other entries
+sidebar.forEach(entry => {
+  const label = entry.label.toLowerCase();
+  // @ts-ignore
+  entry.collapsed = label !== page && label !== 'links';
+});
 ---
 
-<div class="self-center">
-  <a
-    class="paypal-button"
-    href="https://www.paypal.com/donate?hosted_button_id=BZWMH5PS56GAW"
-    target="_blank">Make a Donation</a
-  >
+<div class="tabmix-sidbar-header">
+  <div class="flex justify-center py-2">
+    <a
+      class="paypal-button"
+      href="https://www.paypal.com/donate?hosted_button_id=BZWMH5PS56GAW"
+      target="_blank">Make a Donation</a
+    >
+  </div>
+
+  <div class="tabmix-nav px-6 py-4">
+    <ul class="top-level mx-auto flex list-none gap-6 text-base">
+      <li>
+        <a href="../../help/links" class:list={{ 'hover:underline': true, active: isHelpPage }}
+          >Help</a
+        >
+      </li>
+      <li>
+        <a
+          href="../../troubleshooting/tabmix-does-not-work"
+          class:list={{ 'hover:underline': true, active: isTroubleshooting }}>Troubleshooting</a
+        >
+      </li>
+    </ul>
+  </div>
 </div>
 
 <SidebarSublist sublist={sidebar} />

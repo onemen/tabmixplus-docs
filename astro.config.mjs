@@ -30,6 +30,26 @@ export default defineConfig({
           link: './',
         },
         {
+          label: 'Links',
+          items: [
+            {
+              label: 'Discussions',
+              link: 'https://github.com/onemen/TabMixPlus/discussions/',
+              attrs: { target: '_blank', style: 'font-style: italic' },
+            },
+            {
+              label: 'Change Log',
+              link: 'https://github.com/onemen/TabMixPlus/releases/',
+              attrs: { target: '_blank', style: 'font-style: italic' },
+            },
+            {
+              label: 'Downloads',
+              link: 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/',
+              attrs: { target: '_blank', style: 'font-style: italic' },
+            },
+          ],
+        },
+        {
           label: 'Help',
           autogenerate: {
             directory: 'help',

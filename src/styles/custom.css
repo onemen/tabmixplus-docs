@@ -1,30 +1,51 @@
-:root {
-  --tabmix-nav-height: 56px;
+/* Sidebar */
+
+#starlight__sidebar {
+  --tabmix-sidbar-header-height: 100px;
+  margin-top: var(--tabmix-sidbar-header-height);
+}
+
+.tabmix-sidbar-header {
+  background-color: var(--sl-color-bg-sidebar);
+  position: fixed;
+  top: var(--sl-nav-height);
+  height: var(--tabmix-sidbar-header-height);
+  width: var(--sl-sidebar-width);
+  margin-inline: -1rem;
+  z-index: 1;
 }
 
 .tabmix-nav {
-  display: none;
+  background-color: var(--sl-color-bg-nav);
 }
 
-@media (min-width: 72em) {
-  .tabmix-nav {
-    background-color: var(--sl-color-bg-nav);
-    color: var(--sl-color-white);
-    border-bottom: 1px solid var(--sl-color-hairline-shade);
-    display: flex;
-  }
+.active {
+  background-color: var(--sl-color-text-accent);
+  border-radius: 0.25rem;
+  color: var(--sl-color-text-invert);
+  font-weight: 600;
+  padding: 0.3em 0.6em;
+}
 
-  .main-pane {
-    padding-top: calc(var(--tabmix-nav-height) / 2);
-  }
+.paypal-button {
+  display: inline-block;
+  background: #ffc439;
+  border-radius: 6.25rem;
+  min-height: 1.625rem;
+  -webkit-box-shadow: inset 0 2px 0 0 hsla(0, 0%, 100%, 0.41);
+  box-shadow: inset 0 2px 0 0 hsla(0, 0%, 100%, 0.41);
+  border: 1px solid #d9a630;
+  color: #000;
+  font-family: Helvetica;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0 1rem;
+  min-width: 7.5rem;
+  margin-bottom: 0;
+}
 
-  .right-sidebar {
-    padding-top: calc(var(--sl-nav-height) + var(--tabmix-nav-height));
-  }
-
-  .sidebar-pane {
-    inset-block: calc(var(--sl-nav-height) + var(--tabmix-nav-height)) 0;
-  }
+.paypal-button:hover {
+  background: #ffc439cc;
 }
 
 /* HELP pages */
@@ -40,7 +61,7 @@
 
 .help-img {
   margin-inline: auto;
-  width: 60%;
+  width: 50%;
 }
 
 @media (min-width: 1400px) {
@@ -80,33 +101,4 @@ footer,
 
 .tabmix-help-content .sl-markdown-content {
   min-height: 600px;
-}
-
-.active {
-  background-color: var(--sl-color-text-accent);
-  border-radius: 0.25rem;
-  color: var(--sl-color-text-invert);
-  font-weight: 600;
-  padding: 0.3em 0.6em;
-}
-
-.paypal-button {
-  display: inline-block;
-  background: #ffc439;
-  border-radius: 6.25rem;
-  min-height: 1.625rem;
-  -webkit-box-shadow: inset 0 2px 0 0 hsla(0, 0%, 100%, 0.41);
-  box-shadow: inset 0 2px 0 0 hsla(0, 0%, 100%, 0.41);
-  border: 1px solid #d9a630;
-  color: #000;
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-weight: 700;
-  padding: 0 1rem;
-  min-width: 7.5rem;
-  margin-bottom: 0;
-}
-
-.paypal-button:hover {
-  background: #ffc439cc;
 }

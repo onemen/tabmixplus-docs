@@ -9,7 +9,6 @@ import { default as ThemeSelect } from '@astrojs/starlight/components/ThemeSelec
 
 const shouldRenderSearch = true;
 const isHelpPage = Astro.props.slug.startsWith('help');
-const isTroubleshooting = Astro.props.slug.startsWith('troubleshooting');
 ---
 
 <div class:list={{ header: true, 'sl-flex': true, 'tabmix-help-content': isHelpPage }}>
@@ -27,43 +26,6 @@ const isTroubleshooting = Astro.props.slug.startsWith('troubleshooting');
     <LanguageSelect {...Astro.props} />
   </div>
 </div>
-
-<nav class="tabmix-nav fixed left-0 right-0 top-16 mx-auto items-center justify-center pb-4 pt-4">
-  <ul class="flex list-none gap-6 text-base">
-    <li>
-      <a href="../../help/links" class:list={{ 'hover:underline': true, active: isHelpPage }}
-        >Help</a
-      >
-    </li>
-    <li>
-      <a
-        href="../../troubleshooting/tabmix-does-not-work"
-        class:list={{ 'hover:underline': true, active: isTroubleshooting }}>Troubleshooting</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://github.com/onemen/TabMixPlus/discussions"
-        target="_blank"
-        class="hover:underline">Discussions</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://github.com/onemen/TabMixPlus/releases/"
-        target="_blank"
-        class="hover:underline">Change Log</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/"
-        target="_blank"
-        class="hover:underline">Download</a
-      >
-    </li>
-  </ul>
-</nav>
 
 <style>
   .header {
