@@ -6,8 +6,8 @@ sidebar:
 ---
 
 import { Image } from 'astro:assets';
-import displayTab from './images/display-tab.jpg';
-import displayTabStyles from './images/display-tab-styles.jpg';
+import displayTab from '../images/display-tab.jpg';
+import displayTabStyles from '../images/display-tab-styles.jpg';
 
 #####  Controls the display of tab color, font, highlighting, optional icons, tab width and tab title
 
@@ -52,7 +52,7 @@ import displayTabStyles from './images/display-tab-styles.jpg';
   Read <a href="#customize-styles">Customize Styles</a>
   section below for instruction how to customize tabs style.
 </div>
-<div class="topic container">
+<div class="topic">
   Tabs background colors may not display properly when TreeStyleTabs is installed.
 </div>
 
@@ -107,12 +107,17 @@ import displayTabStyles from './images/display-tab-styles.jpg';
   </ul>
 </div>
 
-<div class="topic container">
+#### Customize Tab Styles
+<div class="topic">
   <a name="customize-styles"></a>
-  <Image class="help-img" src={displayTabStyles} alt="image" />
   Click on <b>Customize Styles</b> button to open Customize Styles editor in a separate
   dialog. The dialog contains five panels: Current tab, Unread tabs, Unloaded tabs, Other tabs
   and Progress meter on tabs.
+</div>
+
+<Image class="help-img" src={displayTabStyles} alt="image" />
+
+<div class="topic">
   <ul class="list-disc pl-8">
     <li>
       Use this style - enable/disable spesific style, same as changing one of the appropriate

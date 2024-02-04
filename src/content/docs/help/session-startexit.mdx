@@ -6,9 +6,13 @@ sidebar:
 ---
 
 import { Image } from 'astro:assets';
-import sessionStartexit from './images/session-startexit.jpg';
-import sessionRestore from './images/session-restore.jpg';
 import sessionPreserve from './images/session-preserve.jpg';
+import sessionRestore from './images/session-restore.jpg';
+import sessionStartexit from './images/session-startexit.jpg';
+
+:::danger[Not Implemented]
+Session Manager feature is not included at the moment since it requires complete rewrite.
+:::
 
 ##### Controls Firefox's built-in Session Restore, Session Manager and Crash Recovery features
 
@@ -106,7 +110,7 @@ import sessionPreserve from './images/session-preserve.jpg';
 
 <Image class="help-img" src={sessionRestore} alt="image" />
 
-<div class="topic container">
+<div class="topic">
   <a name="restore"></a>
   <h3>Restore</h3>
   When Restoring Sessions:
@@ -141,7 +145,7 @@ import sessionPreserve from './images/session-preserve.jpg';
 
 <Image class="help-img" src={sessionPreserve} alt="image" />
 
-<div class="topic container">
+<div class="topic">
   <a name="preserve"></a>
   <h3>Preserve</h3>
   Preserve Tabs:

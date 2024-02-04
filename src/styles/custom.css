@@ -1,5 +1,14 @@
 /* Sidebar */
 
+details details .group-label > .large {
+  font-size: var(--sl-text-sm);
+}
+
+a[href*='frozen_tabs'] {
+  margin-left: 12px;
+  font-size: 13px;
+}
+
 #starlight__sidebar {
   --tabmix-sidbar-header-height: 100px;
   margin-top: var(--tabmix-sidbar-header-height);
@@ -25,6 +34,7 @@
   color: var(--sl-color-text-invert);
   font-weight: 600;
   padding: 0.3em 0.6em;
+  /* font-size: inherit; */
 }
 
 .paypal-button {

@@ -5,10 +5,10 @@ sidebar:
   order: 5
 ---
 
-import {Image} from 'astro:assets';
-import lockNewTabs from './images/lock_new_tabs.gif';
-import mainMenuFreeezTab from './images/main_menu_freeez_tab.gif';
-import tabMenuFreeezTab from './images/tab_menu_freeez_tab.gif';
+import { Image } from 'astro:assets';
+import lockNewTabs from '../images/lock_new_tabs.gif';
+import mainMenuFreeezTab from '../images/main_menu_freeez_tab.gif';
+import tabMenuFreeezTab from '../images/tab_menu_freeez_tab.gif';
 
 <div class="topic">
   <u><b>Protected tab</b></u>
@@ -38,7 +38,7 @@ import tabMenuFreeezTab from './images/tab_menu_freeez_tab.gif';
 </div>
 
 <div class="grid xl:grid-cols-2 gap-2">
-  <div class="topic container">
+  <div class="topic">
     <u>Lock New tabs</u>
     <p>
       You can set Tab Mix Plus to lock every new tab and every new App tab. If "Apply changes to
@@ -49,7 +49,7 @@ import tabMenuFreeezTab from './images/tab_menu_freeez_tab.gif';
   <Image class="m-auto w-3/5 xl:w-10/12" src={lockNewTabs} alt="image" />
 </div>
 
-<div class="topic container">
+<div class="topic">
   <u>Change single tab Protected, Locked or Frozen status</u>
   <p>
     You can change single tab Protected, Locked or Frozen status from tab context menu or

@@ -10,11 +10,23 @@ const [page] = slug.split('/');
 const isHelpPage = slug.startsWith('help');
 const isTroubleshooting = slug.startsWith('troubleshooting');
 
-// collapsed other entries
+// collapsed other top level entries
 sidebar.forEach(entry => {
-  const label = entry.label.toLowerCase();
-  // @ts-ignore
-  entry.collapsed = label !== page && label !== 'links';
+  if (entry.type === 'group') {
+    const label = entry.label.toLowerCase();
+    entry.collapsed = label !== page && label !== 'important links';
+  }
+});
+
+// add Customizing Tabs Styles
+const helpEntries = sidebar.find(entry => entry.label === 'Help');
+// @ts-ignore
+const displayEntries = helpEntries?.entries?.find(entry => entry.label === 'Display');
+displayEntries?.entries.splice(2, 0, {
+  type: 'link',
+  label: 'Customizing Tabs Styles',
+  href: '/help/display/display-tab#customize-styles',
+  attrs: { style: 'margin-left: 12px; font-size: 13px;' },
 });
 ---
 
