@@ -72,7 +72,7 @@ export default defineConfig({
             {
               label: 'Links - file type editor',
               link: 'help/links#file-type-editor',
-              attrs: { style: 'margin-left: 12px; font-size: 13px;' },
+              attrs: { 'data-hash': 'true' },
             },
             {
               label: 'Events',

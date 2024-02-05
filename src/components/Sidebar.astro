@@ -25,8 +25,8 @@ const displayEntries = helpEntries?.entries?.find(entry => entry.label === 'Disp
 displayEntries?.entries.splice(2, 0, {
   type: 'link',
   label: 'Customizing Tabs Styles',
-  href: '/help/display/display-tab#customize-styles',
-  attrs: { style: 'margin-left: 12px; font-size: 13px;' },
+  href: '/help/display/display-tab#customize-tab-styles',
+  attrs: { 'data-hash': 'true' },
 });
 ---
 
@@ -60,3 +60,16 @@ displayEntries?.entries.splice(2, 0, {
 <div class="md:sl-hidden">
   <MobileMenuFooter {...Astro.props} />
 </div>
+
+<script>
+  function updateEntryWithHash() {
+    document.querySelector(`a[aria-current="hash"]`)?.removeAttribute('aria-current');
+    const { pathname, hash } = window.location;
+    if (hash) {
+      document.querySelector(`a[href="${pathname}${hash}"]`)?.setAttribute('aria-current', 'hash');
+    }
+  }
+
+  addEventListener('hashchange', updateEntryWithHash);
+  updateEntryWithHash();
+</script>
