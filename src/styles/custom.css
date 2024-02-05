@@ -1,3 +1,14 @@
+/* Header */
+
+.site-title > * {
+  transition: transform 0.18s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.site-title > *:hover {
+  --hover-offset: 0.15rem;
+  transform: translateY(calc(var(--hover-offset) * -1));
+}
+
 /* Sidebar */
 
 details details .group-label > .large {
@@ -10,18 +21,25 @@ a[href*='frozen_tabs'] {
 }
 
 #starlight__sidebar {
-  --tabmix-sidbar-header-height: 100px;
-  margin-top: var(--tabmix-sidbar-header-height);
+  --tabmix-sidebar-header-height: 100px;
+  margin-top: var(--tabmix-sidebar-header-height);
 }
 
-.tabmix-sidbar-header {
+.tabmix-sidebar-header {
   background-color: var(--sl-color-bg-sidebar);
+  border-inline-end: 1px solid var(--sl-color-hairline-shade);
   position: fixed;
   top: var(--sl-nav-height);
-  height: var(--tabmix-sidbar-header-height);
+  height: var(--tabmix-sidebar-header-height);
   width: var(--sl-sidebar-width);
   margin-inline: -1rem;
   z-index: 1;
+}
+
+@media (max-width: 50rem) {
+  .tabmix-sidebar-header {
+    width: 100%;
+  }
 }
 
 .tabmix-nav {
