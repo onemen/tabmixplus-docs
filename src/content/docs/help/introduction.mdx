@@ -4,6 +4,7 @@ tableOfContents: false
 sidebar:
   order: 1
 ---
+import { devbuildpath, version } from '../../../assets/version_data.json';
 
 <div class="topic" style="padding-bottom: 20px; text-align: justify">
   <p>
@@ -49,12 +50,11 @@ sidebar:
 <div class="topic">
 
 :::tip[Download Links]
-<a href="https://github.com/onemen/TabMixPlus/releases/" target="_blank">Current Version</a>
-<span data-info="version"> 1.0.0-pre</span>
+<a href="https://github.com/onemen/TabMixPlus/releases/" target="_blank">Current Version </a>
+<span>{version}</span>
 
 <a
-  data-info="devbuildpath"
-  href="https://github.com/onemen/TabMixPlus/releases/download/v1.0.0-pre.17/tab_mix_plus-dev-build.xpi"
+  href={devbuildpath}
   target="_blank"
   >Latest Development Build</a>
 tab_mix_plus-dev-build.xpi
@@ -71,5 +71,3 @@ or the
 working version at any time.
 :::
 </div>
-
-{/* <script type="text/javascript" src="../scripts/fetchData.js"></script> */}
