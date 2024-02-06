@@ -16,7 +16,7 @@ details details .group-label > .large {
 }
 
 a[data-hash],
-a[href*='frozen_tabs'] {
+.sidebar-content a[href*='frozen_tabs'] {
   margin-left: 1rem;
   font-size: var(--sl-text-xs);
 }
@@ -130,6 +130,15 @@ footer,
 
 .content-panel li > ul:not(.square) > li {
   list-style-type: circle;
+}
+
+.content-panel h6 {
+  text-decoration: underline;
+}
+
+.content-panel h6 + ul,
+.content-panel h6 + li {
+  margin-top: 0.5rem;
 }
 
 .tabmix-help-content .sl-markdown-content {
