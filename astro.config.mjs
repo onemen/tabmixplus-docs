@@ -8,11 +8,14 @@ const linksStyle = 'font-size: var(--sl-text-sm); font-weight: 600;';
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    smartypants: false,
+  },
   integrations: [
     starlight({
       favicon: 'public/favicon.ico',
       logo: {
-        src: './src/assets/tabmix_logo.png',
+        src: '/src/assets/tabmix_logo.png',
       },
       title: 'Tab Mix Plus - Docs',
       social: {
@@ -22,14 +25,14 @@ export default defineConfig({
         baseUrl: 'https://github.com/onemen/TabMixPlus-docs/',
       },
       components: {
-        ContentPanel: './src/components/ContentPanel.astro',
-        Header: './src/components/Header.astro',
-        Sidebar: './src/components/Sidebar.astro',
+        ContentPanel: '/src/components/ContentPanel.astro',
+        Header: '/src/components/Header.astro',
+        Sidebar: '/src/components/Sidebar.astro',
       },
       sidebar: [
         {
           label: 'Welcome to Tab Mix Plus',
-          link: './',
+          link: '/',
         },
         {
           label: 'Important Links',
@@ -113,7 +116,7 @@ export default defineConfig({
           },
         },
       ],
-      customCss: ['./src/styles/custom.css'],
+      customCss: ['/src/styles/custom.css'],
       defaultLocale: 'en',
     }),
     tailwind(),
