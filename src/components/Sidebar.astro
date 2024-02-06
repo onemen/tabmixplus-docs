@@ -42,13 +42,11 @@ displayEntries?.entries.splice(2, 0, {
   <div class="tabmix-nav px-6 py-4">
     <ul class="top-level mx-auto flex list-none gap-6 text-base">
       <li>
-        <a href="../../help/links" class:list={{ 'hover:underline': true, active: isHelpPage }}
-          >Help</a
-        >
+        <a href="/help/links" class:list={{ 'hover:underline': true, active: isHelpPage }}>Help</a>
       </li>
       <li>
         <a
-          href="../../troubleshooting/tabmix-does-not-work"
+          href="/troubleshooting/tabmix-does-not-work"
           class:list={{ 'hover:underline': true, active: isTroubleshooting }}>Troubleshooting</a
         >
       </li>
@@ -61,15 +59,38 @@ displayEntries?.entries.splice(2, 0, {
   <MobileMenuFooter {...Astro.props} />
 </div>
 
-<script>
+<script is:inline>
   function updateEntryWithHash() {
-    document.querySelector(`a[aria-current="hash"]`)?.removeAttribute('aria-current');
-    const { pathname, hash } = window.location;
+    const { pathname, hash = '' } = window.location;
     if (hash) {
-      document.querySelector(`a[href="${pathname}${hash}"]`)?.setAttribute('aria-current', 'hash');
+      document.querySelector(`a[aria-current="page"]`)?.removeAttribute('aria-current');
+      document.querySelector(`a[href="${pathname}${hash}"]`)?.setAttribute('aria-current', 'page');
     }
   }
 
   addEventListener('hashchange', updateEntryWithHash);
   updateEntryWithHash();
+</script>
+
+<script is:inline>
+  const key = 'sidebar-position';
+  let timeout = 0;
+
+  const sidebar = document.querySelector('#starlight__sidebar');
+  if (sidebar) {
+    try {
+      sidebar.scrollTop = +(sessionStorage.getItem(key) ?? 0);
+    } catch {
+      /* empty */
+    }
+
+    sidebar.addEventListener('scroll', () => {
+      if (!timeout) {
+        timeout = window.setTimeout(() => {
+          sessionStorage.setItem(key, sidebar.scrollTop);
+          timeout = 0;
+        }, 100);
+      }
+    });
+  }
 </script>

@@ -21,10 +21,6 @@ a[data-hash],
   font-size: var(--sl-text-xs);
 }
 
-a[data-hash][aria-current='hash'] {
-  color: var(--sl-color-text-accent);
-}
-
 #starlight__sidebar {
   --tabmix-sidebar-header-height: 100px;
   margin-top: var(--tabmix-sidebar-header-height);
