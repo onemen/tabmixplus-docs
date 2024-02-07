@@ -9,8 +9,8 @@ with Tab Mix Plus. It is recommended you disable or uninstall the extensions in 
 "Show List…" button to do that.
 
 Conflicts have been reported with <b>Ubuntu Firefox Modifications</b> extension, so if you use
-Ubuntu, disable that one (you can read
-<a href="http://ubuntuforums.org/showthread.php?t=826536">more here</a>).
+Ubuntu, disable that one (you can read more
+[here](http://ubuntuforums.org/showthread.php?t=826536)).
 
 Conflicts with **BarTab**, **Colorful Tabs** and **Tree Style Tab** have been reported. Since all
 these extensions manipulate tabs, shouldn't be surprising. Don't panic, these conflicts are usually

@@ -15,13 +15,12 @@ In order to identify and solve the problem there are several things you can do.
 First, install the latest development version to see if the problem might have been fixed (look for
 the latest test build at
 [our Downloads page](https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/)). You can
-reinstall the
-[latest official version](https://github.com/onemen/TabMixPlus/releases/)<a href="https://github.com/onemen/TabMixPlus/releases/">
-latest official version</a> in place of the development version later if you wish.
+reinstall the [latest official version](https://github.com/onemen/TabMixPlus/releases/) in place of
+the development version later if you wish.
 
 If the latest development version still has the problem then the place to post about it is in the
-<a href="https://github.com/onemen/TabMixPlus/discussions"> discussions </a> section of our
-repository, but before you post there are a few more things to try.
+[ discussions ](https://github.com/onemen/TabMixPlus/discussions) section of our repository, but
+before you post there are a few more things to try.
 
 ### Create new testing profile
 
