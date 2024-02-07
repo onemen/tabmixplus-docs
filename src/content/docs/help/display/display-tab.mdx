@@ -5,13 +5,13 @@ sidebar:
   order: 11
 ---
 
-import { Image } from 'astro:assets';
-import displayTabStyles from '../images/display-tab-styles.jpg';
-import displayTab from '../images/display-tab.jpg';
+import { Image } from 'astro:assets'
+import displayTabStyles from '../images/display-tab-styles.jpg'
+import displayTab from '../images/display-tab.jpg'
 
-#####  Controls the display of tab color, font, highlighting, optional icons, tab width and tab title
+##### Controls the display of tab color, font, highlighting, optional icons, tab width and tab title
 
-<br/>
+<br />
 
 <Image class="help-img" src={displayTab} alt="image" />
 
@@ -36,8 +36,8 @@ import displayTab from '../images/display-tab.jpg';
     </li>
 
 <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-  Disable all custom background colors in one click, for the case you are using
-  non-supported theme or extension.
+  Disable all custom background colors in one click, for the case you are using non-supported theme
+  or extension.
 </aside>
 
     <li>
@@ -45,12 +45,11 @@ import displayTab from '../images/display-tab.jpg';
     </li>
 
 <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-  Apply this preference when your theme or other extension provides non Australis
-  squared tabs.
+  Apply this preference when your theme or other extension provides non Australis squared tabs.
 </aside>
 
   </ul>
-  Read [Customize Styles](#customize-tab-styles)
+  Read [Customize Styles](/help/display/display-tab#customize-tab-styles)
   section below for instruction how to customize tabs style.
 </div>
 <div class="topic">
@@ -58,12 +57,15 @@ import displayTab from '../images/display-tab.jpg';
 </div>
 
 ---
+
 <div class="topic">
   <h6>Show on tab - Icons for</h6>
   <ul class="list-disc pl-8">
     <li class="default">Locked</li>
     <li class="default">Protected</li>
-    <li class="default" style="margin-bottom: 6px">Auto-Reload</li>
+    <li class="default" style="margin-bottom: 6px">
+      Auto-Reload
+    </li>
     <li class="default">Hide on pinned tabs - check to hide all icons on pinned tabs</li>
   </ul>
 </div>
@@ -71,10 +73,10 @@ import displayTab from '../images/display-tab.jpg';
 <div class="topic">
   <ul class="list-disc pl-8">
     <li>
-      <span class="default">Show Progress meter on tabs</span><br />
-      Read
-      [Customize Styles](#customize-tab-styles)
-      section below for instruction how to customize Progress meter color.
+      <span class="default">Show Progress meter on tabs</span>
+      <br />
+      Read [Customize Styles](/help/display/display-tab#customize-tab-styles) section below for
+      instruction how to customize Progress meter color.
     </li>
   </ul>
 </div>
@@ -85,7 +87,9 @@ import displayTab from '../images/display-tab.jpg';
       <span class="default">Show on tab - Close tab button</span>
       Select which tab(s) rules are to be applied (select one):
       <ul class="list-disc pl-8">
-        <li><span class="default">on all</span></li>
+        <li>
+          <span class="default">on all</span>
+        </li>
         <li>on all tabs wider than (set size)</li>
         <li>on current</li>
         <li>on pointed for</li>
@@ -97,6 +101,7 @@ import displayTab from '../images/display-tab.jpg';
 </div>
 
 ---
+
 <div class="topic">
   <h6>Tab width</h6>
   <ul class="list-disc pl-8">
@@ -104,20 +109,22 @@ import displayTab from '../images/display-tab.jpg';
       Tab width (specify range) <span class="default">default: 100 to 250 pixels</span>:
     </li>
     <li>
-      Tab width fits to tab title (the tab will be sized to fit the title - not recommended
-      for tabs under 100 pixels)
+      Tab width fits to tab title (the tab will be sized to fit the title - not recommended for tabs
+      under 100 pixels)
     </li>
     <li>Use bookmark name as tab title (the bookmark name will be used for the tab title)</li>
   </ul>
 </div>
 
 ---
+
 #### Customize Tab Styles
+
 <div class="topic">
   <a name="customize-tab-styles"></a>
-  Click on <b>Customize Styles</b> button to open Customize Styles editor in a separate
-  dialog. The dialog contains five panels: Current tab, Unread tabs, Unloaded tabs, Other tabs
-  and Progress meter on tabs.
+  Click on <b>Customize Styles</b> button to open Customize Styles editor in a separate dialog. The
+  dialog contains five panels: Current tab, Unread tabs, Unloaded tabs, Other tabs and Progress
+  meter on tabs.
 </div>
 
 <Image class="help-img" src={displayTabStyles} alt="image" />
@@ -136,14 +143,16 @@ import displayTab from '../images/display-tab.jpg';
     <li>Restore Defaults (resets spesific style to default)</li>
   </ul>
   <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-    You can control tab title bold, italic and underline style as well as the title color
-    and opacity. For the tab background, you can control color and opacity, set different
-    colors and opacity on tab bottom and top to get nice gradient effect of the color.<br />
+    You can control tab title bold, italic and underline style as well as the title color and
+    opacity. For the tab background, you can control color and opacity, set different colors and
+    opacity on tab bottom and top to get nice gradient effect of the color.
+
     Each color control has five parts:
-    <ul class="list-disc pl-8">
+    <ul class="list-disc pl-8 !mt-1">
       <li>button with predefined colors</li>
       <li>three fields for user-defined color (color range 0-255)</li>
       <li>opacity field for defined the opacity level of the color (range 0%-100%)</li>
     </ul>
+
   </aside>
 </div>

@@ -5,37 +5,46 @@ sidebar:
   order: 5
 ---
 
-import { Image } from 'astro:assets';
-import lockNewTabs from '../images/lock_new_tabs.gif';
-import mainMenuFreeezTab from '../images/main_menu_freeez_tab.gif';
-import tabMenuFreeezTab from '../images/tab_menu_freeez_tab.gif';
+import { Image } from 'astro:assets'
+import lockNewTabs from '../images/lock_new_tabs.gif'
+import mainMenuFreeezTab from '../images/main_menu_freeez_tab.gif'
+import tabMenuFreeezTab from '../images/tab_menu_freeez_tab.gif'
 
-<div class="topic">
-  <u><b>Protected tab</b></u>
-  <p>
-    A tab that is prevented from closing. You can load other sites in the tab and browse to
-    other URLs in that tab. Notice that the close button is missing, so you cannot close the
-    tab. If you try to close Firefox&reg;, you will get a warning message about closing a
-    protected tab.
-  </p>
+<div class="topicds">
 
-  <u><b>Locked tab</b></u>
-  <p>
-    A tab that is prevented from navigating to another page or URL. Your tab is locked on the
-    current page or URL. Nothing new can load in the tab, but you can refresh the same page.
-    All links will open in a new tab (link, history, bookmark, etc.). Notice that the close
-    button is available, so you can close a locked tab.
-  </p>
+<h6>
+  <u>Protected tab</u>
+</h6>
+<p>
+  A tab that is prevented from closing. You can load other sites in the tab and browse to other URLs
+  in that tab. Notice that the close button is missing, so you cannot close the tab. If you try to
+  close Firefox&reg;, you will get a warning message about closing a protected tab.
+</p>
 
-  <u><b>Frozen tab</b></u>
-  <p>
-    A tab that is both locked and protected. It will not close and nothing new can be loaded
-    in it. You will not be able to navigate away from the current page. All links will open in
-    a new tab (link, history, bookmark, etc.) Notice that the close button is missing, so you
-    cannot close the tab. If you try to close Firefox&reg;, you will get a warning message
-    about closing a protected tab.
-  </p>
+<h6>
+  <u>Locked tab</u>
+</h6>
+<p>
+  A tab that is prevented from navigating to another page or URL. Your tab is locked on the current
+  page or URL. Nothing new can load in the tab, but you can refresh the same page. All links will
+  open in a new tab (link, history, bookmark, etc.). Notice that the close button is available, so
+  you can close a locked tab.
+</p>
+
+<h6>
+  <u>Frozen tab</u>
+</h6>
+<p>
+  A tab that is both locked and protected. It will not close and nothing new can be loaded in it.
+  You will not be able to navigate away from the current page. All links will open in a new tab
+  (link, history, bookmark, etc.) Notice that the close button is missing, so you cannot close the
+  tab. If you try to close Firefox&reg;, you will get a warning message about closing a protected
+  tab.
+</p>
+
 </div>
+
+---
 
 <div class="grid gap-2 xl:grid-cols-2">
   <div class="topic">
@@ -49,12 +58,14 @@ import tabMenuFreeezTab from '../images/tab_menu_freeez_tab.gif';
   <Image class="m-auto w-3/5 xl:w-10/12" src={lockNewTabs} alt="image" />
 </div>
 
+---
+
 <div class="topic">
   <u>Change single tab Protected, Locked or Frozen status</u>
   <p>
-    You can change single tab Protected, Locked or Frozen status from tab context menu or
-    browser main context menu. To enable these options in the context menu, go to Tab Mix Plus
-    Option window > Menu Panel and set the options you need for each menu.
+    You can change single tab Protected, Locked or Frozen status from tab context menu or browser
+    main context menu. To enable these options in the context menu, go to Tab Mix Plus `Option
+    window > Menu` panel and set the options you need for each menu.
   </p>
 </div>
 <div class="grid gap-4 xl:grid-cols-2">

@@ -5,41 +5,38 @@ sidebar:
   order: 2
 ---
 
-import { Image } from 'astro:assets';
-import preferencesButton from './images/preferences-button.jpg';
+import { Image } from 'astro:assets'
+import preferencesButton from './images/preferences-button.jpg'
 
 <Image class="help-img" src={preferencesButton} alt="image" />
 <div class="topic">
   <p>
     Since all Tab Mix Plus preferences are stored in the 'prefs.js' file, Tab Mix Plus has the
-    ability to extract these preferences and store them in a separate file. The 'Preferences'
-    button is located at the bottom of the options window.<br />
+    ability to extract these preferences and store them in a separate file. The 'Preferences' button
+    is located at the bottom of the options window. <br />
     Click it to open a popup menu that will dispaly the following options to choose from:
   </p>
   <ul class="list-disc pl-8">
+    <li>Restore Defaults - will reset all preferences to the Tab Mix Plus default preferences</li>
+  </ul>
+  <ul class="list-disc pl-8">
     <li>
-      Restore Defaults - will reset all preferences to the Tab Mix Plus default preferences
+      Import Preferences - you can import Tab Mix Plus preferences from a file (usually from another
+      configuration or PC)
     </li>
   </ul>
   <ul class="list-disc pl-8">
     <li>
-      Import Preferences - you can import Tab Mix Plus preferences from a file (usually from
-      another configuration or PC)
+      Export Preferences - you can export your preferences to be saved or applied to another PC, the
+      default file name is TMPpref.txt.
     </li>
   </ul>
   <ul class="list-disc pl-8">
     <li>
-      Export Preferences - you can export your preferences to be saved or applied to another
-      PC, the default file name is TMPpref.txt.
-    </li>
-  </ul>
-  <ul class="list-disc pl-8">
-    <li>
-      Sync Preferences - Enable to add Tabmix preferences to the data Firefox sync. For more
-      help about sync, read the article
-      [How do I set up Firefox Sync](https://support.mozilla.org/en-US/kb/how-do-i-set-up-firefox-sync?esab=a&s=Sync+settings&r=1&as=s)
+      Sync Preferences - Enable to add Tabmix preferences to the data Firefox sync. For more help
+      about sync, read the article [How do I set up Firefox
+      Sync](https://support.mozilla.org/en-US/kb/how-do-i-set-up-firefox-sync?esab=a&s=Sync+settings&r=1&as=s)
       from Mozilla support.
     </li>
   </ul>
-  <br />
 </div>

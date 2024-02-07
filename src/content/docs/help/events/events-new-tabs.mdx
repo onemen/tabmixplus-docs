@@ -5,11 +5,11 @@ sidebar:
   order: 4
 ---
 
-import { Image } from 'astro:assets';
-import eventsNewTabs from '../images/events-new-tabs.jpg';
-import switchToTab from '../images/switchtotab.png';
+import { Image } from 'astro:assets'
+import eventsNewTabs from '../images/events-new-tabs.jpg'
+import switchToTab from '../images/switchtotab.png'
 
-#####  Controls which URL loads in New Tab and location of newly opened tabs.<br />
+##### Controls which URL loads in New Tab and location of newly opened tabs.<br />
 
 <br />
 
@@ -43,6 +43,7 @@ import switchToTab from '../images/switchtotab.png';
       <li>Current Page (whatever page is currently displayed in your browser)</li>
       <li>Duplicate Tab with history (copy the current tab with history)</li>
     </ul>
+
   </li>
   <li>
     Focus content when loading non blank page, (when not checked, focus is on the address bar)
@@ -51,6 +52,7 @@ import switchToTab from '../images/switchtotab.png';
 </ul>
 
 ---
+
 <h6>Other Tabs</h6>
 <ul class="topic list-disc pl-8">
   <li>
@@ -58,19 +60,19 @@ import switchToTab from '../images/switchtotab.png';
     <ul class="square list-disc pl-8">
       <li>Only if related to current tab</li>
       <li>
-        Change opening order - tabs will open to the right of the most recently opened. Please
-        refer to the example below.
+        Change opening order - tabs will open to the right of the most recently opened. Please refer
+        to the example below.
       </li>
     </ul>
     <aside aria-label="Note" class="starlight-aside starlight-aside--note">
       <u>Example of changing opening order</u>
       <p>
-        `[a][b][c]` are the current opened tabs with `[a]` being the current tab.<br />
-        `[1][2][3]` are the new tabs opened in that order.<br />
+        `[a][b][c]` are the current opened tabs with `[a]` being the current tab. <br />
+        `[1][2][3]` are the new tabs opened in that order. <br />
         `[a][b][c][1][2][3]` -&gt; `[a][3][2][1][b][c]`, this is how tabs open without changing
-        opening order.<br />
-        `[a][b][c][1][2][3]` -&gt; `[a][1][2][3][b][c]`, this is how tabs open with the change
-        opening order option checked.
+        opening order. <br />
+        `[a][b][c][1][2][3]` -&gt; `[a][1][2][3][b][c]`, this is how tabs open with the change opening
+        order option checked.
       </p>
     </aside>
   </li>
@@ -81,36 +83,35 @@ import switchToTab from '../images/switchtotab.png';
   <li>
     Move tab from 'Switch to tab' next to current one
     <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-      When using 'Switch to tab' from address bar popup, move the tab you switching to next to
-      the currently selected tab.<br />
+      When using 'Switch to tab' from address bar popup, move the tab you switching to next to the
+      currently selected tab. <br />
       This only applied when the tab you switching to is in the same window.
-      <Image src={switchToTab} alt="image"/>
+      <Image src={switchToTab} alt="image" />
     </aside>
   </li>
 </ul>
 
 ---
+
 <div class="topic">
   <h6>Groups of bookmarks/history</h6>
   <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-    When opening many tabs from bookmarks group or history loading time for all tabs can be
-    long, especially when multi-process (aka E10s,
-    [Electrolysis](https://wiki.mozilla.org/Electrolysis)) is enabled.<br />
+    When opening many tabs from bookmarks group or history loading time for all tabs can be long,
+    especially when multi-process (aka E10s, [Electrolysis](https://wiki.mozilla.org/Electrolysis))
+    is enabled. <br />
     It is recommended to enable these options when opening many tabs.
   </aside>
   <ul class="list-disc pl-8">
     <li>Load tabs progressively - load tabs no more than 3 tabs at a time.</li>
-    <li>
-      Don't load tabs until selected - all background tabs remain unloaded until selected.
-    </li>
+    <li>Don't load tabs until selected - all background tabs remain unloaded until selected.</li>
   </ul>
   <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-    For both options you can set the amount of tabs that serve as a threshold to enable the
-    option.
+    For both options you can set the amount of tabs that serve as a threshold to enable the option.
   </aside>
 </div>
 
 ---
+
 <div class="topic">
   <h6>Lock tabs</h6>
   <ul class="list-disc pl-8">
@@ -119,8 +120,8 @@ import switchToTab from '../images/switchtotab.png';
     <li class="pt-3">Apply changes to open tabs</li>
   </ul>
   <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-    You can set Tab Mix Plus to lock every new tab and every new App tab. If "Apply changes to
-    open tabs" is enabled, any change to <b>Lock New tabs</b> or
+    You can set Tab Mix Plus to lock every new tab and every new App tab. If "Apply changes to open
+    tabs" is enabled, any change to <b>Lock New tabs</b> or
     <b>Lock Apps tabs</b> preferences change the lock status of open tabs acordingly.
   </aside>
   More about [Protected Locked and Frozen Tabs](/help/events/frozen_tabs)

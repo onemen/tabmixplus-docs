@@ -5,15 +5,15 @@ sidebar:
   order: 13
 ---
 
-import { Image } from 'astro:assets';
-import mouseGestures from '../images/mouse-gestures.jpg';
+import { Image } from 'astro:assets'
+import mouseGestures from '../images/mouse-gestures.jpg'
 
 <Image class="help-img" src={mouseGestures} alt="image" />
 
 <div class="topic">
   <ul class="list-disc pl-8">
     <li>
-      Select tab pointed for ___ msec<br />
+      Select tab pointed for ___ msec <br />
       <ul class="list-disc pl-8">
         <li>Specify time in milliseconds, 250 milliseconds is default.</li>
       </ul>
@@ -24,13 +24,15 @@ import mouseGestures from '../images/mouse-gestures.jpg';
 <div class="topic">
   <ul class="list-disc pl-8">
     <li>
-      Switch to last selected tab when clicking current one<br />clicking the current tab will
-      make the last selected tab take focus and become the current tab after the specified
-      time delay
+      Switch to last selected tab when clicking current one
+      <br />
+      clicking the current tab will make the last selected tab take focus and become the current tab
+      after the specified time delay
       <ul class="list-disc pl-8">
         <li>
-          Use time delay of ___ msec<br />specify time in milliseconds, 250 milliseconds is
-          default
+          Use time delay of ___ msec
+          <br />
+          specify time in milliseconds, 250 milliseconds is default
         </li>
       </ul>
     </li>
@@ -52,21 +54,21 @@ import mouseGestures from '../images/mouse-gestures.jpg';
         <ul class="circle list-disc pl-8">
           <li>
             Tabs in menus opened from Tab Mix Plus Opened Tabs list button or context menu:
-            middle-click on tab entry in the list removes the tab itself, not just the entry
-            in the list.
+            middle-click on tab entry in the list removes the tab itself, not just the entry in the
+            list.
           </li>
           <li>
             Sessions in Tab Mix Plus sessions menu: middle-click on session entry in the list
             removes the session.
           </li>
           <li>
-            Closed tabs in the Closed tabs list: middle-click on tab entry in the list removes
-            the tab from the closed tabs list, removed tab cannot be restored anymore.
+            Closed tabs in the Closed tabs list: middle-click on tab entry in the list removes the
+            tab from the closed tabs list, removed tab cannot be restored anymore.
           </li>
           <li>
-            Closed windows in the Closed windows list: middle-click on window entry in the
-            list removes the window from the closed windows list, removed window cannot be
-            restored anymore.
+            Closed windows in the Closed windows list: middle-click on window entry in the list
+            removes the window from the closed windows list, removed window cannot be restored
+            anymore.
           </li>
         </ul>
       </aside>
@@ -77,29 +79,30 @@ import mouseGestures from '../images/mouse-gestures.jpg';
 <div class="topic">
   <ul class="list-disc pl-8">
     <li>
-      <span class="default"
-        >When closing a tab, other tabs should not resize until cursor leaves toolbar
-        region</span>
+      <span class="default">
+        When closing a tab, other tabs should not resize until cursor leaves toolbar region
+      </span>
       <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-        applies only if tabs closed with the tab Close button. This option allows user to
-        close more than one tab without moving the mouse.
+        applies only if tabs closed with the tab Close button. This option allows user to close more
+        than one tab without moving the mouse.
       </aside>
     </li>
   </ul>
 </div>
 
 ---
+
 <div class="topic">
-  <ul class="list-disc pl-8 mb-2">
+  <ul class="mb-2 list-disc pl-8">
     <li>
-      <span class="default">When dragging a tab move it directly</span> - (applies only when
-      tabs are in single row).
+      <span class="default">When dragging a tab move it directly</span> - (applies only when tabs
+      are in single row).
       <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-        This option is not about the drop indicator, it's about moving a tab when you drag it.
-        When this option is on, and tabs are on one row, the tab starts to move when you start
-        dragging it. When tabs are in mutli-row or when this options is off, the tab is not
-        moving when you drag it. You see a drop indicator and the tab will move to its new
-        place when you stop dragging it and release the mouse button.
+        This option is not about the drop indicator, it's about moving a tab when you drag it. When
+        this option is on, and tabs are on one row, the tab starts to move when you start dragging
+        it. When tabs are in mutli-row or when this options is off, the tab is not moving when you
+        drag it. You see a drop indicator and the tab will move to its new place when you stop
+        dragging it and release the mouse button.
       </aside>
     </li>
   </ul>
@@ -115,21 +118,23 @@ import mouseGestures from '../images/mouse-gestures.jpg';
 </div>
 
 ---
+
 <ul class="topic list-disc pl-8">
   <li>
-    When scrolling over the tab-bar:<br />
+    When scrolling over the tab-bar:
+    <br />
     <aside aria-label="Note" class="starlight-aside starlight-aside--note">
       Hold Shift while scrolling to switch between these options
     </aside>
     <ul class="list-disc pl-8">
       <li>Scroll to change selected tab - scrolling down selects the next tab</li>
       <li>
-        <span class="default">Scroll all tabs</span> - scrolling moves visible tabs on the
-        tab-bar (when scroll buttons are visible)
+        <span class="default">Scroll all tabs</span> - scrolling moves visible tabs on the tab-bar
+        (when scroll buttons are visible)
       </li>
       <li style="margin-top: 10px; list-style-type: square">
-        Inverse scroll direction - change the direction in which tabs are selected or tab-bar
-        is moved
+        Inverse scroll direction - change the direction in which tabs are selected or tab-bar is
+        moved
       </li>
     </ul>
   </li>

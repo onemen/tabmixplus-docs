@@ -5,13 +5,15 @@ sidebar:
   order: 19
 ---
 
-import { Image } from 'astro:assets';
-import sessionPreserve from './images/session-preserve.jpg';
-import sessionRestore from './images/session-restore.jpg';
-import sessionStartexit from './images/session-startexit.jpg';
+import { Image } from 'astro:assets'
+import sessionPreserve from './images/session-preserve.jpg'
+import sessionRestore from './images/session-restore.jpg'
+import sessionStartexit from './images/session-startexit.jpg'
 
 :::danger[Not Implemented]
+
 Session Manager feature is not included at the moment since it requires complete rewrite.
+
 :::
 
 ##### Controls Firefox's built-in Session Restore, Session Manager and Crash Recovery features
@@ -55,15 +57,19 @@ Session Manager feature is not included at the moment since it requires complete
     <b><u>IMPORTANT!</u></b> If you uninstall or disable Session Manager extension, Tab Mix
     Plus will revert back to its file which will not have the sessions saved with Session
     Manager extension.
+
   </aside>
 </div>
 
 ---
+
 <div class="topic">
   <h3>Start/Exit</h3>
   <ul class="list-disc pl-8">
     <li>
-      <h6>When browser Starts <span class="font-normal">(Select one option)</span></h6>
+      <h6>
+        When browser Starts <span class="font-normal">(Select one option)</span>
+      </h6>
       <ul class="list-disc pl-8">
         <li>Restore</li>
         <li>Ask Before Restoring</li>
@@ -73,7 +79,9 @@ Session Manager feature is not included at the moment since it requires complete
   </ul>
   <ul class="list-disc pl-8">
     <li>
-      <h6>When Browser Exits <span class="font-normal">(Select one option)</span></h6>
+      <h6>
+        When Browser Exits <span class="font-normal">(Select one option)</span>
+      </h6>
       <ul class="list-disc pl-8">
         <li class="default">Save Session</li>
         <li>Ask before Saving</li>
@@ -83,12 +91,15 @@ Session Manager feature is not included at the moment since it requires complete
   </ul>
 </div>
 
+<div class="-mb-3 ml-4">
+  Tab Mix Plus saves two types of session, sessions saved by the user and history sessions. <br />
+  Current Tab Mix Plus version saves only two history session: Last Session and Previous to Last.
+</div>
 <ul class="topic list-disc pl-8">
-  Tab Mix Plus saves two types of session, sessions saved by the user and history sessions.<br />
-  Current Tab Mix Plus version saves only two history session: Last Session and Previous to
-  Last.<br />
   <li>
-    Startup Session (select a session):
+    <h6>
+      Startup Session <span class="font-normal">(select a session)</span>
+    </h6>
     <ul class="list-disc pl-8">
       <li class="default">Last session</li>
       <li>Previous to last</li>
@@ -102,7 +113,7 @@ Session Manager feature is not included at the moment since it requires complete
 
 <ul class="topic list-disc pl-8">
   <li>
-    When not restoring on start:
+    <h6>When not restoring on start</h6>
     <ul class="circle list-disc pl-8">
       <li class="default">Show my home page</li>
       <li>Show a blank page</li>
@@ -111,6 +122,7 @@ Session Manager feature is not included at the moment since it requires complete
 </ul>
 
 ---
+
 <h3>Restore</h3>
 <Image class="help-img" src={sessionRestore} alt="image" />
 
@@ -129,24 +141,26 @@ Session Manager feature is not included at the moment since it requires complete
     <li>
       Bypass cache when restoring
       <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-        Force Firefox to download page content data from the origin server. Same as using
-        Ctrl + F5 or Ctrl + Shift + R to reload the selected tab overriding cache.
+        Force Firefox to download page content data from the origin server. Same as using Ctrl + F5
+        or Ctrl + Shift + R to reload the selected tab overriding cache.
       </aside>
     </li>
     <li>
       Don't load tabs until selected (Removed)
-      <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-        Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user
-        interface.<br />
-        If you want to load all tabs immediately on Restore, go to about\:config and set the
-        preference<br />
-        browser.sessionstore.restore_on_demand to false.
-      </aside>
+<aside aria-label="Note" class="starlight-aside starlight-aside--note">
+Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user interface.
+
+If you want to load all tabs immediately on Restore, go to about\:config and set the preference
+`browser.sessionstore.restore_on_demand` to false.
+
+</aside>
     </li>
+
   </ul>
 </div>
 
 ---
+
 <h3>Preserve</h3>
 <Image class="help-img" src={sessionPreserve} alt="image" />
 
@@ -169,3 +183,5 @@ Session Manager feature is not included at the moment since it requires complete
     <li>Closed Tab list</li>
   </ul>
 </div>
+
+[Not Implemented]: #

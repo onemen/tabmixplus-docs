@@ -6,8 +6,13 @@ module.exports = {
     es2022: true,
     browser: true,
   },
-  plugins: ['prettier'],
-  extends: ['eslint:recommended', 'plugin:astro/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:markdown/recommended',
+    'plugin:mdx/recommended',
+    'plugin:astro/recommended',
+  ],
+  plugins: ['markdown', 'prettier'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -65,6 +70,13 @@ module.exports = {
         // If you are using "prettier/prettier" rule,
         // you don't need to format inside <script> as it will be formatted as a `.astro` file.
         'prettier/prettier': 'off',
+      },
+    },
+    {
+      files: ['*.mdx'],
+      parser: 'eslint-mdx',
+      rules: {
+        'no-unused-vars': 'off',
       },
     },
   ],

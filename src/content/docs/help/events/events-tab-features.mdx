@@ -5,18 +5,20 @@ sidebar:
   order: 9
 ---
 
-import { Image } from 'astro:assets';
-import closedListButton from '../images/closed-list-button.jpg';
-import closedListMenuButton from '../images/closed-list-menu-button.jpg';
-import closedTabsButtonContextMenu from '../images/closed-tabs-button-context-menu.gif';
-import eventsTabFeatures from '../images/events-tab-features.jpg';
-import keepMenuOpen from '../images/keep_menu_open.png';
+import { Image } from 'astro:assets'
+import closedListButton from '../images/closed-list-button.jpg'
+import closedListMenuButton from '../images/closed-list-menu-button.jpg'
+import closedTabsButtonContextMenu from '../images/closed-tabs-button-context-menu.gif'
+import eventsTabFeatures from '../images/events-tab-features.jpg'
+import keepMenuOpen from '../images/keep_menu_open.png'
 
 <Image class="help-img" src={eventsTabFeatures} alt="image" />
 
 <div class="topic">
   <ul class="list-disc pl-8">
-    <li><span class="default">Enable undo close tabs</span></li>
+    <li>
+      <span class="default">Enable undo close tabs</span>
+    </li>
     <span class="indent">
       (previously closed tabs may be reopened and the following conditions will be applied)
     </span>
@@ -26,46 +28,53 @@ import keepMenuOpen from '../images/keep_menu_open.png';
         <span class="default">default: 10</span>
       </li>
       <li>
-        <span class="default">Restore the tab's original position</span> (tabs are restored to
-        their position when closed)
+        <span class="default">Restore the tab's original position</span> (tabs are restored to their
+        position when closed)
       </li>
       <li>Make the toolbar button display only a list</li>
-      <aside aria-label="Note" class="starlight-aside starlight-aside--note grid grid-cols-[1fr,60px] gap-2">
-        <p>If checked, when the <b>Closed Tabs List</b> button is clicked, a menu will open with
-        recently closed tabs list. An arrow appears on the button next to the label indicating
-        that a menu is present.</p>
-        <Image class="self-center !mt-0 w-[40px]" src={closedListButton} alt="image"/>
-        <p>When this option is not checked, the button will restore the last closed tab when
-        clicked and an arrow will be displayed. A click on the arrow opens a menu with
-        recently closed tabs list.</p>
-        <Image class="self-center !mt-0 w-[55px]" src={closedListMenuButton} alt="image"/>
+      <aside
+        aria-label="Note"
+        class="starlight-aside starlight-aside--note grid grid-cols-[1fr,60px] gap-2"
+      >
+        <p>
+          If checked, when the <b>Closed Tabs List</b> button is clicked, a menu will open with
+          recently closed tabs list. An arrow appears on the button next to the label indicating
+          that a menu is present.
+        </p>
+        <Image class="!mt-0 w-[40px] self-center" src={closedListButton} alt="image" />
+        <p>
+          When this option is not checked, the button will restore the last closed tab when clicked
+          and an arrow will be displayed. A click on the arrow opens a menu with recently closed
+          tabs list.
+        </p>
+        <Image class="!mt-0 w-[55px] self-center" src={closedListMenuButton} alt="image" />
       </aside>
       <li>Keep menu open</li>
       <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-        Enabling 'Keep menu open' leave the menu open after deleting or opening closed tab, in
-        order to allow you to do several commands in a row without having to open the menu
-        every time. To close the menu, click with the mouse outside the menu.
-        <Image src={keepMenuOpen} alt="image"/>
+        Enabling 'Keep menu open' leave the menu open after deleting or opening closed tab, in order
+        to allow you to do several commands in a row without having to open the menu every time. To
+        close the menu, click with the mouse outside the menu.
+        <Image src={keepMenuOpen} alt="image" />
       </aside>
     </ul>
   </ul>
   <aside aria-label="Note" class="starlight-aside starlight-aside--note">
     <p class="starlight-aside__title">Tips</p>
-    Use middle mouse click on <b>Closed Tabs List</b> button to restore all closed tabs at
-    once.<br />
-    Use right mouse click on recently closed tabs list menu to open the context menu seen in
-    the image below.
-    <Image class="m-auto" src={closedTabsButtonContextMenu} alt="image"/>
+    Use middle mouse click on <b>Closed Tabs List</b> button to restore all closed tabs at once. <br />
+    Use right mouse click on recently closed tabs list menu to open the context menu seen in the
+    image below.
+    <Image class="m-auto" src={closedTabsButtonContextMenu} alt="image" />
   </aside>
 </div>
 
 ---
+
 <div class="topic">
   <h6>Ctrl-Tab</h6>
   <ul class="list-disc pl-8">
     <li>
-      Ctrl-Tab navigates tabs in the most recent used order (pressing Ctrl-Tab will navigate
-      between Tabs in the most recently used order)
+      Ctrl-Tab navigates tabs in the most recent used order (pressing Ctrl-Tab will navigate between
+      Tabs in the most recently used order)
       <ul class="square list-disc pl-8">
         <li>Show tab previews - displays a window with tab previews.</li>
         <aside class="starlight-aside starlight-aside--note">
@@ -74,12 +83,12 @@ import keepMenuOpen from '../images/keep_menu_open.png';
       </ul>
     </li>
     <li>
-      Ctrl-Tab displays a tab list popup menu - pressing Ctrl-Tab will display a popup menu
-      list of all tabs.
+      Ctrl-Tab displays a tab list popup menu - pressing Ctrl-Tab will display a popup menu list of
+      all tabs.
       <ul class="square list-disc pl-8">
         <li>
-          Tab list responds to the mouse - when checked you can use your mouse left click on
-          the list to select a tab
+          Tab list responds to the mouse - when checked you can use your mouse left click on the
+          list to select a tab
         </li>
       </ul>
       <aside class="starlight-aside starlight-aside--note">
@@ -91,27 +100,27 @@ import keepMenuOpen from '../images/keep_menu_open.png';
 </div>
 
 ---
+
 <div class="topic">
   <ul class="list-disc pl-8">
     <li>
-      Toggle tabs slideshow - click to go to Menu/Shortcut to enable/disable or change the
-      shortcut
+      Toggle tabs slideshow - click to go to Menu/Shortcut to enable/disable or change the shortcut
     </li>
     <li>Disable Open/Close tab animation (removes default Firefox animation from tabs)</li>
   </ul>
 </div>
 
 ---
+
 <div class="topic">
   <h6>Auto Reload</h6>
   <ul class="list-disc pl-8">
     <li>
-      Reload a tab regardless of its address - the tab will be reloaded even if its URL
-      changes
+      Reload a tab regardless of its address - the tab will be reloaded even if its URL changes
     </li>
     <li>
-      Show Reload Every menu on Reload button - a Reload every menu will be added to the
-      Reload toolbar button
+      Show Reload Every menu on Reload button - a Reload every menu will be added to the Reload
+      toolbar button
     </li>
   </ul>
 </div>

@@ -1,3 +1,15 @@
+/* General */
+
+p:empty {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+.starlight-aside--note {
+  --sl-color-bg-inline-code: #96a1f16e;
+}
+
 /* Header */
 
 .site-title > * {

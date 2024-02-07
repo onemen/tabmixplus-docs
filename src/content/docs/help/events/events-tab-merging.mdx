@@ -5,8 +5,8 @@ sidebar:
   order: 8
 ---
 
-import { Image } from 'astro:assets';
-import eventsTabMerging from '../images/events-tab-merging.jpg';
+import { Image } from 'astro:assets'
+import eventsTabMerging from '../images/events-tab-merging.jpg'
 
 ##### Controls tabs and windows merging when tabs are closed
 
@@ -15,22 +15,23 @@ import eventsTabMerging from '../images/events-tab-merging.jpg';
 <Image class="help-img" src={eventsTabMerging} alt="image" />
 
 <div class="topic">
-  <h6>Merge windows when no tabs are selected <span class="font-normal">(Select one option)</span></h6>
+  <h6>
+    Merge windows when no tabs are selected <span class="font-normal">(Select one option)</span>
+  </h6>
   <ul class="list-disc pl-8">
     <li class="default">Merge all windows into one</li>
     <li>Merge only current window with last focused</li>
     <li>
       Also take popups - popup windows will also be merged
       <ul class="square list-disc pl-8">
-        <li>
-          Place popups next to their openers - popups will be placed next to their openers
-        </li>
+        <li>Place popups next to their openers - popups will be placed next to their openers</li>
       </ul>
     </li>
   </ul>
 </div>
 
 ---
+
 <div class="topic">
   <h6>Merging after selecting tabs</h6>
   <ul class="list-disc pl-8">
@@ -39,8 +40,8 @@ import eventsTabMerging from '../images/events-tab-merging.jpg';
       (when all tabs are merged from other windows, those windows will be closed)
       <ul class="square list-disc pl-8">
         <li>
-          <span class="default">Warn when closing tabs that aren't being merged</span> - a
-          warning will be displayed indicating not all tabs have been merged
+          <span class="default">Warn when closing tabs that aren't being merged</span> - a warning
+          will be displayed indicating not all tabs have been merged
         </li>
       </ul>
     </li>

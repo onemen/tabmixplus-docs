@@ -4,5 +4,5 @@ logs
 dist
 .vscode
 pnpm-lock.yaml
-*.md
-*.mdx
+# *.md
+#*.mdx
