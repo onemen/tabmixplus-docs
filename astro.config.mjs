@@ -3,14 +3,12 @@ import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
 import expressiveCode from 'astro-expressive-code';
 import { defineConfig } from 'astro/config';
+import rehypeExternalLinks from 'rehype-external-links';
 
 const linksStyle = 'font-size: var(--sl-text-sm); font-weight: 600;';
 
 // https://astro.build/config
 export default defineConfig({
-  markdown: {
-    smartypants: false,
-  },
   integrations: [
     starlight({
       favicon: 'public/favicon.ico',
@@ -123,4 +121,11 @@ export default defineConfig({
     expressiveCode(),
     mdx(),
   ],
+  markdown: {
+    smartypants: false,
+    rehypePlugins: [
+      // https://docs.astro.build/en/recipes/external-links/#recipe
+      [rehypeExternalLinks, { target: '_blank' }],
+    ],
+  },
 });

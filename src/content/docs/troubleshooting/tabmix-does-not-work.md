@@ -59,6 +59,7 @@ from Mozilla support.
 
 When you finish your testing, we encourage you to report about your findings, whether you find the
 culprit or not, to our forum, so other users can benefit from your findings and to help Tab Mix Plus
-developers to solve the issue you have. (Read [How to post about a problem](../how-to-post)). In the
-case the conflict is another extension or theme, please report about it to the developer of the
-conflicting extension or theme also so that they can work it out as well.
+developers to solve the issue you have. (Read
+[How to post about a problem](/troubleshooting/how-to-post)). In the case the conflict is another
+extension or theme, please report about it to the developer of the conflicting extension or theme
+also so that they can work it out as well.

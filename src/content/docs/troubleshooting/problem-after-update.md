@@ -18,7 +18,7 @@ The problem you encounter can be incompatibility with other extensions or a bug 
 only reveals itself in a specific Firefox and Extensions combination. Installing old version will
 not fix the problem.
 
-If you haven't read [How to post about a problem](../how-to-post), read it now.
+If you haven't read [How to post about a problem](/troubleshooting/how-to-post), read it now.
 
 If you are testing pre-release Firefox versions, you really should install Disable Add-ons
 Compatibility Check, Add-on Compatibility Reporter, or simply

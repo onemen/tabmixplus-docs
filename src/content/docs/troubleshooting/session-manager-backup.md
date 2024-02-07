@@ -37,4 +37,4 @@ back to its file which will not have the sessions saved with Session Manager ext
 
 ### Help page
 
-Read more in our [Session Manager](../../help/session-startexit) help page.
+Read more in our [Session Manager](/help/session-startexit) help page.
