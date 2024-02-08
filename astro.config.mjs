@@ -11,7 +11,7 @@ const linksStyle = 'font-size: var(--sl-text-sm); font-weight: 600;';
 export default defineConfig({
   integrations: [
     starlight({
-      favicon: 'public/favicon.ico',
+      favicon: 'favicon.ico',
       logo: {
         src: '/src/assets/tabmix_logo.png',
       },

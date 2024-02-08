@@ -65,7 +65,6 @@ a[data-hash],
   color: var(--sl-color-text-invert);
   font-weight: 600;
   padding: 0.3em 0.6em;
-  /* font-size: inherit; */
 }
 
 .paypal-button {
@@ -105,7 +104,7 @@ a[data-hash],
   width: 50%;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1280px) {
   .help-img {
     float: right;
     margin-left: 20px;
@@ -113,15 +112,37 @@ a[data-hash],
   }
 }
 
-.default {
+.sl-markdown-content strong {
   font-weight: bold;
-  font-style: italic;
 }
 
 footer,
-.topic,
-.starlight-aside {
+.tabmix-help-content .sl-markdown-content p,
+.sl-markdown-content > *:not(.help-img, .content-width, h1, h2, h3, h4, h5, h6, h7) {
   max-width: 45rem;
+}
+
+.sl-markdown-content .starlight-aside[aria-label='no-title'] .starlight-aside__title {
+  display: none;
+}
+
+.sl-markdown-content
+  .starlight-aside[aria-label='no-title']
+  .starlight-aside__title
+  + .starlight-aside__content {
+  margin-top: 0;
+}
+
+.sl-markdown-content .starlight-aside__content a {
+  color: var(--sl-color-text-accent);
+}
+
+.sl-markdown-content .starlight-aside__content a:hover {
+  color: var(--sl-color-white);
+}
+
+.sl-markdown-content ul {
+  padding-left: 2rem;
 }
 
 .sl-markdown-content li > p:last-child {
@@ -130,6 +151,10 @@ footer,
 
 .sl-markdown-content li > ul {
   margin-top: 0;
+}
+
+.sl-markdown-content :not(li > ul, .starlight-aside__content > ul) > li + li {
+  margin-top: 1rem;
 }
 
 .content-panel ul:not(.circle) > li {

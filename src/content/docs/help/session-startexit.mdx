@@ -22,166 +22,126 @@ Session Manager feature is not included at the moment since it requires complete
 
 <Image class="help-img" src={sessionStartexit} alt="image" />
 
-<div class="topic">
-  <ul class="list-disc pl-8">
-    <li>
-      Use Firefox's built-in Session Restore Feature - when checked, Firefox's Session Restore
-      feature will be in effect
-    </li>
-    <li class="default">Enable Session Manager</li>
-    <li class="default">Enable Crash Recovery</li>
-  </ul>
+- Use Firefox's built-in Session Restore Feature - when checked, Firefox's Session Restore feature
+  will be in effect
+- **_Enable Session Manager_**
+- **_Enable Crash Recovery_**
 
-  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-    <p class="starlight-aside__title" aria-hidden="true">Note</p>
-    <p>
-      Sessions are stored in the <b>session.rdf</b> file in
-      [your profile][kbProfile]
-      folder. A backup of this file is stored in the <b>sessionbackups</b> folder in
-      [your profile][kbProfile]
-      folder. If your session becomes corrupt and you are unable to restore that session, copy
-      one of the backup files (tabmix_sessions-yyyy-mm-dd.rdf) from the backup folder to
-      [your profile][kbProfile]
-      folder, rename the file to <b>session.rdf</b>.
-    </p>
-    [kbProfile]: https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles
-  </aside>
-  <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-    For a full range of sessions managing features, you can use
-    [Session Manager extension](https://addons.mozilla.org/en-US/firefox/addon/session-manager/)
-    which is created specifically for that purpose.<br />
-    When Session Manager extension is installed, Tab Mix Plus turns its own session manager
-    off. Your existing sessions will be converted to SM format. This two extensions work well
-    together without any known problems.
+:::note[no-title]
 
-    <b><u>IMPORTANT!</u></b> If you uninstall or disable Session Manager extension, Tab Mix
-    Plus will revert back to its file which will not have the sessions saved with Session
-    Manager extension.
+**Note**
 
-  </aside>
-</div>
+Sessions are stored in the <b>session.rdf</b> file in [your profile][kbProfile] folder. A backup of
+this file is stored in the <b>sessionbackups</b> folder in [your profile][kbProfile] folder. If your
+session becomes corrupt and you are unable to restore that session, copy one of the backup files
+(tabmix_sessions-yyyy-mm-dd.rdf) from the backup folder to [your profile][kbProfile] folder, rename
+the file to <b>session.rdf</b>.
+
+:::
+
+:::note[no-title]
+
+For a full range of sessions managing features, you can use
+[Session Manager extension](https://addons.mozilla.org/en-US/firefox/addon/session-manager/) which
+is created specifically for that purpose.<br /> When Session Manager extension is installed, Tab Mix
+Plus turns its own session manager off. Your existing sessions will be converted to SM format. This
+two extensions work well together without any known problems.
+
+**IMPORTANT!** If you uninstall or disable Session Manager extension, Tab Mix Plus will revert back
+to its file which will not have the sessions saved with Session Manager extension.
+
+:::
 
 ---
 
-<div class="topic">
-  <h3>Start/Exit</h3>
-  <ul class="list-disc pl-8">
-    <li>
-      <h6>
-        When browser Starts <span class="font-normal">(Select one option)</span>
-      </h6>
-      <ul class="list-disc pl-8">
-        <li>Restore</li>
-        <li>Ask Before Restoring</li>
-        <li class="default">Dont Restore</li>
-      </ul>
-    </li>
-  </ul>
-  <ul class="list-disc pl-8">
-    <li>
-      <h6>
-        When Browser Exits <span class="font-normal">(Select one option)</span>
-      </h6>
-      <ul class="list-disc pl-8">
-        <li class="default">Save Session</li>
-        <li>Ask before Saving</li>
-        <li>Dont Save</li>
-      </ul>
-    </li>
-  </ul>
-</div>
+### Start/Exit
 
-<div class="-mb-3 ml-4">
+- ###### When browser Starts <span class="font-normal">(Select one option)</span>
+
+  - Restore
+  - Ask Before Restoring
+  - **_Dont Restore_**
+
+- ###### When Browser Exits <span class="font-normal">(Select one option)</span>
+
+  - **_Save Session_**
+  - Ask before Saving
+  - Dont Save
+
+<div class="-mb-2 ml-4">
   Tab Mix Plus saves two types of session, sessions saved by the user and history sessions. <br />
   Current Tab Mix Plus version saves only two history session: Last Session and Previous to Last.
 </div>
-<ul class="topic list-disc pl-8">
-  <li>
-    <h6>
-      Startup Session <span class="font-normal">(select a session)</span>
-    </h6>
-    <ul class="list-disc pl-8">
-      <li class="default">Last session</li>
-      <li>Previous to last</li>
-      <li>All sessions you previously saved</li>
-      <li style="margin-top: 6px; list-style-type: square">
-        Choose another if empty (when checked, you will be prompted to select another session)
-      </li>
-    </ul>
-  </li>
-</ul>
 
-<ul class="topic list-disc pl-8">
-  <li>
-    <h6>When not restoring on start</h6>
-    <ul class="circle list-disc pl-8">
-      <li class="default">Show my home page</li>
-      <li>Show a blank page</li>
-    </ul>
-  </li>
-</ul>
+- ###### Startup Session <span class="font-normal">(select a session)</span>
+
+  - **_Last session_**
+  - Previous to last
+  - All sessions you previously saved
+
+  <span>
+    - Choose another if empty (when checked, you will be prompted to select another session)
+  </span>
+
+- ###### When not restoring on start
+
+  - **_Show my home page_**
+  - Show a blank page
 
 ---
 
-<h3>Restore</h3>
+### Restore
+
 <Image class="help-img" src={sessionRestore} alt="image" />
 
-<div class="topic">
-  <a name="restore"></a>
-  <h6>When Restoring Sessions</h6>
-  <ul class="list-disc pl-8">
-    <li class="default">
-      Overwrite existing windows
-      <ul class="square list-disc pl-8">
-        <li class="default">And tabs</li>
-        <li class="default">Save windows in closed windows list</li>
-      </ul>
-    </li>
-    <li>Join multiple windows into one</li>
-    <li>
-      Bypass cache when restoring
-      <aside aria-label="Note" class="starlight-aside starlight-aside--note">
-        Force Firefox to download page content data from the origin server. Same as using Ctrl + F5
-        or Ctrl + Shift + R to reload the selected tab overriding cache.
-      </aside>
-    </li>
-    <li>
-      Don't load tabs until selected (Removed)
-<aside aria-label="Note" class="starlight-aside starlight-aside--note">
-Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user interface.
+<a name="restore"></a>
+###### When Restoring Sessions
 
-If you want to load all tabs immediately on Restore, go to about\:config and set the preference
-`browser.sessionstore.restore_on_demand` to false.
+- **_Overwrite existing windows_**
+  - **_And tabs_**
+  - **_Save windows in closed windows list_**
+- Join multiple windows into one
+- Bypass cache when restoring
 
-</aside>
-    </li>
+  :::note[no-title]
 
-  </ul>
-</div>
+  Force Firefox to download page content data from the origin server. Same as using Ctrl + F5 or
+  Ctrl + Shift + R to reload the selected tab overriding cache.
+
+  :::
+
+- Don't load tabs until selected (Removed)
+
+  :::note[no-title]
+
+  Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user interface.
+
+  If you want to load all tabs immediately on Restore, go to about\:config and set the preference
+  `browser.sessionstore.restore_on_demand` to false.
+
+  :::
 
 ---
 
-<h3>Preserve</h3>
+### Preserve
+
 <Image class="help-img" src={sessionPreserve} alt="image" />
 
-<div class="topic">
-  <a name="preserve"></a>
-  <h6>Preserve Tabs</h6>
-  <ul class="list-disc pl-8">
-    <li class="default">History</li>
-    <li class="default">Permissions</li>
-    <li class="default">Protected Status</li>
-    <li class="default">Lock Status</li>
-    <li class="default">Scroll and Text Size</li>
-  </ul>
-</div>
+<a name="preserve"></a>
+###### Preserve Tabs
 
-<div class="topic">
-  <h6>Preserve Windows</h6>
-  <ul class="list-disc pl-8">
-    <li class="default">Selected Tab</li>
-    <li>Closed Tab list</li>
-  </ul>
-</div>
+- **_History_**
+- **_Permissions_**
+- **_Protected Status_**
+- **_Lock Status_**
+- **_Scroll and Text Size_**
 
+###### Preserve Windows
+
+- **_Selected Tab_**
+- Closed Tab list
+
+[kbProfile]:
+  https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles
 [Not Implemented]: #
+[no-title]: #

@@ -32,8 +32,8 @@ is created specifically for that purpose.<br /> When Session Manager extension i
 Plus turns its own session manager off. Your existing sessions will be converted to SM format. This
 two extensions work well together without any known problems.<br />
 
-**### IMPORTANT!** If you uninstall or disable Session Manager extension, Tab Mix Plus will revert
-back to its file which will not have the sessions saved with Session Manager extension.
+**IMPORTANT!** If you uninstall or disable Session Manager extension, Tab Mix Plus will revert back
+to its file which will not have the sessions saved with Session Manager extension.
 
 ### Help page
 
