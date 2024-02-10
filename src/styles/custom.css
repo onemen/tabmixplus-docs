@@ -27,10 +27,14 @@ details details .group-label > .large {
   font-size: var(--sl-text-sm);
 }
 
-a[data-hash],
-.sidebar-content a[href*='frozen_tabs'] {
+a[data-hash] {
   margin-left: 1rem;
   font-size: var(--sl-text-xs);
+}
+
+a[data-sm] {
+  font-size: var(--sl-text-sm);
+  font-weight: 600;
 }
 
 #starlight__sidebar {

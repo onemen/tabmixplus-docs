@@ -1,5 +1,6 @@
 ---
 import type { Props } from '@starlight/props';
+import type { Link } from '@starlight/utils/navigation.ts';
 
 import { default as MobileMenuFooter } from '@starlight/components/MobileMenuFooter.astro';
 import { default as SidebarSublist } from '@starlight/components/SidebarSublist.astro';
@@ -18,16 +19,48 @@ sidebar.forEach(entry => {
   }
 });
 
-// add Customizing Tabs Styles
-const helpEntries = sidebar.find(entry => entry.label === 'Help');
-// @ts-ignore
-const displayEntries = helpEntries?.entries?.find(entry => entry.label === 'Display');
-displayEntries?.entries.splice(2, 0, {
-  type: 'link',
+interface CustomLink extends Link {
+  attrs: Link['attrs'] & { 'data-hash'?: string };
+}
+
+interface Group {
+  type: 'group';
+  label: string;
+  entries: (Link | Group)[];
+  collapsed: boolean;
+}
+
+// add sidebar entries for links with hashes
+const helpEntries = (sidebar.find(entry => entry.label === 'Help') as Group).entries;
+helpEntries.forEach(entry => {
+  entry.label = entry.label.charAt(0).toUpperCase() + entry.label.slice(1);
+});
+
+const cutromLink = {
+  type: 'link' as const,
+  isCurrent: false,
+  badge: undefined,
+};
+
+const fileTypeEditor: CustomLink = {
+  ...cutromLink,
+  label: 'Links - file type editor',
+  href: '/help/links#file-type-editor',
+  attrs: { 'data-hash': 'true' },
+};
+
+const index = helpEntries.findIndex(entry => entry.label === 'Links');
+helpEntries.splice(index + 1, 0, fileTypeEditor);
+
+const customizingTabsStyles: CustomLink = {
+  ...cutromLink,
   label: 'Customizing Tabs Styles',
   href: '/help/display/display-tab#customize-tab-styles',
   attrs: { 'data-hash': 'true' },
-});
+};
+
+const displayEntries = helpEntries.find(entry => entry.label === 'Display') as Group;
+displayEntries.entries.splice(2, 0, customizingTabsStyles);
 ---
 
 <div class="tabmix-sidebar-header">

@@ -5,8 +5,6 @@ import expressiveCode from 'astro-expressive-code';
 import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
 
-const linksStyle = 'font-size: var(--sl-text-sm); font-weight: 600;';
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -54,58 +52,9 @@ export default defineConfig({
         },
         {
           label: 'Help',
-          items: [
-            {
-              label: 'Introduction',
-              link: 'help/introduction',
-              attrs: { style: linksStyle },
-            },
-            {
-              label: 'Preferences - Restore, Import & Export',
-              link: 'help/preferences-button',
-              attrs: { style: 'font-size: 13px;' },
-            },
-            {
-              label: 'Links',
-              link: 'help/links',
-              attrs: { style: linksStyle },
-            },
-            {
-              label: 'Links - file type editor',
-              link: 'help/links#file-type-editor',
-              attrs: { 'data-hash': 'true' },
-            },
-            {
-              label: 'Events',
-              autogenerate: {
-                directory: 'help/events',
-              },
-            },
-            {
-              label: 'Display',
-              autogenerate: {
-                directory: 'help/display',
-              },
-            },
-            {
-              label: 'Mouse',
-              autogenerate: {
-                directory: 'help/mouse',
-              },
-            },
-            {
-              label: 'Menu',
-              autogenerate: {
-                directory: 'help/menu',
-              },
-            },
-            {
-              label: 'Session',
-              link: 'help/session-startexit',
-              attrs: { style: linksStyle },
-              badge: { text: 'Not Implemented', variant: 'danger' },
-            },
-          ],
+          autogenerate: {
+            directory: 'help',
+          },
         },
         {
           label: 'Troubleshooting',
