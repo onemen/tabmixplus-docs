@@ -1,11 +1,11 @@
 ---
-import type { Props } from '@astrojs/starlight/props';
+import type { Props } from '@starlight/props';
 
-import { default as LanguageSelect } from '@astrojs/starlight/components/LanguageSelect.astro';
-import { default as Search } from '@astrojs/starlight/components/Search.astro';
-import { default as SiteTitle } from '@astrojs/starlight/components/SiteTitle.astro';
-import { default as SocialIcons } from '@astrojs/starlight/components/SocialIcons.astro';
-import { default as ThemeSelect } from '@astrojs/starlight/components/ThemeSelect.astro';
+import { default as LanguageSelect } from '@starlight/components/LanguageSelect.astro';
+import { default as Search } from '@starlight/components/Search.astro';
+import { default as SiteTitle } from '@starlight/components/SiteTitle.astro';
+import { default as SocialIcons } from '@starlight/components/SocialIcons.astro';
+import { default as ThemeSelect } from '@starlight/components/ThemeSelect.astro';
 
 const shouldRenderSearch = true;
 const isHelpPage = Astro.props.slug.startsWith('help');
