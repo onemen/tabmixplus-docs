@@ -39,27 +39,10 @@ module.exports = {
     {
       // Define the configuration for `<script>` tag.
       // Script in `<script>` is assigned a virtual file name with the `.js` extension.
-      files: ['**/*.astro/*.js', '*.astro/*.js'],
+      files: ['**/*.astro/*.js', '*.astro/*.js', '**/*.astro/*.ts', '*.astro/*.ts'],
       env: {
         browser: true,
         es2022: true,
-      },
-      parserOptions: {
-        sourceType: 'module',
-      },
-      rules: {
-        // If you are using "prettier/prettier" rule,
-        // you don't need to format inside <script> as it will be formatted as a `.astro` file.
-        'prettier/prettier': 'off',
-      },
-    },
-    {
-      // Define the configuration for `<script>` tag when using `client-side-ts` processor.
-      // Script in `<script>` is assigned a virtual file name with the `.ts` extension.
-      files: ['**/*.astro/*.ts', '*.astro/*.ts'],
-      env: {
-        browser: true,
-        es2020: true,
       },
       parser: '@typescript-eslint/parser',
       parserOptions: {

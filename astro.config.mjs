@@ -5,71 +5,69 @@ import expressiveCode from 'astro-expressive-code';
 import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
 
-// https://astro.build/config
-export default defineConfig({
-  integrations: [
-    starlight({
-      favicon: 'favicon.ico',
-      logo: {
-        src: '/src/assets/tabmix_logo.png',
-      },
-      title: 'Tab Mix Plus - Docs',
-      social: {
-        github: 'https://github.com/onemen/TabMixPlus',
-      },
-      editLink: {
-        baseUrl: 'https://github.com/onemen/TabMixPlus-docs/',
-      },
-      components: {
-        ContentPanel: '/src/components/ContentPanel.astro',
-        Header: '/src/components/Header.astro',
-        Sidebar: '/src/components/Sidebar.astro',
-      },
-      sidebar: [
+export const starlightConfig = {
+  favicon: 'favicon.ico',
+  logo: {
+    src: '/src/assets/tabmix_logo.png',
+  },
+  title: 'Tab Mix Plus - Docs',
+  social: {
+    github: 'https://github.com/onemen/TabMixPlus',
+  },
+  editLink: {
+    baseUrl: 'https://github.com/onemen/TabMixPlus-docs/',
+  },
+  components: {
+    ContentPanel: '/src/components/ContentPanel.astro',
+    Head: '/src/components/Head.astro',
+    Header: '/src/components/Header.astro',
+    Sidebar: '/src/components/Sidebar.astro',
+  },
+  sidebar: [
+    {
+      label: 'Welcome to Tab Mix Plus',
+      link: '/',
+    },
+    {
+      label: 'Important Links',
+      items: [
         {
-          label: 'Welcome to Tab Mix Plus',
-          link: '/',
+          label: 'Discussions',
+          link: 'https://github.com/onemen/TabMixPlus/discussions/',
+          attrs: { target: '_blank', style: 'font-style: italic' },
         },
         {
-          label: 'Important Links',
-          items: [
-            {
-              label: 'Discussions',
-              link: 'https://github.com/onemen/TabMixPlus/discussions/',
-              attrs: { target: '_blank', style: 'font-style: italic' },
-            },
-            {
-              label: 'Change Log',
-              link: 'https://github.com/onemen/TabMixPlus/releases/',
-              attrs: { target: '_blank', style: 'font-style: italic' },
-            },
-            {
-              label: 'Downloads',
-              link: 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/',
-              attrs: { target: '_blank', style: 'font-style: italic' },
-            },
-          ],
+          label: 'Change Log',
+          link: 'https://github.com/onemen/TabMixPlus/releases/',
+          attrs: { target: '_blank', style: 'font-style: italic' },
         },
         {
-          label: 'Help',
-          autogenerate: {
-            directory: 'help',
-          },
-        },
-        {
-          label: 'Troubleshooting',
-          autogenerate: {
-            directory: 'troubleshooting',
-          },
+          label: 'Downloads',
+          link: 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/',
+          attrs: { target: '_blank', style: 'font-style: italic' },
         },
       ],
-      customCss: ['/src/styles/custom.css'],
-      defaultLocale: 'en',
-    }),
-    tailwind(),
-    expressiveCode(),
-    mdx(),
+    },
+    {
+      label: 'Help',
+      autogenerate: {
+        directory: 'help',
+      },
+    },
+    {
+      label: 'Troubleshooting',
+      autogenerate: {
+        directory: 'troubleshooting',
+      },
+    },
   ],
+  customCss: ['/src/styles/custom.css'],
+  defaultLocale: 'en',
+};
+
+// https://astro.build/config
+export default defineConfig({
+  integrations: [starlight(starlightConfig), tailwind(), expressiveCode(), mdx()],
   markdown: {
     smartypants: false,
     rehypePlugins: [

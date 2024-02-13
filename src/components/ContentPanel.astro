@@ -4,21 +4,11 @@ import type { Props } from '@starlight/props';
 const isHelpPage = Astro.props.slug.startsWith('help');
 ---
 
-{
-  isHelpPage ? (
-    <div class="content-panel tabmix-help-content">
-      <div class="sl-container">
-        <slot />
-      </div>
-    </div>
-  ) : (
-    <div class="content-panel">
-      <div class="sl-container">
-        <slot />
-      </div>
-    </div>
-  )
-}
+<div class="content-panel" transition:animate="none">
+  <div class:list={{ 'sl-container': true, 'tabmix-help-content': isHelpPage }}>
+    <slot />
+  </div>
+</div>
 
 <style>
   .content-panel {

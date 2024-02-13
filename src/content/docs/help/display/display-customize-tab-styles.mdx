@@ -1,0 +1,42 @@
+---
+title: Customize Tab Styles
+tableOfContents: false
+sidebar:
+  order: 12
+  attrs:
+    data-hash: 'true'
+---
+
+import { Image } from 'astro:assets'
+import displayTabStyles from '../images/display-tab-styles.jpg'
+
+Click on <b>Customize Styles</b> button to open Customize Styles editor in a separate dialog. The
+dialog contains five panels: Current tab, Unread tabs, Unloaded tabs, Other tabs and Progress meter
+on tabs.
+
+<Image class="help-img" src={displayTabStyles} alt="image" />
+
+- Use this style - enable/disable spesific style, same as changing one of the appropriate options
+  (listed above) in the main dialog window
+- Italic
+- Bold
+- Underline
+- Text Color: select color and specify opacity `(100%)`
+- Background Color: select color and specify opacity `(100%)`
+- Restore Defaults (resets spesific style to default)
+
+:::note[no-title]
+
+You can control tab title bold, italic and underline style as well as the title color and opacity.
+For the tab background, you can control color and opacity, set different colors and opacity on tab
+bottom and top to get nice gradient effect of the color.
+
+Each color control has five parts:
+
+- button with predefined colors
+- three fields for user-defined color (color range 0-255)
+- opacity field for defined the opacity level of the color (range 0%-100%)
+
+:::
+
+[no-title]: #

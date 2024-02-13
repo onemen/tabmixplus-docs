@@ -10,6 +10,13 @@ p:empty {
   --sl-color-bg-inline-code: #96a1f16e;
 }
 
+/* action buttons to the home page */
+
+.hero .actions a {
+  min-width: 200px;
+  justify-content: center;
+}
+
 /* Header */
 
 .site-title > * {
