@@ -6,3 +6,17 @@ import { ViewTransitions } from 'astro:transitions';
 
 <Default {...Astro.props}><slot /></Default>
 <ViewTransitions />
+
+<script>
+  const ANIMATE = 'transition:animate';
+
+  function disableTransitionAanimate() {
+    const html = document.querySelector('html');
+    if (html?.nodeName.toLowerCase() === 'html' && html.getAttribute(ANIMATE) !== 'none') {
+      html.setAttribute(ANIMATE, 'none');
+    }
+  }
+
+  document.addEventListener('astro:after-swap', disableTransitionAanimate);
+  disableTransitionAanimate();
+</script>

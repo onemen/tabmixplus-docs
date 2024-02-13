@@ -18,9 +18,7 @@ export const starlightConfig = {
     baseUrl: 'https://github.com/onemen/TabMixPlus-docs/',
   },
   components: {
-    ContentPanel: '/src/components/ContentPanel.astro',
     Head: '/src/components/Head.astro',
-    Header: '/src/components/Header.astro',
     Sidebar: '/src/components/Sidebar.astro',
   },
   sidebar: [
