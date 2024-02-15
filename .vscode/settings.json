@@ -1,0 +1,68 @@
+{
+  "search.exclude": {
+    "**/.next": true,
+    "**/*.rej": true,
+    "**/bower_components": true,
+    "**/coverage": true,
+    "**/node_modules": true,
+    "**/.history": true,
+    "**/*.rpa": true,
+    "**/*.js.map": true,
+    "**/.eslintcache": true,
+    "**/dist": true
+  },
+  "eslint.options": {
+    "cache": true,
+    "cacheLocation": "config/.eslintcache",
+    "extensions": [".js", ".ts", ".cjs", ".mjs", ".astro", ".md", ".mdx"],
+    "ignorePath": "config/.eslintignore"
+  },
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "astro",
+    "markdown",
+    "mdx"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "typescript",
+    "typescriptreact",
+    "markdown",
+    "mdx"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "files.trimTrailingWhitespace": false
+  },
+  "[mdx]": {
+    // "editor.defaultFormatter": "unifiedjs.vscode-mdx",
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.trimTrailingWhitespace": false,
+  },
+
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+  "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+  "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+  "prettier.ignorePath": "config/.prettierignore"
+}
