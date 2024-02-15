@@ -26,6 +26,7 @@ module.exports = {
       files: ['*.md', '*.mdx'],
       options: {
         semi: false,
+        proseWrap: 'preserve',
       },
     },
   ],

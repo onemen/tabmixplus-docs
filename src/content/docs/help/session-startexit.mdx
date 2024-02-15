@@ -16,9 +16,7 @@ import sessionRestore from './images/session-restore.jpg'
 import sessionStartexit from './images/session-startexit.jpg'
 
 :::danger[Not Implemented]
-
 Session Manager feature is not included at the moment since it requires complete rewrite.
-
 :::
 
 ##### Controls Firefox's built-in Session Restore, Session Manager and Crash Recovery features
@@ -33,7 +31,6 @@ Session Manager feature is not included at the moment since it requires complete
 - **_Enable Crash Recovery_**
 
 :::note[no-title]
-
 **Note**
 
 Sessions are stored in the <b>session.rdf</b> file in [your profile][kbProfile] folder. A backup of
@@ -41,11 +38,9 @@ this file is stored in the <b>sessionbackups</b> folder in [your profile][kbProf
 session becomes corrupt and you are unable to restore that session, copy one of the backup files
 (tabmix_sessions-yyyy-mm-dd.rdf) from the backup folder to [your profile][kbProfile] folder, rename
 the file to <b>session.rdf</b>.
-
 :::
 
 :::note[no-title]
-
 For a full range of sessions managing features, you can use
 [Session Manager extension](https://addons.mozilla.org/en-US/firefox/addon/session-manager/) which
 is created specifically for that purpose.<br /> When Session Manager extension is installed, Tab Mix
@@ -54,7 +49,6 @@ two extensions work well together without any known problems.
 
 **IMPORTANT!** If you uninstall or disable Session Manager extension, Tab Mix Plus will revert back
 to its file which will not have the sessions saved with Session Manager extension.
-
 :::
 
 ---
@@ -109,21 +103,17 @@ to its file which will not have the sessions saved with Session Manager extensio
 - Bypass cache when restoring
 
   :::note[no-title]
-
   Force Firefox to download page content data from the origin server. Same as using Ctrl + F5 or
   Ctrl + Shift + R to reload the selected tab overriding cache.
-
   :::
 
 - Don't load tabs until selected (Removed)
 
   :::note[no-title]
-
   Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user interface.
 
   If you want to load all tabs immediately on Restore, go to about\:config and set the preference
   `browser.sessionstore.restore_on_demand` to false.
-
   :::
 
 ---
@@ -146,7 +136,6 @@ to its file which will not have the sessions saved with Session Manager extensio
 - **_Selected Tab_**
 - Closed Tab list
 
-[kbProfile]:
-  https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles
+[kbProfile]: https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles
 [Not Implemented]: #
 [no-title]: #

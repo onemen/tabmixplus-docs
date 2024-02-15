@@ -43,16 +43,17 @@
   "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
-    // "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    //   "editor.defaultFormatter": "esbenp.prettier-vscode"
-    // "files.trimTrailingWhitespace": false
+    "editor.rulers": [100],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100
   },
   "[mdx]": {
-    // "editor.defaultFormatter": "unifiedjs.vscode-mdx",
-    // "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.trimTrailingWhitespace": false,
+    "editor.rulers": [100],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
   },
 
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
@@ -64,5 +65,6 @@
   "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
   "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-  "prettier.ignorePath": "config/.prettierignore"
+  "prettier.ignorePath": "config/.prettierignore",
+  "editor.wordWrap": "on"
 }
