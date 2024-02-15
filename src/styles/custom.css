@@ -151,39 +151,47 @@ footer,
   color: var(--sl-color-white);
 }
 
-.sl-markdown-content ul {
+.sl-markdown-content :is(ol, ul):not(:where(.not-content *)) {
   padding-left: 2rem;
 }
 
-.sl-markdown-content li > p:last-child {
+.sl-markdown-content :is(ol, ul):not(:where(.not-content *)) > p:last-child {
   margin-bottom: 0 !important;
 }
 
-.sl-markdown-content li > ul {
+.sl-markdown-content li > :is(ol, ul) {
   margin-top: 0;
 }
 
-.sl-markdown-content :not(li > ul, .starlight-aside__content > ul) > li + li {
-  margin-top: 1rem;
-}
-
-.content-panel ul:not(.circle) > li {
+.sl-markdown-content ul:not(.circle):not(:where(.not-content *)) > li {
   list-style-type: square;
 }
 
-.content-panel li > ul:not(.square) > li {
+.sl-markdown-content li > ul:not(.square) > li {
   list-style-type: circle;
 }
 
-.content-panel h6 {
+.sl-markdown-content h6 {
   text-decoration: underline;
 }
 
-.content-panel h6 + ul,
-.content-panel h6 + li {
+.sl-markdown-content h6 + :is(ol, ul):not(:where(.not-content *)),
+.sl-markdown-content h6 + li {
   margin-top: 0.5rem;
 }
 
 .sl-markdown-content {
   min-height: 600px;
+}
+
+.sl-markdown-content ol {
+  counter-reset: listCounter;
+}
+
+.sl-markdown-content ol > li {
+  counter-increment: listCounter;
+}
+
+.sl-markdown-content ol > li::marker {
+  content: counters(listCounter, '.', decimal) '. ';
 }

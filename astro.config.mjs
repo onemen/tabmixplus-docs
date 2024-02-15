@@ -27,6 +27,10 @@ export const starlightConfig = {
       link: '/',
     },
     {
+      label: 'Installation',
+      link: '/other/installation',
+    },
+    {
       label: 'Important Links',
       items: [
         {

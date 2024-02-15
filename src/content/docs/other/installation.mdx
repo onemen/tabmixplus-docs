@@ -1,0 +1,218 @@
+---
+title: Installation
+tableOfContents: true
+---
+
+import { Icon, TabItem, Tabs } from '@starlight/components'
+
+:::note
+Since Firefox removed the internal component that loads _legacy_ extension, in order to install
+**Tab Mix Plus**, or any other _legacy_ extension, you have to install 3rd party helper scripts.
+:::
+
+## Install Firefox Scripts
+
+Please follow the instructions below step-by-step to install the scripts. The extension will not
+work if you install any files in the wrong location.
+
+### Install config script
+
+Open `about:support` and locate the path to your **Application Binary** and **Profile Folder**<br/>
+![about-support](https://user-images.githubusercontent.com/3650909/192940048-0115c26a-81c0-4343-9f5e-164012420af2.png)
+
+:::note
+`Application Binary` folder Is `Firefox root directory` (the folder that contains `firefox.exe`).
+for clarity, this text uses the terms **Firefox root directory**<br /> `Profile Folder` is where
+Firefox stores your bookmarks, passwords and other user data. You can find more information about it
+in [this article](https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data)
+:::
+
+Copy [configuration files](https://github.com/onemen/TabMixPlus/files/14075743/fx-folder.zip) to
+your **Firefox root directory**.<br/> `fx-folder.zip` files are packed with paths used by Firefox
+for `Windows`, `Linux` and `macOS` users should follow the instructions below. the `zip` file
+contain the following files:
+
+- `config.js` - This file should be copied to the directory that contains `firefox.exe`, referred to
+  as [PATH TO FIREFOX.EXE].
+- `config-prefs.js` - This file should be copied to `[PATH TO FIREFOX.EXE]/defaults/pref`.
+
+<div aria-label="IMPORTANT" class="starlight-aside starlight-aside--tip">
+  <div class="starlight-aside__title" aria-hidden="true">
+    <Icon name="rocket" class="starlight-aside__icon" size="2rem" />
+    <span>IMPORTANT</span>
+  </div>
+  <section class="starlight-aside__content">
+    <Tabs>
+      <TabItem label="Windows">
+        <div>
+
+        **Note**:<br/> The default path to Firefox on `Windows` is typically:
+        <div class="ml-4 !mt-0">
+          64-bit Firefox: `C:\Program Files\Mozilla Firefox\` <br/>
+          32-bit Firefox: `C:\Program Files (x86)\Mozilla Firefox\`
+        </div>
+
+        **Verify the path**:<br/> Check the actual path to your **Firefox root directory**. If it
+        differs from the default, replace the path accordingly in the following instructions.
+
+        **Copy the configuration files extracted from `fx-folder.zip`**:
+        - copy the file `config.js` to `[PATH TO FIREFOX.EXE]\config.js`.
+        - copy the file `config-prefs.js` to
+          `[PATH TO FIREFOX.EXE]\defaults\pref\config-prefs.js`
+
+        </div>
+
+      </TabItem>
+      <TabItem label="Linux">
+        <div>
+
+        **Note**:<br/> The default path to Firefox on `Linux` is typically `/usr/lib/firefox/`.
+
+        **Verify the path**:<br/> Check the actual path to your **Firefox root directory**. If it
+        differs from `/usr/lib/firefox/`, replace the path accordingly in the following instructions.
+
+        **Copy the configuration files extracted from `fx-folder.zip`**:
+        - copy `config.js` to `/usr/lib/firefox/config.js`
+        - copy `config-prefs.js` to `/usr/lib/firefox/browser/defaults/preferences/config-prefs.js`
+
+        </div>
+
+      </TabItem>
+      <TabItem label="Linux with Snap">
+        <div>
+
+          **Compatibility Note**:<br/> `Firefox snap for Linux` versions prior to 108 are not supported.
+
+          **Instructions for Firefox snap 108 or newer**
+
+          **Verify installation path**:<br/> If you're uncertain about the installation path of your
+          Firefox snap, use the command `snap list firefox` in your terminal to check.
+
+          **Copy the configuration files extracted from `fx-folder.zip`**:
+          - copy `config.js` to `/etc/firefox/config.js`
+          - copy `config-prefs.js` to `/etc/firefox/defaults/pref/config-prefs.js`
+
+          You may have to create the sub folders `/defaults/pref`
+
+        </div>
+
+      </TabItem>
+      <TabItem label="macOS">
+        <div>
+
+          **Note**:<br/> The default path to Firefox on `macOS` is typically
+          `Firefox.app/Contents/Resources`.
+
+          **Verify the path**:<br/> Check the actual path to your **Firefox root directory**. If it
+          differs from `Firefox.app/Contents/Resources`, replace the path accordingly in the following
+          instructions.
+
+          **Copy the configuration files extracted from `fx-folder.zip`**:<br/>
+
+          - copy `config.js` to `Firefox.app/Contents/Resources/config.js`
+          - copy `config-prefs.js` to `Firefox.app/Contents/Resources/defaults/pref/config-prefs.js`
+
+        </div>
+
+      </TabItem>
+    </Tabs>
+
+  </section> 
+</div>
+
+### Install utils
+
+Remember, the **utils** script needs to be installed separately in each profile where you want to
+use **Tab Mix Plus**. This differs from the main `config` script, which only requires installation
+once in your Firefox root directory (containing firefox.exe). The reason for this distinction is
+that each profile maintains its own settings and data, and the utils script plays a vital role in
+ensuring **Tab Mix Plus** works seamlessly within each individual profile.
+
+- Locate your **Profile Folder** as discrived in the previous step, create `chrome` folder in it, if
+  one does not exist.
+
+- Extract
+  [utils](https://github.com/onemen/TabMixPlus/files/14075742/utils_extensions_and_scripts.zip)
+  folder inside the `chrome` folder, the result should be `[PROFILE_NAME]/chrome/utils`, all the
+  files should be in the `utils` folder (see the screenshot below).
+
+- Open **about\:support** page and click `Clear startup cache…` to force Firefox to load the
+  installed scripts on the next startup.
+
+![utils folder](https://github.com/onemen/TabMixPlus/assets/3650909/fc5da575-2c75-493e-8342-34f1142ece4a)
+
+## Install **Tab Mix Plus**
+
+### Download XPI
+
+Download xpi file from our [releases](https://github.com/onemen/TabMixPlus/releases) page to your
+local computer.<br/> All **Tab Mix Plus** downloads are also located
+[here](https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/).
+
+> If you are using Firefox Beta, Developer Edition or Nightly we recommend using the latest **Tab
+> Mix Plus** _development build_ (tags with **pre** or **test-build** in the title)
+
+### Install XPI
+
+To install the `XPI` file you have just downloaded:
+
+- <div>
+    Open `Add-ons Manager` tab `(about:addons)` and select `Extensions`. <br /> _or_ Click the menu
+    button ☰, click `Add-ons and Themes` and select `Extensions`.
+  </div>
+- In `Add-ons Manager` page click on the cog icon and select `Install Add-on From File…`.
+  ![install-from-file](https://user-images.githubusercontent.com/3650909/184072729-3995d29b-006c-4012-ac3d-5f653c890ac9.png)
+
+- Alternatively, drag and drop the `XPI` file into the `Add-ons Manager` page.
+
+- The installation process should begin automatically, once it complete you should restart filefox.
+
+## Troubleshooting
+
+### Add-on appears corrupt
+
+If you see this message when you try to install **Tab Mix Plus**, it means that you did not install
+**Firefox Scripts** properly. Repeat the [installation](#install-firefox-scripts) steps above.
+![appears_corrupt](https://github.com/onemen/TabMixPlus/assets/3650909/0013ac80-24e9-46c9-92da-7b0dc0d51841)
+
+### **Tab Mix Plus** stops working
+
+If **Tab Mix Plus** stops working after Firefox update was installed or after you installed update
+of **Firefox Scripts** , follow these instructions
+
+1. Uninstall **Tab Mix Plus**.
+2. **Reinstall** the latest versions of **Firefox Scripts** (see
+   [instructions](#install-firefox-scripts) above):
+3. Open **about\:support** page and click `Clear startup cache…` to force Firefox to load the
+   installed scripts on the next startup.
+4. Close Firefox again, wait 10 second, to make sure Firefox finished to clear the cache.
+5. Open Firefox and [reinstall](#install-tab-mix-plus) latest **Tab Mix Plus** again.
+
+### Profile Cache Issues
+
+Sometimes the profile cache is not cleared when you install new version of Firefox, or new version
+of these scripts, this can cause problems with **Tab Mix Plus**.
+
+First step will be to use firefox command to clear the profile cache: <br /> Open **about\:support**
+page and click `Clear startup cache…` to force Firefox to load the installed scripts on the next
+startup.
+
+:::danger
+Don't remove the profile in **Root Directory**, it will remove the profile and all your data.
+:::
+
+You can try to clear your profile cache, go to 'about\:config', find your profile, and follow the
+link to **Local Directory** where Firefox save your profile cache, and remove it.
+![profile](https://github.com/onemen/TabMixPlus/assets/3650909/c04e8578-7980-4fef-b52e-f494028b6f34)
+
+### Browser Compatibility
+
+Tab Mix Plus is fully compatible with the following browsers:
+
+- Firefox 78 - Firefox Nightly
+- Waterfox G3 - G6 and beyond
+- Floorp 11.9.0
+- LibreWolf 122
+
+> For **Pale Moon** download **Tab Mix Plus** from
+> [here](https://addons.palemoon.org/addon/tab-mix-plus/)
