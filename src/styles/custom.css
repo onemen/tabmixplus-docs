@@ -10,7 +10,19 @@ p:empty {
   --sl-color-bg-inline-code: #96a1f16e;
 }
 
-/* action buttons to the home page */
+.starlight-aside--tip {
+  --sl-color-bg-inline-code: #da8cff6e;
+}
+
+/* Home page */
+
+h1[data-page-title] {
+  font-size: 50px;
+}
+
+.hero {
+  padding-block: clamp(2.5rem, calc(1rem + 5vmin), 5rem);
+}
 
 .hero .actions a {
   min-width: 200px;
@@ -99,6 +111,16 @@ a[data-sm] {
   background: #ffc439cc;
 }
 
+.paypal-button.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-inline: auto;
+  width: 290px;
+  height: 58px;
+}
+
 /* HELP pages */
 
 :root:not([data-has-toc]) {
@@ -127,8 +149,7 @@ a[data-sm] {
   font-weight: bold;
 }
 
-footer,
-.sl-markdown-content > *:not(.help-img, .content-width, h1, h2, h3, h4, h5, h6, h7) {
+.sl-markdown-content > *:not(.help-img, .card-grid, .content-width, h1, h2, h3, h4, h5, h6, h7) {
   max-width: 45rem;
 }
 

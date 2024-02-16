@@ -6,10 +6,10 @@ hero:
   tagline: Tab Mix Plus is a very popular extension for the Mozilla Firefox® browser that enhances
     Firefox's® tab browsing abilities.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/computer.png
   actions:
     - text: Help
-      link: /help/links/links
+      link: /help/introduction
       icon: right-arrow
       variant: primary
     - text: Troubleshooting
@@ -18,23 +18,44 @@ hero:
       variant: secondary
 ---
 
-{/* need to finish this page */}
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components'
 
-import { Card, CardGrid } from '@astrojs/starlight/components'
+<a
+  class="paypal-button home-page"
+  href="https://www.paypal.com/donate?hosted_button_id=BZWMH5PS56GAW"
+  target="_blank"
+>
+  Make a Donation
+</a>
 
 ## Next steps
 
-<CardGrid stagger>
-  <Card title="Update content" icon="pencil">
-    Edit `src/content/docs/index.mdx` to see this page change.
+<CardGrid>
+  <Card title="Install Tab Mix Plus" icon="setting">
+    Read [installation](/other/installation) documentation to learn how to install Tab Mix Plus.
   </Card>
-  <Card title="Add new content" icon="add-document">
-    Add Markdown or MDX files to `src/content/docs` to create new pages.
+  <Card title="Improve our Docs" icon="open-book">
+    Improve our docs by editing any page or go to our [GitHub
+    repo](https://github.com/onemen/tabmixplus-docs).
   </Card>
-  <Card title="Configure your site" icon="setting">
-    Edit your `sidebar` and other config in `astro.config.mjs`.
-  </Card>
-  <Card title="Read the docs" icon="open-book">
-    Learn more in [the Starlight Docs](https://starlight.astro.build/).
-  </Card>
+</CardGrid>
+
+## Links
+
+<CardGrid>
+  <LinkCard
+    title="Discussions"
+    description="Engage with Tab Mix Plus users and developers: Ask questions, share tips, and get help using the extension."
+    href="https://github.com/onemen/TabMixPlus/discussions/"
+  />
+  <LinkCard
+    title="Change Log"
+    description="Visit our Change log page for Complete List of Changes and Bugs Fixed"
+    href="https://github.com/onemen/TabMixPlus/releases/"
+  />
+  <LinkCard
+    title="Downloads"
+    description="Download Tab Mix Plus: Latest, development builds, and past versions"
+    href="https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/"
+  />
 </CardGrid>
