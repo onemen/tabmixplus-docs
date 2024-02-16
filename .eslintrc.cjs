@@ -6,13 +6,14 @@ module.exports = {
     es2022: true,
     browser: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:markdown/recommended',
-    'plugin:mdx/recommended',
-    'plugin:astro/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:markdown/recommended', 'plugin:astro/recommended'],
   plugins: ['markdown', 'prettier'],
+  settings: {
+    'import/resolver': {
+      // this loads <rootdir>/tsconfig.json to eslint
+      typescript: {},
+    },
+  },
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -57,9 +58,11 @@ module.exports = {
     },
     {
       files: ['*.mdx'],
+      extends: ['plugin:jsx-a11y/recommended', 'plugin:mdx/recommended'],
+      plugins: ['jsx-a11y', 'import', 'react'],
       parser: 'eslint-mdx',
       rules: {
-        'no-unused-vars': 'off',
+        'react/jsx-uses-vars': 'error',
       },
     },
   ],

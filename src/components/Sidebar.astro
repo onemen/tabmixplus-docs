@@ -3,6 +3,7 @@ import type { Props } from '@starlight/props';
 
 import { default as MobileMenuFooter } from '@starlight/components/MobileMenuFooter.astro';
 import { default as SidebarSublist } from '@starlight/components/SidebarSublist.astro';
+import DonateButton from 'src/components/DonateButton.astro';
 
 const { sidebar, slug } = Astro.props;
 
@@ -28,11 +29,7 @@ helpGroup.entries.forEach(entry => {
 
 <div class="tabmix-sidebar-header">
   <div class="flex justify-center py-2">
-    <a
-      class="paypal-button"
-      href="https://www.paypal.com/donate?hosted_button_id=BZWMH5PS56GAW"
-      target="_blank">Make a Donation</a
-    >
+    <DonateButton />
   </div>
 
   <div class="tabmix-nav px-6 py-4">
