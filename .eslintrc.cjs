@@ -65,5 +65,10 @@ module.exports = {
         'react/jsx-uses-vars': 'error',
       },
     },
+    {
+      files: ['*.yml'],
+      plugins: ['yaml'],
+      extends: ['plugin:yaml/recommended'],
+    },
   ],
 };

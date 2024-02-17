@@ -2,7 +2,8 @@ node_modules
 lib
 logs
 dist
-.vscode
+.history
 pnpm-lock.yaml
 # *.md
 #*.mdx
+*.yml

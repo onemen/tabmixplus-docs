@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
 import expressiveCode from 'astro-expressive-code';
 import { defineConfig } from 'astro/config';
-import rehypeExternalLinks from 'rehype-external-links';
+import { rehypeExternalLinks } from './src/utils/rehypePluginLinks.mjs';
 
 export const starlightConfig = {
   favicon: 'favicon.ico',
@@ -67,14 +67,18 @@ export const starlightConfig = {
   defaultLocale: 'en',
 };
 
+const baseUrl = '/tabmixplus-docs-starlight';
+
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://onemen.github.io',
+  base: baseUrl,
   integrations: [starlight(starlightConfig), tailwind(), expressiveCode(), mdx()],
   markdown: {
     smartypants: false,
     rehypePlugins: [
       // https://docs.astro.build/en/recipes/external-links/#recipe
-      [rehypeExternalLinks, { target: '_blank' }],
+      [rehypeExternalLinks, { target: '_blank', baseUrl }],
     ],
   },
 });

@@ -53,7 +53,12 @@
     "files.trimTrailingWhitespace": false,
     "editor.rulers": [100],
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 100,
+    "editor.wordWrapColumn": 100
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnPaste": false,
+    "editor.autoIndent": "advanced"
   },
 
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
