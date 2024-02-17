@@ -17,6 +17,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.3.6)(tailwindcss@3.4.1)
+  '@pagefind/default-ui':
+    specifier: ^1.0.4
+    version: 1.0.4
   '@ungap/structured-clone':
     specifier: ^1.2.0
     version: 1.2.0

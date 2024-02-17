@@ -20,6 +20,7 @@
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/starlight": "^0.18.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@pagefind/default-ui": "^1.0.4",
     "@ungap/structured-clone": "^1.2.0",
     "astro": "^4.3.5",
     "astro-expressive-code": "^0.32.4",

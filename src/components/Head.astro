@@ -19,4 +19,37 @@ import { ViewTransitions } from 'astro:transitions';
 
   document.addEventListener('astro:after-swap', disableTransitionAanimate);
   disableTransitionAanimate();
+
+  // Skip PagefindUI on initial page load since it's already run by Search.astro.
+
+  // Flag to track initial page load
+  let initialLoad = true;
+
+  document.addEventListener('astro:page-load', () => {
+    // Skip PagefindUI on initial page load (and only execute on subsequent loads)
+    if (initialLoad) {
+      initialLoad = false;
+      return;
+    }
+
+    // Code to initialize PagefindUI on subsequent loads (if needed)
+    if (import.meta.env.DEV) return;
+
+    const pageFind = document.querySelector('.pagefind-ui__search-input');
+    if (pageFind) return;
+
+    const onIdle = window.requestIdleCallback || (cb => setTimeout(cb, 1));
+    onIdle(async () => {
+      // @ts-expect-error — Missing types for @pagefind/default-ui package.
+      const { PagefindUI } = await import('@pagefind/default-ui');
+      new PagefindUI({
+        element: '#starlight__search',
+        baseUrl: import.meta.env.BASE_URL,
+        bundlePath: import.meta.env.BASE_URL.replace(/\/$/, '') + '/pagefind/',
+        showImages: false,
+        translations: {},
+        showSubResults: true,
+      });
+    });
+  });
 </script>
