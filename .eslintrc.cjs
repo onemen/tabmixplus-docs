@@ -6,8 +6,13 @@ module.exports = {
     es2022: true,
     browser: true,
   },
-  extends: ['eslint:recommended', 'plugin:markdown/recommended', 'plugin:astro/recommended'],
-  plugins: ['markdown', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:markdown/recommended',
+    'plugin:astro/recommended',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['markdown'],
   settings: {
     'import/resolver': {
       // this loads <rootdir>/tsconfig.json to eslint

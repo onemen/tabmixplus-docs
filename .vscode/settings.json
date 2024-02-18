@@ -37,10 +37,13 @@
     "markdown",
     "mdx"
   ],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.ignorePath": "./config/.prettierignore",
+  "prettier.configPath": "./config/prettier.config.js",
+  "prettier.requireConfig": true,
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
@@ -70,6 +73,5 @@
   "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
   "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-  "prettier.ignorePath": "config/.prettierignore",
   "editor.wordWrap": "on"
 }

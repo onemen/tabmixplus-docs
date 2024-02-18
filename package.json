@@ -9,12 +9,12 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint --format stylish --cache --cache-location config/.eslintcache --ignore-path config/.eslintignore \"src/**/*.{js,cjs,mjs,ts,jsx,tsx,astro,md,mdx}\"",
-    "format": "prettier --ignore-path config/.prettierignore --write . --plugin=prettier-plugin-astro",
+    "format": "prettier --config config/prettier.config.js --ignore-path config/.prettierignore --write . --plugin=prettier-plugin-astro",
     "stylelint": "stylelint --fix --config config/.stylelintrc \"src/**/*.css\""
   },
   "author": "tabmix.onemen@gmail.com",
   "license": "MIT",
-  "prettier": "./config/prettier.config.cjs",
+  "prettier": "./config/prettier.config.js",
   "dependencies": {
     "@astrojs/check": "^0.5.4",
     "@astrojs/mdx": "^2.1.1",

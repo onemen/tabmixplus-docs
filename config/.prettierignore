@@ -5,5 +5,5 @@ dist
 .history
 pnpm-lock.yaml
 # *.md
-#*.mdx
+# *.mdx
 *.yml
