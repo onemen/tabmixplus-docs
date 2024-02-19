@@ -46,9 +46,11 @@ details details .group-label > .large {
   font-size: var(--sl-text-sm);
 }
 
-a[data-hash] {
+a[data-hash],
+a[data-hash]:hover {
   margin-left: 1rem;
   font-size: var(--sl-text-xs);
+  font-weight: 500;
 }
 
 a[data-sm] {
@@ -98,19 +100,25 @@ a[data-sm] {
 }
 
 .sl-markdown-content img {
-  border-radius: 6px;
+  --img-shadow: 0px 0px 0px 1px #c7c7c7, 0px 0px 20px 4px #c7c7c740;
+  border-radius: 8px;
 }
 
 .help-img {
   margin-inline: auto;
-  width: 50%;
+  width: 55%;
+  box-shadow: var(--img-shadow);
+}
+
+.img-shadow {
+  box-shadow: var(--img-shadow);
 }
 
 @media (min-width: 1280px) {
   .help-img {
     float: right;
     margin-left: 20px;
-    width: 40%;
+    width: 45%;
   }
 }
 

@@ -5,8 +5,9 @@ sidebar:
   order: 18
 ---
 
+import editShortcuts from '@assets/edit-shortcuts.png'
+import shortcuts from '@assets/menu-shortcuts.png'
 import { Image } from 'astro:assets'
-import shortcuts from '../images/menu-shortcuts.jpg'
 
 ##### Controls keyboard shortcuts
 
@@ -14,6 +15,12 @@ import shortcuts from '../images/menu-shortcuts.jpg'
 
 <Image class="help-img" src={shortcuts} alt="image" />
 
-Edit shortcuts by selecting one and type Modifiers & Key <br /> while in the edit box, you can use
-the button on the right side to restore shortcuts to default (if exist) or clear/disable the
-shortcuts. <br /> You can also use Delete or Backspace to clear the shortcut
+Edit shortcuts by selecting one and type Modifiers & Key
+
+While in the edit box, you can use the button on the right side to restore shortcuts to default (if exist) or clear/disable the shortcuts (see image below).
+
+You can also use Delete or Backspace to clear the shortcut
+
+Easily identify when shortcuts already exist
+
+<Image class="" src={editShortcuts} alt="image" width="550" />

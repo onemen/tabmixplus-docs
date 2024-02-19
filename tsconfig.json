@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@starlight/*": ["node_modules/@astrojs/starlight/*"]
+      "@starlight/*": ["node_modules/@astrojs/starlight/*"],
+      "@assets/*": ["./src/assets/*"]
     }
   }
 }
