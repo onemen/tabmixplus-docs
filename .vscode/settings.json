@@ -73,5 +73,6 @@
   "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
   "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "markdown.validate.ignoredLinks": ["/troubleshooting/how-to-post", "/help/session-startexit"]
 }

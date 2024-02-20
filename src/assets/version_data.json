@@ -3,6 +3,6 @@
   "devbuild": "tab_mix_plus-dev-build.xpi",
   "devbuildpath": "https://github.com/onemen/TabMixPlus/releases/download/v1.0.0-pre.18/tab_mix_plus-dev-build.xpi",
   "latest": "1.0.0-pre",
-  "min_friefox_version": "78.0",
-  "max_friefox_version": "124.*"
+  "min_firefox_version": "78.0",
+  "max_firefox_version": "124.*"
 }
