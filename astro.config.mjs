@@ -67,7 +67,7 @@ export const starlightConfig = {
   defaultLocale: 'en',
 };
 
-const baseUrl = '/tabmixplus-docs-starlight';
+const baseUrl = '/tabmixplus-docs';
 
 // https://astro.build/config
 export default defineConfig({
