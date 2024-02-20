@@ -1,10 +1,13 @@
 ---
 title: Links
 tableOfContents: false
+group: links
 sidebar:
-  order: 3
+  order: 3.1
 ---
 
+import fileTypeEditorBackImage from '@assets/file-type-editor-back.png'
+import fileTypeEditorImage from '@assets/file-type-editor.png'
 import linksImage from '@assets/links.png'
 import { Image } from 'astro:assets'
 
@@ -53,14 +56,32 @@ link uses JavaScript command that call
 
 ---
 
-- **_Prevent blank tabs when downloading files_**
+#### File Type Editor
 
-  <div class="-mb-4"></div>
-  When enabled, this option prevents blank tab opening from a link that contains one of the file
-  types in this list and automatically closes most blank tabs that open for other file types. (There
-  are some exceptions, links from Google Drive for example). This option doesn't change the way
-  Firefox downloads files and the place the files are saved to. <br /> Read [File Type
-  Editor](/help/links/file-type-editor)
+<div class="relative float-none m-auto aspect-square w-[55%] xl:float-right xl:ml-5 xl:w-[45%]">
+  <Image class="img-shadow" src={fileTypeEditorBackImage} alt="image" />
+  <Image
+    class="img-shadow absolute right-[10%] top-[12%] w-[55%] max-w-[376px]"
+    src={fileTypeEditorImage}
+    alt="image"
+  />
+</div>
+
+- **_Prevent blank tabs when downloading files_**<br />
+  Certain links, when clicked, download files automatically and open in new tabs. To prevent this, enable this option. You can also manage which file types won't open in new tabs by using the "File Type Editor".
+
+  When enabled, this option prevents blank tab opening from a link that contains one of the file types in this list and automatically closes most blank tabs that open for other file types. (There are some exceptions, links from Google Drive for example). This option doesn't change the way Firefox downloads files and the place the files are saved to.
+
+  Open the editor by clicking "Edit". There, you can view the existing list of file extensions, add new ones, remove unwanted ones, or modify the list as needed. The "Restore Defaults" button resets only the file type preference `extensions.tabmix.filetype`, not other preferences.
+
+  :::note[no-title]
+  File type can be simple file extensions or
+  [regular expression](http://en.wikipedia.org/wiki/Regular_expression). <br /> Post a question to our
+  [discussions](https://github.com/onemen/TabMixPlus/discussions) if you need help regarding special
+  file type or download link.
+  :::
+
+---
 
 - Force to open in new tab (select one):
 

@@ -73,6 +73,7 @@ const baseUrl = '/tabmixplus-docs-starlight';
 export default defineConfig({
   site: 'https://onemen.github.io',
   base: baseUrl,
+  cacheDir: './node_modules/.astro',
   integrations: [starlight(starlightConfig), tailwind(), expressiveCode(), mdx()],
   markdown: {
     smartypants: false,
