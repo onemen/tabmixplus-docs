@@ -118,7 +118,7 @@ contain the following files:
       </TabItem>
     </Tabs>
 
-  </section> 
+  </section>
 </div>
 
 ### Install utils
@@ -168,6 +168,10 @@ To install the `XPI` file you have just downloaded:
 
 - The installation process should begin automatically, once it complete you should restart filefox.
 
+  :::note
+  Some users report that their Firefox is not able to install or use **Tab Mix Plus** unless they set `extensions.experiments.enabled` to **true** in `about:config`.
+  :::
+
 ## Troubleshooting
 
 ### Add-on appears corrupt
@@ -188,6 +192,10 @@ of **Firefox Scripts** , follow these instructions
    installed scripts on the next startup.
 4. Close Firefox again, wait 10 second, to make sure Firefox finished to clear the cache.
 5. Open Firefox and [reinstall](#install-tab-mix-plus) latest **Tab Mix Plus** again.
+
+### extensions.experiments.enabled
+
+Some users report that their Firefox is not able to install or use **Tab Mix Plus** unless they set `extensions.experiments.enabled` to **true** in `about:config`.
 
 ### Profile Cache Issues
 
