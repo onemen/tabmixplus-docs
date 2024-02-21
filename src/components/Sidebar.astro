@@ -27,14 +27,14 @@ const help = sidebar.find(entry => entry.label === 'Help');
 const helpGroup = (help && help.type === 'group' ? help : undefined)!;
 type Group = typeof helpGroup;
 
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 
 const newHelpItems: Record<string, typeof helpGroup.entries> = {};
 
 await Promise.all(
   helpGroup.entries.map(async i => {
     if (i.type !== 'group') {
-      const itemSlug = stripLeadingAndTrailingSlashes(i.href.replace(`${baseUrl}/`, ''));
+      const itemSlug = stripLeadingAndTrailingSlashes(i.href.replace(`^${baseUrl}/`, ''));
       const group = (await getEntry('docs', itemSlug))?.data.group;
       if (group) {
         newHelpItems[group] = newHelpItems[group] || [];

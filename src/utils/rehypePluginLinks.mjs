@@ -111,7 +111,7 @@ export function rehypeExternalLinks(options) {
   const protocols = settings.protocols || defaultProtocols;
   const is = convertElement(settings.test);
 
-  const baseUrl = settings.baseUrl.replace(/\/$/, '');
+  const baseUrl = settings.baseUrl?.replace(/\/$/, '') ?? '';
 
   /**
    * Transform.

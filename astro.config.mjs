@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config';
 import { rehypeExternalLinks } from './src/utils/rehypePluginLinks.mjs';
 
 export const starlightConfig = {
-  favicon: 'favicon.ico',
+  favicon: '/favicon.ico',
   logo: {
     src: '/src/assets/tabmix_logo.png',
   },
@@ -15,7 +15,7 @@ export const starlightConfig = {
     github: 'https://github.com/onemen/TabMixPlus',
   },
   editLink: {
-    baseUrl: 'https://github.com/onemen/TabMixPlus-docs/',
+    baseUrl: 'https://github.com/onemen/tabmixplus-docs/',
   },
   components: {
     Head: '/src/components/Head.astro',
@@ -71,7 +71,7 @@ const baseUrl = '/tabmixplus-docs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://onemen.github.io',
+  site: process.env.CI ? 'https://onemen.github.io' : 'http://localhost:4321',
   base: baseUrl,
   cacheDir: './node_modules/.astro',
   integrations: [starlight(starlightConfig), tailwind(), expressiveCode(), mdx()],
