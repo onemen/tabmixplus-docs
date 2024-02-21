@@ -1,25 +1,57 @@
 {
   "name": "tabmixplus-docs",
-  "version": "1.0.0",
-  "description": "Tab Mix Plus docs on Github pages",
+  "version": "2.0.0",
+  "type": "module",
   "scripts": {
-    "lint": "eslint --format stylish --fix --cache --cache-location config/.eslintcache --ignore-path config/.eslintignore --ext .js,.ts,.html .",
-    "format": "prettier --ignore-path config/.prettierignore --write \"**/*.{js,jsx,ts,tsx,json,css,md,html}\""
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint --format stylish --cache --cache-location config/.eslintcache --ignore-path config/.eslintignore \"src/**/*.{js,cjs,mjs,ts,jsx,tsx,astro,md,mdx}\"",
+    "format": "prettier --config config/prettier.config.js --ignore-path config/.prettierignore --write . --plugin=prettier-plugin-astro",
+    "stylelint": "stylelint --fix --config config/.stylelintrc \"src/**/*.css\""
   },
-  "keywords": [],
   "author": "tabmix.onemen@gmail.com",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/onemen//issues"
+  "prettier": "./config/prettier.config.js",
+  "dependencies": {
+    "@astrojs/check": "^0.5.4",
+    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/starlight": "^0.19.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@pagefind/default-ui": "^1.0.4",
+    "@ungap/structured-clone": "^1.2.0",
+    "astro": "^4.4.0",
+    "astro-expressive-code": "^0.32.4",
+    "hast-util-is-element": "^3.0.0",
+    "is-absolute-url": "^4.0.1",
+    "sharp": "^0.33.2",
+    "space-separated-tokens": "^2.0.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "unist-util-visit": "^5.0.0"
   },
-  "homepage": "https://github.com/onemen/tabmixplus-docs/docs",
-  "prettier": "./config/.prettier.json",
   "devDependencies": {
-    "@types/node": "^20.10.1",
-    "eslint": "^8.54.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.1.0"
-  }
+    "@types/hast": "^3.0.4",
+    "@typescript-eslint/parser": "^7.0.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-mdx": "^3.1.5",
+    "eslint-plugin-astro": "^0.31.4",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-mdx": "^3.1.5",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-yaml": "^0.5.0",
+    "postcss-html": "^1.6.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "stylelint-config-html": "^1.1.0"
+  },
+  "packageManager": "pnpm@8.15.1"
 }

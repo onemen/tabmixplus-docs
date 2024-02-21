@@ -1,0 +1,79 @@
+---
+title: Mouse Gestures
+tableOfContents: false
+group: mouse
+sidebar:
+  order: 6.1
+---
+
+import mouseGestures from '@assets/mouse-gestures.png'
+import { Image } from 'astro:assets'
+
+<Image class="help-img" src={mouseGestures} alt="image" />
+
+- Select tab pointed for \_\_\_ msec <br />
+
+  - Specify time in milliseconds, **_250 milliseconds_** is default.
+
+- Switch to last selected tab when clicking current one <br /> clicking the current tab will make
+  the last selected tab take focus and become the current tab after the specified time delay
+
+  - Use time delay of \_\_\_ msec specify time in milliseconds, **_250 milliseconds_** is default
+
+- Mouse click (down and release) to select a tab
+
+- **_Remove Tab Mix Plus menu list entries using middle-click_**
+
+  :::note[no-title]
+  applies to:
+
+  - Tabs in menus opened from Tab Mix Plus Opened Tabs list button or context menu: middle-click on
+    tab entry in the list removes the tab itself, not just the entry in the list.
+  - Sessions in Tab Mix Plus sessions menu: middle-click on session entry in the list removes the
+    session.
+  - Closed tabs in the Closed tabs list: middle-click on tab entry in the list removes the tab from
+    the closed tabs list, removed tab cannot be restored anymore.
+  - Closed windows in the Closed windows list: middle-click on window entry in the list removes the
+    window from the closed windows list, removed window cannot be restored anymore.
+    :::
+
+- **_When closing a tab, other tabs should not resize until cursor leaves toolbar region_**
+
+  :::note[no-title]
+  applies only if tabs closed with the tab Close button. This option allows user to close more than
+  one tab without moving the mouse.
+  :::
+
+---
+
+- **_When dragging a tab move it directly_** - (applies only when tabs are in single row).
+
+  :::note[no-title]
+  This option is not about the drop indicator, it's about moving a tab when you drag it. When this
+  option is on, and tabs are on one row, the tab starts to move when you start dragging it. When
+  tabs are in multi-row or when this options is off, the tab is not moving when you drag it. You see
+  a drop indicator and the tab will move to its new place when you stop dragging it and release the
+  mouse button.
+  :::
+
+- Drop indicator (select one):
+  - **_Native Style (single down arrow)_**
+  - Built-in style (left and right arrows)
+
+---
+
+- When scrolling over the tab-bar:<br />
+
+  :::note[no-title]
+  Hold Shift while scrolling to switch between these options
+  :::
+
+  - Scroll to change selected tab - scrolling down selects the next tab
+  - **_Scroll all tabs_** - scrolling moves visible tabs on the tab-bar (when scroll buttons are
+    visible)
+
+  <span class="mt-4 block">
+    - Inverse scroll direction - change the direction in which tabs are selected or tab-bar is moved
+  </span>
+
+[no-title]: #

@@ -1,0 +1,88 @@
+---
+title: Tab Bar
+tableOfContents: false
+group: display
+sidebar:
+  order: 5.1
+---
+
+import displayTabbar from '@assets/display-tab-bar.png'
+import { Image } from 'astro:assets'
+
+##### Controls the display of Tab Bar
+
+<br />
+
+<Image class="help-img" src={displayTabbar} alt="image" />
+
+###### Show on Tab Bar
+
+- **_New Tab Button_** (select one) - the new tab button will be displayed on the tab bar at the
+  specified location
+
+  - Left side
+  - Right side
+  - **_After last tab_**
+
+  :::note[no-title]
+  The New Tab button can be dragged out of the Customize Toolbar window and placed on any toolbar.
+  But in order to be able to use its placement option in Tab Mix Plus (left/right/after last tab),
+  it needs to be placed on the tabbar. <br /> If you don't see the New Tab button in the Customize
+  window, check your toolbars to see if its already there and drag it to the tabbar.
+
+  Click on **_Customize..._** and drag the New Tab Button to the tabbar.
+  :::
+
+  :::note[no-title]
+  When Vertical Tabs installed you must set this preference to Left or Right side.
+  :::
+
+- Close tab button - the Close tab button will be displayed at the right end of the tab bar
+- **_All tabs button_** (All tabs button will be displayed and when clicked it will display a list
+  of all open tabs)
+- Show tab previews (Show tab previews will display a window with tab previews instead of a list.
+  This option is not available in all Firefox&reg; versions)
+- Extra space on both sides (when checked extra space will be placed on both sides of the tab bar)
+
+---
+
+- Hide the tab bar (select one) - Hide/show the tab bar based on the selected rule
+
+  - **_Never_**
+  - When I have only one tab
+  - Always
+
+- Position (select one) - Select the location for the tab bar
+
+  - **_Top_**
+  - Bottom
+
+- When tabs don't fit width (select one):
+
+  - Scrollable without buttons - scroll tabs using mouse wheel or keyboard arrow keys
+  - **_Scrollable with buttons on left and right side_** (displays left and right scrolling arrows
+    at each end of the tab bar)
+  - Scrollable with buttons on right side (displays both, left and right scrolling arrows at the
+    right end of the tab bar) -Multi-row (allows tabs to be displayed in multiple rows)
+
+- Max number of rows to display - default 3 - for Multi-row option
+
+  :::note[no-title]
+  The number controls the max number of rows to display - When tabs are spread on more rows than the
+  selected max number of rows to display, scroll arrows will appear on the right side of the tabs.
+  :::
+
+- Allow pinned tabs to scroll - for Multi-row option
+
+  :::note[no-title]
+  By default, pin tabs are stick to the first row and stay visible all the time, enable this options
+  if you don't want pinned tabs to stick to the first row.<br /> **_You must_** use this option if
+  you have more than one row of pinned tabs.
+  :::
+
+  - When scrolling, show part of next out-of-sight tab - for single row options
+  - Enable smooth scroll - scroll the tab-bar smoothly
+  - Scroll Delay (time between scroll repetition **_150 milliseconds is default_**) specify the
+    delay time in milliseconds to scroll when smooth scroll disabled
+
+[no-title]: #

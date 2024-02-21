@@ -1,0 +1,78 @@
+{
+  "search.exclude": {
+    "**/.next": true,
+    "**/*.rej": true,
+    "**/bower_components": true,
+    "**/coverage": true,
+    "**/node_modules": true,
+    "**/.history": true,
+    "**/*.rpa": true,
+    "**/*.js.map": true,
+    "**/.eslintcache": true,
+    "**/dist": true
+  },
+  "eslint.options": {
+    "cache": true,
+    "cacheLocation": "config/.eslintcache",
+    "extensions": [".js", ".ts", ".cjs", ".mjs", ".astro", ".md", ".mdx"],
+    "ignorePath": "config/.eslintignore"
+  },
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "astro",
+    "markdown",
+    "mdx"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "typescript",
+    "typescriptreact",
+    "markdown",
+    "mdx"
+  ],
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.ignorePath": "./config/.prettierignore",
+  "prettier.configPath": "./config/prettier.config.js",
+  "prettier.requireConfig": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[markdown]": {
+    "editor.rulers": [100],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100
+  },
+  "[mdx]": {
+    "files.trimTrailingWhitespace": false,
+    "editor.rulers": [100],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnPaste": false,
+    "editor.autoIndent": "advanced"
+  },
+
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+  "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+  "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+  "editor.wordWrap": "on",
+  "markdown.validate.ignoredLinks": ["/troubleshooting/how-to-post", "/help/session-startexit"]
+}

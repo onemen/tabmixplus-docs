@@ -1,0 +1,32 @@
+---
+title: Tab Merging
+tableOfContents: false
+group: events
+sidebar:
+  order: 4.5
+---
+
+import eventsTabMerging from '@assets/events-tab-merging.png'
+import { Image } from 'astro:assets'
+
+##### Controls tabs and windows merging when tabs are closed
+
+<br />
+
+<Image class="help-img" src={eventsTabMerging} alt="image" />
+
+###### Merge windows when no tabs are selected <span class="font-normal">(Select one option)</span>
+
+- **_Merge all windows into one_**
+- Merge only current window with last focused
+- Also take popups - popup windows will also be merged
+  - Place popups next to their openers - popups will be placed next to their openers
+
+---
+
+###### Merging after selecting tabs
+
+- **_Close windows once they have merged_** (when all tabs are merged from other windows, those
+  windows will be closed)
+  - **_Warn when closing tabs that aren't being merged_** - a warning will be displayed indicating
+    not all tabs have been merged

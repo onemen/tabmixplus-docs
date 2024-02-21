@@ -1,0 +1,71 @@
+---
+title: Tab Opening
+tableOfContents: false
+group: events
+sidebar:
+  order: 4.3
+---
+
+import eventsTabOpening from '@assets/events-tab-opening.png'
+import { Image } from 'astro:assets'
+
+##### Control what action will open new tab, and if the new tab get the focus (select)
+
+<br />
+
+<Image class="help-img" src={eventsTabOpening} alt="image" />
+
+- Middle-click new tab button to open URLs or search for text from clipboard
+  new since Firefox 115
+
+---
+
+###### Open tabs from
+
+- Bookmarks
+- Groups of bookmarks
+
+  :::note[no-title]
+  When checked "Open All in Tabs" will open the bookmarks in new tabs, when unchecked the bookmarks
+  will replace all tabs that are not locked or protected.
+  :::
+
+- History
+- Address bar
+- Search bar
+
+:::note[no-title]
+`Alt+Enter` reverse these preferences.<br /> For example when the preference to open new tab from
+Address bar is on, `Enter` will open the address in new tab while `Alt+Enter` will open the address
+in current tab. When the preference is off, the command is reversed and `Alt+Enter` will open the
+address in new tab.
+:::
+
+- <div>
+    Middle-click or Control-click opens items in current tab.
+    <br /> Only for bookmarks, history, links forced to open in new tab
+  </div>
+
+---
+
+###### Focus/Select tabs that open by these action
+
+- Links
+- Diverted windows
+- Other applications
+- New tab commands
+- Duplicate Tab
+- Address bar
+- Search bar
+- Context menu search for
+- Bookmarks/History
+- Groups of bookmarks
+
+---
+
+###### Inverse Middle-click or Control-click focus for tabs opened by these action
+
+- Links
+- Bookmarks/History, Address bar, Search bar
+
+[no-title]: #

@@ -1,0 +1,53 @@
+---
+title: Tab Closing
+tableOfContents: false
+group: events
+sidebar:
+  order: 4.4
+---
+
+import eventsTabClosing from '@assets/events-tab-closing.png'
+import { Image } from 'astro:assets'
+
+##### Controls tab closing, when warnings will appear and where to set focus when a tab is closed
+
+<br />
+
+<Image class="help-img" src={eventsTabClosing} alt="image" />
+
+###### Warning
+
+- **_Warn me when closing multiple tabs_**
+- **_Warn me when closing window with multiple tabs_**
+- **_Warn me when closing window with protected tabs_**
+
+---
+
+###### Closing last tab
+
+- Do not close window when closing the last tab (closing the last tab will also close the browser
+  window)
+- Prevent last tab from closing
+
+- When I close the last tab replace it with (select one):
+  - **_New Tab Page_** - see more details on
+    [Firefox Help](http://support.mozilla.org/en-US/kb/new-tab-page-show-hide-and-customize-top-sites)
+  - Blank Page
+  - Home Page (to select your Home Page you must specify a Home Page in the Firefox Options/General)
+  - Current Page (whatever page is currently displayed in your browser)
+  - Duplicate Tab with history (copy the current tab with history)
+- Focus content when loading non blank page, (when not checked - focus is on the address bar)
+
+---
+
+###### Closing current tab
+
+- When closing the current tab, focus (select one):
+  - First tab
+  - Left tab
+  - Right tab
+  - Last tab
+  - Last selected tab
+  - **_Opener/Right tab_** (the tab containing the link that opened this tab or the tab to the
+    right)
+  - Last opened tab

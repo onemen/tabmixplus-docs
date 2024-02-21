@@ -1,0 +1,165 @@
+---
+import { default as MobileMenuFooter } from '@starlight/components/MobileMenuFooter.astro';
+import { default as SidebarSublist } from '@starlight/components/SidebarSublist.astro';
+import type { Props } from '@starlight/props';
+import type { Link } from '@starlight/utils/navigation.ts';
+import { stripLeadingAndTrailingSlashes } from '@starlight/utils/path.ts';
+import { getEntry } from 'astro:content';
+
+import DonateButton from 'src/components/DonateButton.astro';
+
+const { sidebar, slug } = Astro.props;
+
+const [page] = slug.split('/');
+const isHelpPage = slug.startsWith('help');
+const isTroubleshooting = slug.startsWith('troubleshooting');
+
+// collapsed other top level entries
+sidebar.forEach(entry => {
+  if (entry.type === 'group') {
+    const label = entry.label.toLowerCase();
+    entry.collapsed = label !== page && label !== 'important links';
+  }
+});
+
+// build nested help items
+const help = sidebar.find(entry => entry.label === 'Help');
+const helpGroup = (help && help.type === 'group' ? help : undefined)!;
+type Group = typeof helpGroup;
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const newHelpItems: Record<string, typeof helpGroup.entries> = {};
+
+await Promise.all(
+  helpGroup.entries.map(async i => {
+    if (i.type !== 'group') {
+      const itemSlug = stripLeadingAndTrailingSlashes(i.href.replace(`${baseUrl}/`, ''));
+      const group = (await getEntry('docs', itemSlug))?.data.group;
+      if (group) {
+        newHelpItems[group] = newHelpItems[group] || [];
+        newHelpItems[group].push(i);
+      }
+    }
+    return i;
+  })
+);
+
+helpGroup.entries = Object.entries(newHelpItems).flatMap(([group, entries]) =>
+  group === 'top' || (entries.length < 2 && group !== 'links')
+    ? entries
+    : [
+        {
+          type: 'group',
+          label: group.charAt(0).toUpperCase() + group.slice(1),
+          entries,
+          badge: undefined,
+          collapsed: false,
+        } as typeof helpGroup,
+      ]
+);
+
+// add sidebar entries for links with hash to link and display-tab pages
+interface CustomLink extends Link {
+  attrs: Link['attrs'] & { 'data-hash'?: string };
+}
+
+function createNewEntry({ label, href }: { label: string; href: string }): CustomLink {
+  return {
+    type: 'link' as const,
+    isCurrent: false,
+    badge: undefined,
+    label,
+    href,
+    attrs: { 'data-hash': 'true' },
+  };
+}
+
+const fileTypeEditor = createNewEntry({
+  label: 'File type editor',
+  href: `${baseUrl}/help/links#file-type-editor`,
+});
+
+const customizingTabsStyles = createNewEntry({
+  label: 'Customizing Tabs Styles',
+  href: `${baseUrl}/help/display-tab#customize-tab-styles`,
+});
+
+const linksEntries = helpGroup.entries.find(entry => entry.label === 'Links') as Group;
+linksEntries.entries.splice(1, 0, fileTypeEditor);
+
+const displayEntries = helpGroup.entries.find(entry => entry.label === 'Display') as Group;
+displayEntries.entries.splice(2, 0, customizingTabsStyles);
+---
+
+<div class="tabmix-sidebar-header">
+  <div class="flex justify-center py-2">
+    <DonateButton />
+  </div>
+
+  <div class="tabmix-nav px-6 py-4">
+    <ul class="top-level mx-auto flex list-none gap-6 text-base">
+      <li>
+        <a
+          href={`${baseUrl}/help/links`}
+          class:list={{ 'hover:underline': true, active: isHelpPage }}>Help</a
+        >
+      </li>
+      <li>
+        <a
+          href={`${baseUrl}/troubleshooting/tabmix-does-not-work`}
+          class:list={{ 'hover:underline': true, active: isTroubleshooting }}>Troubleshooting</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+
+<SidebarSublist sublist={sidebar} />
+<div class="md:sl-hidden">
+  <MobileMenuFooter {...Astro.props} />
+</div>
+
+<script>
+  const key = 'sidebar-position';
+  let timeout = 0;
+  let old_hash = '';
+
+  function updateEntryWithHash() {
+    const { pathname, hash = '' } = window.location;
+    if (hash || old_hash !== hash) {
+      document.querySelector(`a[aria-current="page"]`)?.removeAttribute('aria-current');
+      document.querySelector(`a[href="${pathname}${hash}"]`)?.setAttribute('aria-current', 'page');
+    }
+    old_hash = hash;
+  }
+
+  function handleSidebarScroll(event: Event) {
+    const sidebar = event.target as HTMLElement;
+    if (!timeout) {
+      timeout = window.setTimeout(() => {
+        sessionStorage.setItem(key, String(sidebar?.scrollTop));
+        timeout = 0;
+      }, 100);
+    }
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    // update selected sidebar entry
+    removeEventListener('hashchange', updateEntryWithHash);
+    addEventListener('hashchange', updateEntryWithHash);
+    updateEntryWithHash();
+
+    // restore scroll position
+    const sidebar = document.querySelector('#starlight__sidebar');
+    if (sidebar) {
+      sidebar.removeEventListener('scroll', handleSidebarScroll);
+      sidebar.addEventListener('scroll', handleSidebarScroll);
+      try {
+        sidebar.scrollTop = +(sessionStorage.getItem(key) ?? 0);
+      } catch {
+        /* empty */
+      }
+    }
+  });
+</script>

@@ -1,0 +1,110 @@
+---
+title: Tab
+tableOfContents: false
+group: display
+sidebar:
+  order: 5.2
+---
+
+import displayTabStyles from '@assets/display-tab-styles.png'
+import displayTab from '@assets/display-tab.png'
+import { Image } from 'astro:assets'
+
+##### Controls the display of tab color, font, highlighting, optional icons, tab width and tab title
+
+<br />
+
+<Image class="help-img" src={displayTab} alt="image" />
+
+###### Styles
+
+Highlight (select one or more options) - customized style will be applied to the designated tabs
+
+- Current tab
+- **_Unread tabs_**
+
+  - set tab as unread after reload
+
+- **_Unloaded tabs_**
+- Other tabs (tabs that have been viewed)
+- Disable custom background colors
+
+  :::note[no-title]
+  Disable all custom background colors in one click, for the case you are using non-supported theme
+  or extension.
+  :::
+
+- Apply background color for squared tabs
+
+  :::note[no-title]
+  Apply this preference when your theme or other extension provides non Australis squared tabs.
+  :::
+
+Read [Customize Styles](/help/display-tab#customize-tab-styles) section below for
+instruction how to customize tabs style.
+
+Tabs background colors may not display properly when TreeStyleTabs is installed.
+
+---
+
+###### Show on tab - Icons for
+
+- **_Locked_**
+- **_Protected_**
+- **_Auto-Reload_**
+- **_Hide on pinned tabs - check to hide all icons on pinned tabs_**
+
+- **_Show Progress meter on tabs_** <br /> Read
+  [Customize Styles](/help/display-tab#customize-tab-styles) section below for instruction
+  how to customize Progress meter color.
+
+- **_Show on tab - Close tab button_** Select which tab(s) rules are to be applied (select one):
+  - **_on all_**
+  - on all tabs wider than (set size)
+  - on current
+  - on pointed for
+  - on current and pointed for
+  - Place on left side<span class="leading-[3rem]"></span>
+
+---
+
+###### Tab width
+
+- Tab width (specify range) **_default: 100 to 250 pixels_**:
+- Tab width fits to tab title (the tab will be sized to fit the title - not recommended for tabs
+  under 100 pixels)
+- Use bookmark name as tab title (the bookmark name will be used for the tab title)
+
+---
+
+<div id="customize-styles"></div>
+#### Customize Tab Styles
+
+Click on <b>Customize Styles</b> button to open Customize Styles editor in a separate dialog. The
+dialog contains five panels: Current tab, Unread tabs, Unloaded tabs, Other tabs and Progress meter
+on tabs.
+
+<Image class="help-img" src={displayTabStyles} alt="image" />
+
+- Use this style - enable/disable specific style, same as changing one of the appropriate options
+  (listed above) in the main dialog window
+- Italic
+- Bold
+- Underline
+- Text Color: select color and specify opacity `(100%)`
+- Background Color: select color and specify opacity `(100%)`
+- Restore Defaults (resets specific style to default)
+
+:::note[no-title]
+You can control tab title bold, italic and underline style as well as the title color and opacity.
+For the tab background, you can control color and opacity, set different colors and opacity on tab
+bottom and top to get nice gradient effect of the color.
+
+Each color control has five parts:
+
+- button with predefined colors
+- three fields for user-defined color (color range 0-255)
+- opacity field for defined the opacity level of the color (range 0%-100%)
+  :::
+
+[no-title]: #

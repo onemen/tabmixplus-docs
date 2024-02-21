@@ -1,0 +1,140 @@
+---
+title: Session
+tableOfContents: false
+group: session
+sidebar:
+  order: 8.1
+  attrs:
+    data-sm: 'true'
+  badge:
+    text: 'Not Implemented'
+    variant: 'danger'
+---
+
+import sessionPreserve from '@assets/session-preserve.png'
+import sessionRestore from '@assets/session-restore.png'
+import sessionStartexit from '@assets/session-startexit.png'
+import { Image } from 'astro:assets'
+
+:::danger[Not Implemented]
+Session Manager feature is not included at the moment since it requires complete rewrite.
+:::
+
+##### Controls Firefox's built-in Session Restore, Session Manager and Crash Recovery features
+
+<br />
+
+<Image class="help-img" src={sessionStartexit} alt="image" />
+
+- Use Firefox's built-in Session Restore Feature - when checked, Firefox's Session Restore feature
+  will be in effect
+- **_Enable Session Manager_**
+- **_Enable Crash Recovery_**
+
+:::note[no-title]
+**Note**
+
+Sessions are stored in the <b>session.rdf</b> file in [your profile][kbProfile] folder. A backup of
+this file is stored in the <b>sessionbackups</b> folder in [your profile][kbProfile] folder. If your
+session becomes corrupt and you are unable to restore that session, copy one of the backup files
+(tabmix_sessions-yyyy-mm-dd.rdf) from the backup folder to [your profile][kbProfile] folder, rename
+the file to <b>session.rdf</b>.
+:::
+
+:::note[no-title]
+For a full range of sessions managing features, you can use
+[Session Manager extension](https://addons.mozilla.org/en-US/firefox/addon/session-manager/) which
+is created specifically for that purpose.<br /> When Session Manager extension is installed, Tab Mix
+Plus turns its own session manager off. Your existing sessions will be converted to SM format. This
+two extensions work well together without any known problems.
+
+**IMPORTANT!** If you uninstall or disable Session Manager extension, Tab Mix Plus will revert back
+to its file which will not have the sessions saved with Session Manager extension.
+:::
+
+---
+
+### Start/Exit
+
+- ###### When browser Starts <span class="font-normal">(Select one option)</span>
+
+  - Restore
+  - Ask Before Restoring
+  - **_Don't Restore_**
+
+- ###### When Browser Exits <span class="font-normal">(Select one option)</span>
+
+  - **_Save Session_**
+  - Ask before Saving
+  - Don't Save
+
+<div class="-mb-2 ml-4">
+  Tab Mix Plus saves two types of session, sessions saved by the user and history sessions. <br />
+  Current Tab Mix Plus version saves only two history session: Last Session and Previous to Last.
+</div>
+
+- ###### Startup Session <span class="font-normal">(select a session)</span>
+
+  - **_Last session_**
+  - Previous to last
+  - All sessions you previously saved
+
+  <span>
+    - Choose another if empty (when checked, you will be prompted to select another session)
+  </span>
+
+- ###### When not restoring on start
+
+  - **_Show my home page_**
+  - Show a blank page
+
+---
+
+### Restore
+
+<Image class="help-img" src={sessionRestore} alt="image" />
+
+###### When Restoring Sessions
+
+- **_Overwrite existing windows_**
+  - **_And tabs_**
+  - **_Save windows in closed windows list_**
+- Join multiple windows into one
+- Bypass cache when restoring
+
+  :::note[no-title]
+  Force Firefox to download page content data from the origin server. Same as using Ctrl + F5 or
+  Ctrl + Shift + R to reload the selected tab overriding cache.
+  :::
+
+- Don't load tabs until selected (Removed)
+
+  :::note[no-title]
+  Mozilla removed the option "Don't load tabs until selected" from Firefox 47 user interface.
+
+  If you want to load all tabs immediately on Restore, go to about\:config and set the preference
+  `browser.sessionstore.restore_on_demand` to false.
+  :::
+
+---
+
+### Preserve
+
+<Image class="help-img" src={sessionPreserve} alt="image" />
+
+###### Preserve Tabs
+
+- **_History_**
+- **_Permissions_**
+- **_Protected Status_**
+- **_Lock Status_**
+- **_Scroll and Text Size_**
+
+###### Preserve Windows
+
+- **_Selected Tab_**
+- Closed Tab list
+
+[kbProfile]: https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data?redirectlocale=en-US&redirectslug=Profiles
+[Not Implemented]: #
+[no-title]: #

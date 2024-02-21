@@ -1,0 +1,93 @@
+---
+title: Tab Features
+tableOfContents: false
+group: events
+sidebar:
+  order: 4.6
+---
+
+import closedListButton from '@assets/closed-list-button.jpg'
+import closedListMenuButton from '@assets/closed-list-menu-button.jpg'
+import closedTabsButtonContextMenu from '@assets/closed-tabs-button-context-menu.png'
+import eventsTabFeatures from '@assets/events-tab-features.png'
+import keepMenuOpen from '@assets/keep_menu_open.png'
+import { Image } from 'astro:assets'
+
+<Image class="help-img" src={eventsTabFeatures} alt="image" />
+
+- **_Enable undo close tabs_** <br /> previously closed tabs may be reopened and the following
+  conditions will be applied
+
+  - Max number of closed tabs to remember (specify a quantity) **_default: 10 - Restore the tab's
+    original position_** (tabs are restored to their position when closed)
+  - Make the toolbar button display only a list
+
+    :::note[no-title]
+
+    <div class="grid grid-cols-[1fr,60px] gap-2">
+      If checked, when the <b>Closed Tabs List</b> button is clicked, a menu will open with recently
+      closed tabs list. An arrow appears on the button next to the label indicating that a menu is
+      present.
+      <Image class="!mt-0 w-[40px] self-center" src={closedListButton} alt="image" />
+      When this option is not checked, the button will restore the last closed tab when clicked and
+      an arrow will be displayed. A click on the arrow opens a menu with recently closed tabs list.
+      <Image class="!mt-0 w-[55px] self-center" src={closedListMenuButton} alt="image" />
+    </div>
+    :::
+
+  - Keep menu open
+
+    :::note[no-title]
+    Enabling 'Keep menu open' leave the menu open after deleting or opening closed tab, in order to
+    allow you to do several commands in a row without having to open the menu every time. To close
+    the menu, click with the mouse outside the menu.
+
+    <Image src={keepMenuOpen} alt="image" />
+    :::
+
+  :::note[no-title]
+  **Tips** <br /> Use middle mouse click on <b>Closed Tabs List</b> button to restore all closed
+  tabs at once. <br />Use right mouse click on recently closed tabs list menu to open the context
+  menu seen in the image below.
+
+  <Image class="m-auto" src={closedTabsButtonContextMenu} alt="image" />
+  :::
+
+---
+
+###### Ctrl-Tab
+
+- Ctrl-Tab navigates tabs in the most recent used order (pressing Ctrl-Tab will navigate between
+  Tabs in the most recently used order)
+
+  - Show tab previews - displays a window with tab previews.
+
+    :::note[no-title]
+    This preference takes precedence over the next preference.
+    :::
+
+- Ctrl-Tab displays a tab list popup menu - pressing Ctrl-Tab will display a popup menu list of all
+  tabs.
+
+  - Tab list responds to the mouse - when checked you can use your mouse left click on the list to
+    select a tab
+
+    :::note[no-title]
+    The List will sort tabs in most recently used order if you turn on <b>Ctrl-Tab navigates tabs in
+    the most recent used order</b>.
+    :::
+
+---
+
+- Toggle tabs slideshow - click to go to Menu/Shortcut to enable/disable or change the shortcut
+- Disable Open/Close tab animation (removes default Firefox animation from tabs)
+
+---
+
+###### Auto Reload
+
+- Reload a tab regardless of its address - the tab will be reloaded even if its URL changes
+- Show Reload Every menu on Reload button - a Reload every menu will be added to the Reload toolbar
+  button
+
+[no-title]: #
