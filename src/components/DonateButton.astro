@@ -35,10 +35,11 @@ const buttonClass = 'paypal-button ' + (className ?? '');
     padding: 0 1rem;
     min-width: 7.5rem;
     margin-bottom: 0;
+    transition: 0.1s all linear;
   }
 
   .paypal-button:hover {
-    background: #ffc439cc;
+    background-color: color-mix(in oklch, #ffc439, transparent 20%);
   }
 
   .paypal-button.home-page {
