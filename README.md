@@ -13,13 +13,14 @@ Images can be added to `src/assets/` and embedded in Markdown with a relative li
 
 ## Contributing
 
-I'm constantly looking for ways to improve the Tab Mix Plus documentation! If you have any
-suggestions for enhancing the clarity, accuracy, or completeness of the documentation, I'd love to
-hear them. Feel free to post a pull request, open an issue or message me directly at
-tabmix.onemen@gmail.com if you prefer.
+I'm always looking for ways to make Tab Mix Plus even better! That includes improving the documentation, and I welcome your feedback. Here are some ways you can help:
 
-## Docs
+- **Post a pull request**: Found a mistake or have a suggestion? Edit the relevant documentation file and submit a [pull request](https://github.com/onemen/tabmixplus-docs/pulls). There is `Edit page` link at the button of each page.
+- **Open an issue**: Have a larger issue or feature request? Let me know by opening an [issue](https://github.com/onemen/tabmixplus-docs/issues).
+- **Leave me a message**: Prefer personal contact? Feel free to email me directly at tabmix.onemen@gmail.com with your feedback.
 
-[Help](https://onemen.github.io/tabmixplus-docs/help/index.html)
+Your input is invaluable! By helping me improve the documentation, you're making Tab Mix Plus better for everyone.
 
-[Troubleshooting](https://onemen.github.io/tabmixplus-docs/troubleshooting/index.html)
+## Documentation
+
+[Read the docs](https://onemen.github.io/tabmixplus-docs/)
