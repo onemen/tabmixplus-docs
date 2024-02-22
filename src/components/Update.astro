@@ -1,5 +1,5 @@
 ---
-import DonateButton from 'src/components/DonateButton.astro';
+import DonateButton from '@components/DonateButton.astro';
 
 const years = new Date().getFullYear() - 2005;
 ---
@@ -42,8 +42,6 @@ const years = new Date().getFullYear() - 2005;
     </p>
   </div>
 </div>
-
-<slot />
 
 <script is:inline>
   const urlParams = new URLSearchParams(document.location.search);

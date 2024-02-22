@@ -8,18 +8,18 @@ import { rehypeExternalLinks } from './src/utils/rehypePluginLinks.mjs';
 export const starlightConfig = {
   favicon: '/favicon.ico',
   logo: {
-    src: '/src/assets/tabmix_logo.png',
+    src: './src/assets/tabmix_logo.png',
   },
   title: 'Tab Mix Plus - Docs',
   social: {
     github: 'https://github.com/onemen/TabMixPlus',
   },
   editLink: {
-    baseUrl: 'https://github.com/onemen/tabmixplus-docs/',
+    baseUrl: 'https://github.com/onemen/tabmixplus-docs/edit/main/',
   },
   components: {
-    Head: '/src/components/Head.astro',
-    Sidebar: '/src/components/Sidebar.astro',
+    Head: './src/components/Head.astro',
+    Sidebar: './src/components/Sidebar.astro',
   },
   sidebar: [
     {
@@ -63,7 +63,7 @@ export const starlightConfig = {
       },
     },
   ],
-  customCss: ['/src/styles/custom.css'],
+  customCss: ['./src/styles/custom.css'],
   defaultLocale: 'en',
 };
 

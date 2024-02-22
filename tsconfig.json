@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@starlight/*": ["node_modules/@astrojs/starlight/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"]
     }
   }
 }
