@@ -106,12 +106,25 @@ a[data-sm] {
 
 .help-img {
   margin-inline: auto;
-  width: 55%;
+  max-width: 535px !important;
+  height: auto;
   box-shadow: var(--img-shadow);
 }
 
 .img-shadow {
   box-shadow: var(--img-shadow);
+}
+
+@media (max-width: 640px) {
+  .help-img {
+    width: 85%;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1279px) {
+  .help-img {
+    width: 65%;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -192,4 +205,12 @@ a[data-sm] {
 
 .sl-markdown-content ol > li::marker {
   content: counters(listCounter, '.', decimal) '. ';
+}
+
+@media (max-width: 500px) {
+  .tablist-wrapper .tab {
+    align-self: end;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
 }
