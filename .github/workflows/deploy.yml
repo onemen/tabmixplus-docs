@@ -6,6 +6,12 @@ on:
     branches: ['main']
 
   workflow_dispatch:
+    inputs:
+      run_releases:
+        description: 'A flag to releases script'
+        default: false
+        required: false
+        type: boolean
 
 permissions:
   contents: read
@@ -18,6 +24,8 @@ concurrency:
 
 jobs:
   build:
+    env:
+      BITBUCKET_GET_DOWNLOADS_ACCESS_TOKEN: ${{ secrets.BITBUCKET_ACCESS_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -35,6 +43,10 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Generate releases (Optional)
+        if: github.event.inputs.run_releases == 'true'
+        run: pnpm releases
 
       - name: Build with Astro
         run: pnpm build
