@@ -7,12 +7,28 @@ import { stripLeadingAndTrailingSlashes } from '@starlight/utils/path.ts';
 import { getEntry } from 'astro:content';
 
 import DonateButton from '@components/DonateButton.astro';
+import { isDownloadsInfoExist } from '@utils/helper.mjs';
 
 const { sidebar, slug } = Astro.props;
 
 const [page] = slug.split('/');
 const isHelpPage = slug.startsWith('help');
 const isTroubleshooting = slug.startsWith('troubleshooting');
+
+// replace links to missing downloadsInfo.json file with bitbucket
+if (!isDownloadsInfoExist()) {
+  const downloadsInfo = sidebar.find(entry => entry.label === 'Download') as Link;
+  downloadsInfo.href = 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/';
+}
+
+// replace links to missing releases files with our repository releases
+const releases = sidebar.find(entry => entry.label.startsWith('Releases')) as Group;
+if (releases.entries.length === 0) {
+  const releasesLink = releases as unknown as Link;
+  releasesLink.type = 'link';
+  releasesLink.href = 'https://github.com/onemen/TabMixPlus/releases';
+  releasesLink.attrs = {};
+}
 
 // collapsed other top level entries
 sidebar.forEach(entry => {

@@ -1,0 +1,212 @@
+---
+import Icon from '@components/Icon.astro';
+
+type Release = {
+  name: string;
+  createdAt: string;
+  timestamp: number;
+  date: string;
+  href: string;
+  version: string;
+};
+
+interface Props {
+  releases: Release[];
+}
+
+const { releases } = Astro.props;
+const { version: latest, date, href } = releases[0];
+---
+
+<div id="customSelect" class="not-content relative !mt-10 !max-w-[500px]" style="cursor: pointer;">
+  <p class="text-xs font-thin">Click to select oldoer versions</p>
+  <div
+    class="flex w-full items-center justify-between overflow-hidden rounded-lg border border-gray-300 bg-[var(--sl-color-black)] p-4"
+  >
+    <div class="flex select-none flex-row items-center gap-3">
+      <div class="text-lg font-normal">Version</div>
+      <span class="text-lg font-semibold" data-selected>{latest}</span>
+      <span class="rounded-lg bg-lime-200 px-2 py-1 text-xs font-medium text-lime-800">
+        Latest
+      </span>
+    </div>
+    <div class="flex items-center gap-3">
+      <Icon name="down-caret" size="2em" />
+      <button id="resetButton" title="Reset">
+        <Icon name="reset" size="1.125em" class="stroke-[var(--sl-color-white)] stroke-[1.2px]" />
+      </button>
+    </div>
+  </div>
+  <div
+    id="customOptions"
+    class="absolute mt-1 w-full overflow-auto rounded-md border border-gray-300 bg-[var(--sl-color-bg-nav)] shadow-sm"
+  >
+    {
+      releases.map(option => (
+        <div
+          class:list={{
+            'option my-0 grid cursor-pointer grid-cols-[2fr,1fr,50px] items-center px-4 py-1 text-lg font-light lg:grid-cols-[2fr,1fr,50px]': true,
+            'selected font-semibold': option.version === latest,
+          }}
+          data-href={option.href}
+          data-version={option.version}
+          data-date={option.date}
+        >
+          <span>{option.version}</span>
+          <span class="text-xs">{option.date}</span>
+          {option.version === latest && (
+            <span class="rounded-lg bg-lime-200 px-2 py-1 text-xs font-medium text-lime-800">
+              Latest
+            </span>
+          )}
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="not-content !mt-10 space-y-6 rounded-lg border-[1px] py-6 shadow-lg">
+    <div class="grid grid-cols-1 justify-center gap-3 px-8 sm:grid-cols-[18ch,18ch,60px] sm:px-0">
+      <div class="flex flex-col">
+        <span class="text-sm">Date</span>
+        <span id="download-date" class="font-bold">{date}</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm">Version</span>
+        <span id="download-version" class="font-bold">{latest}</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm">Release</span>
+        <span id="download-status" class="font-bold">Latest</span>
+      </div>
+    </div>
+    <div class="flex sm:justify-center">
+      <a
+        id="download-button"
+        href={href}
+        id="button"
+        role="link"
+        rel="noopener nofollow"
+        target="_top"
+        class="download-button"
+      >
+        <span class="flex items-center gap-4">
+          <Icon name="download" class="h-6 w-6 stroke-[1.5px]" />
+          <span data-download-version>Download {latest}</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const resetButton = document.getElementById('resetButton') as HTMLButtonElement;
+  const optionsElement = document.getElementById('customOptions') as HTMLDivElement;
+  const selectSpan = document.querySelector('[data-selected]') as HTMLSpanElement;
+  const badge = selectSpan.nextElementSibling as HTMLSpanElement;
+  const dateSpan = document.getElementById('download-date') as HTMLSpanElement;
+  const versionSpan = document.getElementById('download-version') as HTMLSpanElement;
+  const statusSpan = document.getElementById('download-status') as HTMLSpanElement;
+  const downloadButton = document.getElementById('download-button') as HTMLButtonElement;
+
+  const latest = optionsElement.children[0] as HTMLDivElement;
+  let currentSelected = latest;
+
+  type DataSet = {
+    date: string;
+    href: string;
+    version: string;
+  };
+
+  function updateSelected(selected: HTMLDivElement) {
+    currentSelected.classList.remove('selected');
+    selected.classList.add('selected');
+    currentSelected = selected;
+
+    const { date, href, version } = selected.dataset as DataSet;
+    selectSpan.textContent = version;
+    versionSpan.textContent = version;
+    dateSpan.textContent = date;
+
+    downloadButton.setAttribute('href', href);
+    (downloadButton.querySelector('[data-download-version]') as HTMLSpanElement).textContent =
+      `Download ${version}`;
+    if (selected === latest) {
+      badge.classList.remove('hidden');
+      statusSpan.textContent = 'Latest';
+    } else {
+      badge.classList.add('hidden');
+      statusSpan.textContent = 'Old';
+    }
+  }
+
+  resetButton.addEventListener('click', e => {
+    e.stopPropagation();
+    updateSelected(latest);
+    optionsElement.classList.remove('visible');
+  });
+
+  // show hide options
+  addEventListener('click', (event: MouseEvent) => {
+    const select = (event.target as HTMLElement).closest('#customSelect');
+    if (select) {
+      optionsElement.classList.toggle('visible');
+    } else {
+      optionsElement.classList.remove('visible');
+    }
+  });
+
+  optionsElement.addEventListener('click', (event: MouseEvent) => {
+    const option = (event.target as HTMLElement).closest('.option') as HTMLDivElement;
+    if (option) {
+      updateSelected(option);
+    }
+  });
+</script>
+
+<style>
+  html[data-theme='light'] #customOptions {
+    background-color: var(--sl-color-bg);
+  }
+
+  #customOptions {
+    border-width: 0;
+    height: 0;
+    transition: 0.2s all ease-out;
+  }
+
+  #customOptions.visible {
+    border-width: 1px;
+    height: 320px;
+  }
+  .option:hover {
+    color: var(--sl-color-text-invert);
+    background-color: color-mix(
+      in oklch,
+      var(--sl-color-text-accent) 90%,
+      var(--sl-color-text-accent) 0%
+    );
+  }
+  .option.selected {
+    font-weight: 600;
+    color: var(--sl-color-text-invert);
+    background-color: var(--sl-color-text-accent);
+  }
+
+  .download-button {
+    background: #d9f99f;
+    border-radius: 6.25rem;
+    -webkit-box-shadow: inset 0 2px 0 0 hsla(0, 0%, 100%, 0.41);
+    box-shadow: inset 0 2px 0 0 hsla(0, 0%, 100%, 0.41);
+    border: 1px solid #9ed930;
+    color: #000;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    padding: 0.5rem 2rem;
+    margin-inline: auto;
+    transition: 0.1s all linear;
+  }
+
+  .download-button:hover {
+    background-color: color-mix(in oklch, #d9f99f, transparent 30%);
+  }
+</style>

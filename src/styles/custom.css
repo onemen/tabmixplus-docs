@@ -80,6 +80,22 @@ a[data-sm] {
   }
 }
 
+@media (min-width: 1024px) {
+  #starlight__sidebar li a[data-link] {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  #starlight__sidebar .top-level > li:nth-child(2) {
+    border-top: 1px solid var(--sl-color-hairline-light);
+  }
+}
+
+#starlight__sidebar .top-level > li:nth-child(5) {
+  border-top: 1px solid var(--sl-color-hairline-light);
+}
+
 .tabmix-nav {
   background-color: var(--sl-color-bg-nav);
 }

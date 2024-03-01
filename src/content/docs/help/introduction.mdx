@@ -8,7 +8,7 @@ sidebar:
     data-sm: 'true'
 ---
 
-import { devbuildpath, version } from '@assets/version_data.json'
+import DownloadXPI from '@components/DownloadXPI.astro'
 
 Tab Mix Plus is a very popular extension for the Mozilla Firefox&reg; browser that enhances
 Firefox's&reg; tab browsing abilities. It includes such features as duplicating tabs, controlling
@@ -31,28 +31,11 @@ bar and "extensions.tabmix" in the filter box to narrow down the results from th
 
 ### Download & Install Tab Mix Plus
 
-Tab Mix Plus add-on installs in your open active Firefox&reg; browser. You can use the links below
-to obtain the latest version of Tab Mix Plus and install it from Firefox&reg; Add-ons website or you
-can save the XPI file to your local PC and install it at another time. Once Tab Mix Plus is
-installed in your browser, Tab Mix Plus is fully configurable using its options window.
-
-:::tip[Download Links]
-Current Version [<span>{version}</span>][releases] <br/>
-
-<span class="flex flex-wrap gap-2 leading-5">
-  Latest Development Build
-  <a href={devbuildpath} target="_blank">
-    tab_mix_plus-dev-build.xpi
-  </a>
-</span>
-
-<u>Version History</u> <br />
-[Official Versions][releases] <br />
-[Development Versions][releases]
-
-You can download [source code](https://github.com/onemen/TabMixPlus) or the [latest][releases]
-working version at any time.
+:::danger[Important]
+If you are downloading **Tab Mix Plus** for the first time, please follow the [**Installation Guide**](/other/installation).
 :::
 
-[releases]: https://github.com/onemen/TabMixPlus/releases/
-[Download Links]: #
+<br />
+<DownloadXPI />
+
+[Important]: #

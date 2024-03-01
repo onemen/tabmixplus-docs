@@ -20,35 +20,29 @@ export const starlightConfig = {
   components: {
     Head: './src/components/Head.astro',
     Sidebar: './src/components/Sidebar.astro',
+    SocialIcons: './src/components/SocialIcons.astro',
   },
   sidebar: [
-    {
-      label: 'Welcome to Tab Mix Plus',
-      link: '/',
-    },
     {
       label: 'Installation',
       link: '/other/installation',
     },
     {
-      label: 'Important Links',
-      items: [
-        {
-          label: 'Discussions',
-          link: 'https://github.com/onemen/TabMixPlus/discussions/',
-          attrs: { target: '_blank', style: 'font-style: italic' },
-        },
-        {
-          label: 'Change Log',
-          link: 'https://github.com/onemen/TabMixPlus/releases/',
-          attrs: { target: '_blank', style: 'font-style: italic' },
-        },
-        {
-          label: 'Downloads',
-          link: 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/',
-          attrs: { target: '_blank', style: 'font-style: italic' },
-        },
-      ],
+      label: 'Discussions',
+      link: 'https://github.com/onemen/TabMixPlus/discussions/',
+      attrs: { target: '_blank', 'data-link': 'discussions' },
+    },
+    {
+      label: 'Download',
+      link: '/download',
+      attrs: { 'data-link': 'download' },
+    },
+    {
+      label: 'Releases / Change Log',
+      autogenerate: {
+        directory: 'releases',
+        collapsed: true,
+      },
     },
     {
       label: 'Help',
@@ -73,7 +67,6 @@ const baseUrl = '/tabmixplus-docs';
 export default defineConfig({
   site: process.env.CI ? 'https://onemen.github.io' : 'http://localhost:4321',
   base: baseUrl,
-  cacheDir: './node_modules/.astro',
   integrations: [starlight(starlightConfig), tailwind(), expressiveCode(), mdx()],
   markdown: {
     smartypants: false,

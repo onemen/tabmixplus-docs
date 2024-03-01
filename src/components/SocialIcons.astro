@@ -1,0 +1,17 @@
+---
+import Default from '@starlight/components/SocialIcons.astro';
+import type { Props } from '@starlight/props';
+import { isDownloadsInfoExist } from '@utils/helper.mjs';
+---
+
+<div class="hidden gap-4 lg:flex">
+  <a
+    href={isDownloadsInfoExist()
+      ? '/tabmixplus-docs/download/'
+      : 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/'}
+  >
+    <h4>Download</h4>
+  </a>
+  <a href="https://github.com/onemen/TabMixPlus/discussions/"><h4>Discussions</h4></a>
+</div>
+<Default {...Astro.props}><slot /></Default>

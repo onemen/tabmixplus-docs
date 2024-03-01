@@ -5,7 +5,8 @@
     "paths": {
       "@starlight/*": ["node_modules/@astrojs/starlight/*"],
       "@assets/*": ["./src/assets/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

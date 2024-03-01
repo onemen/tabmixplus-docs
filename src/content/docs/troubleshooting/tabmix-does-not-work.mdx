@@ -4,6 +4,8 @@ sidebar:
   order: 1
 ---
 
+import { downloadLink } from '@utils/helper.mjs'
+
 If you are reading this page, you have probably encountered a problem with Tab Mix Plus. While it
 can be some unknown bug, most issues reported in the forum usually end up being extensions or theme
 conflicts.
@@ -13,10 +15,8 @@ In order to identify and solve the problem there are several things you can do.
 ### Install latest development version
 
 First, install the latest development version to see if the problem might have been fixed (look for
-the latest test build at
-[our Downloads page](https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/)). You can
-reinstall the [latest official version](https://github.com/onemen/TabMixPlus/releases/) in place of
-the development version later if you wish.
+the latest test build at <a href={downloadLink()}>our Downloads page</a>).
+You can reinstall the <a href={downloadLink()}>latest official version</a> in place of the development version later if you wish.
 
 If the latest development version still has the problem then the place to post about it is in the
 [ discussions ](https://github.com/onemen/TabMixPlus/discussions) section of our repository, but

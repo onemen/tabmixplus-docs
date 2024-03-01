@@ -16,3 +16,7 @@ eslint_result.js
 manifest.json
 logs/
 lib
+
+# generated files
+releases/
+downloadsInfo.json

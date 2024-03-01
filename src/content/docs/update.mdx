@@ -4,6 +4,7 @@ tableOfContents: true
 ---
 
 import Update from '@components/Update.astro'
+import { downloadLink, releasesLink } from '@utils/helper.mjs'
 
 <Update />
 
@@ -15,7 +16,7 @@ extensions and themes, as well as other Firefox's based browsers like
 [Waterfox](https://www.waterfox.net/), [Floorp](https://floorp.app/) and
 [LibreWolf](https://librewolf.net/).
 
-Visit our [Change log](https://github.com/onemen/TabMixPlus/releases/) page for Complete List of Changes and Bugs Fixed. <br />
+Visit our <a href={releasesLink()}>Change log</a> pages for Complete List of Changes and Bugs Fixed. <br />
 Visit **Tab Mix Plus** [Help](/help/links).
 
 ## Bug report
@@ -26,8 +27,7 @@ section of our repository. You can also look at our [Troubleshooting](/troublesh
 ## Development Channel
 
 The Development Channel lets you test an experimental new version of this add-on before it's
-released to the general public.<br />
-[Download latest development version](https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/)
+released to the general public.<br/><a href={downloadLink()}>Download latest development version</a>
 
 ## Contribute code
 

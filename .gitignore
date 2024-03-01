@@ -3,6 +3,10 @@ dist/
 # generated types
 .astro/
 
+# generated files
+releases/
+downloadsInfo.json
+
 # dependencies
 node_modules/
 
@@ -25,3 +29,4 @@ pnpm-debug.log*
 # vscode files
 !.vscode/settings.json
 !.vscode/extensions.json
+

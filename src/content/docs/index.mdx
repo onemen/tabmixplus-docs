@@ -20,6 +20,7 @@ hero:
 
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components'
 import DonateButton from '@components/DonateButton.astro'
+import { downloadLink, releasesLink } from '@utils/helper.mjs'
 
 <DonateButton class="home-page" />
 
@@ -46,11 +47,11 @@ import DonateButton from '@components/DonateButton.astro'
   <LinkCard
     title="Change Log"
     description="Visit our Change log page for Complete List of Changes and Bugs Fixed"
-    href="https://github.com/onemen/TabMixPlus/releases/"
+    href={releasesLink()}
   />
   <LinkCard
-    title="Downloads"
+    title="Download"
     description="Download Tab Mix Plus: Latest, development builds, and past versions"
-    href="https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/"
+    href={downloadLink()}
   />
 </CardGrid>

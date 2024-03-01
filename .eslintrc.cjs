@@ -67,6 +67,7 @@ module.exports = {
       plugins: ['jsx-a11y', 'import', 'react'],
       parser: 'eslint-mdx',
       rules: {
+        'no-unused-expressions': 'off',
         'react/jsx-uses-vars': 'error',
       },
     },
