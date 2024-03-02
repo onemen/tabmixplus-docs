@@ -77,7 +77,7 @@ helpGroup.entries = Object.entries(newHelpItems).flatMap(([group, entries]) =>
 
 // add sidebar entries for links with hash to link and display-tab pages
 interface CustomLink extends Link {
-  attrs: Link['attrs'] & { 'data-hash'?: string };
+  attrs: Link['attrs'] & { 'data-hash'?: string; 'data-astro-reload'?: string };
 }
 
 function createNewEntry({ label, href }: { label: string; href: string }): CustomLink {
@@ -87,18 +87,21 @@ function createNewEntry({ label, href }: { label: string; href: string }): Custo
     badge: undefined,
     label,
     href,
-    attrs: { 'data-hash': 'true' },
+    attrs: { 'data-hash': 'true', 'data-astro-reload': 'true' },
   };
 }
 
 const fileTypeEditor = createNewEntry({
   label: 'File type editor',
-  href: `${baseUrl}/help/links#file-type-editor`,
+  href: slug === 'help/links' ? '#file-type-editor' : `${baseUrl}/help/links#file-type-editor`,
 });
 
 const customizingTabsStyles = createNewEntry({
   label: 'Customizing Tabs Styles',
-  href: `${baseUrl}/help/display-tab#customize-styles`,
+  href:
+    slug === 'help/display-tab'
+      ? '#customize-styles'
+      : `${baseUrl}/help/display-tab#customize-styles`,
 });
 
 const linksEntries = helpGroup.entries.find(entry => entry.label === 'Links') as Group;
@@ -136,11 +139,11 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
   <MobileMenuFooter {...Astro.props} />
 </div>
 
-<script>
+<script is:inline>
   const key = 'sidebar-position';
   let timeout = 0;
 
-  function isElementInViewport(el: Element) {
+  function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     const isInView =
       rect.top >= 0 &&
@@ -154,14 +157,15 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     const { pathname, hash = '' } = window.location;
     if (hash) {
       document.querySelector(`a[aria-current="page"]`)?.removeAttribute('aria-current');
-      document
-        .querySelector(`a[href="${pathname.replace(/\/$/, '')}${hash}"]`)
-        ?.setAttribute('aria-current', 'page');
+      (
+        document.querySelector(`a[href="${pathname.replace(/\/$/, '')}${hash}"]`) ??
+        document.querySelector(`.sidebar-content a[href="${hash}"]`)
+      )?.setAttribute('aria-current', 'page');
     }
   }
 
-  function handleSidebarScroll(event: Event) {
-    const sidebar = event.target as HTMLElement;
+  function handleSidebarScroll(event) {
+    const sidebar = event.target;
     if (!timeout) {
       timeout = window.setTimeout(() => {
         sessionStorage.setItem(key, String(sidebar?.scrollTop));
@@ -179,7 +183,7 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     // skip restore scroll position on full page reload
     // scroll selected entry into view
     if (initialLoad) {
-      addEventListener('hashchange', updateEntryWithHash);
+      window.addEventListener('hashchange', updateEntryWithHash);
       const currentEntry = document.querySelector(`a[aria-current="page"]`);
       if (currentEntry && !isElementInViewport(currentEntry)) {
         currentEntry?.scrollIntoView({ behavior: 'auto', inline: 'nearest' });
