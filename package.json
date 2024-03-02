@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "releases": "node --env-file=.env src/utils/getReleases.mjs",
+    "releases": "cross-env BITBUCKET_GET_DOWNLOADS_ACCESS_TOKEN=$BITBUCKET_GET_DOWNLOADS_ACCESS_TOKEN node src/utils/getReleases.mjs",
     "lint": "eslint --format stylish --cache --cache-location config/.eslintcache --ignore-path config/.eslintignore \"src/**/*.{js,cjs,mjs,ts,jsx,tsx,astro,md,mdx}\"",
     "format": "prettier --config config/prettier.config.js --ignore-path config/.prettierignore --write . --plugin=prettier-plugin-astro",
     "stylelint": "stylelint --fix --config config/.stylelintrc \"src/**/*.css\""
@@ -26,6 +26,7 @@
     "@ungap/structured-clone": "^1.2.0",
     "astro": "^4.4.8",
     "astro-expressive-code": "^0.33.4",
+    "cross-env": "^7.0.3",
     "hast-util-is-element": "^3.0.0",
     "is-absolute-url": "^4.0.1",
     "sharp": "^0.33.2",
