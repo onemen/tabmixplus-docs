@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "releases": "cross-env BITBUCKET_GET_DOWNLOADS_ACCESS_TOKEN=$BITBUCKET_GET_DOWNLOADS_ACCESS_TOKEN node src/utils/getReleases.mjs",
+    "dispatch:releases": "node --env-file=.env src/utils/workflowDispatch.mjs",
     "lint": "eslint --format stylish --cache --cache-location config/.eslintcache --ignore-path config/.eslintignore \"src/**/*.{js,cjs,mjs,ts,jsx,tsx,astro,md,mdx}\"",
     "format": "prettier --config config/prettier.config.js --ignore-path config/.prettierignore --write . --plugin=prettier-plugin-astro",
     "stylelint": "stylelint --fix --config config/.stylelintrc \"src/**/*.css\""

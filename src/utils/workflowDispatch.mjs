@@ -1,31 +1,22 @@
 import { Octokit } from '@octokit/rest';
 
-const personalAccessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
-
 const owner = 'onemen';
-const repo = 'TabMixPlus';
+const repo = 'tabmixplus-docs';
 
-const workflowId = 'deploy.yml';
+const octokit = new Octokit({ auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN });
 
-const octokit = new Octokit({ auth: personalAccessToken });
-
-const payload = {
-  ref: 'main',
-  inputs: {
-    run_releases: 'true',
-  },
-};
-
-octokit.repos
-  .createDispatchEvent({
+octokit.actions
+  .createWorkflowDispatch({
     owner,
     repo,
-    event_type: 'workflow_dispatch',
-    workflow_id: workflowId,
-    client_payload: payload,
+    workflow_id: 'deploy.yml',
+    ref: 'main',
+    inputs: {
+      run_releases: 'true',
+    },
   })
   .then(data => {
-    console.log('Workflow triggered successfully:', data);
+    console.log('Workflow triggered successfully:', data.status);
   })
   .catch(error => {
     console.error('Error triggering workflow:', error);
