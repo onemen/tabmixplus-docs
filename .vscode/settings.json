@@ -53,6 +53,7 @@
     "editor.wordWrapColumn": 100
   },
   "[mdx]": {
+    // "editor.defaultFormatter": "unifiedjs.vscode-mdx",
     "files.trimTrailingWhitespace": false,
     "editor.rulers": [100],
     "editor.wordWrap": "wordWrapColumn",
@@ -73,5 +74,7 @@
   "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
   "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "mdx.validate.ignoreLinks": ["/help/**", "/other/**", "/releases/**", "/troubleshooting/**"],
+  "mdx.server.enable": true
 }

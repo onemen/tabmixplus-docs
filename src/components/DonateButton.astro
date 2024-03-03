@@ -1,13 +1,15 @@
 ---
 interface ButtonProps {
+  text?: string;
   title?: string;
   class?: string;
 }
 
-const { title = 'Make a Donation', class: className } = Astro.props as ButtonProps;
+const { text, title = 'Make a Donation', class: className } = Astro.props as ButtonProps;
 const buttonClass = 'paypal-button ' + (className ?? '');
 ---
 
+{text && <span class="mr-2">{text}</span>}
 <a
   class={buttonClass}
   href="https://www.paypal.com/donate?hosted_button_id=BZWMH5PS56GAW"

@@ -8,12 +8,12 @@ hero:
   image:
     file: ../../assets/computer.png
   actions:
-    - text: Help
-      link: /tabmixplus-docs/help/introduction
+    - text: Installation
+      link: /tabmixplus-docs/other/installation
       icon: right-arrow
       variant: primary
-    - text: Troubleshooting
-      link: /tabmixplus-docs/troubleshooting/tabmix-does-not-work/
+    - text: Help
+      link: /tabmixplus-docs/help/introduction
       icon: right-arrow
       variant: secondary
 ---
@@ -22,13 +22,14 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components'
 import DonateButton from '@components/DonateButton.astro'
 import { downloadLink, releasesLink } from '@utils/helper.mjs'
 
-<DonateButton class="home-page" />
-
-## Next steps
+<div class="h-10" />
 
 <CardGrid>
-  <Card title="Install Tab Mix Plus" icon="setting">
-    Read [installation](/other/installation) documentation to learn how to install Tab Mix Plus.
+  <Card title="Donate" icon="star">
+    <DonateButton text="Click here to choose your donation option and make a difference" />
+  </Card>
+  <Card title="Troubleshooting" icon="setting">
+    Read the [Troubleshooting][troubleshooting] documentation to learn how to solve common problems.
   </Card>
   <Card title="Improve our Docs" icon="open-book">
     Improve our docs by editing any page or go to our [GitHub
@@ -55,3 +56,5 @@ import { downloadLink, releasesLink } from '@utils/helper.mjs'
     href={downloadLink()}
   />
 </CardGrid>
+
+[troubleshooting]: /troubleshooting/tabmix-does-not-work
