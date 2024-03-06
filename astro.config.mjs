@@ -75,4 +75,7 @@ export default defineConfig({
       [rehypeExternalLinks, { target: '_blank', baseUrl }],
     ],
   },
+  redirects: {
+    '/tabmixplus-docs/version_update.html': '/tabmixplus-docs/version_update',
+  },
 });

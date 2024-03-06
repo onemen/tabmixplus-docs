@@ -50,7 +50,6 @@ a[data-hash],
 a[data-hash]:hover {
   margin-left: 1rem;
   font-size: var(--sl-text-xs);
-  font-weight: 500;
 }
 
 a[data-sm] {

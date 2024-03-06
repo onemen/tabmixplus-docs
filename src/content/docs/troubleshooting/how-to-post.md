@@ -7,10 +7,14 @@ Most issues reported in Tab Mix Plus forum usually end up to be extensions or th
 When posting, please, always include your OS (Operating System),
 [Firefox](https://support.mozilla.org/en-US/products/firefox) and Tab Mix Plus versions. A list of
 your extensions could also be useful as somebody might spot a troublesome extension which can lead
-to a faster resolution.<br /> You can set your OS, Firefox and Tab Mix Plus information in the
+to a faster resolution.
+
+You can set your OS, Firefox and Tab Mix Plus information in the
 signature field in your profile (link to the User Control Panel is at the top of every page of the
 Forum). This way, you will not have to type it every time. Just remember to update it with Firefox
-and/or Tab Mix Plus update!<br /> It is very helpful if you can post the steps to reproduce your
+and/or Tab Mix Plus update!
+
+It is very helpful if you can post the steps to reproduce your
 problem and if you experience an issue with a specific page, include a link(-s).
 
 ### Add attachment to your post
