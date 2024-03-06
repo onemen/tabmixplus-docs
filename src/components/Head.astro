@@ -8,6 +8,17 @@ import { ViewTransitions } from 'astro:transitions';
 <ViewTransitions />
 
 <script>
+  // temporary hack to redirect version_update.html
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      if (window.location.pathname === '/tabmixplus-docs/version_update.html') {
+        window.location.href = '/tabmixplus-docs/version_update';
+      }
+    },
+    { once: true }
+  );
+
   const ANIMATE = 'transition:animate';
 
   function disableTransitionAanimate() {
