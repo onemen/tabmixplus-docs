@@ -12,8 +12,11 @@ import { ViewTransitions } from 'astro:transitions';
   window.addEventListener(
     'DOMContentLoaded',
     () => {
-      if (window.location.pathname === '/tabmixplus-docs/version_update.html') {
-        window.location.href = '/tabmixplus-docs/version_update';
+      const oldUrl = new URL(window.location.href);
+      if (oldUrl.pathname === '/tabmixplus-docs/version_update.html') {
+        const newUrl = new URL('/tabmixplus-docs/version_update', window.location.origin);
+        newUrl.search = oldUrl.search;
+        window.location.href = newUrl.toString();
       }
     },
     { once: true }
