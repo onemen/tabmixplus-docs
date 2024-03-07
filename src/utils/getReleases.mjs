@@ -62,9 +62,9 @@ async function buildReleases() {
     getDownloadsInfo(),
   ]);
 
-  const sortedReleases = releases.sort(
-    (a, b) => Date.parse(b.published_at) - Date.parse(a.published_at)
-  );
+  const sortedReleases = releases
+    .filter(r => r.tag_name !== 'dev-build')
+    .sort((a, b) => Date.parse(b.published_at) - Date.parse(a.published_at));
 
   for (const release of sortedReleases) {
     // overrid bitbucket dates with dates from github
