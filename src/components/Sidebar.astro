@@ -140,8 +140,8 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
 </div>
 
 <script is:inline>
-  const key = 'sidebar-position';
-  let timeout = 0;
+  var key = 'sidebar-position';
+  var timeout = 0;
 
   function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
@@ -175,7 +175,7 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     }
   }
 
-  let initialLoad = true;
+  var initialLoad = true;
   document.addEventListener('astro:page-load', () => {
     updateEntryWithHash();
 
