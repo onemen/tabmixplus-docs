@@ -6,12 +6,6 @@ on:
     branches: ['main']
 
   workflow_dispatch:
-    inputs:
-      run_releases:
-        description: 'A flag to releases script'
-        default: false
-        required: false
-        type: boolean
 
 permissions:
   contents: read
@@ -44,12 +38,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Generate releases (Optional)
-        if: github.event.inputs.run_releases == 'true'
-        run: pnpm releases
-
       - name: Build with Astro
-        run: pnpm build
+        run: pnpm releases && pnpm build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
