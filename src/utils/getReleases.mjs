@@ -12,6 +12,35 @@ const releasesPath = path.join(process.cwd(), relativeReleasesPath);
 const relativeDownloadsInfo = 'src/utils/downloadsInfo.json';
 const downloadsInfoPath = path.join(process.cwd(), relativeDownloadsInfo);
 
+const emojiMap = {
+  ':sparkles:': '✨',
+  ':bug:': '🐛',
+  ':zap:': '⚡',
+  ':recycle:': '♻️',
+  ':white_check_mark:': '✅',
+  ':construction_worker:': '👷',
+  ':memo:': '📝',
+  ':art:': '🎨',
+  ':wrench:': '🔧',
+  ':flying_saucer:': '🛸',
+  Features: '✨ New Features',
+  'Bug Fixes': '🐛 Bug Fixes',
+  Maintenance: '🔧 Maintenance',
+  Documentation: '📝 Documentation Changes',
+  Style: '🎨 Code Style Changes',
+  Refactor: '♻️ Refactors',
+  'Performance Improvements': '⚡ Performance Improvements',
+  Test: '✅ Tests',
+};
+
+function replaceEmoji(text, prefix, name, title) {
+  const emoji = emojiMap[name ?? title];
+  if (emoji) {
+    return name ? `${prefix} ${emoji} ${title}` : `${prefix} ${emoji}`;
+  }
+  return text;
+}
+
 /** @typedef {import('@octokit/openapi-types').components['schemas']['release']} ReleasesType */
 
 /**
@@ -24,13 +53,22 @@ function releaseTemplate(data, bitbucketHref, isLatest) {
     asset => asset.name === 'tab_mix_plus-dev-build.xpi'
   );
 
+  let title = name;
+  let badge = '';
   // indent are important here !
-  const badge = isLatest
-    ? `
+  if (isLatest) {
+    badge = `
   badge:
     text: Latest
-    variant: success`
-    : '';
+    variant: success`;
+  }
+  if (name === 'dev-build') {
+    title = 'Development Build';
+    badge = `
+  badge:
+    text: Development
+    variant: danger`;
+  }
 
   const note = `
 :::note[no-title]
@@ -38,13 +76,13 @@ function releaseTemplate(data, bitbucketHref, isLatest) {
 :::\n\n$&`;
 
   return `---
-title: "${name}"
+title: "${title}"
 lastUpdated: ${publishedAt}
 sidebar:
   order: ${-Date.parse(publishedAt)}${badge}
 ---
 
-${isLatest ? body.replace('##', note) : body}
+${(isLatest ? body.replace('##', note) : body).replace(/(###)\s*(:.*:)?\s*(.*)/g, replaceEmoji)}
 
 ### Download
 <a href="${bitbucketHref ?? downloadLink}" target="_top" role="link">${name}</a>${isLatest ? '\n\n[no-title]: #' : ''}`;
@@ -62,14 +100,22 @@ async function buildReleases() {
     getDownloadsInfo(),
   ]);
 
-  const sortedReleases = releases
-    .filter(r => r.tag_name !== 'dev-build')
-    .sort((a, b) => Date.parse(b.published_at) - Date.parse(a.published_at));
+  const sortedReleases = releases.sort(
+    (a, b) => Date.parse(b.published_at) - Date.parse(a.published_at)
+  );
+
+  const latestRelease = sortedReleases.find(release => release.tag_name !== 'dev-build');
+
+  if (sortedReleases[0].body.includes('No changes since')) {
+    sortedReleases.shift();
+  }
 
   for (const release of sortedReleases) {
     // overrid bitbucket dates with dates from github
     const version = release.tag_name.replace(/^v/, '');
-    const info = downloadsInfo.releases.find(info => info.version === version);
+    const info = downloadsInfo[version === 'dev-build' ? 'devBuild' : 'releases'].find(
+      info => info.version === version
+    );
     if (info) {
       info.createdAt = release.published_at;
       info.timestamp = Date.parse(release.published_at);
@@ -81,10 +127,10 @@ async function buildReleases() {
     }
 
     // generate release markdown
-    const isLatest = release === sortedReleases[0];
+    const isLatest = release === latestRelease;
     const content = releaseTemplate(release, info?.href, isLatest);
     const filename = isLatest ? 'latest' : release.tag_name.replace(/\s+/g, '-');
-    const filePath = `${releasesPath}/${filename}.md`;
+    const filePath = path.join(releasesPath, `${filename}.md`);
     await fsPromises.writeFile(filePath, content);
   }
 
