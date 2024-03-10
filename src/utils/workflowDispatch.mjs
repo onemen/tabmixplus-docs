@@ -11,9 +11,6 @@ octokit.actions
     repo,
     workflow_id: 'deploy.yml',
     ref: 'main',
-    inputs: {
-      run_releases: 'true',
-    },
   })
   .then(data => {
     console.log('Workflow triggered successfully:', data.status);
