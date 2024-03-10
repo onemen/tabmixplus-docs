@@ -49,8 +49,8 @@ function replaceEmoji(text, prefix, name, title) {
  */
 function releaseTemplate(data, bitbucketHref, isLatest) {
   const { assets, tag_name: name, body, published_at: publishedAt } = data;
-  const { browser_download_url: downloadLink } = assets.find(
-    asset => asset.name === 'tab_mix_plus-dev-build.xpi'
+  const { browser_download_url: downloadLink, updated_at } = assets.find(asset =>
+    asset.name.startsWith('tab_mix_plus-')
   );
 
   let title = name;
@@ -79,7 +79,7 @@ function releaseTemplate(data, bitbucketHref, isLatest) {
 title: "${title}"
 lastUpdated: ${publishedAt}
 sidebar:
-  order: ${-Date.parse(publishedAt)}${badge}
+  order: ${-Date.parse(updated_at)}${badge}
 ---
 
 ${(isLatest ? body.replace('##', note) : body).replace(/(###)\s*(:.*:)?\s*(.*)/g, replaceEmoji)}
