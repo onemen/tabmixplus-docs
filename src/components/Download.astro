@@ -18,10 +18,12 @@ const { releases } = Astro.props;
 const { version: latest, date, href } = releases[0];
 ---
 
-<div id="customSelect" class="not-content relative !mt-10 !max-w-[500px]" style="cursor: pointer;">
+<div class="not-content relative !mt-10 !max-w-[500px]">
   <p class="text-xs font-thin">Click to select oldoer versions</p>
   <div
+    id="customSelect"
     class="flex w-full items-center justify-between overflow-hidden rounded-lg border border-gray-300 bg-[var(--sl-color-black)] p-4"
+    style="cursor: pointer;"
   >
     <div class="flex select-none flex-row items-center gap-3">
       <div class="text-lg font-normal">Version</div>
