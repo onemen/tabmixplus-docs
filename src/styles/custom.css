@@ -229,3 +229,24 @@ a[data-sm] {
     line-height: 1.4;
   }
 }
+
+/* Releases pages */
+
+[data-release] ~ h2 {
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--sl-color-hairline);
+  font-size: 1.5rem;
+}
+
+[data-release] ~ h3 {
+  font-size: 1.25rem;
+}
+
+[data-release] ~ h2 > a {
+  text-transform: capitalize;
+}
+
+h3[id='download'] {
+  padding-top: 1rem;
+  border-top: 1px solid var(--sl-color-hairline);
+}

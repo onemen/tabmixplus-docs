@@ -81,6 +81,7 @@ lastUpdated: ${publishedAt}
 sidebar:
   order: ${-Date.parse(updated_at)}${badge}
 ---
+<div hidden data-release></div>
 
 ${(isLatest ? body.replace('##', note) : body).replace(/(###)\s*(:.*:)?\s*(.*)/g, replaceEmoji)}
 
