@@ -5,7 +5,7 @@ group: top
 ---
 
 import DownloadXPI from '@components/DownloadXPI.astro'
-import { Icon, TabItem, Tabs } from '@starlight/components'
+import { Icon, Steps, TabItem, Tabs } from '@starlight/components'
 
 :::note
 Since Firefox removed the internal component that loads _legacy_ extension, in order to install
@@ -65,7 +65,7 @@ contain the following files:
         </div>
 
       </TabItem>
-      <TabItem label="Linux">
+      <TabItem label="Linux" icon="linux">
         <div>
 
         **Note**:<br/> The default path to Firefox on `Linux` is typically `/usr/lib/firefox/`.
@@ -80,7 +80,7 @@ contain the following files:
         </div>
 
       </TabItem>
-      <TabItem label="Linux with Snap">
+      <TabItem label="Linux with Snap" icon="linux">
         <div>
 
           **Compatibility Note**:<br/> `Firefox snap for Linux` versions prior to 108 are not supported.
@@ -99,7 +99,7 @@ contain the following files:
         </div>
 
       </TabItem>
-      <TabItem label="macOS">
+      <TabItem label="macOS" icon="apple">
         <div>
 
           **Note**:<br/> The default path to Firefox on `macOS` is typically
@@ -130,19 +130,22 @@ once in your Firefox root directory (containing firefox.exe). The reason for thi
 that each profile maintains its own settings and data, and the utils script plays a vital role in
 ensuring **Tab Mix Plus** works seamlessly within each individual profile.
 
-- Locate your **Profile Folder** as discrived in the previous step, create `chrome` folder in it, if
-  one does not exist.
+<Steps>
 
-- Create `chrome` folder in your **Profile Folder** (if one does not exist).
+1. Locate your **Profile Folder** as discrived in the previous step, create `chrome` folder in it, if one does not exist.
 
-- Extract
-  [utils](https://github.com/onemen/TabMixPlus/files/14075742/utils_extensions_and_scripts.zip)
-  folder inside the `chrome` folder, the result should be `[PROFILE_NAME]/chrome/utils`, all the
-  files should be in the `utils` folder (see the screenshot below).<br />
-  Make sure all the files you see in the screenshot below are in the `utils` folder and that `utils` folder is insdie `chrome` folder.
+2. Create `chrome` folder in your **Profile Folder** (if one does not exist).
 
-- Open **about\:support** page and click `Clear startup cache…` to force Firefox to load the
-  installed scripts on the next startup.
+3. Extract
+   [utils](https://github.com/onemen/TabMixPlus/files/14075742/utils_extensions_and_scripts.zip)
+   folder inside the `chrome` folder, the result should be `[PROFILE_NAME]/chrome/utils`, all the
+   files should be in the `utils` folder (see the screenshot below).<br />
+   Make sure all the files you see in the screenshot below are in the `utils` folder and that `utils` folder is insdie `chrome` folder.
+
+4. Open **about\:support** page and click `Clear startup cache…` to force Firefox to load the
+   installed scripts on the next startup.
+
+</Steps>
 
 ![utils folder](https://github.com/onemen/TabMixPlus/assets/3650909/fc5da575-2c75-493e-8342-34f1142ece4a)
 
@@ -159,20 +162,23 @@ Plus** _development build_ (tags with **pre** or **test-build** in the title)
 
 To install the `XPI` file you have just downloaded:
 
-- <div>
-    Open `Add-ons Manager` tab `(about:addons)` and select `Extensions`. <br /> _or_ Click the menu
-    button ☰, click `Add-ons and Themes` and select `Extensions`.
-  </div>
-- In `Add-ons Manager` page click on the cog icon and select `Install Add-on From File…`.
-  ![install-from-file](https://user-images.githubusercontent.com/3650909/184072729-3995d29b-006c-4012-ac3d-5f653c890ac9.png)
+<Steps>
 
-- Alternatively, drag and drop the `XPI` file into the `Add-ons Manager` page.
+1. <div>
+     Open `Add-ons Manager` tab `(about:addons)` and select `Extensions`. <br /> _or_ Click the menu
+     button ☰, click `Add-ons and Themes` and select `Extensions`.
+   </div>
+2. In `Add-ons Manager` page click on the cog icon and select `Install Add-on From File…`.
+   ![install-from-file](https://user-images.githubusercontent.com/3650909/184072729-3995d29b-006c-4012-ac3d-5f653c890ac9.png)
 
-- The installation process should begin automatically, once it complete you should restart filefox.
+3. Alternatively, drag and drop the `XPI` file into the `Add-ons Manager` page.
 
-  :::note
-  Some users report that their Firefox is not able to install or use **Tab Mix Plus** unless they set `extensions.experiments.enabled` to **true** in `about:config`.
-  :::
+4. The installation process should begin automatically, once it complete you should restart filefox.
+   :::note
+   Some users report that their Firefox is not able to install or use **Tab Mix Plus** unless they set `extensions.experiments.enabled` to **true** in `about:config`.
+   :::
+
+</Steps>
 
 ## Troubleshooting
 
@@ -187,6 +193,8 @@ If you see this message when you try to install **Tab Mix Plus**, it means that 
 If **Tab Mix Plus** stops working after Firefox update was installed or after you installed update
 of **Firefox Scripts** , follow these instructions
 
+<Steps>
+
 1. Uninstall **Tab Mix Plus**.
 2. **Reinstall** the latest versions of **Firefox Scripts** (see
    [instructions](#install-firefox-scripts) above)
@@ -194,6 +202,8 @@ of **Firefox Scripts** , follow these instructions
    installed scripts on the next startup.
 4. Close Firefox again, wait 10 second, to make sure Firefox finished to clear the cache.
 5. Open Firefox and [reinstall](#install-tab-mix-plus) latest **Tab Mix Plus** again.
+
+</Steps>
 
 ### extensions.experiments.enabled
 

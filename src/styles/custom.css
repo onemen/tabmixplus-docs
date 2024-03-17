@@ -210,15 +210,15 @@ a[data-sm] {
   min-height: 600px;
 }
 
-.sl-markdown-content ol {
+.sl-markdown-content ol:not(.sl-steps) {
   counter-reset: listCounter;
 }
 
-.sl-markdown-content ol > li {
+.sl-markdown-content ol:not(.sl-steps) > li {
   counter-increment: listCounter;
 }
 
-.sl-markdown-content ol > li::marker {
+.sl-markdown-content ol:not(.sl-steps) > li::marker {
   content: counters(listCounter, '.', decimal) '. ';
 }
 
