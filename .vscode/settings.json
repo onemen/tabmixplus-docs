@@ -77,5 +77,6 @@
   "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
   "editor.wordWrap": "on",
   "mdx.validate.ignoreLinks": ["/help/**", "/other/**", "/releases/**", "/troubleshooting/**"],
-  "mdx.server.enable": true
+  "mdx.server.enable": true,
+  "cSpell.enableFiletypes": ["*"]
 }
