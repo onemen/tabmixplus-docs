@@ -13,9 +13,7 @@
   },
   "eslint.options": {
     "cache": true,
-    "cacheLocation": "config/.eslintcache",
-    "extensions": [".js", ".ts", ".cjs", ".mjs", ".astro", ".md", ".mdx"],
-    "ignorePath": "config/.eslintignore"
+    "cacheLocation": "config/.eslintcache"
   },
   "eslint.probe": [
     "javascript",
@@ -40,6 +38,9 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always"
+  },
   "prettier.documentSelectors": ["**/*.astro"],
   "prettier.ignorePath": "./config/.prettierignore",
   "prettier.configPath": "./config/prettier.config.js",
