@@ -75,4 +75,7 @@ export default defineConfig({
       [rehypeExternalLinks, { target: '_blank', baseUrl }],
     ],
   },
+  experimental: {
+    contentCollectionCache: true,
+  },
 });

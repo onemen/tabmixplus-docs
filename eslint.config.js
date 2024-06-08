@@ -49,7 +49,7 @@ export default [
   ...eslintPluginAstro.configs.recommended,
 
   {
-    files: ['src/**/*.{js,cjs,mjs,ts,jsx,tsx,astro,md,mdx}'],
+    files: ['**/*.{js,cjs,mjs,ts,jsx,tsx,astro,md,mdx}'],
     plugins: { markdown },
     languageOptions: {
       ecmaVersion: 'latest',
