@@ -222,6 +222,18 @@ a[data-sm] {
   content: counters(listCounter, '.', decimal) '. ';
 }
 
+/* 'IMPORTANT' aside in installation page */
+@media (max-width: 550px) {
+  .starlight-aside[aria-label='IMPORTANT'] .tab a {
+    padding-inline: 0.6rem !important;
+  }
+
+  .starlight-aside[aria-label='IMPORTANT'] .tab svg {
+    min-width: 16px;
+    margin-right: -6px;
+  }
+}
+
 @media (max-width: 500px) {
   .tablist-wrapper .tab {
     align-self: end;
