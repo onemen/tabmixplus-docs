@@ -6,7 +6,7 @@ let downloadInfo;
 
 try {
   downloadInfo = JSON.parse(fs.readFileSync(generatedFilePath, 'utf8'));
-} catch (error) {
+} catch {
   downloadInfo = { devBuild: [], releases: [] };
 }
 
