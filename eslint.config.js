@@ -1,20 +1,14 @@
-import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
-import eslintPluginAstro from 'eslint-plugin-astro';
-import markdown from 'eslint-plugin-markdown';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintMdx from 'eslint-mdx';
+import astroPlugin from 'eslint-plugin-astro';
+import importPlugin from 'eslint-plugin-import';
+import jsxA11YPlugin from 'eslint-plugin-jsx-a11y';
+import markdownPlugin from 'eslint-plugin-markdown';
+import * as mdx from 'eslint-plugin-mdx';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
+import reactPlugin from 'eslint-plugin-react';
+import ymlPlugin from 'eslint-plugin-yml';
 import globals from 'globals';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-// TODO: update to eslint 9 when all plugins are supported
 
 export default [
   {
@@ -38,19 +32,20 @@ export default [
       'logs/',
       'lib',
       // generated files,
-      'releases/',
+      '**/releases/*',
       'downloadsInfo.json',
     ],
   },
 
   js.configs.recommended,
-  ...markdown.configs.recommended,
-  eslintPluginPrettierRecommended,
-  ...eslintPluginAstro.configs.recommended,
+  ...markdownPlugin.configs.recommended,
+  prettierRecommended,
+  ...astroPlugin.configs.recommended,
+  ...ymlPlugin.configs['flat/recommended'],
 
   {
     files: ['**/*.{js,cjs,mjs,ts,jsx,tsx,astro,md,mdx}'],
-    plugins: { markdown },
+    plugins: { markdown: markdownPlugin },
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -83,23 +78,38 @@ export default [
     },
   },
 
-  ...compat.config({
-    overrides: [
-      {
-        files: ['*.mdx'],
-        extends: ['plugin:jsx-a11y/recommended', 'plugin:mdx/recommended'],
-        plugins: ['jsx-a11y', 'import', 'react'],
-        parser: 'eslint-mdx',
-        rules: {
-          'no-unused-expressions': 'off',
-          'react/jsx-uses-vars': 'error',
-        },
-      },
-      {
-        files: ['*.yml'],
-        plugins: ['yaml'],
-        extends: ['plugin:yaml/recommended'],
-      },
-    ],
-  }),
+  {
+    ...mdx.flat,
+    processor: mdx.createRemarkProcessor({
+      lintCodeBlocks: true,
+      languageMapper: {},
+    }),
+  },
+
+  {
+    ...mdx.flatCodeBlocks,
+    rules: {
+      ...mdx.flatCodeBlocks.rules,
+      'no-var': 'error',
+      'prefer-const': 'error',
+    },
+  },
+
+  {
+    files: ['**/*.mdx'],
+    plugins: {
+      'jsx-a11y': jsxA11YPlugin,
+      import: importPlugin,
+      react: reactPlugin,
+    },
+    languageOptions: {
+      parser: eslintMdx,
+      parserOptions: { ecmaFeatures: { jsx: true } },
+    },
+    rules: {
+      ...jsxA11YPlugin.configs.recommended.rules,
+      'no-unused-expressions': 'off',
+      'react/jsx-uses-vars': 'error',
+    },
+  },
 ];
