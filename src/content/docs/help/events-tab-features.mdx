@@ -18,8 +18,10 @@ import { Image } from 'astro:assets'
 - **_Enable undo close tabs_** <br /> previously closed tabs may be reopened and the following
   conditions will be applied
 
-  - Max number of closed tabs to remember (specify a quantity) **_default: 10 - Restore the tab's
-    original position_** (tabs are restored to their position when closed)
+  - Max number of closed tabs to remember (specify a quantity) **_default: 25_**
+
+  - **_Restore the tab's original position_** - tabs are restored to their position when closed. (this preference does not apply to tab that was closed from other windows)
+
   - Make the toolbar button display only a list
 
     :::note[no-title]
@@ -43,6 +45,18 @@ import { Image } from 'astro:assets'
     the menu, click with the mouse outside the menu.
 
     <Image src={keepMenuOpen} alt="image" />
+    :::
+
+  - List closed tabs from all opened windows
+
+    :::note[no-title]
+    New preference since **Firefox 117**, when enabled `Recently closed tabs` list will include closed tabs from all opened windows.
+    :::
+
+  - List closed tabs from recently closed windows
+
+    :::note[no-title]
+    New preference since **Firefox 119**, when enabled `Recently closed tabs` list will include closed tabs from recently closed windows.
     :::
 
   :::note[no-title]
