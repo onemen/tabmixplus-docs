@@ -1,7 +1,5 @@
-import mdx from '@astrojs/mdx';
 import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
-import expressiveCode from 'astro-expressive-code';
 import { defineConfig } from 'astro/config';
 import { rehypeExternalLinks } from './src/utils/rehypePluginLinks.mjs';
 
@@ -67,15 +65,12 @@ const baseUrl = '/tabmixplus-docs';
 export default defineConfig({
   site: process.env.CI ? 'https://onemen.github.io' : 'http://localhost:4321',
   base: baseUrl,
-  integrations: [starlight(starlightConfig), tailwind(), expressiveCode(), mdx()],
+  integrations: [starlight(starlightConfig), tailwind()],
   markdown: {
     smartypants: false,
     rehypePlugins: [
       // https://docs.astro.build/en/recipes/external-links/#recipe
       [rehypeExternalLinks, { target: '_blank', baseUrl }],
     ],
-  },
-  experimental: {
-    contentCollectionCache: true,
   },
 });
