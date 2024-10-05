@@ -48,7 +48,7 @@ function replaceEmoji(text, prefix, name, title) {
  * @returns string
  */
 function releaseTemplate(data, bitbucketHref, isLatest) {
-  const { assets, name, body, published_at: publishedAt } = data;
+  const { assets, name, body, published_at: publishedAt, tag_name } = data;
   const { browser_download_url: downloadLink, updated_at } = assets.find(asset =>
     asset.name.startsWith('tab_mix_plus-')
   );
@@ -62,7 +62,7 @@ function releaseTemplate(data, bitbucketHref, isLatest) {
     text: Latest
     variant: success`;
   }
-  if (name === 'dev-build') {
+  if (tag_name === 'dev-build') {
     title = 'Development Build';
     badge = `
   badge:
