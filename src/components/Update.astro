@@ -4,8 +4,12 @@ import DonateButton from '@components/DonateButton.astro';
 const years = new Date().getFullYear() - 2005;
 ---
 
+<div class="donate-header content-width">
+  <span>Donate to keep Tab Mix Plus alive</span>
+  <p>Without your donation, I won't be able to continue the work on Tab Mix Plus.</p>
+</div>
+
 <div class="donate-section content-width">
-  <p class="header">Please don't scroll away</p>
   <div class="content">
     <p><b>Hey there</b>,</p>
     <p>
@@ -57,19 +61,23 @@ const years = new Date().getFullYear() - 2005;
     --blue: #3273dc;
   }
 
+  .donate-header {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 0.75em;
+    max-width: 70ch;
+
+    & span {
+      font-size: 1.25rem;
+      font-weight: bolder;
+    }
+  }
   .donate-section {
     border: 4px solid var(--blue);
     border-radius: 5px;
     max-width: 70ch;
     margin-top: 1rem;
-  }
-
-  .donate-section .header {
-    background-color: var(--blue);
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding-block: 10px;
   }
 
   .donate-section .content {
