@@ -9,11 +9,11 @@ import { getEntry } from 'astro:content';
 import DonateButton from '@components/DonateButton.astro';
 import { isDownloadsInfoExist } from '@utils/helper.mjs';
 
-const { sidebar, slug } = Astro.props;
+const { sidebar, id } = Astro.props;
 
-const [page] = slug.split('/');
-const isHelpPage = slug.startsWith('help');
-const isTroubleshooting = slug.startsWith('troubleshooting');
+const [page] = id.split('/');
+const isHelpPage = id.startsWith('help');
+const isTroubleshooting = id.startsWith('troubleshooting');
 
 // replace links to missing downloadsInfo.json file with bitbucket
 if (!isDownloadsInfoExist()) {
@@ -93,13 +93,13 @@ function createNewEntry({ label, href }: { label: string; href: string }): Custo
 
 const fileTypeEditor = createNewEntry({
   label: 'File type editor',
-  href: slug === 'help/links' ? '#file-type-editor' : `${baseUrl}/help/links#file-type-editor`,
+  href: id === 'help/links' ? '#file-type-editor' : `${baseUrl}/help/links#file-type-editor`,
 });
 
 const customizingTabsStyles = createNewEntry({
   label: 'Customizing Tabs Styles',
   href:
-    slug === 'help/display-tab'
+    id === 'help/display-tab'
       ? '#customize-styles'
       : `${baseUrl}/help/display-tab#customize-styles`,
 });

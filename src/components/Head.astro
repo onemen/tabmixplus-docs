@@ -1,11 +1,11 @@
 ---
 import Default from '@starlight/components/Head.astro';
 import type { Props } from '@starlight/props';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <Default {...Astro.props}><slot /></Default>
-<ViewTransitions />
+<ClientRouter />
 
 <script>
   // temporary hack to redirect version_update.html

@@ -34,7 +34,11 @@ const { version: latest, date, href } = releases[0];
     </div>
     <div class="flex items-center gap-3">
       <Icon name="down-caret" size="2em" />
-      <button id="resetButton" title="Reset">
+      <button
+        id="resetButton"
+        title="Reset"
+        class="transition-colors duration-500 disabled:text-gray-600/50"
+      >
         <Icon name="reset" size="1.125em" class="stroke-[var(--sl-color-white)] stroke-[1.2px]" />
       </button>
     </div>
@@ -135,12 +139,18 @@ const { version: latest, date, href } = releases[0];
     if (selected === latest) {
       badge.classList.remove('hidden');
       statusSpan.textContent = 'Latest';
+      resetButton.disabled = true;
+      resetButton.title = '';
     } else {
       badge.classList.add('hidden');
       statusSpan.textContent = 'Old';
+      resetButton.disabled = false;
+      resetButton.title = 'Reset';
     }
   }
 
+  resetButton.disabled = true;
+  resetButton.title = '';
   resetButton.addEventListener('click', e => {
     e.stopPropagation();
     updateSelected(latest);

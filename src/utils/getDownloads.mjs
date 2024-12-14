@@ -31,6 +31,7 @@ async function getAllPages(url) {
 export async function getDownloadsInfo() {
   try {
     const downloadsInfo = await getAllPages(BITBUCKET_URL);
+    const releases = new Map();
     const downloads = {
       devBuild: [],
       releases: [],
@@ -60,12 +61,20 @@ export async function getDownloadsInfo() {
         downloads.devBuild.push(linkInfo);
       } else {
         latestDate = timestamp > latestDate ? timestamp : latestDate;
-        downloads.releases.push(linkInfo);
+        // get proper version from bitbucket file name in the format:
+        // 'tab_mix_plus-1.26.0a.xpi'
+        linkInfo.version = version.replace(/[a-zA-Z]$/, '');
+        const savedData = releases.get(linkInfo.version);
+        if (!savedData || savedData.timestamp < timestamp) {
+          releases.set(linkInfo.version, linkInfo);
+        }
       }
     }
 
     // filter out old devBuild
     downloads.devBuild = downloads.devBuild.filter(b => b.timestamp > latestDate);
+
+    downloads.releases = Array.from(releases.values());
 
     return downloads;
   } catch (error) {
