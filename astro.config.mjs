@@ -1,5 +1,5 @@
 import starlight from '@astrojs/starlight';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import { rehypeExternalLinks } from './src/utils/rehypePluginLinks.mjs';
 
@@ -65,12 +65,15 @@ const baseUrl = '/tabmixplus-docs';
 export default defineConfig({
   site: process.env.CI ? 'https://onemen.github.io' : 'http://localhost:4321',
   base: baseUrl,
-  integrations: [starlight(starlightConfig), tailwind()],
+  integrations: [starlight(starlightConfig)],
   markdown: {
     smartypants: false,
     rehypePlugins: [
       // https://docs.astro.build/en/recipes/external-links/#recipe
       [rehypeExternalLinks, { target: '_blank', baseUrl }],
     ],
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 });

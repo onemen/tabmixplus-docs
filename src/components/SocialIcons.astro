@@ -1,6 +1,5 @@
 ---
 import Default from '@starlight/components/SocialIcons.astro';
-import type { Props } from '@starlight/props';
 import { isDownloadsInfoExist } from '@utils/helper.mjs';
 ---
 
@@ -14,4 +13,4 @@ import { isDownloadsInfoExist } from '@utils/helper.mjs';
   </a>
   <a href="https://github.com/onemen/TabMixPlus/discussions/"><h4>Discussions</h4></a>
 </div>
-<Default {...Astro.props}><slot /></Default>
+<Default><slot /></Default>

@@ -1,10 +1,9 @@
 ---
 import Default from '@starlight/components/Head.astro';
-import type { Props } from '@starlight/props';
 import { ClientRouter } from 'astro:transitions';
 ---
 
-<Default {...Astro.props}><slot /></Default>
+<Default><slot /></Default>
 <ClientRouter />
 
 <script>

@@ -1,4 +1,5 @@
 /* General */
+@import 'tailwindcss';
 
 p:empty {
   display: none;

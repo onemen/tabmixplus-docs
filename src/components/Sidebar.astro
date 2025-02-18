@@ -1,15 +1,14 @@
 ---
 import { default as MobileMenuFooter } from '@starlight/components/MobileMenuFooter.astro';
 import { default as SidebarSublist } from '@starlight/components/SidebarSublist.astro';
-import type { Props } from '@starlight/props';
-import type { Link } from '@starlight/utils/navigation.ts';
+import type { SidebarLink } from '@starlight/utils/routing/types.ts';
 import { stripLeadingAndTrailingSlashes } from '@starlight/utils/path.ts';
 import { getEntry } from 'astro:content';
 
 import DonateButton from '@components/DonateButton.astro';
 import { isDownloadsInfoExist } from '@utils/helper.mjs';
 
-const { sidebar, id } = Astro.props;
+const { sidebar, id } = Astro.locals.starlightRoute;
 
 const [page] = id.split('/');
 const isHelpPage = id.startsWith('help');
@@ -17,14 +16,14 @@ const isTroubleshooting = id.startsWith('troubleshooting');
 
 // replace links to missing downloadsInfo.json file with bitbucket
 if (!isDownloadsInfoExist()) {
-  const downloadsInfo = sidebar.find(entry => entry.label === 'Download') as Link;
+  const downloadsInfo = sidebar.find(entry => entry.label === 'Download') as SidebarLink;
   downloadsInfo.href = 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/';
 }
 
 // replace links to missing releases files with our repository releases
 const releases = sidebar.find(entry => entry.label.startsWith('Releases')) as Group;
 if (releases.entries.length === 0) {
-  const releasesLink = releases as unknown as Link;
+  const releasesLink = releases as unknown as SidebarLink;
   releasesLink.type = 'link';
   releasesLink.href = 'https://github.com/onemen/TabMixPlus/releases';
   releasesLink.attrs = {};
@@ -76,8 +75,8 @@ helpGroup.entries = Object.entries(newHelpItems).flatMap(([group, entries]) =>
 );
 
 // add sidebar entries for links with hash to link and display-tab pages
-interface CustomLink extends Link {
-  attrs: Link['attrs'] & { 'data-hash'?: string; 'data-astro-reload'?: string };
+interface CustomLink extends SidebarLink {
+  attrs: SidebarLink['attrs'] & { 'data-hash'?: string; 'data-astro-reload'?: string };
 }
 
 function createNewEntry({ label, href }: { label: string; href: string }): CustomLink {
@@ -136,7 +135,7 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
 
 <SidebarSublist sublist={sidebar} />
 <div class="md:sl-hidden">
-  <MobileMenuFooter {...Astro.props} />
+  <MobileMenuFooter />
 </div>
 
 <script is:inline>
