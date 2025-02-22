@@ -19,13 +19,13 @@ const { version: latest, date, href } = releases[0];
 ---
 
 <div class="not-content relative !mt-10 !max-w-[500px]">
-  <p class="text-xs font-thin">Click to select oldoer versions</p>
+  <p class="text-xs font-thin">Click to select older versions</p>
   <div
     id="customSelect"
     class="flex w-full items-center justify-between overflow-hidden rounded-lg border border-gray-300 bg-[var(--sl-color-black)] p-4"
     style="cursor: pointer;"
   >
-    <div class="flex select-none flex-row items-center gap-3">
+    <div class="flex flex-row items-center gap-3 select-none">
       <div class="text-lg font-normal">Version</div>
       <span class="text-lg font-semibold" data-selected>{latest}</span>
       <span class="rounded-lg bg-lime-200 px-2 py-1 text-xs font-medium text-lime-800">
@@ -45,13 +45,13 @@ const { version: latest, date, href } = releases[0];
   </div>
   <div
     id="customOptions"
-    class="absolute mt-1 w-full overflow-auto rounded-md border border-gray-300 bg-[var(--sl-color-bg-nav)] shadow-sm"
+    class="absolute mt-1 w-full overflow-auto rounded-md border border-gray-300 bg-[var(--sl-color-bg-nav)] shadow-xs"
   >
     {
       releases.map(option => (
         <div
           class:list={{
-            'option my-0 grid cursor-pointer grid-cols-[2fr,1fr,50px] items-center px-4 py-1 text-lg font-light lg:grid-cols-[2fr,1fr,50px]': true,
+            'option my-0 grid cursor-pointer grid-cols-[2fr_1fr_50px] items-center px-4 py-1 text-lg font-light lg:grid-cols-[2fr_1fr_50px]': true,
             'selected font-semibold': option.version === latest,
           }}
           data-href={option.href}
@@ -71,7 +71,7 @@ const { version: latest, date, href } = releases[0];
   </div>
 
   <div class="not-content !mt-10 space-y-6 rounded-lg border-[1px] py-6 shadow-lg">
-    <div class="grid grid-cols-1 justify-center gap-3 px-8 sm:grid-cols-[18ch,18ch,60px] sm:px-0">
+    <div class="grid grid-cols-1 justify-center gap-3 px-8 sm:grid-cols-[18ch_18ch_60px] sm:px-0">
       <div class="flex flex-col">
         <span class="text-sm">Date</span>
         <span id="download-date" class="font-bold">{date}</span>
