@@ -7,6 +7,7 @@ sidebar:
 ---
 
 import displayTabbar from '@assets/display-tab-bar.png'
+import { Badge } from '@astrojs/starlight/components'
 import { Image } from 'astro:assets'
 
 ##### Controls the display of Tab Bar
@@ -64,6 +65,13 @@ import { Image } from 'astro:assets'
     at each end of the tab bar)
   - Scrollable with buttons on right side (displays both, left and right scrolling arrows at the
     right end of the tab bar) -Multi-row (allows tabs to be displayed in multiple rows)
+  - Scroll tabs when dragged to top/bottom <Badge text="New in version 1.28" variant="note" /><br/>
+    When dragging a tab to the top or bottom of the tab bar, the tab bar will automatically scroll up or down to reveal the previous or next row of tabs, if the option is enabled.
+  - Theme background style <Badge text="New in version 1.28" variant="note" /><br/>
+    When using a theme with a background image, the image height may not match the tab-bar height, especially with multi-row tabs. This option allows you to adjust the background style to fit the tab-bar height. You can choose from the following options:
+    - Repeat: Repeats the background image to cover the entire tab bar height.
+    - Cover: Scales the background image to cover the entire tab bar height, while maintaining its aspect ratio.
+    - Theme Default: Uses the default background style set by the theme.
 
 - Max number of rows to display - default 3 - for Multi-row option
 

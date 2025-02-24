@@ -51,6 +51,7 @@ await Promise.all(
     if (i.type !== 'group') {
       const itemSlug = stripLeadingAndTrailingSlashes(i.href.replace(RegExp(`^${baseUrl}/`), ''));
       const group = (await getEntry('docs', itemSlug))?.data.group;
+      console.log({ i, itemSlug, group });
       if (group) {
         newHelpItems[group] = newHelpItems[group] || [];
         newHelpItems[group].push(i);
@@ -76,7 +77,7 @@ helpGroup.entries = Object.entries(newHelpItems).flatMap(([group, entries]) =>
 
 // add sidebar entries for links with hash to link and display-tab pages
 interface CustomLink extends SidebarLink {
-  attrs: SidebarLink['attrs'] & { 'data-hash'?: string; 'data-astro-reload'?: string };
+  attrs: SidebarLink['attrs'] & { 'data-hash'?: string };
 }
 
 function createNewEntry({ label, href }: { label: string; href: string }): CustomLink {
@@ -86,7 +87,7 @@ function createNewEntry({ label, href }: { label: string; href: string }): Custo
     badge: undefined,
     label,
     href,
-    attrs: { 'data-hash': 'true', 'data-astro-reload': 'true' },
+    attrs: { 'data-hash': 'true' },
   };
 }
 

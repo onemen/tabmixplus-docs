@@ -2,92 +2,94 @@
 import DonateButton from '@components/DonateButton.astro';
 
 const years = new Date().getFullYear() - 2005;
+
+const firefoxVersionsURL = 'https://product-details.mozilla.org/1.0/firefox_versions.json';
+const latestFirefoxVersion = await fetch(firefoxVersionsURL)
+  .then(response => response.json())
+  .then(data => parseInt(data.LATEST_FIREFOX_VERSION ?? '0'))
+  .catch(() => 0);
 ---
 
-<div class="donate-header content-width">
-  <span>Donate to keep Tab Mix Plus alive</span>
-  <p>Without your donation, I won't be able to continue the work on Tab Mix Plus.</p>
+<div class="content mx-auto max-w-lg rounded-lg border border-gray-300 bg-gray-100 p-5 shadow-md">
+  <div class="mb-5 flex items-center justify-between">
+    <h2 class="mb-3 text-2xl text-gray-800">
+      <span class="font-normal text-gray-600">Support</span>
+      <span
+        class="bg-gradient-to-r from-teal-600 to-cyan-400 bg-clip-text font-bold text-transparent"
+        >Tab Mix Plus</span
+      >
+    </h2>
+    <DonateButton title="Donate Now" class="!px-12 !py-2" />
+  </div>
+  <p class="mt-4 text-base leading-relaxed text-gray-600">
+    Consider supporting me with a <strong class="font-bold text-teal-600">$2 donation</strong> for each
+    update, which helps me keep Tab Mix Plus updated and running smoothly with new updates <strong
+      class="font-bold text-teal-600">every 4-6 weeks</strong
+    >. Your contribution will make a big difference!
+  </p>
 </div>
 
-<div class="donate-section content-width">
-  <div class="content">
-    <p><b>Hey there</b>,</p>
-    <p>
-      It's hard to believe, but it's been {years} years since I launched <b>Tab Mix Plus</b> back in
-      the early days of Firefox! My passion has always been to make your browsing experience smoother
-      and more efficient by enhancing Firefox's tab abilities.
-    </p>
-    <p>
-      But keeping <b>Tab Mix Plus</b> top-notch and evolving with web standards takes continuous effort.
-      New features take time to develop, and Firefox changes require my attention all the time. That's
-      where you come in, my friend.
-    </p>
-    <p>
-      A small, monthly donation - think the price of your morning coffee - could make a world of
-      difference.
-    </p>
-    <p>
-      Sincerely, thank you for your unwavering support. Together, let's keep Firefox a more awesome
-      place to browse the internet!
-    </p>
-    <div>
-      <span class="mr-1 text-wrap">
-        Click here to choose your donation option and make a difference
-      </span>
-      <DonateButton title="Donate" />
+{
+  // prettier-ignore
+  latestFirefoxVersion > 0 && (
+    <div id="firefox_version" class="!mt-2 text-lg font-semibold">
+      Tested on Firefox versions {latestFirefoxVersion}, {latestFirefoxVersion + 1}
+      (<span class="text-sm font-medium">Beta</span>) and {latestFirefoxVersion + 2}
+      (<span class="text-sm font-medium">Nightly</span>)
     </div>
-    <p>Remember, every bit counts!</p>
-    <b>onemen</b>
+  )
+}
 
-    <p style="margin-top: 0.5rem">
-      <b>P.S.</b> Share this link to
-      <a href="https://github.com/onemen/TabMixPlus#readme">Tab Mix Plus</a> with your fellow Firefox
-      enthusiasts. The more the merrier.
-    </p>
-  </div>
+<div class="mx-auto !mt-12 max-w-2xl rounded-lg bg-white p-6 font-sans shadow-md">
+  <p class="mb-4 text-lg text-gray-700">Hey there,</p>
+
+  <p class="mb-4 text-base leading-relaxed text-gray-600">
+    It’s hard to believe, but it’s been {years} years since I launched
+    <span class="font-bold text-teal-600">Tab Mix Plus</span>
+    back in the early days of Firefox! My passion has always been to make your browsing experience smoother
+    and more efficient by enhancing Firefox’s tab abilities.
+  </p>
+
+  <p class="mb-4 text-base leading-relaxed text-gray-600">
+    But keeping <span class="font-bold text-teal-600">Tab Mix Plus</span> top-notch and evolving with
+    web standards takes continuous effort. New features take time to develop, and Firefox changes require
+    my attention all the time. That’s where you come in, my friend.
+  </p>
+
+  <p class="mb-4 text-base leading-relaxed text-gray-600">
+    A small, monthly donation—think the price of your morning coffee—could make a world of
+    difference.
+  </p>
+
+  <p class="mb-4 text-base leading-relaxed text-gray-600">
+    Sincerely, thank you for your unwavering support. Together, let's keep Firefox a more awesome
+    place to browse the internet!
+  </p>
+
+  <p class="mb-4 text-base font-semibold text-gray-700">Remember, every bit counts!</p>
+
+  <p class="text-base text-gray-600 italic">onemen</p>
+
+  <p class="mt-4 border-t pt-4 text-sm text-gray-500">
+    <span class="font-bold text-teal-600">P.S.</span> Share
+    <a
+      href="https://github.com/onemen/TabMixPlus#readme"
+      target="_blank"
+      class="text-teal-600 underline transition-colors hover:text-teal-800">Tab Mix Plus</a
+    >
+    with your fellow Firefox enthusiasts. The more the merrier.
+  </p>
 </div>
 
 <script is:inline>
   const urlParams = new URLSearchParams(document.location.search);
   const version = urlParams.get('version');
+  const title = document.getElementById('_top');
   if (version) {
-    const title = document.getElementById('_top');
     title.textContent = `Version ${version} Installed`;
   }
+  const subTitle = document.getElementById('firefox_version');
+  if (subTitle) {
+    title.parentElement.insertBefore(subTitle, title.nextElementSibling);
+  }
 </script>
-
-<style>
-  :root {
-    --blue: #3273dc;
-  }
-
-  .donate-header {
-    background-color: red;
-    color: white;
-    border-radius: 5px;
-    padding: 0.75em;
-    max-width: 70ch;
-
-    & span {
-      font-size: 1.25rem;
-      font-weight: bolder;
-    }
-  }
-  .donate-section {
-    border: 4px solid var(--blue);
-    border-radius: 5px;
-    max-width: 70ch;
-    margin-top: 1rem;
-  }
-
-  .donate-section .content {
-    display: grid;
-    font-size: 15px;
-    gap: 0.6em;
-    padding: 0.75em;
-  }
-
-  .donate-section p {
-    line-height: 1.4;
-  }
-</style>
