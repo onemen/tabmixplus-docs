@@ -77,7 +77,7 @@ helpGroup.entries = Object.entries(newHelpItems).flatMap(([group, entries]) =>
 
 // add sidebar entries for links with hash to link and display-tab pages
 interface CustomLink extends SidebarLink {
-  attrs: SidebarLink['attrs'] & { 'data-hash'?: string };
+  attrs: SidebarLink['attrs'] & { 'data-hash'?: string; 'data-astro-reload'?: string };
 }
 
 function createNewEntry({ label, href }: { label: string; href: string }): CustomLink {
@@ -87,7 +87,7 @@ function createNewEntry({ label, href }: { label: string; href: string }): Custo
     badge: undefined,
     label,
     href,
-    attrs: { 'data-hash': 'true' },
+    attrs: { 'data-hash': 'true', 'data-astro-reload': 'true' },
   };
 }
 
