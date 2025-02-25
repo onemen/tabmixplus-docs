@@ -51,7 +51,6 @@ await Promise.all(
     if (i.type !== 'group') {
       const itemSlug = stripLeadingAndTrailingSlashes(i.href.replace(RegExp(`^${baseUrl}/`), ''));
       const group = (await getEntry('docs', itemSlug))?.data.group;
-      console.log({ i, itemSlug, group });
       if (group) {
         newHelpItems[group] = newHelpItems[group] || [];
         newHelpItems[group].push(i);
@@ -77,7 +76,7 @@ helpGroup.entries = Object.entries(newHelpItems).flatMap(([group, entries]) =>
 
 // add sidebar entries for links with hash to link and display-tab pages
 interface CustomLink extends SidebarLink {
-  attrs: SidebarLink['attrs'] & { 'data-hash'?: string; 'data-astro-reload'?: string };
+  attrs: SidebarLink['attrs'] & { 'data-hash'?: string };
 }
 
 function createNewEntry({ label, href }: { label: string; href: string }): CustomLink {
@@ -87,7 +86,7 @@ function createNewEntry({ label, href }: { label: string; href: string }): Custo
     badge: undefined,
     label,
     href,
-    attrs: { 'data-hash': 'true', 'data-astro-reload': 'true' },
+    attrs: { 'data-hash': 'true' },
   };
 }
 
@@ -139,11 +138,12 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
   <MobileMenuFooter />
 </div>
 
-<script is:inline>
+<script>
+  import { navigate } from 'astro:transitions/client';
   var key = 'sidebar-position';
   var timeout = 0;
 
-  function isElementInViewport(el) {
+  function isElementInViewport(el: Element) {
     const rect = el.getBoundingClientRect();
     const isInView =
       rect.top >= 0 &&
@@ -153,8 +153,8 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     return isInView;
   }
 
-  function updateEntryWithHash() {
-    const { pathname, hash = '' } = window.location;
+  function updateEntryWithHash(url?: URL) {
+    const { pathname, hash = '' } = url ?? window.location;
     if (hash) {
       document.querySelector(`a[aria-current="page"]`)?.removeAttribute('aria-current');
       (
@@ -165,8 +165,8 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     }
   }
 
-  function handleSidebarScroll(event) {
-    const sidebar = event.target;
+  function handleSidebarScroll(event: Event) {
+    const sidebar = event.target as HTMLElement;
     if (!timeout) {
       timeout = window.setTimeout(() => {
         sessionStorage.setItem(key, String(sidebar?.scrollTop));
@@ -175,17 +175,51 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     }
   }
 
+  var hashLinkClicked = false;
+  function handleLinkClick(event: Event) {
+    const target = event.target as HTMLElement;
+    const href = target.closest('a')?.href;
+    if (href) {
+      const url = new URL(href);
+      if (url.hash) {
+        event.preventDefault();
+        hashLinkClicked = true;
+        updateEntryWithHash(url);
+        navigate(href).then(() => {
+          // Force hash into URL if needed
+          if (window.location.hash !== url.hash) {
+            history.pushState({}, document.title, href);
+          }
+          updateEntryWithHash(url);
+          document.querySelector(url.hash)?.scrollIntoView();
+        });
+      }
+    }
+  }
+
+  ['file-type-editor', 'customize-styles'].forEach(id => {
+    document.querySelector(`a[href$="#${id}"]`)?.addEventListener('click', handleLinkClick);
+  });
+
   var initialLoad = true;
   document.addEventListener('astro:page-load', () => {
-    updateEntryWithHash();
+    // don't update the hash before we verify the the hash exist after navigation
+    if (!hashLinkClicked) {
+      updateEntryWithHash();
+    }
+    hashLinkClicked = false;
+
+    // update selected menu in the sidebar and scroll to hash (if needed)
+    if (window.location.hash) {
+      updateEntryWithHash();
+      document.querySelector(window.location.hash)?.scrollIntoView();
+    }
 
     const sidebar = document.querySelector('#starlight__sidebar');
 
     // skip restore scroll position on full page reload
     // scroll selected entry into view
     if (initialLoad) {
-      window.addEventListener('hashchange', updateEntryWithHash);
-      setTimeout(updateEntryWithHash(), 100);
       const currentEntry = document.querySelector(`a[aria-current="page"]`);
       if (currentEntry && !isElementInViewport(currentEntry)) {
         currentEntry?.scrollIntoView({ behavior: 'auto', inline: 'nearest' });
