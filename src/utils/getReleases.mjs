@@ -77,6 +77,7 @@ function releaseTemplate(data, bitbucketHref, isLatest) {
 
   return `---
 title: "${title}"
+editUrl: false
 lastUpdated: ${publishedAt}
 sidebar:
   order: ${-Date.parse(updated_at)}${badge}
