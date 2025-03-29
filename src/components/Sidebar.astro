@@ -197,12 +197,12 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     }
   }
 
-  ['file-type-editor', 'customize-styles'].forEach(id => {
-    document.querySelector(`a[href$="#${id}"]`)?.addEventListener('click', handleLinkClick);
-  });
-
   var initialLoad = true;
   document.addEventListener('astro:page-load', () => {
+    ['file-type-editor', 'customize-styles'].forEach(id => {
+      document.querySelector(`a[href$="#${id}"]`)?.addEventListener('click', handleLinkClick);
+    });
+
     // don't update the hash before we verify the the hash exist after navigation
     if (!hashLinkClicked) {
       updateEntryWithHash();

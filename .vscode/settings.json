@@ -78,5 +78,5 @@
   "editor.wordWrap": "on",
   "mdx.validate.ignoreLinks": ["/help/**", "/other/**", "/releases/**", "/troubleshooting/**"],
   "mdx.server.enable": true,
-  "cSpell.enableFiletypes": ["*"]
+  "augment.chat.userGuidelines": "This is Astro project.\n- Ignore files in .vscode/.history"
 }
