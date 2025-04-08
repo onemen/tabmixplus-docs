@@ -63,7 +63,8 @@
     "esbuild": ">=0.25.0",
     "micromatch": ">=4.0.8",
     "pagefind": ">=1.1.1",
-    "prismjs": ">=1.30.0"
+    "prismjs": ">=1.30.0",
+    "vite": ">=6.2.5"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
