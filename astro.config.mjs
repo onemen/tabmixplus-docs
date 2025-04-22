@@ -9,9 +9,7 @@ export const starlightConfig = {
     src: './src/assets/tabmix_logo.png',
   },
   title: 'Tab Mix Plus - Docs',
-  social: {
-    github: 'https://github.com/onemen/TabMixPlus',
-  },
+  social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
   editLink: {
     baseUrl: 'https://github.com/onemen/tabmixplus-docs/edit/main/',
   },
