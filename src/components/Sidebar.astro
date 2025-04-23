@@ -1,7 +1,7 @@
 ---
 import { default as MobileMenuFooter } from '@starlight/components/MobileMenuFooter.astro';
 import { default as SidebarSublist } from '@starlight/components/SidebarSublist.astro';
-import type { SidebarLink } from '@starlight/utils/routing/types.ts';
+import type { SidebarLink, SidebarGroup } from '@starlight/utils/routing/types.ts';
 import { stripLeadingAndTrailingSlashes } from '@starlight/utils/path.ts';
 import { getEntry } from 'astro:content';
 
@@ -21,12 +21,25 @@ if (!isDownloadsInfoExist()) {
 }
 
 // replace links to missing releases files with our repository releases
-const releases = sidebar.find(entry => entry.label.startsWith('Releases')) as Group;
+const releases = sidebar.find(entry => entry.label.startsWith('Releases')) as SidebarGroup;
 if (releases.entries.length === 0) {
   const releasesLink = releases as unknown as SidebarLink;
   releasesLink.type = 'link';
   releasesLink.href = 'https://github.com/onemen/TabMixPlus/releases';
   releasesLink.attrs = {};
+} else {
+  // move old releases to a separate group
+  const oldReleases = {
+    type: 'group',
+    label: 'Old Releases',
+    entries: [],
+    badge: { text: 'Archive', variant: 'danger' },
+    collapsed: true,
+  } as SidebarGroup;
+
+  oldReleases.entries = releases.entries.filter(entry => entry.label.startsWith('v1.0.0-pre'));
+  releases.entries = releases.entries.filter(entry => !entry.label.startsWith('v1.0.0-pre'));
+  releases.entries.push(oldReleases);
 }
 
 // collapsed other top level entries
@@ -40,7 +53,6 @@ sidebar.forEach(entry => {
 // build nested help items
 const help = sidebar.find(entry => entry.label === 'Help');
 const helpGroup = (help && help.type === 'group' ? help : undefined)!;
-type Group = typeof helpGroup;
 
 const baseUrl = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 
@@ -70,7 +82,7 @@ helpGroup.entries = Object.entries(newHelpItems).flatMap(([group, entries]) =>
           entries,
           badge: undefined,
           collapsed: false,
-        } as typeof helpGroup,
+        } as SidebarGroup,
       ]
 );
 
@@ -103,10 +115,10 @@ const customizingTabsStyles = createNewEntry({
       : `${baseUrl}/help/display-tab#customize-styles`,
 });
 
-const linksEntries = helpGroup.entries.find(entry => entry.label === 'Links') as Group;
+const linksEntries = helpGroup.entries.find(entry => entry.label === 'Links') as SidebarGroup;
 linksEntries.entries.splice(1, 0, fileTypeEditor);
 
-const displayEntries = helpGroup.entries.find(entry => entry.label === 'Display') as Group;
+const displayEntries = helpGroup.entries.find(entry => entry.label === 'Display') as SidebarGroup;
 displayEntries.entries.splice(2, 0, customizingTabsStyles);
 ---
 
@@ -199,6 +211,14 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
 
   var initialLoad = true;
   document.addEventListener('astro:page-load', () => {
+    const oldReleasesGroup = Array.from(
+      document.querySelectorAll('#starlight__sidebar summary .large')
+    ).find(el => el?.textContent?.trim() === 'Old Releases');
+
+    if (oldReleasesGroup) {
+      oldReleasesGroup.closest('details')?.classList.add('old-releases-group');
+    }
+
     ['file-type-editor', 'customize-styles'].forEach(id => {
       document.querySelector(`a[href$="#${id}"]`)?.addEventListener('click', handleLinkClick);
     });

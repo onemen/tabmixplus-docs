@@ -96,6 +96,27 @@ a[data-sm] {
   border-top: 1px solid var(--sl-color-hairline-light);
 }
 
+#starlight__sidebar .old-releases-group {
+  summary .large {
+    display: inline-block;
+    font-weight: lighter;
+    font-style: italic;
+    width: 80px;
+  }
+
+  &[open] summary .large {
+    font-weight: 600;
+  }
+
+  li {
+    padding-left: 0;
+    & a {
+      font-size: 0.75em;
+      padding-left: 0;
+    }
+  }
+}
+
 .tabmix-nav {
   background-color: var(--sl-color-bg-nav);
 }

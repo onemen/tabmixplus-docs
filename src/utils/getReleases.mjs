@@ -67,7 +67,7 @@ function releaseTemplate(data, bitbucketHref, isLatest) {
     badge = `
   badge:
     text: Development
-    variant: danger`;
+    variant: tip`;
   }
 
   const note = `
