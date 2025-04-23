@@ -48,7 +48,7 @@ function replaceEmoji(text, prefix, name, title) {
  * @returns string
  */
 function releaseTemplate(data, bitbucketHref, isLatest) {
-  const { assets, name, body, published_at: publishedAt, tag_name } = data;
+  const { assets, name, body, created_at: createdAt, tag_name } = data;
   const { browser_download_url: downloadLink, updated_at } = assets.find(asset =>
     asset.name.startsWith('tab_mix_plus-')
   );
@@ -78,7 +78,7 @@ function releaseTemplate(data, bitbucketHref, isLatest) {
   return `---
 title: "${title}"
 editUrl: false
-lastUpdated: ${publishedAt}
+lastUpdated: ${createdAt}
 sidebar:
   order: ${-Date.parse(updated_at)}${badge}
 ---
@@ -119,8 +119,8 @@ async function buildReleases() {
       info => info.version === version
     );
     if (info) {
-      info.createdAt = release.published_at;
-      info.timestamp = Date.parse(release.published_at);
+      info.createdAt = release.created_at;
+      info.timestamp = Date.parse(release.created_at);
       info.date = new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: 'long',
