@@ -11,6 +11,7 @@
     "**/.eslintcache": true,
     "**/dist": true
   },
+  "eslint.useFlatConfig": true,
   "eslint.options": {
     "cache": true,
     "cacheLocation": "config/.eslintcache"
@@ -24,7 +25,8 @@
     "vue",
     "astro",
     "markdown",
-    "mdx"
+    "mdx",
+    "yaml"
   ],
   "eslint.validate": [
     "javascript",
@@ -33,13 +35,15 @@
     "typescript",
     "typescriptreact",
     "markdown",
-    "mdx"
+    "mdx",
+    "yaml"
   ],
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "always"
+    "source.organizeImports": "always",
+    "source.fixAll.eslint": "explicit"
   },
   "prettier.documentSelectors": ["**/*.astro"],
   "prettier.ignorePath": "./config/.prettierignore",

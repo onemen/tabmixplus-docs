@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import eslintMdx from 'eslint-mdx';
+import * as eslintMdx from 'eslint-mdx';
 import astroPlugin from 'eslint-plugin-astro';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11YPlugin from 'eslint-plugin-jsx-a11y';
@@ -13,27 +13,30 @@ import globals from 'globals';
 export default [
   {
     ignores: [
-      '.hg',
-      '**/*~/*',
-      '**/*~*.xul',
-      '**/*~*.xml',
-      '**/*~*.js',
-      '**/*~*.jsm',
-      '**/*~*.*',
-      '**/*׳¢׳•׳×׳§*.js',
-      '**/*׳¢׳•׳×׳§*.jsm',
-      '**/*עותק*.js',
-      '**/*עותק*.jsm',
-      '**/private/*',
-      '**/config/*',
+      '.hg/**',
+      '**/*~/**',
+      '**/*~*',
+      '**/*׳¢׳•׳×׳§*.*',
+      '**/*עותק*.*',
+      '**/private/**',
+      '**/config/**',
       'eslint_result.js',
       '.eslintrc.js',
       'manifest.json',
-      'logs/',
-      'lib',
+      'logs/**',
+      'lib/**',
+      'dist/**',
+      '.astro/**',
+      '.vscode/**',
+      '**/*.local.*',
+      '**/*.local',
       // generated files,
       '**/releases/*',
       'downloadsInfo.json',
+      // lock files
+      '**/pnpm-lock.yaml',
+      '**/package-lock.json',
+      '**/yarn.lock',
     ],
   },
 
