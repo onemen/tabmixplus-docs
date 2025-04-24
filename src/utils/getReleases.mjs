@@ -114,7 +114,10 @@ async function buildReleases() {
 
   for (const release of sortedReleases) {
     // overrid bitbucket dates with dates from github
-    const version = release.name.replace(/^v/, '');
+    const version = release.name
+      .replace('Development Build', 'dev-build')
+      .replace(/^v/, '')
+      .split(':')[0];
     const info = downloadsInfo[version === 'dev-build' ? 'devBuild' : 'releases'].find(
       info => info.version === version
     );
