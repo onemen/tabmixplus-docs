@@ -1,0 +1,34 @@
+---
+import { getLatestFirefoxVersion } from '@utils/helper.mjs';
+
+interface Props {
+  devBuild: any[];
+  esrVersion: string;
+}
+
+const { devBuild, esrVersion } = Astro.props;
+const nightlyVersion = (await getLatestFirefoxVersion()) +2 ;
+---
+
+<div class="!mt-4">
+  {
+    devBuild.length ? (
+      <div class="flex font-semibold">
+        Version
+        <a class="pl-1" href={devBuild[0].href}>
+          {devBuild[0].version}
+        </a>
+        {`, ${devBuild[0].date}`}
+      </div>
+      <div class="!mt-1">
+        Supported Firefox versions:
+        <b>{esrVersion}</b> <span class="text-xs text-gray-500 font-semibold">ESR</span> -
+        <b>{nightlyVersion}</b> <span class="text-xs text-gray-500 font-semibold">Nightly</span>
+      </div>
+    ) : (
+      <p>Currently, there is no developer build available</p>
+    )
+  }
+</div>
+
+

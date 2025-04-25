@@ -8,6 +8,8 @@ type Release = {
   date: string;
   href: string;
   version: string;
+  esr_version: string;
+  firefox_version: string;
 };
 
 interface Props {
@@ -18,7 +20,7 @@ const { releases } = Astro.props;
 const { version: latest, date, href } = releases[0];
 ---
 
-<div class="not-content relative !mt-10 !max-w-[500px]">
+<div class="not-content relative !mt-4 !max-w-[500px]">
   <p class="text-xs font-thin">Click to select older versions</p>
   <div
     id="customSelect"
@@ -51,15 +53,22 @@ const { version: latest, date, href } = releases[0];
       releases.map(option => (
         <div
           class:list={{
-            'option my-0 grid cursor-pointer grid-cols-[2fr_1fr_50px] items-center px-4 py-1 text-lg font-light lg:grid-cols-[2fr_1fr_50px]': true,
+            'option my-0 grid cursor-pointer grid-cols-[1fr_1fr_1fr_50px] items-center px-4 py-1 text-lg font-light': true,
             'selected font-semibold': option.version === latest,
           }}
           data-href={option.href}
           data-version={option.version}
           data-date={option.date}
+          data-esr={option.esr_version}
+          data-firefox={option.firefox_version}
         >
           <span>{option.version}</span>
           <span class="text-xs">{option.date}</span>
+          <span class="text-xs">
+            {`Firefox: ${option.esr_version} `}
+            <span class="text-[0.625rem] font-normal opacity-70">ESR</span>
+            {` - ${option.firefox_version}`}
+          </span>
           {option.version === latest && (
             <span class="rounded-lg bg-lime-200 px-2 py-1 text-xs font-medium text-lime-800">
               Latest
@@ -84,12 +93,23 @@ const { version: latest, date, href } = releases[0];
         <span class="text-sm">Release</span>
         <span id="download-status" class="font-bold">Latest</span>
       </div>
+      <div class="col-span-full flex flex-col">
+        <span class="text-sm">Supported Browsers</span>
+        <span id="firefox-range" class="font-bold">
+          Firefox: {releases[0].esr_version}
+          <span class="text-xs font-semibold text-gray-500">ESR</span> - {
+            releases[0].firefox_version
+          }
+        </span>
+        <div class="text-xs text-gray-600 italic">
+          <p>Firefox and Firefox-based browsers within this version range</p>
+        </div>
+      </div>
     </div>
-    <div class="flex sm:justify-center">
+    <div class="flex pt-4 sm:justify-center">
       <a
         id="download-button"
         href={href}
-        id="button"
         role="link"
         rel="noopener nofollow"
         target="_top"
@@ -113,6 +133,7 @@ const { version: latest, date, href } = releases[0];
   const versionSpan = document.getElementById('download-version') as HTMLSpanElement;
   const statusSpan = document.getElementById('download-status') as HTMLSpanElement;
   const downloadButton = document.getElementById('download-button') as HTMLButtonElement;
+  const firefoxRangeSpan = document.getElementById('firefox-range') as HTMLSpanElement;
 
   const latest = optionsElement.children[0] as HTMLDivElement;
   let currentSelected = latest;
@@ -121,6 +142,8 @@ const { version: latest, date, href } = releases[0];
     date: string;
     href: string;
     version: string;
+    esr: string;
+    firefox: string;
   };
 
   function updateSelected(selected: HTMLDivElement) {
@@ -128,10 +151,15 @@ const { version: latest, date, href } = releases[0];
     selected.classList.add('selected');
     currentSelected = selected;
 
-    const { date, href, version } = selected.dataset as DataSet;
+    const { date, href, version, esr, firefox } = selected.dataset as DataSet;
     selectSpan.textContent = version;
     versionSpan.textContent = version;
     dateSpan.textContent = date;
+
+    // Update Firefox compatibility range
+    if (esr && firefox) {
+      firefoxRangeSpan.innerHTML = `Firefox: ${esr} <span class="text-xs text-gray-500 font-semibold">ESR</span> - ${firefox}`;
+    }
 
     downloadButton.setAttribute('href', href);
     (downloadButton.querySelector('[data-download-version]') as HTMLSpanElement).textContent =

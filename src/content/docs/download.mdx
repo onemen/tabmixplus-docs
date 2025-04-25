@@ -3,11 +3,14 @@ title: Download
 ---
 
 import Download from '@components/Download.astro'
+import DevBuild from '@components/DevBuild.astro'
 import { devBuild, releases } from '@utils/getDownloadsInfoSync.mjs'
 
 :::danger[Important]
 If you are downloading **Tab Mix Plus** for the first time, please follow the [**Installation Guide**](/other/installation).
 :::
+
+### Versions List
 
 { releases.length
 ? <Download releases={releases} />
@@ -19,20 +22,9 @@ All <b>Tab Mix Plus</b> downloads are located{' '}
 </p>
 }
 
-### Latest Developer Build
+### Latest Development Build
 
-{ devBuild.length ?
-
-<div class="flex font-semibold">
-  Version
-  <a class="pl-1" href={devBuild[0].href}>
-    {devBuild[0].version}
-  </a>
-  {`, ${devBuild[0].date}`}
-</div>
-: <p>Currently, there is no developer build available</p> }
-
-<br />
+<DevBuild devBuild={devBuild} esrVersion={releases[0].esr_version} />
 
 ### Source code
 

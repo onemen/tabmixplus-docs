@@ -90,15 +90,34 @@ ${(isLatest ? body.replace('##', note) : body).replace(/(###)\s*(:.*:)?\s*(.*)/g
 <a href="${bitbucketHref ?? downloadLink}" target="_top" role="link">${name}</a>${isLatest ? '\n\n[no-title]: #' : ''}`;
 }
 
+// Function to get release dates from the TabMixPlus repository
+async function getReleaseDates(octokit) {
+  try {
+    const { data } = await octokit.repos.getContent({
+      owner,
+      repo,
+      path: 'config/release_dates.json',
+    });
+
+    // Content is base64 encoded, so we need to decode it
+    const content = Buffer.from(data.content, 'base64').toString();
+    return JSON.parse(content);
+  } catch (error) {
+    console.warn(`Warning: Could not load release dates: ${error.message}`);
+    return { releases: {} };
+  }
+}
+
 async function buildReleases() {
   const octokit = new Octokit();
   await fsPromises.mkdir(releasesPath, { recursive: true });
 
-  const [{ data: releases }, downloadsInfo] = await Promise.all([
+  const [{ data: releases }, { releases: releaseDates }, bitbucketDownloads] = await Promise.all([
     octokit.repos.listReleases({
       owner,
       repo,
     }),
+    getReleaseDates(octokit),
     getDownloadsInfo(),
   ]);
 
@@ -112,28 +131,50 @@ async function buildReleases() {
     sortedReleases.shift();
   }
 
+  const downloadsInfo = {
+    devBuild: [],
+    releases: [],
+  };
+
   for (const release of sortedReleases) {
-    // overrid bitbucket dates with dates from github
+    // don't use tag_name here, in the past some version changed without
+    // changing the tag_name
     const version = release.name
       .replace('Development Build', 'dev-build')
       .replace(/^v/, '')
       .split(':')[0];
-    const info = downloadsInfo[version === 'dev-build' ? 'devBuild' : 'releases'].find(
-      info => info.version === version
-    );
-    if (info) {
-      info.createdAt = release.created_at;
-      info.timestamp = Date.parse(release.created_at);
-      info.date = new Intl.DateTimeFormat('en-US', {
+
+    const bitbucketInfo = bitbucketDownloads[version];
+    if (!bitbucketInfo) {
+      throw new Error(`Can't find ${version} in bitbucket downloads`);
+    }
+
+    // we are using github dates instead of bitbucket dates
+    const timestamp = Date.parse(release.created_at);
+    const info = {
+      ...bitbucketInfo,
+      createdAt: release.created_at,
+      timestamp,
+      date: new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-      }).format(new Date(info.timestamp));
+      }).format(new Date(timestamp)),
+    };
+
+    // Add ESR and Firefox version data if available
+    const versionData = releaseDates[version];
+    if (versionData) {
+      info.esr_version = versionData.esr_version;
+      info.firefox_version = versionData.firefox_version;
     }
+
+    const channel = version === 'dev-build' ? 'devBuild' : 'releases';
+    downloadsInfo[channel].push(info);
 
     // generate release markdown
     const isLatest = release === latestRelease;
-    const content = releaseTemplate(release, info?.href, isLatest);
+    const content = releaseTemplate(release, info.href, isLatest);
     const filename = isLatest ? 'latest' : release.tag_name.replace(/\s+/g, '-');
     const filePath = path.join(releasesPath, `${filename}.md`);
     await fsPromises.writeFile(filePath, content);

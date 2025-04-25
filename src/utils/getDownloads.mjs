@@ -1,5 +1,6 @@
 const BITBUCKET_URL =
   'https://api.bitbucket.org/2.0/repositories/onemen/tabmixplus-for-firefox/downloads';
+const BITBUCKET_QUERY = '?fields=values.name,values.created_on,values.links.self,next';
 
 const headers = new Headers({
   Authorization: `Bearer ${process.env.BITBUCKET_GET_DOWNLOADS_ACCESS_TOKEN}`,
@@ -30,13 +31,11 @@ async function getAllPages(url) {
 
 export async function getDownloadsInfo() {
   try {
-    const downloadsInfo = await getAllPages(BITBUCKET_URL);
+    const downloadsInfo = await getAllPages(`${BITBUCKET_URL}${BITBUCKET_QUERY}`);
     const releases = new Map();
-    const downloads = {
-      devBuild: [],
-      releases: [],
-    };
+    const devBuilds = [];
     let latestDate = 0;
+
     for (const download of downloadsInfo) {
       /** @type {Download} */
       const {
@@ -49,16 +48,10 @@ export async function getDownloadsInfo() {
 
       const version = name.replace(/test-build-|dev-build-|tab_mix_plus-|.xpi/g, '');
       const timestamp = Date.parse(createdAt);
-      const date = new Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }).format(new Date(timestamp));
-
-      const linkInfo = { name, createdAt, timestamp, date, href, version };
+      const linkInfo = { name, timestamp, href, version };
 
       if (name.includes('test-build') || name.includes('dev-build')) {
-        downloads.devBuild.push(linkInfo);
+        devBuilds.push(linkInfo);
       } else {
         latestDate = timestamp > latestDate ? timestamp : latestDate;
         // get proper version from bitbucket file name in the format:
@@ -72,11 +65,11 @@ export async function getDownloadsInfo() {
     }
 
     // filter out old devBuild
-    downloads.devBuild = downloads.devBuild.filter(b => b.timestamp > latestDate);
-
-    downloads.releases = Array.from(releases.values());
-
-    return downloads;
+    const [devBuild] = devBuilds.filter(b => b.timestamp > latestDate);
+    if (devBuild) {
+      releases.set('dev-build', devBuild);
+    }
+    return Object.fromEntries(releases);
   } catch (error) {
     console.log('Error fetching downloads links from bitbucket', error);
   }
