@@ -170,6 +170,13 @@ a[data-sm] {
     margin-left: 20px;
     width: 45%;
   }
+
+  /* Add clearfix for footer */
+  .sl-markdown-content::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 .sl-markdown-content strong {
