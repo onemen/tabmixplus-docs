@@ -62,10 +62,7 @@
     "files.trimTrailingWhitespace": false,
     "editor.rulers": [100],
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 100,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "never"
-    }
+    "editor.wordWrapColumn": 100
   },
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
