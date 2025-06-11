@@ -37,9 +37,6 @@ importers:
       astro:
         specifier: ^5.9.2
         version: 5.9.2(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.40.0)(typescript@5.8.3)(yaml@2.7.1)
-      cross-env:
-        specifier: ^7.0.3
-        version: 7.0.3
       hast-util-is-element:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1669,11 +1666,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  cross-env@7.0.3:
-    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
-    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
-    hasBin: true
 
   cross-fetch@3.2.0:
     resolution: {integrity: sha512-Q+xVJLoGOeIMXZmbUK4HYk+69cQH6LudR0Vu/pRm2YlU/hDV9CiS0gKUMaWY5f2NeUH9C1nV3bsTlCo0FsTV1Q==}
@@ -6071,10 +6063,6 @@ snapshots:
     optionalDependencies:
       typescript: 5.8.3
 
-  cross-env@7.0.3:
-    dependencies:
-      cross-spawn: 7.0.6
-
   cross-fetch@3.2.0:
     dependencies:
       node-fetch: 2.7.0
@@ -8954,7 +8942,7 @@ snapshots:
       cosmiconfig: 9.0.0(typescript@5.8.3)
       css-functions-list: 3.2.3
       css-tree: 3.1.0
-      debug: 4.4.0
+      debug: 4.4.1
       fast-glob: 3.3.3
       fastest-levenshtein: 1.0.16
       file-entry-cache: 10.0.8

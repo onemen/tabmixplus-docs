@@ -1,7 +1,6 @@
 import { Octokit } from '@octokit/rest';
 import { promises as fsPromises } from 'fs';
 import path from 'path';
-import { getDownloadsInfo } from './getDownloads.mjs';
 
 const owner = 'onemen';
 const repo = 'TabMixPlus';
@@ -47,11 +46,8 @@ function replaceEmoji(text, prefix, name, title) {
  * @param {ReleasesType} data
  * @returns string
  */
-function releaseTemplate(data, bitbucketHref, isLatest) {
-  const { assets, name, body, created_at: createdAt, tag_name } = data;
-  const { browser_download_url: downloadLink, updated_at } = assets.find(asset =>
-    asset.name.startsWith('tab_mix_plus-')
-  );
+function releaseTemplate(data, info, isLatest) {
+  const { name, body, created_at: createdAt, tag_name } = data;
 
   let title = name;
   let badge = '';
@@ -80,14 +76,14 @@ title: "${title}"
 editUrl: false
 lastUpdated: ${createdAt}
 sidebar:
-  order: ${-Date.parse(updated_at)}${badge}
+  order: ${-Date.parse(info.updatedAt)}${badge}
 ---
 <div hidden data-release></div>
 
 ${(isLatest ? body.replace('##', note) : body).replace(/(###)\s*(:.*:)?\s*(.*)/g, replaceEmoji)}
 
 ### Download
-<a href="${bitbucketHref ?? downloadLink}" target="_top" role="link">${name}</a>${isLatest ? '\n\n[no-title]: #' : ''}`;
+<a href="${info.href}" target="_top" role="link">${name}</a>${isLatest ? '\n\n[no-title]: #' : ''}`;
 }
 
 // Function to get release dates from the TabMixPlus repository
@@ -112,13 +108,13 @@ async function buildReleases() {
   const octokit = new Octokit();
   await fsPromises.mkdir(releasesPath, { recursive: true });
 
-  const [{ data: releases }, { releases: releaseDates }, bitbucketDownloads] = await Promise.all([
-    octokit.repos.listReleases({
+  const [releases, { releases: releaseDates }] = await Promise.all([
+    octokit.paginate(octokit.repos.listReleases, {
       owner,
       repo,
+      per_page: 100, // Max allowed by GitHub API
     }),
     getReleaseDates(octokit),
-    getDownloadsInfo(),
   ]);
 
   const sortedReleases = releases.sort(
@@ -144,16 +140,17 @@ async function buildReleases() {
       .replace(/^v/, '')
       .split(':')[0];
 
-    const bitbucketInfo = bitbucketDownloads[version];
-    if (!bitbucketInfo) {
-      throw new Error(`Can't find ${version} in bitbucket downloads`);
-    }
+    const { browser_download_url, updated_at, name } = release.assets.find(
+      asset => asset.name === 'tab_mix_plus-dev-build.xpi' || asset.name.includes(version)
+    );
 
-    // we are using github dates instead of bitbucket dates
     const timestamp = Date.parse(release.created_at);
     const info = {
-      ...bitbucketInfo,
+      name,
+      href: browser_download_url,
+      version,
       createdAt: release.created_at,
+      updatedAt: updated_at,
       timestamp,
       date: new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
@@ -174,7 +171,7 @@ async function buildReleases() {
 
     // generate release markdown
     const isLatest = release === latestRelease;
-    const content = releaseTemplate(release, info.href, isLatest);
+    const content = releaseTemplate(release, info, isLatest);
     const filename = isLatest ? 'latest' : release.tag_name.replace(/\s+/g, '-');
     const filePath = path.join(releasesPath, `${filename}.md`);
     await fsPromises.writeFile(filePath, content);

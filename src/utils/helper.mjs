@@ -7,7 +7,7 @@ export const isDownloadsInfoExist = () => fs.existsSync(generatedFilePath);
 export const downloadLink = () =>
   isDownloadsInfoExist()
     ? '/tabmixplus-docs/download'
-    : 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/';
+    : 'https://github.com/onemen/TabMixPlus/releases/';
 
 export const releasesLink = () =>
   isDownloadsInfoExist()

@@ -1,19 +1,7 @@
 ---
-import { downloadLink, isDownloadsInfoExist } from '@utils/helper.mjs';
+import { downloadLink } from '@utils/helper.mjs';
 ---
 
 Download xpi file from our <a href={downloadLink()}>download</a> page to your local computer.<br />
-{
-  isDownloadsInfoExist() ? (
-    <>
-      All <b>Tab Mix Plus</b> downloads are also located{' '}
-      <a href="https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/">here</a> and{' '}
-      <a href="https://github.com/onemen/TabMixPlus/releases">here</a>
-    </>
-  ) : (
-    <>
-      All <b>Tab Mix Plus</b> downloads are also located{' '}
-      <a href="https://github.com/onemen/TabMixPlus/releases">here</a>.
-    </>
-  )
-}
+All <b>Tab Mix Plus</b> downloads are also located{' '}
+<a href="https://github.com/onemen/TabMixPlus/releases">here</a>

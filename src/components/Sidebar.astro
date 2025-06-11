@@ -14,10 +14,10 @@ const [page] = id.split('/');
 const isHelpPage = id.startsWith('help');
 const isTroubleshooting = id.startsWith('troubleshooting');
 
-// replace links to missing downloadsInfo.json file with bitbucket
+// replace links to missing downloadsInfo.json file with github releases page
 if (!isDownloadsInfoExist()) {
   const downloadsInfo = sidebar.find(entry => entry.label === 'Download') as SidebarLink;
-  downloadsInfo.href = 'https://bitbucket.org/onemen/tabmixplus-for-firefox/downloads/';
+  downloadsInfo.href = 'https://github.com/onemen/TabMixPlus/releases/';
 }
 
 // replace links to missing releases files with our repository releases
