@@ -9,19 +9,20 @@ const latestFirefoxVersion = await getLatestFirefoxVersion();
 <div
   id="last-free-version-notice"
   class="mx-auto mb-4 max-w-lg rounded-lg border border-red-300 bg-red-50 p-4 shadow-md"
-  style="display: none;"
 >
   <div class="mb-2">
-    <h2 class="font-serif text-xl font-bold text-red-700">LAST FREE VERSION</h2>
+    <h2 class="font-serif text-xl font-bold !text-red-700 dark:!text-red-400">
+      TAB MIX PLUS IS NO LONGER FREE
+    </h2>
   </div>
   <p class="text-base leading-relaxed font-medium text-red-800">
-    Due to lack of donations, this is the last free version of Tab Mix Plus. Starting with the next
-    update, Tab Mix Plus will become a paid extension at <span class="font-bold">$2 per month</span
-    >.
+    Due to lack of donations, Tab Mix Plus is no longer free. The last free version was 1.31, which
+    is compatible up to Firefox version 139. Starting with version 1.32, Tab Mix Plus is now a paid
+    extension at <span class="font-bold">$2 per month</span>.
   </p>
   <p class="text-base leading-relaxed font-medium text-red-800">
     Future notifications will include detailed instructions on subscription and payment methods.
-    This change will help ensure continued development and compatibility with Firefox updates.
+    This change helps ensure continued development and compatibility with Firefox updates.
   </p>
 </div>
 
@@ -102,14 +103,6 @@ const latestFirefoxVersion = await getLatestFirefoxVersion();
   const title = document.getElementById('_top');
   if (version) {
     title.textContent = `Version ${version} Installed`;
-
-    // Show the notice if version starts with 1.31
-    if (version.startsWith('1.31')) {
-      const notice = document.getElementById('last-free-version-notice');
-      if (notice) {
-        notice.style.display = 'block';
-      }
-    }
   }
   const subTitle = document.getElementById('firefox_version');
   if (subTitle) {
