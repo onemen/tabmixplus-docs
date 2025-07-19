@@ -6,42 +6,64 @@ const years = new Date().getFullYear() - 2005;
 const latestFirefoxVersion = await getLatestFirefoxVersion();
 ---
 
-<div
-  id="last-free-version-notice"
-  class="mx-auto mb-4 max-w-lg rounded-lg border border-red-300 bg-red-50 p-4 shadow-md"
->
-  <div class="mb-2">
-    <h2 class="font-serif text-xl font-bold !text-red-700 dark:!text-red-400">
-      TAB MIX PLUS IS NO LONGER FREE
-    </h2>
-  </div>
-  <p class="text-base leading-relaxed font-medium text-red-800">
-    Due to lack of donations, Tab Mix Plus is no longer free. The last free version was 1.31, which
-    is compatible up to Firefox version 139. Starting with version 1.32, Tab Mix Plus is now a paid
-    extension at <span class="font-bold">$2 per month</span>.
-  </p>
-  <p class="text-base leading-relaxed font-medium text-red-800">
-    Future notifications will include detailed instructions on subscription and payment methods.
-    This change helps ensure continued development and compatibility with Firefox updates.
-  </p>
+<div class="mb-2">
+  <h2 class="text-center font-serif text-xl font-bold !text-red-700 dark:!text-red-400">
+    Tab Mix Plus Now Requires Monthly Payment for New Versions
+  </h2>
 </div>
-
 <div class="content mx-auto max-w-lg rounded-lg border border-gray-300 bg-gray-100 p-5 shadow-md">
-  <div class="mb-5 flex items-center justify-between">
-    <h2 class="mb-3 text-2xl text-gray-800">
-      <span class="font-normal text-gray-600">Support</span>
-      <span
+  <div class="text-center">
+    <h2 class="mb-3 text-2xl leading-relaxed">
+      🚀 <span
         class="bg-gradient-to-r from-teal-600 to-cyan-400 bg-clip-text font-bold text-transparent"
         >Tab Mix Plus</span
       >
+      <span class="font-normal text-gray-600">is Evolving</span><br />
+      <span class="font-normal text-gray-600">Thank You for Your Support!</span>
     </h2>
-    <DonateButton title="Donate Now" class="!px-12 !py-2" />
+    <DonateButton title="Make a Payment" class="!my-5 !px-12 !py-2" />
   </div>
-  <p class="mt-4 text-base leading-relaxed text-gray-600">
-    Consider supporting me with a <strong class="font-bold text-teal-600">$2 donation</strong> for each
-    update, which helps me keep Tab Mix Plus updated and running smoothly with new updates <strong
-      class="font-bold text-teal-600">every 4-6 weeks</strong
-    >.
+  <div class="mt-4 rounded-md bg-yellow-100 p-3 text-sm text-yellow-800">
+    Our development depends on user support. In the past month, less than <strong>1%</strong> of users
+    contributed — which isn't sustainable for ongoing updates and fixes.
+  </div>
+  <p>
+    Tab Mix Plus has been a free and open-source Firefox extension for years, maintained through
+    countless browser updates. But with donations falling short, sustainable development requires a
+    small contribution.
+  </p>
+  <p>
+    <strong>Starting with version 1.32</strong>, Tab Mix Plus is now a <strong
+      >paid extension</strong
+    >
+    to help fund ongoing updates and compatibility.
+  </p>
+  <ul>
+    <li><strong>Price:</strong> $2 per month.</li>
+    <li>
+      <strong>Need a lower rate?</strong> Just ask — we’ll reduce your payment to
+      <strong class="font-bold text-teal-600">$1/month</strong>.
+    </li>
+    <li>
+      <strong>No subscriptions:</strong> We use a Trust Plan — you track your own payments, we trust
+      your support.
+    </li>
+    <li>
+      <strong>Still open source:</strong> Tab Mix Plus remains open source — view, audit, or fork the
+      code anytime.
+    </li>
+  </ul>
+
+  <p>
+    We believe in openness — there are <strong>no subscriptions</strong>, no account creation, and
+    no restrictions. Tab Mix Plus will always install freely, and we trust our users to contribute
+    <strong>$1–$2/month</strong> to support ongoing development.
+  </p>
+
+  <p>Version 1.31 and earlier remain free and compatible with Firefox up to version 139.</p>
+  <p>
+    Your support ensures future enhancements and day-one compatibility with Firefox updates. If you
+    value stability and continued development, please consider contributing.
   </p>
 </div>
 
