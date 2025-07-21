@@ -105,7 +105,7 @@ async function getReleaseDates(octokit) {
 }
 
 async function buildReleases() {
-  const octokit = new Octokit();
+  const octokit = new Octokit({ auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN_ADDON });
   await fsPromises.mkdir(releasesPath, { recursive: true });
 
   const [releases, { releases: releaseDates }] = await Promise.all([

@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "releases": "node src/utils/getReleases.mjs",
+    "releases": "node --env-file=.env src/utils/getReleases.mjs",
     "dispatch:releases": "node --env-file=.env src/utils/workflowDispatch.mjs",
     "lint": "eslint --format stylish --fix --cache --cache-location config/.eslintcache",
     "lint:debug": "eslint --debug --format stylish --cache --cache-location config/.eslintcache > lint.debug.local.log 2>&1",

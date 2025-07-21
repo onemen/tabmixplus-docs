@@ -3,7 +3,7 @@ import { Octokit } from '@octokit/rest';
 const owner = 'onemen';
 const repo = 'tabmixplus-docs';
 
-const octokit = new Octokit({ auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN });
+const octokit = new Octokit({ auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN_DOCS });
 
 octokit.actions
   .createWorkflowDispatch({
