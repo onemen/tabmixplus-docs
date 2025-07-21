@@ -2,6 +2,12 @@
 import DonateButton from '@components/DonateButton.astro';
 import { getLatestFirefoxVersion } from '@utils/helper.mjs';
 
+export interface Props {
+  showFirefoxVersion?: boolean;
+}
+
+const { showFirefoxVersion = true } = Astro.props;
+const showFirefoxVersionJs = JSON.stringify(showFirefoxVersion);
 const years = new Date().getFullYear() - 2005;
 const latestFirefoxVersion = await getLatestFirefoxVersion();
 ---
@@ -69,7 +75,7 @@ const latestFirefoxVersion = await getLatestFirefoxVersion();
 
 {
   // prettier-ignore
-  latestFirefoxVersion > 0 && (
+  showFirefoxVersion && latestFirefoxVersion > 0 && (
     <div id="firefox_version" class="!mt-2 text-lg font-semibold">
       Tested on Firefox versions {latestFirefoxVersion}, {latestFirefoxVersion + 1}
       (<span class="text-sm font-medium">Beta</span>) and {latestFirefoxVersion + 2}
@@ -129,5 +135,10 @@ const latestFirefoxVersion = await getLatestFirefoxVersion();
   const subTitle = document.getElementById('firefox_version');
   if (subTitle) {
     title.parentElement.insertBefore(subTitle, title.nextElementSibling);
+  }
+
+  if (document.location.pathname === '/tabmixplus-docs/update/') {
+    title.hidden = true;
+    subTitle.hidden = true;
   }
 </script>
