@@ -1,9 +1,9 @@
 import js from '@eslint/js';
+import markdownPlugin from '@eslint/markdown';
 import * as eslintMdx from 'eslint-mdx';
 import astroPlugin from 'eslint-plugin-astro';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11YPlugin from 'eslint-plugin-jsx-a11y';
-import markdownPlugin from 'eslint-plugin-markdown';
 import * as mdx from 'eslint-plugin-mdx';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import reactPlugin from 'eslint-plugin-react';
@@ -40,15 +40,7 @@ export default [
     ],
   },
 
-  js.configs.recommended,
-  ...markdownPlugin.configs.recommended,
-  prettierRecommended,
-  ...astroPlugin.configs.recommended,
-  ...ymlPlugin.configs['flat/recommended'],
-
   {
-    files: ['**/*.{js,cjs,mjs,ts,jsx,tsx,astro,md,mdx}'],
-    plugins: { markdown: markdownPlugin },
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -59,6 +51,20 @@ export default [
         ...globals.es2022,
       },
     },
+  },
+
+  js.configs.recommended,
+  ...markdownPlugin.configs.recommended,
+  prettierRecommended,
+  // don'y use astro recommended config on md files
+  ...astroPlugin.configs.recommended.map(cfg => ({
+    ...cfg,
+    ignores: ['**/*.{md,mdx}'],
+  })),
+  ...ymlPlugin.configs['flat/recommended'],
+
+  {
+    files: ['**/*.{js,cjs,mjs,ts,jsx,tsx,astro}'],
     settings: {
       'import/resolver': {
         // this loads <rootdir>/tsconfig.json to eslint
@@ -113,6 +119,17 @@ export default [
       ...jsxA11YPlugin.configs.recommended.rules,
       'no-unused-expressions': 'off',
       'react/jsx-uses-vars': 'error',
+    },
+  },
+
+  {
+    files: ['**/*.{md,mdx}'],
+    plugins: {
+      markdown: markdownPlugin,
+    },
+    rules: {
+      'prettier/prettier': 'error',
+      'no-irregular-whitespace': 'off',
     },
   },
 ];
