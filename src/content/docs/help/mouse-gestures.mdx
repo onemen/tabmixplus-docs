@@ -12,12 +12,10 @@ import { Image } from 'astro:assets'
 <Image class="help-img" src={mouseGestures} alt="image" />
 
 - Select tab pointed for \_\_\_ msec <br />
-
   - Specify time in milliseconds, **_250 milliseconds_** is default.
 
 - Switch to last selected tab when clicking current one <br /> clicking the current tab will make
   the last selected tab take focus and become the current tab after the specified time delay
-
   - Use time delay of \_\_\_ msec specify time in milliseconds, **_250 milliseconds_** is default
 
 - Mouse click (down and release) to select a tab
@@ -26,7 +24,6 @@ import { Image } from 'astro:assets'
 
   :::note[no-title]
   applies to:
-
   - Tabs in menus opened from Tab Mix Plus Opened Tabs list button or context menu: middle-click on
     tab entry in the list removes the tab itself, not just the entry in the list.
   - Sessions in Tab Mix Plus sessions menu: middle-click on session entry in the list removes the
@@ -67,22 +64,18 @@ import { Image } from 'astro:assets'
   :::note[no-title]
   Hold Shift while scrolling to switch between these options
   :::
-
   - Scroll to change selected tab - scrolling down selects the next tab
   - **_Scroll all tabs_** - scrolling moves visible tabs on the tab-bar (when scroll buttons are
     visible)
 
-  <span class="mt-4 block">
-    - Inverse scroll direction - change the direction in which tabs are selected or tab-bar is moved
-  </span>
-
-  <span class="mt-4 block">
-
-  - Enable `Scroll by Tabs`: Scroll by `n` tabs:
+<div class="!mt-1 !ml-8" >
+  - Inverse scroll direction - change the direction in which tabs are selected or tab-bar is moved
+  - Enable `Scroll by Tabs`: Scroll by `n` tabs <br />
     :::note[no-title]
-    Control the amount of horizontal scroll when tabs are in single-row and the preference **_Scroll all tabs_** is on.
+    Control the amount of horizontal scroll when tabs are in single-row and the preference
+    **_Scroll all tabs_** is on.
     :::
 
-  </span>
+</div>
 
 [no-title]: #

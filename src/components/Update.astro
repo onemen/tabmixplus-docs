@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const { showFirefoxVersion = true } = Astro.props;
-const showFirefoxVersionJs = JSON.stringify(showFirefoxVersion);
+
 const years = new Date().getFullYear() - 2005;
 const latestFirefoxVersion = await getLatestFirefoxVersion();
 ---
