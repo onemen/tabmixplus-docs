@@ -1,4 +1,7 @@
 ---
+import kofiLogo from '@assets/kofiLogo.webp';
+import { Image } from 'astro:assets';
+
 interface ButtonProps {
   text?: string;
   title?: string;
@@ -6,22 +9,25 @@ interface ButtonProps {
 }
 
 const { text, title = 'Make a Donation', class: className } = Astro.props as ButtonProps;
-const buttonClass = 'paypal-button ' + (className ?? '');
+const buttonClass = 'support-button ' + (className ?? '');
 ---
 
 {text && <span class="!mr-2">{text}</span>}
-<a
-  class={buttonClass}
-  href="https://www.paypal.com/donate?hosted_button_id=BZWMH5PS56GAW"
-  target="_blank"
->
+<a class={buttonClass} href="https://ko-fi.com/M4M71J13A4" target="_blank">
+  <Image class="logo" src={kofiLogo} alt="image" />
   <span class="text-white">
     {title}
   </span>
 </a>
 
 <style>
-  .paypal-button {
+  .logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+  .support-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +46,7 @@ const buttonClass = 'paypal-button ' + (className ?? '');
       transform 0.1s ease;
   }
 
-  .paypal-button:hover {
+  .support-button:hover {
     background: #00a896;
     transform: scale(1.02);
   }
