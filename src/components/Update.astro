@@ -1,6 +1,7 @@
 ---
 import DonateButton from '@components/DonateButton.astro';
 import { getLatestFirefoxVersion } from '@utils/helper.mjs';
+import { getSupportInfo } from '@utils/getSupportInfo.mjs';
 
 export interface Props {
   showFirefoxVersion?: boolean;
@@ -10,6 +11,7 @@ const { showFirefoxVersion = true } = Astro.props;
 
 const years = new Date().getFullYear() - 2005;
 const latestFirefoxVersion = await getLatestFirefoxVersion();
+const info = await getSupportInfo();
 ---
 
 <div class="mb-2">
@@ -33,13 +35,21 @@ const latestFirefoxVersion = await getLatestFirefoxVersion();
     <DonateButton title="Make a Payment" class="!my-5 !px-12 !py-2" />
   </div>
   <div class="!mt-0 space-y-3 text-gray-600">
-    <p>
-      Special thank you for the <strong>92 users</strong> who supported me with the amount of <strong
-        >$476</strong
-      > in July 2025, which is encouraging, but my monthly goal to continue development is <strong
-        >$3,000</strong
-      >.
-    </p>
+    {
+      info ? (
+        <p>
+          Special thank you for the <strong>{info.users} users</strong> who supported me with the
+          amount of <strong>${info.amount.toLocaleString()}</strong> in {info.date}, which is
+          encouraging, but my monthly goal to continue development is <strong>$3,000</strong>.
+        </p>
+      ) : (
+        <p>
+          Special thank you to all the users who supported me. I appreciate your contributions.
+          <br />
+          My monthly goal to continue development is <strong>$3,000</strong>.
+        </p>
+      )
+    }
     <p>
       For {years} years, I've been the primary developer maintaining Tab Mix Plus through Firefox's constant
       evolution.<br /> With Firefox changing every month, I must release new versions monthly to ensure

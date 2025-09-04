@@ -10,6 +10,7 @@
     "astro": "astro",
     "releases": "node --env-file=.env src/utils/getReleases.mjs",
     "dispatch:releases": "node --env-file=.env src/utils/workflowDispatch.mjs",
+    "update-gist": "node --env-file=.env src/utils/updateGist.mjs",
     "lint": "eslint --format stylish --fix --cache --cache-location config/.eslintcache",
     "lint:debug": "eslint --debug --format stylish --cache --cache-location config/.eslintcache > lint.debug.local.log 2>&1",
     "format": "prettier --config config/prettier.config.js --ignore-path config/.prettierignore --write . --plugin=prettier-plugin-astro",
