@@ -2,10 +2,15 @@
  * @returns {Promise<{date: string, users: number, amount: number} | null>}
  */
 export async function getSupportInfo() {
-  const { GIST_ID, GIST_FILENAME } = import.meta.env;
+  const { GITHUB_PERSONAL_ACCESS_TOKEN_ADDON, GIST_ID, GIST_FILENAME } = import.meta.env;
 
   try {
-    const response = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+    const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+      headers: {
+        Authorization: `Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN_ADDON}`,
+        Accept: 'application/vnd.github+json',
+      },
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
