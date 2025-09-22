@@ -73,11 +73,10 @@
  *   Target.
  */
 
-import structuredClone from '@ungap/structured-clone';
 import { convertElement } from 'hast-util-is-element';
-import isAbsoluteUrl from 'is-absolute-url';
-import { parse } from 'space-separated-tokens';
 import { visit } from 'unist-util-visit';
+import isAbsoluteUrl from './isAbsoluteUrl.mjs';
+import parse from './parse.mjs';
 
 const defaultProtocols = ['http', 'https'];
 const defaultRel = ['nofollow'];
@@ -131,7 +130,7 @@ export function rehypeExternalLinks(options) {
         const url = node.properties.href;
 
         if (
-          isAbsoluteUrl(url)
+          isAbsoluteUrl(url, { httpOnly: false })
             ? protocols.includes(url.slice(0, url.indexOf(':')))
             : url.startsWith('//')
         ) {
