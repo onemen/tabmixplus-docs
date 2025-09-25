@@ -60,9 +60,6 @@ importers:
       '@eslint/markdown':
         specifier: ^7.2.0
         version: 7.2.0
-      '@octokit/openapi-types':
-        specifier: ^25.1.0
-        version: 25.1.0
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -120,6 +117,9 @@ importers:
       stylelint-config-html:
         specifier: ^1.1.0
         version: 1.1.0(postcss-html@1.8.0)(stylelint@16.22.0(typescript@5.9.2))
+      stylelint-config-tailwindcss:
+        specifier: ^1.0.0
+        version: 1.0.0(stylelint@16.22.0(typescript@5.9.2))(tailwindcss@4.1.12)
 
 packages:
 
@@ -3822,6 +3822,12 @@ packages:
     peerDependencies:
       postcss-html: ^1.0.0
       stylelint: '>=14.0.0'
+
+  stylelint-config-tailwindcss@1.0.0:
+    resolution: {integrity: sha512-e6WUBJeLdOZ0sy8FZ1jk5Zy9iNGqqJbrMwnnV0Hpaw/yin6QO3gVv/zvyqSty8Yg6nEB5gqcyJbN387TPhEa7Q==}
+    peerDependencies:
+      stylelint: '>=13.13.1'
+      tailwindcss: '>=2.2.16'
 
   stylelint@16.22.0:
     resolution: {integrity: sha512-SVEMTdjKNV4ollUrIY9ordZ36zHv2/PHzPjfPMau370MlL2VYXeLgSNMMiEbLGRO8RmD2R8/BVUeF2DfnfkC0w==}
@@ -8917,6 +8923,11 @@ snapshots:
     dependencies:
       postcss-html: 1.8.0
       stylelint: 16.22.0(typescript@5.9.2)
+
+  stylelint-config-tailwindcss@1.0.0(stylelint@16.22.0(typescript@5.9.2))(tailwindcss@4.1.12):
+    dependencies:
+      stylelint: 16.22.0(typescript@5.9.2)
+      tailwindcss: 4.1.12
 
   stylelint@16.22.0(typescript@5.9.2):
     dependencies:

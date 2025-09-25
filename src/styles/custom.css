@@ -1,6 +1,10 @@
 /* General */
 @import 'tailwindcss';
 
+@custom-variant dark (
+  &:where([data-theme="dark"], [data-theme="dark"] *)
+);
+
 p:empty {
   display: none;
   height: 0;

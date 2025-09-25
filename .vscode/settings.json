@@ -86,7 +86,16 @@
   // "github.copilot.enable": {
   //   "*": false
   // },
-  "codeium.enableConfig": {
-    "*": false
+  // "codeium.enableConfig": {
+  //   "*": false
+  // },
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
   }
 }

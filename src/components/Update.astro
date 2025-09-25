@@ -14,164 +14,203 @@ const latestFirefoxVersion = await getLatestFirefoxVersion();
 const info = await getSupportInfo();
 ---
 
-<div class="mb-2">
-  <h2
-    class="animated-title text-center font-serif text-xl font-bold !text-red-700 dark:!text-red-400"
-  >
-    Tab Mix Plus Now Requires Monthly Payment for New Versions
-  </h2>
-</div>
-<div class="content mx-auto max-w-lg rounded-lg border border-gray-300 bg-gray-100 p-5 shadow-md">
-  <div class="text-center">
-    <h2 class="mb-3 text-2xl leading-relaxed">
-      🚀
-      <span
-        class="animated-title bg-gradient-to-r from-teal-600 to-cyan-400 bg-clip-text font-bold text-transparent"
-        >Tab Mix Plus</span
-      >
-      <span class="animated-title font-normal text-gray-600">is Evolving</span><br />
-      <span class="animated-title font-normal text-gray-600">Thank You for Your Support!</span>
-    </h2>
-    <DonateButton title="Make a Payment" class="!my-5 !px-12 !py-2" />
-  </div>
-  <div class="!mt-0 space-y-3 text-gray-600">
-    {
-      info ? (
-        <p>
-          Special thank you for the <strong>{info.users} users</strong> who supported me with the
-          amount of <strong>${info.amount.toLocaleString()}</strong> in {info.date}, which is
-          encouraging, but my monthly goal to continue development is <strong>$3,000</strong>.
-        </p>
-      ) : (
-        <p>
-          Special thank you to all the users who supported me. I appreciate your contributions.
-          <br />
-          My monthly goal to continue development is <strong>$3,000</strong>.
-        </p>
-      )
-    }
-    <p>
-      For {years} years, I've been the primary developer maintaining Tab Mix Plus through Firefox's constant
-      evolution.<br /> With Firefox changing every month, I must release new versions monthly to ensure
-      compatibility, your support makes these day-one updates and future enhancements possible.
-    </p>
-  </div>
-
-  <details class="mt-4 !pl-0">
-    <summary class="cursor-pointer text-sm font-medium text-gray-700 hover:text-gray-900">
-      📋 More details about Tab Mix Plus support
-    </summary>
-    <div class="mt-3 space-y-3 text-sm text-gray-600">
-      <p>
-        <strong>Starting with version 1.32</strong>, Tab Mix Plus is now a <strong
-          >paid extension</strong
+<div id="update-container" class="group px-0 pt-6 font-sans antialiased">
+  <div class="mx-auto max-w-2xl">
+    <header class="text-center">
+      <h2 class="mb-4 !text-5xl leading-tight font-bold text-gray-800 dark:text-gray-100">
+        🚀
+        <span
+          class="animated-title bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent"
+          >Tab Mix Plus</span
         >
-        to help fund ongoing updates and compatibility.
-      </p>
-      <ul class="list-disc space-y-1 pl-5">
-        <li><strong>Price:</strong> $2 per month.</li>
-        <li>
-          <strong>Need a lower rate?</strong> Just ask — I'll reduce your payment to <strong
-            class="font-bold text-teal-600">$1/month</strong
-          >.
-        </li>
-        <li>
-          <strong>No subscriptions:</strong> I use a <strong>Trust Plan</strong> — you track your own
-          payments, and I trust your support.
-        </li>
-        <li>
-          <strong>Still open source:</strong> Tab Mix Plus remains open source — view, audit, or fork
-          the code anytime.
-        </li>
-      </ul>
+        <span class="animated-title font-light text-gray-600 dark:text-gray-300">is Evolving</span
+        ><br />
+        <span
+          id="version-title-span"
+          class="animated-title text-4xl font-light text-gray-500 dark:text-gray-300"
+          >New Version Installed</span
+        >
+      </h2>
+      {
+        showFirefoxVersion && latestFirefoxVersion > 0 && (
+          <p
+            id="firefox-version-info"
+            class="mt-4 text-base font-medium text-gray-600 dark:text-gray-300"
+          >
+            Tested on Firefox versions {latestFirefoxVersion}, {latestFirefoxVersion + 1} ({' '}
+            <span class="font-semibold text-[#027c72] dark:text-teal-400">Beta</span>) and{' '}
+            {latestFirefoxVersion + 2} ({' '}
+            <span class="font-semibold text-[#027c72] dark:text-teal-400">Nightly</span>)
+          </p>
+        )
+      }
+    </header>
 
-      <p>
-        I believe in openness. There are no subscriptions, no account creation, and no enforced
-        payments.
-        <strong
-          >Tab Mix Plus versions, including the Development Build XPI, will always install freely.</strong
-        > I use a <strong>Trust Plan</strong> where I rely on my users to contribute <strong
-          >$1-$2/month</strong
-        > to support my ongoing development.
-      </p>
-      <p>Version 1.31 and earlier remain free and compatible with Firefox up to version 139.</p>
+    <main
+      class="!mt-10 space-y-10 rounded-xl p-8 shadow-2xl shadow-gray-500/30 dark:shadow-black/40"
+    >
+      <div class="space-y-6 text-center">
+        <div>
+          <p class="font-bold text-red-600 dark:text-red-400">
+            Tab Mix Plus Now Requires Monthly Payment for New Versions
+          </p>
+        </div>
+
+        <div>
+          <DonateButton title="Make a Payment" class="!my-5 !px-16 !py-4 !text-xl !font-bold" />
+        </div>
+
+        <div class="flex justify-center">
+          <div class="text-left">
+            {
+              info ? (
+                <p>
+                  Special thank you for the{' '}
+                  <strong class="text-gray-800 dark:text-white">{info.users} users</strong> who
+                  supported me with the amount of{' '}
+                  <strong class="text-gray-800 dark:text-white">
+                    ${info.amount.toLocaleString()}
+                  </strong>{' '}
+                  in {info.date}, which is encouraging, but my monthly goal to continue development
+                  is <strong class="text-gray-800 dark:text-white">$3,000</strong>.
+                </p>
+              ) : (
+                <p>
+                  Special thank you to all the users who supported me. I appreciate your
+                  contributions.
+                  <br />
+                  My monthly goal to continue development is{' '}
+                  <strong class="text-gray-800 dark:text-white">$3,000</strong>.
+                </p>
+              )
+            }
+            <p>
+              For {years} years, I've been the primary developer maintaining Tab Mix Plus through Firefox's
+              constant evolution.<br /> With Firefox changing every month, I must release new versions
+              monthly to ensure compatibility, your support makes these day-one updates and future enhancements
+              possible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="mx-auto !mt-6 max-w-2xl !space-y-6 py-4">
+      <details class="!pl-0">
+        <summary class="cursor-pointer text-sm font-medium text-gray-700 hover:text-gray-900">
+          📋 More details about Tab Mix Plus support
+        </summary>
+        <div
+          class="mt-3 rounded-xl p-6 font-sans shadow-2xl shadow-gray-500/30 dark:shadow-black/50"
+        >
+          <p>
+            <strong>Starting with version 1.32</strong>, Tab Mix Plus is now a <strong
+              >paid extension</strong
+            >
+            to help fund ongoing updates and compatibility.
+          </p>
+          <ul class="list-disc space-y-1 pl-5">
+            <li><strong>Price:</strong> $2 per month.</li>
+            <li>
+              <strong>Need a lower rate?</strong> Just ask — I'll reduce your payment to <strong
+                class="font-bold text-teal-600">$1/month</strong
+              >.
+            </li>
+            <li>
+              <strong>No subscriptions:</strong> I use a <strong>Trust Plan</strong> — you track your
+              own payments, and I trust your support.
+            </li>
+            <li>
+              <strong>Still open source:</strong> Tab Mix Plus remains open source — view, audit, or
+              fork the code anytime.
+            </li>
+          </ul>
+
+          <p>
+            I believe in openness. There are no subscriptions, no account creation, and no enforced
+            payments.
+            <strong
+              >Tab Mix Plus versions, including the Development Build XPI, will always install
+              freely.</strong
+            > I use a <strong>Trust Plan</strong> where I rely on my users to contribute <strong
+              >$1-$2/month</strong
+            > to support my ongoing development.
+          </p>
+          <p>Version 1.31 and earlier remain free and compatible with Firefox up to version 139.</p>
+        </div>
+      </details>
+      <details class="!pl-0">
+        <summary class="cursor-pointer text-sm font-medium text-gray-700 hover:text-gray-900">
+          💬 Personal message from the developer
+        </summary>
+        <div
+          class="mt-3 rounded-xl p-6 font-sans shadow-2xl shadow-gray-500/30 dark:shadow-black/50"
+        >
+          <p class="mb-4 text-lg">Hey there,</p>
+
+          <p class="mb-4 text-base leading-relaxed">
+            It's hard to believe, but it's been {years} years since I launched
+            <span class="font-bold text-teal-600">Tab Mix Plus</span>
+            back in the early days of Firefox! My passion has always been to make your browsing experience
+            smoother and more efficient by enhancing Firefox's tab abilities.
+          </p>
+
+          <p class="mb-4 text-base leading-relaxed">
+            But keeping <span class="font-bold text-teal-600">Tab Mix Plus</span> top-notch and evolving
+            with web standards takes continuous effort. New features take time to develop, and Firefox
+            changes require my attention all the time. That's where you come in, my friend.
+          </p>
+
+          <p class="mb-4 text-base leading-relaxed">
+            A small, monthly donation—think the price of your morning coffee—could make a world of
+            difference.
+          </p>
+
+          <p class="mb-4 text-base leading-relaxed">
+            Sincerely, thank you for your unwavering support. Together, let's keep Firefox a more
+            awesome place to browse the internet!
+          </p>
+
+          <p class="mb-4 text-base font-semibold">Remember, every bit counts!</p>
+
+          <p class="text-base font-bold italic">onemen</p>
+
+          <p class="mt-4 border-t pt-4 text-sm text-gray-500">
+            <span class="font-bold text-teal-600">P.S.</span> Share
+            <a
+              href="https://github.com/onemen/TabMixPlus#readme"
+              target="_blank"
+              class="text-teal-600 underline transition-colors hover:text-teal-800">Tab Mix Plus</a
+            >
+            with your fellow Firefox enthusiasts. The more the merrier.
+          </p>
+        </div>
+      </details>
     </div>
-  </details>
-</div>
-
-<details class="mx-auto mt-6 max-w-2xl !pl-5">
-  <summary class="cursor-pointer text-sm font-medium text-gray-700 hover:text-gray-900">
-    💬 Personal message from the developer
-  </summary>
-  <div class="mt-3 rounded-lg bg-white p-6 font-sans shadow-md">
-    <p class="mb-4 text-lg text-gray-700">Hey there,</p>
-
-    <p class="mb-4 text-base leading-relaxed text-gray-600">
-      It's hard to believe, but it's been {years} years since I launched
-      <span class="font-bold text-teal-600">Tab Mix Plus</span>
-      back in the early days of Firefox! My passion has always been to make your browsing experience
-      smoother and more efficient by enhancing Firefox's tab abilities.
-    </p>
-
-    <p class="mb-4 text-base leading-relaxed text-gray-600">
-      But keeping <span class="font-bold text-teal-600">Tab Mix Plus</span> top-notch and evolving with
-      web standards takes continuous effort. New features take time to develop, and Firefox changes require
-      my attention all the time. That's where you come in, my friend.
-    </p>
-
-    <p class="mb-4 text-base leading-relaxed text-gray-600">
-      A small, monthly donation—think the price of your morning coffee—could make a world of
-      difference.
-    </p>
-
-    <p class="mb-4 text-base leading-relaxed text-gray-600">
-      Sincerely, thank you for your unwavering support. Together, let's keep Firefox a more awesome
-      place to browse the internet!
-    </p>
-
-    <p class="mb-4 text-base font-semibold text-gray-700">Remember, every bit counts!</p>
-
-    <p class="text-base text-gray-600 italic">onemen</p>
-
-    <p class="mt-4 border-t pt-4 text-sm text-gray-500">
-      <span class="font-bold text-teal-600">P.S.</span> Share
-      <a
-        href="https://github.com/onemen/TabMixPlus#readme"
-        target="_blank"
-        class="text-teal-600 underline transition-colors hover:text-teal-800">Tab Mix Plus</a
-      >
-      with your fellow Firefox enthusiasts. The more the merrier.
-    </p>
   </div>
-</details>
-
-{
-  // prettier-ignore
-  showFirefoxVersion && latestFirefoxVersion > 0 && (
-    <div id="firefox_version" class="!mt-2 text-lg font-semibold">
-      Tested on Firefox versions {latestFirefoxVersion}, {latestFirefoxVersion + 1}
-      (<span class="text-sm font-medium">Beta</span>) and {latestFirefoxVersion + 2}
-      (<span class="text-sm font-medium">Nightly</span>)
-    </div>
-  )
-}
+</div>
 
 <script is:inline>
-  const urlParams = new URLSearchParams(document.location.search);
-  const version = urlParams.get('version');
-  const title = document.getElementById('_top');
-  if (version) {
-    title.textContent = `Version ${version} Installed`;
-  }
-  const subTitle = document.getElementById('firefox_version');
-  if (subTitle) {
-    title.parentElement.insertBefore(subTitle, title.nextElementSibling);
+  function on_load() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const version = urlParams.get('version');
+    const versionTitleSpan = document.getElementById('version-title-span');
+
+    if (/^\/tabmixplus-docs\/update\/?$/.test(document.location.pathname)) {
+      const versionInfo = document.getElementById('firefox-version-info');
+      versionInfo.hidden = true;
+      versionTitleSpan.hidden = true;
+      document.querySelectorAll('details').forEach(d => (d.open = true));
+    } else if (versionTitleSpan && version) {
+      const versionSpan = `<span
+     class="animated-title bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text font-bold text-transparent"
+     >${version}</span>`;
+      versionTitleSpan.innerHTML = `Version ${versionSpan} Installed`;
+    }
   }
 
-  if (/^\/tabmixplus-docs\/update\/?$/.test(document.location.pathname)) {
-    title.hidden = true;
-    subTitle.hidden = true;
-  }
+  on_load();
+  document.addEventListener('astro:page-load', on_load);
 </script>
 
 <style>
@@ -187,36 +226,54 @@ const info = await getSupportInfo();
   }
 
   .animated-title {
-    animation: slide-up 0.8s ease-out forwards;
-    /* This makes the element initially invisible so the animation can run */
+    animation: slide-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     opacity: 0;
-
-    /* ADD THIS: Allows the transform property to work correctly on spans */
     display: inline-block;
   }
 
-  /* To make the first title appear first */
   .animated-title:nth-of-type(1) {
     animation-delay: 0s;
   }
-  /* Stagger the animations for the next titles */
   .animated-title:nth-of-type(2) {
     animation-delay: 0.2s;
   }
-  .animated-title:nth-of-type(3) {
+  #version-title-span.animated-title {
     animation-delay: 0.4s;
   }
-  .animated-title:nth-of-type(4) {
-    animation-delay: 0.6s;
-  }
 
-  details {
-    border-inline-start: none;
-  }
-
-  /* Details animations */
   details[open] > div {
     animation: slideDown 0.3s ease-out;
+  }
+  details {
+    border-color: transparent;
+  }
+
+  summary {
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    --arrow-color: white;
+    --circle-color: #00c4b4;
+  }
+
+  details > summary::before {
+    background-color: var(--arrow-color);
+    position: absolute;
+    left: 13px;
+    z-index: 1;
+  }
+
+  details > summary::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background-color: var(--circle-color);
+    border-radius: 50%;
+    z-index: 0;
   }
 
   @keyframes slideDown {
@@ -228,5 +285,16 @@ const info = await getSupportInfo();
       opacity: 1;
       transform: translateY(0);
     }
+  }
+</style>
+
+<style is:global>
+  /* hide top title on update page */
+  .main-pane:has(#update-container) .content-panel:has(#_top) {
+    display: none;
+  }
+
+  #update-container * {
+    max-width: 100%;
   }
 </style>

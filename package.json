@@ -35,7 +35,6 @@
   "devDependencies": {
     "@eslint/js": "^9.34.0",
     "@eslint/markdown": "^7.2.0",
-    "@octokit/openapi-types": "^25.1.0",
     "@types/hast": "^3.0.4",
     "@typescript-eslint/parser": "^8.41.0",
     "eslint": "^9.34.0",
@@ -54,7 +53,8 @@
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "stylelint-config-html": "^1.1.0"
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-tailwindcss": "^1.0.0"
   },
   "resolutions": {
     "@eslint/plugin-kit": ">=0.3.4",

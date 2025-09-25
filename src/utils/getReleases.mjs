@@ -40,7 +40,7 @@ function replaceEmoji(text, prefix, name, title) {
   return text;
 }
 
-/** @typedef {import('@octokit/openapi-types').components['schemas']['release']} ReleasesType */
+/** @typedef {import('@octokit/rest').RestEndpointMethodTypes['repos']['listReleases']['response']['data'][0]} ReleasesType */
 
 /**
  * @param {ReleasesType} data
