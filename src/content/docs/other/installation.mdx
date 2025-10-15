@@ -5,11 +5,11 @@ group: top
 ---
 
 import DownloadXPI from '@components/DownloadXPI.astro'
-import { Icon, Steps, TabItem, Tabs } from '@starlight/components'
+import { Aside, Icon, Steps, TabItem, Tabs } from '@starlight/components'
 
 :::note
 Since Firefox removed the internal component that loads _legacy_ extension, in order to install
-**Tab Mix Plus**, or any other _legacy_ extension, you have to install 3rd party helper scripts.<br/>Visit [@xiaoxiaoflood firefox-scripts](https://github.com/xiaoxiaoflood/firefox-scripts) repository for more details.
+**Tab Mix Plus**, or any other _legacy_ extension, you have to install 3rd party helper scripts.<br/>
 :::
 
 :::tip
@@ -24,10 +24,17 @@ work if you install any files in the wrong location.
 ### Download latest scripts
 
 It is recommended to check periodically, or at least with every Firefox update, if new `Firefox Scripts` are available.
-Visit [@xiaoxiaoflood firefox-scripts](https://github.com/xiaoxiaoflood/firefox-scripts) repository and look for updates, **OR** download the latest version:
+You should download the latest version of the scripts from the links below.
 
 - Download [configuration files][FX_FOLDER]
 - Download [utils][UTILS_EXTENSIONS_AND_SCRIPTS]
+
+<Aside type="caution">
+  The original scripts were created by [@xiaoxiaoflood](https://github.com/xiaoxiaoflood), but the
+  [firefox-scripts repository](https://github.com/xiaoxiaoflood/firefox-scripts) is no longer
+  maintained, and the code may be outdated.
+  <br /> Always use firefox scripts from the links above.
+</Aside>
 
 ### Install config script
 
