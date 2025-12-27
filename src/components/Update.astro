@@ -249,7 +249,13 @@ const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSI
     if (analyticsSent) return;
     analyticsSent = true;
 
-    const info = getBrowserInfo();
+    let info;
+    try {
+      info = getBrowserInfo();
+    } catch (error) {
+      console.error('Error getting browser info:', error);
+      info = { os: 'Unknown,' + error?.message, browser: 'Unknown', version: 'Unknown' };
+    }
 
     if (formUrl && formVersionEntry && formOsEntry && formBrowserEntry && formBrowserVersionEntry) {
       const formData = new URLSearchParams();
