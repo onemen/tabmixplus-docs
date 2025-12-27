@@ -12,6 +12,12 @@ const { showFirefoxVersion = true } = Astro.props;
 const years = new Date().getFullYear() - 2005;
 const latestFirefoxVersion = await getLatestFirefoxVersion();
 const info = await getSupportInfo();
+
+const formUrl = import.meta.env.PUBLIC_GOOGLE_FORM_URL;
+const formVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_VERSION_ENTRY;
+const formOsEntry = import.meta.env.PUBLIC_GOOGLE_FORM_OS_ENTRY;
+const formBrowserEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_ENTRY;
+const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSION_ENTRY;
 ---
 
 <div id="update-container" class="group px-0 pt-6 font-sans antialiased">
@@ -121,8 +127,8 @@ const info = await getSupportInfo();
               own payments, and I trust your support.
             </li>
             <li>
-              <strong>Still open source:</strong> Tab Mix Plus remains open source — view, audit, or
-              fork the code anytime.
+              <strong>Still open source:</strong> Tab Mix Plus remains open source — view, audit, or fork
+              the code anytime.
             </li>
           </ul>
 
@@ -190,7 +196,75 @@ const info = await getSupportInfo();
   </div>
 </div>
 
-<script is:inline>
+<script
+  is:inline
+  define:vars={{
+    formUrl,
+    formVersionEntry,
+    formOsEntry,
+    formBrowserEntry,
+    formBrowserVersionEntry,
+  }}
+>
+  let analyticsSent = false;
+
+  function getBrowserInfo() {
+    const ua = navigator.userAgent;
+    let os = 'Unknown';
+    if (ua.includes('Windows NT')) os = 'Windows';
+    else if (ua.includes('Mac OS X')) os = 'macOS';
+    else if (ua.includes('Linux')) os = 'Linux';
+    else if (ua.includes('Android')) os = 'Android';
+    else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS';
+
+    let browser = 'Unknown';
+    let version = 'Unknown';
+
+    if (ua.includes('Zen/')) {
+      browser = 'Zen';
+      const match = ua.match(/Zen\/([\d.]+)/);
+      if (match) version = match[1];
+    } else if (ua.includes('Waterfox/')) {
+      browser = 'Waterfox';
+      const match = ua.match(/Waterfox\/([\d.]+)/);
+      if (match) version = match[1];
+    } else if (ua.includes('Floorp/')) {
+      browser = 'Floorp';
+      const match = ua.match(/Floorp\/([\d.]+)/);
+      if (match) version = match[1];
+    } else if (ua.includes('LibreWolf/')) {
+      browser = 'LibreWolf';
+      const match = ua.match(/LibreWolf\/([\d.]+)/);
+      if (match) version = match[1];
+    } else if (ua.includes('Firefox/')) {
+      browser = 'Firefox';
+      const match = ua.match(/Firefox\/([\d.]+)/);
+      if (match) version = match[1];
+    }
+
+    return { os, browser, version };
+  }
+
+  function sendAnalytics(version) {
+    if (analyticsSent) return;
+    analyticsSent = true;
+
+    const info = getBrowserInfo();
+
+    if (formUrl && formVersionEntry && formOsEntry && formBrowserEntry && formBrowserVersionEntry) {
+      const formData = new URLSearchParams();
+      formData.append(formVersionEntry, version);
+      formData.append(formOsEntry, info.os);
+      formData.append(formBrowserEntry, info.browser);
+      formData.append(formBrowserVersionEntry, info.version);
+      fetch(formUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors',
+      }).catch(() => {});
+    }
+  }
+
   function on_load() {
     const urlParams = new URLSearchParams(window.location.search);
     const version = urlParams.get('version');
@@ -203,9 +277,11 @@ const info = await getSupportInfo();
       document.querySelectorAll('details').forEach(d => (d.open = true));
     } else if (versionTitleSpan && version) {
       const versionSpan = `<span
-     class="animated-title bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text font-bold text-transparent"
-     >${version}</span>`;
+      class="animated-title bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text font-bold text-transparent"
+      >${version}</span>`;
       versionTitleSpan.innerHTML = `Version ${versionSpan} Installed`;
+
+      sendAnalytics(version);
     }
   }
 

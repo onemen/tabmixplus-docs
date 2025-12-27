@@ -29,5 +29,12 @@ export default {
         proseWrap: 'preserve',
       },
     },
+    {
+      files: ['*.yml'],
+      options: {
+        singleQuote: false,
+        printWidth: 120,
+      },
+    },
   ],
 };
