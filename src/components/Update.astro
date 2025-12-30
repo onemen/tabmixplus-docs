@@ -282,9 +282,10 @@ const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSI
       versionTitleSpan.hidden = true;
       document.querySelectorAll('details').forEach(d => (d.open = true));
     } else if (versionTitleSpan && version) {
+      const versionString = version.includes('-') ? version.split('-')[0] + ' dev-build' : version;
       const versionSpan = `<span
       class="animated-title bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text font-bold text-transparent"
-      >${version}</span>`;
+      >${versionString}</span>`;
       versionTitleSpan.innerHTML = `Version ${versionSpan} Installed`;
 
       sendAnalytics(version);
