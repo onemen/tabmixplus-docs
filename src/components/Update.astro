@@ -18,6 +18,7 @@ const formVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_VERSION_ENTRY;
 const formOsEntry = import.meta.env.PUBLIC_GOOGLE_FORM_OS_ENTRY;
 const formBrowserEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_ENTRY;
 const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSION_ENTRY;
+const formBrowserVersionDisplayEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSION_D_ENTRY;
 ---
 
 <div id="update-container" class="group px-0 pt-6 font-sans antialiased">
@@ -204,11 +205,13 @@ const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSI
     formOsEntry,
     formBrowserEntry,
     formBrowserVersionEntry,
+    formBrowserVersionDisplayEntry,
   }}
 >
   let analyticsSent = false;
 
   function getBrowserInfo() {
+    const urlParams = new URLSearchParams(window.location.search);
     const ua = navigator.userAgent;
     let os = 'Unknown';
     if (ua.includes('Windows NT')) os = 'Windows';
@@ -216,6 +219,17 @@ const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSI
     else if (ua.includes('Linux')) os = 'Linux';
     else if (ua.includes('Android')) os = 'Android';
     else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS';
+
+    if (urlParams.has('info')) {
+      const browserInfo = urlParams.get('info');
+      const [browser, version, versionDisplay] = browserInfo.split(',').map(p => p.trim());
+      return {
+        os,
+        browser,
+        version,
+        versionDisplay,
+      };
+    }
 
     let browser = 'Unknown';
     let version = 'Unknown';
@@ -242,7 +256,8 @@ const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSI
       if (match) version = match[1];
     }
 
-    return { os, browser, version };
+    version = String(version);
+    return { os, browser, version, versionDisplay: version };
   }
 
   function sendAnalytics(version) {
@@ -257,12 +272,20 @@ const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSI
       info = { os: 'Unknown,' + error?.message, browser: 'Unknown', version: 'Unknown' };
     }
 
-    if (formUrl && formVersionEntry && formOsEntry && formBrowserEntry && formBrowserVersionEntry) {
+    if (
+      formUrl &&
+      formVersionEntry &&
+      formOsEntry &&
+      formBrowserEntry &&
+      formBrowserVersionEntry &&
+      formBrowserVersionDisplayEntry
+    ) {
       const formData = new URLSearchParams();
       formData.append(formVersionEntry, version);
       formData.append(formOsEntry, info.os);
       formData.append(formBrowserEntry, info.browser);
       formData.append(formBrowserVersionEntry, info.version);
+      formData.append(formBrowserVersionDisplayEntry, info.versionDisplay);
       fetch(formUrl, {
         method: 'POST',
         body: formData,
