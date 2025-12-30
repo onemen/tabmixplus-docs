@@ -234,29 +234,16 @@ const formBrowserVersionDisplayEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSE
     let browser = 'Unknown';
     let version = 'Unknown';
 
-    if (ua.includes('Zen/')) {
-      browser = 'Zen';
-      const match = ua.match(/Zen\/([\d.]+)/);
-      if (match) version = match[1];
-    } else if (ua.includes('Waterfox/')) {
-      browser = 'Waterfox';
-      const match = ua.match(/Waterfox\/([\d.]+)/);
-      if (match) version = match[1];
-    } else if (ua.includes('Floorp/')) {
-      browser = 'Floorp';
-      const match = ua.match(/Floorp\/([\d.]+)/);
-      if (match) version = match[1];
-    } else if (ua.includes('LibreWolf/')) {
-      browser = 'LibreWolf';
-      const match = ua.match(/LibreWolf\/([\d.]+)/);
-      if (match) version = match[1];
-    } else if (ua.includes('Firefox/')) {
-      browser = 'Firefox';
-      const match = ua.match(/Firefox\/([\d.]+)/);
-      if (match) version = match[1];
+    const browsers = ['Zen', 'Waterfox', 'Floorp', 'LibreWolf', 'Firefox'];
+    for (const name of browsers) {
+      const match = ua.match(new RegExp(`${name}\\/([\\d.]+)`));
+      if (match) {
+        browser = name;
+        version = match[1];
+        break;
+      }
     }
 
-    version = String(version);
     return { os, browser, version, versionDisplay: version };
   }
 
