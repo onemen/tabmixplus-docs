@@ -12,13 +12,6 @@ const { showFirefoxVersion = true } = Astro.props;
 const years = new Date().getFullYear() - 2005;
 const latestFirefoxVersion = await getLatestFirefoxVersion();
 const info = await getSupportInfo();
-
-const formUrl = import.meta.env.PUBLIC_GOOGLE_FORM_URL;
-const formVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_VERSION_ENTRY;
-const formOsEntry = import.meta.env.PUBLIC_GOOGLE_FORM_OS_ENTRY;
-const formBrowserEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_ENTRY;
-const formBrowserVersionEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSION_ENTRY;
-const formBrowserVersionDisplayEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSER_VERSION_D_ENTRY;
 ---
 
 <div id="update-container" class="group px-0 pt-6 font-sans antialiased">
@@ -197,17 +190,7 @@ const formBrowserVersionDisplayEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSE
   </div>
 </div>
 
-<script
-  is:inline
-  define:vars={{
-    formUrl,
-    formVersionEntry,
-    formOsEntry,
-    formBrowserEntry,
-    formBrowserVersionEntry,
-    formBrowserVersionDisplayEntry,
-  }}
->
+<script is:inline>
   let analyticsSent = false;
 
   function getBrowserInfo() {
@@ -247,7 +230,7 @@ const formBrowserVersionDisplayEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSE
     return { os, browser, version, versionDisplay: version };
   }
 
-  function sendAnalytics(version) {
+  async function sendAnalytics(version) {
     if (analyticsSent) return;
     analyticsSent = true;
 
@@ -256,28 +239,38 @@ const formBrowserVersionDisplayEntry = import.meta.env.PUBLIC_GOOGLE_FORM_BROWSE
       info = getBrowserInfo();
     } catch (error) {
       console.error('Error getting browser info:', error);
-      info = { os: 'Unknown,' + error?.message, browser: 'Unknown', version: 'Unknown' };
+      info = {
+        os: 'Unknown,' + error?.message,
+        browser: 'Unknown',
+        version: 'Unknown',
+        versionDisplay: 'Unknown',
+      };
     }
 
-    if (
-      formUrl &&
-      formVersionEntry &&
-      formOsEntry &&
-      formBrowserEntry &&
-      formBrowserVersionEntry &&
-      formBrowserVersionDisplayEntry
-    ) {
-      const formData = new URLSearchParams();
-      formData.append(formVersionEntry, version);
-      formData.append(formOsEntry, info.os);
-      formData.append(formBrowserEntry, info.browser);
-      formData.append(formBrowserVersionEntry, info.version);
-      formData.append(formBrowserVersionDisplayEntry, info.versionDisplay);
-      fetch(formUrl, {
+    const apiURL = 'https://tabmixplus.netlify.app/api/log';
+
+    const payload = {
+      version,
+      os: info.os,
+      browser: info.browser,
+      browserVersion: info.version,
+      browserDisplayVersion: info.versionDisplay,
+      status: '', // Honeypot: must remain empty
+    };
+
+    try {
+      const response = await fetch(apiURL, {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors',
-      }).catch(() => {});
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Tabmix-Origin': 'TM-Extension-Handshake', // This MUST match your log.js check
+        },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      console.log('Log sent successfully:', result);
+    } catch (error) {
+      console.error('Failed to send log:', error);
     }
   }
 
