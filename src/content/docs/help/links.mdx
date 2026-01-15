@@ -9,6 +9,7 @@ sidebar:
 import fileTypeEditorBackImage from '@assets/file-type-editor-back.png'
 import fileTypeEditorImage from '@assets/file-type-editor.png'
 import linksImage from '@assets/links.png'
+import newTabFromApp from '@assets/new_tab_from_app.png'
 import { Image } from 'astro:assets'
 
 ##### Controls what actions are taken when a link is clicked in the browser window or another application
@@ -32,6 +33,10 @@ below:
   - New window - opens a new browser window
   - **_New tab_** - creates a new tab in the current browser window
   - Current tab - replaces existing URL page in the current browser tab with the link contents
+  - New Tab After Current - new option since Firefox 146. Creates a new tab after the current tab.
+    <br />Alternatively, you can achieve the same result by selecting **_New tab_** here and enabling `Open New Tab next to current one` under `Events > New Tab`.
+
+  <Image class="img-shadow !max-w-[70%]" src={newTabFromApp} alt="image" />
 
 - JavaScript popups (select one):
   [<b>browser.link.open_newwindow.restriction</b>](http://kb.mozillazine.org/Browser.link.open_newwindow.restriction)
