@@ -125,9 +125,7 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
 <div class="tabmix-nav !-mx-4">
   <div class="sl-markdown-content !min-h-fit px-4 py-2">
     <h4 class="text-xl font-semibold !text-red-700 dark:!text-red-400">Important:</h4>
-    <p class="!mt-0.5 text-sm font-bold">
-      Update Your Firefox Scripts for Firefox 147 Compatibility
-    </p>
+    <p class="!mt-0.5 text-sm font-bold">Update Your Firefox Scripts for Firefox Compatibility</p>
     <div class="!mt-4 text-sm">
       <time
         class="date-badge !text-red-700 dark:!text-red-400"
@@ -136,7 +134,7 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
         aria-label="Updated November 30, 2025"
       >
         <span class="date-icon" aria-hidden="true">🕒</span>
-        Updated Nov 30, 2025
+        <span class="date-text"> Updated Nov 30, 2025</span>
       </time>
       <p class="!mt-0.5">
         <span class="font-bold">Download</span>
@@ -186,6 +184,72 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
   import { navigate } from 'astro:transitions/client';
   var key = 'sidebar-position';
   var timeout = 0;
+
+  async function updateDateBadge() {
+    const dateBadge = document.querySelector('.date-badge') as HTMLElement;
+    if (!dateBadge) return;
+
+    type ApiResponse = Record<string, { date: string }>;
+
+    let remoteInfo;
+    try {
+      const gistID = 'e02ec904dd82a73cec4c229a7cbb552e';
+      const url = `https://gist.githubusercontent.com/onemen/${gistID}/raw/versionInfo.json`;
+      const response = await fetch(url, { cache: 'no-store' });
+      if (response.ok) {
+        remoteInfo = (await response.json()) as ApiResponse;
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (e) {
+      console.error('TabMix: Failed to fetch versionInfo.json', e);
+    }
+
+    if (!remoteInfo || typeof remoteInfo !== 'object') {
+      dateBadge.style.display = 'none';
+      return;
+    }
+
+    try {
+      const dates = Object.values(remoteInfo)
+        .map(info => info.date)
+        .filter(Boolean)
+        .sort();
+
+      const latestDateString = dates.at(-1);
+      if (!latestDateString) {
+        throw new Error('No dates found in version info');
+      }
+
+      const latestDate = new Date(latestDateString);
+      if (isNaN(latestDate.getTime())) {
+        throw new Error(`Invalid date format: ${latestDateString}`);
+      }
+
+      const formattedDate = latestDate.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      });
+      const formattedDateLong = latestDate.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
+      const datetimeAttr = latestDate.toISOString().split('T')[0];
+
+      dateBadge.setAttribute('datetime', datetimeAttr);
+      dateBadge.setAttribute('title', `Updated ${formattedDate}`);
+      dateBadge.setAttribute('aria-label', `Updated ${formattedDateLong}`);
+      const dateText = document.querySelector('.date-badge .date-text');
+      if (dateText) {
+        dateText.textContent = ` Updated ${formattedDate}`;
+      }
+    } catch (e) {
+      console.error('TabMix: Failed to process date.', e);
+      if (dateBadge) dateBadge.style.display = 'none';
+    }
+  }
 
   function isElementInViewport(el: Element) {
     const rect = el.getBoundingClientRect();
@@ -243,6 +307,8 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
 
   var initialLoad = true;
   document.addEventListener('astro:page-load', () => {
+    updateDateBadge();
+
     const oldReleasesGroup = Array.from(
       document.querySelectorAll('#starlight__sidebar summary .large')
     ).find(el => el?.textContent?.trim() === 'Old Releases');
