@@ -1,3 +1,5 @@
 minimumReleaseAge: 5000
 minimumReleaseAgeExclude:
   - "svgo@4.0.1"
+  - "astro"
+  - "@astrojs/**"

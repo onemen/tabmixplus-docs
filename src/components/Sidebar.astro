@@ -1,6 +1,5 @@
 ---
-import { default as MobileMenuFooter } from '@starlight/components/MobileMenuFooter.astro';
-import { default as SidebarSublist } from '@starlight/components/SidebarSublist.astro';
+import { default as DefaultSidebar } from '@starlight/components/Sidebar.astro';
 import type { SidebarLink, SidebarGroup } from '@starlight/utils/routing/types.ts';
 import { stripLeadingAndTrailingSlashes } from '@starlight/utils/path.ts';
 import { getEntry } from 'astro:content';
@@ -175,10 +174,7 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
   </div>
 </div>
 
-<SidebarSublist sublist={sidebar} />
-<div class="md:sl-hidden">
-  <MobileMenuFooter />
-</div>
+<DefaultSidebar />
 
 <script>
   import { navigate } from 'astro:transitions/client';
