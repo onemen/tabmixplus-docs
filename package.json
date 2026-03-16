@@ -37,7 +37,7 @@
     "@eslint/js": "^10.0.1",
     "@eslint/markdown": "^7.5.1",
     "@types/hast": "^3.0.4",
-    "@typescript-eslint/parser": "^8.56.1",
+    "@typescript-eslint/parser": "^8.57.0",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -58,6 +58,7 @@
     "stylelint-config-tailwindcss": "^1.0.1"
   },
   "resolutions": {
+    "devalue": ">=5.6.4",
     "lodash": ">=4.17.23",
     "undici-types": ">=7.0.0"
   },
