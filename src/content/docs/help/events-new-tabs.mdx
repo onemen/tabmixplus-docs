@@ -8,11 +8,29 @@ sidebar:
 
 import eventsNewTabs from '@assets/events-new-tabs.png'
 import switchToTab from '@assets/switchtotab.png'
+import ShowInZen from '@components/ShowInZen.astro'
+import { Aside } from '@starlight/components'
 import { Image } from 'astro:assets'
 
 ##### Controls which URL loads in New Tab and location of newly opened tabs.<br />
 
 <br />
+
+<ShowInZen>
+  <Aside type="tip" title="Zen Browser Compatibility: URL Bar Behavior">
+    If you are using the **Zen Browser**, you may notice that opening a **New Tab** (via the `+` button or `Ctrl`/`Cmd` + `T`) defaults to focusing the **Floating URL Bar** instead of the standard New Tab Page.<br />
+    Read Zed docs for more details on this behavior: [Zed Documentation](https://docs.zen-browser.app/user-manual/urlbar).
+
+    To choose between the Zen "floating" mechanism and the legacy Tab Mix Plus behavior:
+
+    - **Enable Legacy New Tab**: If you prefer the standard Firefox/Tab Mix Plus New Tab experience, you can disable the floating URL bar override.
+      - Set `zen.urlbar.replace-newtab` to `false` in `about:config`.
+      - After this change, clicking the New Tab button will open the legacy New Tab page as configured in your Tab Mix Plus options.
+
+    - **Zen Floating URL Bar**: To keep Zen’s native behavior where the URL bar is immediately ready for input upon opening a new tab, ensure `zen.urlbar.replace-newtab` is set to `true`.
+
+  </Aside>
+</ShowInZen>
 
 <Image class="help-img" src={eventsNewTabs} alt="image" />
 
