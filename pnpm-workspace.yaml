@@ -3,3 +3,4 @@ minimumReleaseAgeExclude:
   - "svgo@4.0.1"
   - "astro"
   - "@astrojs/**"
+  - "h3@2.0.1-rc.18"

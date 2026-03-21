@@ -30,7 +30,7 @@ export default {
       },
     },
     {
-      files: ['*.yml'],
+      files: ['*.yml', '*.yaml'],
       options: {
         singleQuote: false,
         printWidth: 120,
