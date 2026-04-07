@@ -25,20 +25,19 @@
     "@octokit/rest": "^22.0.1",
     "@pagefind/default-ui": "^1.4.0",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.0.8",
+    "astro": "^6.1.4",
     "hast-util-is-element": "^3.0.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2",
     "typescript": "^6.0.2",
-    "unist-util-visit": "^5.1.0",
-    "vite": "7.3.1"
+    "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@eslint/markdown": "^7.5.1",
+    "@eslint/markdown": "^8.0.1",
     "@types/hast": "^3.0.4",
-    "@typescript-eslint/parser": "^8.57.2",
-    "eslint": "^10.1.0",
+    "@typescript-eslint/parser": "^8.58.0",
+    "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-mdx": "^3.7.0",
@@ -58,15 +57,10 @@
     "stylelint-config-tailwindcss": "^1.0.1"
   },
   "resolutions": {
-    "brace-expansion": ">=5.0.5",
-    "devalue": ">=5.6.4",
+    "eslint": "$eslint",
+    "typescript": "$typescript",
     "h3": ">=2.0.1-rc.20",
-    "flatted": ">=3.4.2",
-    "lodash": ">=4.17.23",
-    "picomatch@2": ">=2.3.2",
-    "picomatch@4": ">=4.0.4",
-    "smol-toml": ">=1.6.1",
-    "undici-types": ">=7.0.0",
+    "vite": ">=7.3.2",
     "yaml": ">=2.8.3"
   },
   "pnpm": {
@@ -75,10 +69,6 @@
       "esbuild",
       "sharp",
       "unrs-resolver"
-    ],
-    "overrides": {
-      "picomatch@2": ">=2.3.2",
-      "picomatch@4": ">=4.0.4"
-    }
+    ]
   }
 }
