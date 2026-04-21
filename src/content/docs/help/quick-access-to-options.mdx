@@ -1,0 +1,57 @@
+---
+title: Quick Access to Options
+tableOfContents: false
+group: top
+sidebar:
+  order: 2
+  attrs:
+    style: 'font-size: 13px;'
+---
+
+import openOptionsWidget from '@assets/open-options-widget.png'
+import { Steps } from '@starlight/components'
+import { Image } from 'astro:assets'
+
+<Image class="help-img" src={openOptionsWidget} alt="image" />
+
+Tab Mix Plus provides a streamlined way to open your preference dialog directly from the browser interface. This ensures that your settings are always just two clicks away, regardless of which page you are currently viewing.
+
+### **Using the Extensions Widget**
+
+The most convenient way to access Tab Mix Plus options in modern Firefox and its forks (such as **Zen**, **Floorp**, or **LibreWolf**) is through the **Extensions** panel.
+
+### **How to open Options:**
+
+<Steps>
+
+1.  Click the **Extensions** icon (puzzle piece) in the top-right corner of your browser toolbar.
+2.  Locate **Tab Mix Plus** in the list.
+3.  Click the **Gear icon (⚙)** or the text **"Click to open Options"**.
+
+</Steps>
+
+This will immediately launch the main Tab Mix Plus preferences window.
+
+:::tip
+**Pin for even faster access:**
+You can keep the Tab Mix Plus icon visible on your main toolbar at all times. Click the **Gear icon (⚙)** in the Extensions panel and select **Pin to Toolbar**. This allows you to open your options with a single click.
+:::
+
+---
+
+### **Why use the Widget?**
+
+- **Speed:** Skip the multiple steps of opening `about:addons` and searching for the extension.
+- **Accessibility:** The widget works even on restricted internal browser pages (like `about:config` or `about:addons`) where extension popups are usually blocked.
+- **Context Independent:** It provides a reliable "Home Base" for your settings that looks and behaves the same across different browser forks.
+
+---
+
+### **Alternative Methods**
+
+While the widget is the recommended method, you can still access options via:
+
+- **Add-ons Manager:** Type `about:addons` in your address bar, find Tab Mix Plus, and click the three dots icon to find "Options."
+- **Legacy Menus:** If you have the traditional Menu Bar enabled, you can find Tab Mix Plus under the `Tools` menu.
+
+_For instructions on how to backup or sync these settings once the dialog is open, see [Restore, Import & Export](/help/preferences-button)_
