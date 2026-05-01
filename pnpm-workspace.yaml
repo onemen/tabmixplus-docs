@@ -1,7 +1,19 @@
-minimumReleaseAge: 5000
+allowBuilds:
+  "@tailwindcss/oxide": true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+
+minimumReleaseAge: 7200
 minimumReleaseAgeExclude:
   - "astro"
   - "@astrojs/**"
   - "eslint"
   - "@eslint/*"
   - "vite"
+
+overrides:
+  postcss: ">=8.5.10"
+  yaml: ">=2.8.3"
+
+trustPolicy: no-downgrade
