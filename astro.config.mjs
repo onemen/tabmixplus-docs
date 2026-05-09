@@ -35,22 +35,15 @@ export const starlightConfig = {
     },
     {
       label: 'Releases / Change Log',
-      autogenerate: {
-        directory: 'releases',
-        collapsed: true,
-      },
+      items: [{ autogenerate: { directory: 'releases', collapsed: true } }],
     },
     {
       label: 'Help',
-      autogenerate: {
-        directory: 'help',
-      },
+      items: [{ autogenerate: { directory: 'help' } }],
     },
     {
       label: 'Troubleshooting',
-      autogenerate: {
-        directory: 'troubleshooting',
-      },
+      items: [{ autogenerate: { directory: 'troubleshooting' } }],
     },
   ],
   customCss: ['./src/styles/custom.css'],
