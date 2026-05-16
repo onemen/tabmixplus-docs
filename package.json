@@ -24,11 +24,11 @@
     "@astrojs/starlight": "^0.39.2",
     "@octokit/rest": "^22.0.1",
     "@pagefind/default-ui": "^1.5.2",
-    "@tailwindcss/vite": "^4.2.4",
+    "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.1",
     "hast-util-is-element": "^3.0.0",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.2.4",
+    "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
     "unist-util-visit": "^5.1.0"
   },
