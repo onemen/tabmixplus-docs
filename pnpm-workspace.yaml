@@ -4,7 +4,7 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 
-minimumReleaseAge: 5760
+minimumReleaseAge: 4320
 minimumReleaseAgeExclude:
   - "astro"
   - "@astrojs/**"
@@ -13,10 +13,8 @@ minimumReleaseAgeExclude:
   - "vite"
 
 overrides:
+  esbuild: ">=0.28.1"
   "brace-expansion@5.0.5": ">=5.0.6"
-  devalue: ">=5.8.1"
-  fast-uri: 3.1.2
-  postcss: ">=8.5.10"
   yaml: ">=2.8.3"
 
 trustPolicy: no-downgrade

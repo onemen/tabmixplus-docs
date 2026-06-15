@@ -58,11 +58,10 @@ export default defineConfig({
   base: baseUrl,
   integrations: [starlight(starlightConfig)],
   markdown: {
-    smartypants: false,
-    rehypePlugins: [
-      // https://docs.astro.build/en/recipes/external-links/#recipe
-      [rehypeExternalLinks, { target: '_blank', baseUrl }],
-    ],
+    unified: {
+      smartypants: false,
+      rehypePlugins: [[rehypeExternalLinks, { target: '_blank', baseUrl }]],
+    },
   },
   vite: {
     plugins: [tailwindcss()],
