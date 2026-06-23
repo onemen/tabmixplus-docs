@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Install pnpm
         uses: pnpm/action-setup@v6.0.9
@@ -28,14 +28,14 @@ jobs:
           version: "11"
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: "24"
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
       - name: Cache Astro dist
-        uses: actions/cache@v5
+        uses: actions/cache@v5.0.5
         with:
           path: dist
           key: astro-${{ runner.os }}-${{ hashFiles('src/**', 'public/**', 'astro.config.*') }}
@@ -57,7 +57,7 @@ jobs:
           PUBLIC_GOOGLE_FORM_BROWSER_VERSION_D_ENTRY: ${{ secrets.PUBLIC_GOOGLE_FORM_BROWSER_VERSION_D_ENTRY }}
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
@@ -73,4 +73,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
