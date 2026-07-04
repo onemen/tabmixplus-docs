@@ -1,7 +1,8 @@
+import { satteri } from '@astrojs/markdown-satteri';
 import starlight from '@astrojs/starlight';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
-import { rehypeExternalLinks } from './src/utils/rehypePluginLinks.mjs';
+import { createExternalLinksPlugin } from './src/utils/satteriExternalLinks.js';
 
 export const starlightConfig = {
   favicon: '/favicon.ico',
@@ -55,13 +56,14 @@ const baseUrl = '/tabmixplus-docs';
 // https://astro.build/config
 export default defineConfig({
   site: process.env.CI ? 'https://onemen.github.io' : 'http://localhost:4321',
+  compressHTML: true,
   base: baseUrl,
   integrations: [starlight(starlightConfig)],
   markdown: {
-    unified: {
-      smartypants: false,
-      rehypePlugins: [[rehypeExternalLinks, { target: '_blank', baseUrl }]],
-    },
+    processor: satteri({
+      features: { smartypants: false },
+      hastPlugins: [createExternalLinksPlugin(baseUrl)],
+    }),
   },
   vite: {
     plugins: [tailwindcss()],

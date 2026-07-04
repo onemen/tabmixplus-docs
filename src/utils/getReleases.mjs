@@ -68,7 +68,7 @@ function releaseTemplate(data, info, isLatest) {
 
   const note = `
 :::note[no-title]
-  All releases are available in the Releases/Change Log menu and at our GitHub repository <a href="https://github.com/onemen/TabMixPlus/releases/">releases</a>
+All releases are available in the Releases/Change Log menu and at our GitHub repository [releases](https://github.com/onemen/TabMixPlus/releases/)
 :::\n\n$&`;
 
   return `---
