@@ -11,6 +11,8 @@ minimumReleaseAgeExclude:
   - "eslint"
   - "@eslint/*"
   - "vite"
+  - astro-eslint-parser@3.0.0
+  - eslint-plugin-astro@3.0.0
 
 catalog:
   eslint: ^10.5.0

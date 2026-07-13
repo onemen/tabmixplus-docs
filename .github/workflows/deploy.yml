@@ -25,7 +25,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v6.0.9
         with:
-          version: "11"
+          version: 11.11.0
 
       - name: Setup Node
         uses: actions/setup-node@v6.4.0
