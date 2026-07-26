@@ -22,7 +22,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/markdown-satteri": "0.3.4",
-    "@astrojs/starlight": "^0.41.3",
+    "@astrojs/starlight": "^0.41.4",
     "@octokit/rest": "^22.0.1",
     "@pagefind/default-ui": "^1.5.2",
     "@tailwindcss/vite": "^4.3.3",
@@ -53,7 +53,7 @@
     "eslint-plugin-yml": "^3.6.0",
     "globals": "^17.7.0",
     "postcss-html": "^1.8.1",
-    "prettier": "^3.9.5",
+    "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "stylelint-config-html": "^1.1.0",
