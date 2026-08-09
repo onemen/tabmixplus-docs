@@ -12,15 +12,20 @@ minimumReleaseAgeExclude:
   - "@eslint/*"
   - "vite"
   - "@typescript-eslint/*"
-  - fast-uri@3.1.4
-  - brace-expansion@5.0.8
+  - fast-uri@3.1.5
+  - js-yaml@4.3.1
+  - nanoid@3.3.18
+  - postcss@8.5.26
 
 catalog:
   eslint: ^10.7.0
 
 overrides:
-  brace-expansion@<=5.0.7: ^5.0.8
   eslint: "catalog:"
+  fast-uri@3: ">=3.1.5 <4.0.0"
+  js-yaml@4: ">=4.3.1 <5.0.0"
+  nanoid@3: ">=3.3.17 <4.0.0"
+  postcss@8: ">=8.5.23 <9.0.0"
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 525600
