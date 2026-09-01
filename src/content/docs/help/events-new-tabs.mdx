@@ -7,6 +7,7 @@ sidebar:
 ---
 
 import eventsNewTabs from '@assets/events-new-tabs.png'
+import openTabNext from '@assets/open-tab-next.png'
 import switchToTab from '@assets/switchtotab.png'
 import ShowInZen from '@components/ShowInZen.astro'
 import { Aside } from '@starlight/components'
@@ -81,6 +82,31 @@ import { Image } from 'astro:assets'
     the new tabs opened in that order. <br /> `[a][b][c][1][2][3]` -&gt; `[a][3][2][1][b][c]`, this
     is how tabs open without _Change opening order_. <br /> `[a][b][c][1][2][3]` -&gt;
     `[a][1][2][3][b][c]`, this is how tabs open with _Change opening order_ option checked. :::
+
+  :::note[no-title]
+
+  <div>
+    <u>Since Firefox 156</u>
+    <Image src={openTabNext} alt="image" />
+  </div>
+
+  The two checkboxes are independent. The _Change opening order_ option is replaced by the _Only
+  if related to current tab_ checkbox, now labeled _Open Related tab next to current one (Change
+  opening order)_. The selected tab is `[a]`, and `[1][2][3]` are the new tabs opened in that
+  order:
+
+  - when both checkboxes are unchecked, new tabs open at the end of the tab bar regardless of the
+    selected tab: `[a]bc` -&gt; `[a]bc123`
+  - _Open other tabs next to current one_ checked, _Open Related tab next to current one (Change
+    opening order)_ unchecked - each new tab opens directly next to the current tab:
+    `[a]bc` -&gt; `[a]321bc`
+  - _Open Related tab next to current one (Change opening order)_ checked, with or without _Open
+    other tabs next to current one_ - related tabs keep their opening order:
+    `[a]bc` -&gt; `[a]123bc`
+
+  Tabs that are not related to the current tab open at the end of the tab bar when _Open other
+  tabs next to current one_ is unchecked.
+  :::
 
 - **_Open duplicated tabs next to original_**
 
