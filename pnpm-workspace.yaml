@@ -12,7 +12,7 @@ minimumReleaseAgeExclude:
   - "@eslint/*"
   - "vite"
   - "@typescript-eslint/*"
-  - fast-uri@3.1.5
+  - fast-uri@3.1.7
   - js-yaml@4.3.1
   - nanoid@3.3.18
   - postcss@8.5.26
@@ -22,7 +22,7 @@ catalog:
 
 overrides:
   eslint: "catalog:"
-  fast-uri@3: ">=3.1.5 <4.0.0"
+  fast-uri@3: ">=3.1.6 <4.0.0"
   js-yaml@4: ">=4.3.1 <5.0.0"
   nanoid@3: ">=3.3.17 <4.0.0"
   postcss@8: ">=8.5.23 <9.0.0"
