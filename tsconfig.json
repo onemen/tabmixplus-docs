@@ -1,8 +1,8 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "moduleResolution": "bundler",
     "paths": {
-      "@starlight/*": ["./node_modules/@astrojs/starlight/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@utils/*": ["./src/utils/*"]

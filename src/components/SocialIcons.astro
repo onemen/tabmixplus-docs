@@ -1,5 +1,5 @@
 ---
-import Icon from '@starlight/user-components/Icon.astro';
+import { Icon } from '@astrojs/starlight/components';
 import { isDownloadsInfoExist } from '@utils/helper.mjs';
 import config from 'virtual:starlight/user-config';
 
@@ -13,27 +13,29 @@ if (github) {
 
 <div class="hidden gap-4 lg:flex">
   <a
-    href={isDownloadsInfoExist()
-      ? '/tabmixplus-docs/download/'
-      : 'https://github.com/onemen/TabMixPlus/releases/'}
+    href={
+      isDownloadsInfoExist()
+        ? '/tabmixplus-docs/download/'
+        : 'https://github.com/onemen/TabMixPlus/releases/'
+    }
   >
     <h4>Download</h4>
   </a>
-  <a href="https://github.com/onemen/TabMixPlus/discussions/"><h4>Discussions</h4></a>
+  <a href="https://github.com/onemen/TabMixPlus/discussions/">
+    <h4>Discussions</h4>
+  </a>
 </div>
 
-{
-  links.length > 0 && (
-    <>
-      {links.map(({ label, href, icon }) => (
-        <a {href} rel="me" class="sl-flex">
-          <span class="sr-only">{label}</span>
-          <Icon name={icon} />
-        </a>
-      ))}
-    </>
-  )
-}
+{links.length > 0 && (
+  <>
+    {links.map(({ label, href, icon }) => (
+      <a {href} rel="me" class="sl-flex">
+        <span class="sr-only">{label}</span>
+        <Icon name={icon} />
+      </a>
+    ))}
+  </>
+)}
 
 <style>
   @layer starlight.core {

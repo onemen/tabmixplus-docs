@@ -1,11 +1,8 @@
 ---
 import { extraIcons } from '@components/extraIcons.ts';
-import { Icons } from '@starlight/components-internals/Icons.ts';
-
-const allIcons = { ...Icons, ...extraIcons };
 
 interface Props {
-  name: keyof typeof allIcons;
+  name: keyof typeof extraIcons;
   label?: string;
   color?: string;
   size?: string;
@@ -23,7 +20,7 @@ const a11yAttrs = label ? ({ 'aria-label': label } as const) : ({ 'aria-hidden':
   height="16"
   viewBox="0 0 24 24"
   fill="currentColor"
-  set:html={allIcons[name]}
+  set:html={extraIcons[name]}
 />
 
 <style define:vars={{ 'sl-icon-color': color, 'sl-icon-size': size }}>

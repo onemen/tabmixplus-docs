@@ -1,11 +1,22 @@
 ---
-import { default as DefaultSidebar } from '@starlight/components/Sidebar.astro';
-import type { SidebarManualLink, SidebarGroup } from '@starlight/utils/routing/types.ts';
-import { stripLeadingAndTrailingSlashes } from '@starlight/utils/path.ts';
+import { default as DefaultSidebar } from '@astrojs/starlight/components/Sidebar.astro';
 import { getEntry } from 'astro:content';
 
 import DonateButton from '@components/DonateButton.astro';
 import { isDownloadsInfoExist } from '@utils/helper.mjs';
+
+import type { StarlightRouteData } from '@astrojs/starlight/route-data';
+
+// Extract sidebar item types directly from Starlight's route data
+type SidebarItem = StarlightRouteData['sidebar'][number];
+type SidebarGroup = Extract<SidebarItem, { type: 'group' }>;
+type SidebarManualLink = Extract<SidebarItem, { type: 'link' }>;
+type CustomLink = SidebarManualLink & {
+  attrs: SidebarManualLink['attrs'] & { 'data-hash'?: string };
+};
+
+// Replace path helper with inline utility
+const stripLeadingAndTrailingSlashes = (str: string) => str.replace(/^\/|\/$/g, '');
 
 const { sidebar, id } = Astro.locals.starlightRoute;
 
@@ -86,10 +97,6 @@ helpGroup.entries = Object.entries(newHelpItems).flatMap(([group, entries]) =>
 );
 
 // add sidebar entries for links with hash to link and display-tab pages
-interface CustomLink extends SidebarManualLink {
-  attrs: SidebarManualLink['attrs'] & { 'data-hash'?: string };
-}
-
 function createNewEntry({ label, href }: { label: string; href: string }): CustomLink {
   return {
     type: 'link' as const,
@@ -132,20 +139,22 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
         title="Updated Nov 30, 2025"
         aria-label="Updated November 30, 2025"
       >
-        <span class="date-icon" aria-hidden="true">🕒</span>
+        <span class="date-icon" aria-hidden="true">
+          🕒
+        </span>
         <span class="date-text"> </span>
       </time>
       <p class="!mt-0.5">
         <span class="font-bold">Download</span>
-        <a href="https://github.com/onemen/TabMixPlus/releases/download/dev-build/fx-folder.zip"
-          >Configuration files</a
-        >
+        <a href="https://github.com/onemen/TabMixPlus/releases/download/dev-build/fx-folder.zip">
+          Configuration files
+        </a>
       </p>
       <p class="!mt-0.5">
         <span class="font-bold">Download</span>
-        <a href="https://github.com/onemen/TabMixPlus/releases/download/dev-build/utils.zip"
-          >Utils</a
-        >
+        <a href="https://github.com/onemen/TabMixPlus/releases/download/dev-build/utils.zip">
+          Utils
+        </a>
       </p>
     </div>
   </div>
@@ -161,14 +170,18 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
       <li>
         <a
           href={`${baseUrl}/help/links`}
-          class:list={{ 'hover:underline': true, active: isHelpPage }}>Help</a
+          class:list={{ 'hover:underline': true, active: isHelpPage }}
         >
+          Help
+        </a>
       </li>
       <li>
         <a
           href={`${baseUrl}/troubleshooting/tabmix-does-not-work`}
-          class:list={{ 'hover:underline': true, active: isTroubleshooting }}>Troubleshooting</a
+          class:list={{ 'hover:underline': true, active: isTroubleshooting }}
         >
+          Troubleshooting
+        </a>
       </li>
     </ul>
   </div>

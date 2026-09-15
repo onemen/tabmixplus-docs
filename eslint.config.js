@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import markdownPlugin from '@eslint/markdown';
+import tsParser from '@typescript-eslint/parser';
 import * as eslintMdx from 'eslint-mdx';
 import astroPlugin from 'eslint-plugin-astro';
 import importPlugin from 'eslint-plugin-import';
@@ -130,6 +131,13 @@ export default [
     rules: {
       'prettier/prettier': 'error',
       'no-irregular-whitespace': 'off',
+    },
+  },
+
+  {
+    files: ['**/*.ts', '**/*.d.ts'],
+    languageOptions: {
+      parser: tsParser,
     },
   },
 ];

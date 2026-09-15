@@ -1,9 +1,11 @@
 ---
-import Default from '@starlight/components/Head.astro';
+import Default from '@astrojs/starlight/components/Head.astro';
 import { ClientRouter } from 'astro:transitions';
 ---
 
-<Default><slot /></Default>
+<Default>
+  <slot />
+</Default>
 <ClientRouter />
 
 <script>

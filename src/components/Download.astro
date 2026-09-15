@@ -1,4 +1,5 @@
 ---
+import { Icon as StarlightIcon } from '@astrojs/starlight/components';
 import Icon from '@components/Icon.astro';
 
 type Release = {
@@ -29,13 +30,13 @@ const { version: latest, date, href } = releases[0];
   >
     <div class="flex flex-row items-center gap-3 select-none">
       <div class="text-lg font-normal">Version</div>
-      <span class="text-lg font-semibold" data-selected>{latest}</span>
-      <span class="rounded-lg bg-lime-200 px-2 py-1 text-xs font-medium text-lime-800">
-        Latest
+      <span class="text-lg font-semibold" data-selected>
+        {latest}
       </span>
+      <span class="rounded-lg bg-lime-200 px-2 py-1 text-xs font-medium text-lime-800">Latest</span>
     </div>
     <div class="flex items-center gap-3">
-      <Icon name="down-caret" size="2em" />
+      <StarlightIcon name="down-caret" size="2em" />
       <button
         id="resetButton"
         title="Reset"
@@ -49,57 +50,60 @@ const { version: latest, date, href } = releases[0];
     id="customOptions"
     class="absolute mt-1 w-full overflow-auto rounded-md border border-gray-300 bg-[var(--sl-color-bg-nav)] shadow-xs"
   >
-    {
-      releases.map(option => (
-        <div
-          class:list={{
-            'option my-0 grid cursor-pointer grid-cols-[1fr_1fr_1fr_50px] items-center px-4 py-1 text-lg font-light': true,
-            'selected font-semibold': option.version === latest,
-          }}
-          data-href={option.href}
-          data-version={option.version}
-          data-date={option.date}
-          data-esr={option.esr_version}
-          data-firefox={option.firefox_version}
-        >
-          <span>{option.version}</span>
-          <span class="text-xs">{option.date}</span>
-          <span class="text-xs">
-            {`Firefox: ${option.esr_version} `}
-            <span class="text-[0.625rem] font-normal opacity-70">ESR</span>
-            {` - ${option.firefox_version}`}
+    {releases.map(option => (
+      <div
+        class:list={{
+          'option my-0 grid cursor-pointer grid-cols-[1fr_1fr_1fr_50px] items-center px-4 py-1 text-lg font-light': true,
+          'selected font-semibold': option.version === latest,
+        }}
+        data-href={option.href}
+        data-version={option.version}
+        data-date={option.date}
+        data-esr={option.esr_version}
+        data-firefox={option.firefox_version}
+      >
+        <span>{option.version}</span>
+        <span class="text-xs">{option.date}</span>
+        <span class="text-xs">
+          {`Firefox: ${option.esr_version} `}
+          <span class="text-[0.625rem] font-normal opacity-70">ESR</span>
+          {` - ${option.firefox_version}`}
+        </span>
+        {option.version === latest && (
+          <span class="rounded-lg bg-lime-200 px-2 py-1 text-xs font-medium text-lime-800">
+            Latest
           </span>
-          {option.version === latest && (
-            <span class="rounded-lg bg-lime-200 px-2 py-1 text-xs font-medium text-lime-800">
-              Latest
-            </span>
-          )}
-        </div>
-      ))
-    }
+        )}
+      </div>
+    ))}
   </div>
 
   <div class="not-content !mt-10 space-y-6 rounded-lg border border-gray-300 py-6 shadow-lg">
     <div class="grid grid-cols-1 justify-center gap-3 px-8 sm:grid-cols-[18ch_18ch_60px] sm:px-0">
       <div class="flex flex-col">
         <span class="text-sm">Date</span>
-        <span id="download-date" class="font-bold">{date}</span>
+        <span id="download-date" class="font-bold">
+          {date}
+        </span>
       </div>
       <div class="flex flex-col">
         <span class="text-sm">Version</span>
-        <span id="download-version" class="font-bold">{latest}</span>
+        <span id="download-version" class="font-bold">
+          {latest}
+        </span>
       </div>
       <div class="flex flex-col">
         <span class="text-sm">Release</span>
-        <span id="download-status" class="font-bold">Latest</span>
+        <span id="download-status" class="font-bold">
+          Latest
+        </span>
       </div>
       <div class="col-span-full flex flex-col">
         <span class="text-sm">Supported Browsers</span>
         <span id="firefox-range" class="font-bold">
           Firefox: {releases[0].esr_version}
-          <span class="text-xs font-semibold text-gray-500">ESR</span> - {
-            releases[0].firefox_version
-          }
+          <span class="text-xs font-semibold text-gray-500">ESR</span> -{' '}
+          {releases[0].firefox_version}
         </span>
         <div class="text-xs text-gray-600 italic">
           <p>Firefox and Firefox-based browsers within this version range</p>
