@@ -133,11 +133,14 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     <h4 class="text-xl font-semibold !text-red-700 dark:!text-red-400">Important:</h4>
     <p class="!mt-0.5 text-sm font-bold">Update Your Firefox Scripts for Firefox Compatibility</p>
     <div class="!mt-4 text-sm">
+      {/* Static fallback for the client script below, which shows the newest per-package
+        publish date from the firefox-scripts gh-pages hashes.json — update it when the
+        package dates change. */}
       <time
         class="date-badge min-h-[33px] min-w-[190px] !text-red-700 dark:!text-red-400"
-        datetime="2025-11-30"
-        title="Updated Nov 30, 2025"
-        aria-label="Updated November 30, 2025"
+        datetime="2026-09-05"
+        title="Updated Sep 5, 2026"
+        aria-label="Updated September 5, 2026"
       >
         <span class="date-icon" aria-hidden="true">
           🕒
@@ -145,16 +148,12 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
         <span class="date-text"> </span>
       </time>
       <p class="!mt-0.5">
-        <span class="font-bold">Download</span>
-        <a href="https://github.com/onemen/TabMixPlus/releases/download/dev-build/fx-folder.zip">
-          Configuration files
-        </a>
+        <span class="font-bold">Firefox Scripts:</span>
+        <a href="https://onemen.github.io/firefox-scripts/fx-folder.zip">Configuration files</a>
       </p>
       <p class="!mt-0.5">
-        <span class="font-bold">Download</span>
-        <a href="https://github.com/onemen/TabMixPlus/releases/download/dev-build/utils.zip">
-          Utils
-        </a>
+        <span class="font-bold">Firefox Scripts:</span>
+        <a href="https://onemen.github.io/firefox-scripts/utils.zip">Utils</a>
       </p>
     </div>
   </div>
@@ -198,65 +197,61 @@ displayEntries.entries.splice(2, 0, customizingTabsStyles);
     const dateBadge = document.querySelector('.date-badge') as HTMLElement;
     if (!dateBadge) return;
 
-    type ApiResponse = Record<string, { date: string }>;
+    // Per-package publish dates from the firefox-scripts gh-pages manifest — the same
+    // source the in-browser updater shows next to its download links. Each zip is
+    // stamped with its own date, so take the newest of the two script packages.
+    // On failure keep the server-rendered fallback date above.
+    type Hashes = Record<string, { date?: string }>;
 
-    let remoteInfo;
+    let hashes: Hashes | null = null;
     try {
-      const gistID = 'e02ec904dd82a73cec4c229a7cbb552e';
-      const url = `https://gist.githubusercontent.com/onemen/${gistID}/raw/versionInfo.json`;
-      const response = await fetch(url, { cache: 'no-store' });
+      const response = await fetch('https://onemen.github.io/firefox-scripts/hashes.json', {
+        cache: 'no-store',
+      });
       if (response.ok) {
-        remoteInfo = (await response.json()) as ApiResponse;
+        hashes = (await response.json()) as Hashes;
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (e) {
-      console.error('TabMix: Failed to fetch versionInfo.json', e);
+      console.error('TabMix: Failed to fetch hashes.json', e);
     }
 
-    if (!remoteInfo || typeof remoteInfo !== 'object') {
-      dateBadge.style.display = 'none';
+    const scriptPackageDates = ['utils', 'fx-folder']
+      .map(name => hashes?.[name]?.date)
+      .filter(
+        (date): date is string => typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)
+      )
+      .sort();
+
+    const latestDateString = scriptPackageDates.at(-1);
+    if (!latestDateString) {
       return;
     }
 
-    try {
-      const dates = Object.values(remoteInfo)
-        .map(info => info.date)
-        .filter(Boolean)
-        .sort();
+    // Parse YYYY-MM-DD as a local date so it renders as the publish day in every
+    // timezone (new Date('YYYY-MM-DD') parses as UTC midnight).
+    const [year, month, day] = latestDateString.split('-').map(Number);
+    const latestDate = new Date(year, month - 1, day);
 
-      const latestDateString = dates.at(-1);
-      if (!latestDateString) {
-        throw new Error('No dates found in version info');
-      }
+    const formattedDate = latestDate.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+    const formattedDateLong = latestDate.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    });
+    const datetimeAttr = latestDateString;
 
-      const latestDate = new Date(latestDateString);
-      if (isNaN(latestDate.getTime())) {
-        throw new Error(`Invalid date format: ${latestDateString}`);
-      }
-
-      const formattedDate = latestDate.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-      });
-      const formattedDateLong = latestDate.toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      });
-      const datetimeAttr = latestDate.toISOString().split('T')[0];
-
-      dateBadge.setAttribute('datetime', datetimeAttr);
-      dateBadge.setAttribute('title', `Updated ${formattedDate}`);
-      dateBadge.setAttribute('aria-label', `Updated ${formattedDateLong}`);
-      const dateText = document.querySelector('.date-badge .date-text');
-      if (dateText) {
-        dateText.textContent = ` Updated ${formattedDate}`;
-      }
-    } catch (e) {
-      console.error('TabMix: Failed to process date.', e);
-      if (dateBadge) dateBadge.style.display = 'none';
+    dateBadge.setAttribute('datetime', datetimeAttr);
+    dateBadge.setAttribute('title', `Updated ${formattedDate}`);
+    dateBadge.setAttribute('aria-label', `Updated ${formattedDateLong}`);
+    const dateText = document.querySelector('.date-badge .date-text');
+    if (dateText) {
+      dateText.textContent = ` Updated ${formattedDate}`;
     }
   }
 

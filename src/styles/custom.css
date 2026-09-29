@@ -310,6 +310,22 @@ a[data-sm] {
   content: counters(listCounter, '.', decimal) '. ';
 }
 
+/* 'What is userChromeJS?' <details> inside the Waterfox tip on installation page */
+.sl-markdown-content .starlight-aside--tip details {
+  border-inline-start: none;
+  padding-inline-start: 0;
+}
+
+/* Installer/updater screenshots on installation page */
+.sl-markdown-content .screenshot {
+  display: inline-block;
+  margin-block: 1.5rem;
+}
+
+.sl-markdown-content .screenshot img {
+  display: block;
+}
+
 /* 'IMPORTANT' aside in installation page */
 @media (max-width: 550px) {
   .starlight-aside[aria-label='IMPORTANT'] .tab a {
